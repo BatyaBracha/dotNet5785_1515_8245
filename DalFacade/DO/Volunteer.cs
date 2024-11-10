@@ -15,15 +15,16 @@ public record Volunteer
    (
      int Id,
     string Name,
-    DateTime RegistrationDate,
-    string? Alias = null,
-    bool IsActive = false,
-    DateTime? BirthDate = null
-    )
-{
-    /// <summary>
-    /// Default constructor for Volunteer
-    /// </summary>
-    public Volunteer() : this(0) { }
-}
+    string Phone,
+    string Email,
+    string? Password,
+    string? Address,
+    double? latitude,
+    double? longitude,
+    Enum Role,
+    bool Active,
+    double MaxDistance,
+    Enum TypeOfDistance
+    );
+
 
