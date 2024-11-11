@@ -4,36 +4,51 @@ namespace Dal;
 using DO;
 using DalApi;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 public class VolunteerImplementation : IVolunteer
 {
-    public void Create(Volunteer item)
+    public int Create(Volunteer item)
     {
-        throw new NotImplementedException();
+        Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
+        if (v != null)
+            throw new NotImplementedException("An object of type volunteer with this id already exists");
+        DataSource.Volunteers.Add(item);
+        return item.Id;
     }
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        Volunteer v = DataSource.Volunteers.Find(element => element.Id == id);
+        if (v == null)
+            throw new NotImplementedException("An object of type Volunteer with this Id does not exist");
+        DataSource.Volunteers.Remove(v);
     }
 
     public void DeleteAll()
     {
-        throw new NotImplementedException();
+        DataSource.Volunteers.Clear();
     }
 
     public Volunteer? Read(int id)
     {
-        throw new NotImplementedException();
+        Volunteer v = DataSource.Volunteers.Find(element => element.Id == id);
+        if (v != null)
+            return v;
+        return null;
     }
 
     public List<Volunteer> ReadAll()
     {
-        throw new NotImplementedException();
+        return new List<Volunteer>(DataSource.Volunteers);
     }
 
     public void Update(Volunteer item)
     {
-        throw new NotImplementedException();
+        Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
+        if (v == null)
+            throw new NotImplementedException("An object of type Volunteer with this Id does not exist");
+        DataSource.Volunteers.Remove(v);
+        DataSource.Volunteers.Add(item);
     }
 }
