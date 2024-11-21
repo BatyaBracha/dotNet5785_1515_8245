@@ -4,9 +4,9 @@ public enum TypeOfCall { };
 
 public enum TypeOfTreatmentEnding { };
 
-public enum TypeOfDistance { };
+public enum TypeOfDistance {intracity, intercity, international };
 
-public enum Role { };
+public enum Role {ADMINISTRATOR,CO,STANDARD};
 
 
 
