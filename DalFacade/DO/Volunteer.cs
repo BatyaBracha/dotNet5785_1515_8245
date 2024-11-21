@@ -21,10 +21,10 @@ public record Volunteer
     string? Address,
     double? latitude,
     double? longitude,
-    Enum Role,
+    Role Role,
     bool Active,
     double MaxDistance,
-    Enum TypeOfDistance
+    TypeOfDistance TypeOfDistance
     );
 
 

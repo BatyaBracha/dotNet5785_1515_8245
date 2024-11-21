@@ -7,33 +7,50 @@ using System.Collections.Generic;
 
 public class CallImplementation : ICall
 {
-    public void Create(Call item)
+    public int Create(Call item)
     {
-        throw new NotImplementedException();
+        Call c = DataSource.Calls.Find(element => element.Id == item.Id);
+        if (c != null)
+            throw new Exception($"An object of type Call with this id {item.Id} already exists");
+        int newId = Dal.Config.NextCallId;
+        Call callCopy = new Call(newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.OpeningTime,item.MaxClosingTime);
+        DataSource.Calls.Add(callCopy);
+        return callCopy.Id;
     }
-
+   
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        Call c = DataSource.Calls.Find(element => element.Id == id);
+        if (c == null)
+            throw new Exception($"An object of type Call with this Id does not exist");
+        DataSource.Calls.Remove(c);
     }
 
     public void DeleteAll()
     {
-        throw new NotImplementedException();
+        DataSource.Calls.Clear();  
     }
 
     public Call? Read(int id)
     {
-        throw new NotImplementedException();
+        Call c = DataSource.Calls.Find(element => element.Id == id);
+        if (c != null)
+            return c;
+        return null;
     }
 
     public List<Call> ReadAll()
     {
-        throw new NotImplementedException();
+        return new List<Call>(DataSource.Calls);
     }
 
     public void Update(Call item)
     {
-        throw new NotImplementedException();
+        Call c = DataSource.Calls.Find(element => element.Id == item.Id);
+        if (c == null)
+            throw new Exception("An object of type Volunteer with this Id does not exist");
+        DataSource.Calls.Remove(c);
+        DataSource.Calls.Add(item);
     }
+
 }

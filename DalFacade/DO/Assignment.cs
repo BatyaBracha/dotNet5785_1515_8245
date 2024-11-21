@@ -9,5 +9,5 @@ public record Assignment
     int VolunteerId,
     DateTime TreatmentStartTime,
     DateTime? TreatmentEndTime,
-    Enum? TypeOfTreatmentEnding
+    TypeOfTreatmentEnding? TypeOfTreatmentEnding
  );

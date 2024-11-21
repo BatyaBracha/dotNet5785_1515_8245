@@ -4,7 +4,7 @@ public record Call
 (
 
     int Id,
-    Enum TypeOfCall,
+    TypeOfCall TypeOfCall,
     string? Description,
     string Address,
     double latitude,

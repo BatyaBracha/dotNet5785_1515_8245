@@ -12,7 +12,7 @@ public class VolunteerImplementation : IVolunteer
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
         if (v != null)
-            throw new NotImplementedException("An object of type volunteer with this id already exists");
+            throw new Exception("An object of type volunteer with this id already exists");
         DataSource.Volunteers.Add(item);
         return item.Id;
     }
@@ -21,7 +21,7 @@ public class VolunteerImplementation : IVolunteer
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == id);
         if (v == null)
-            throw new NotImplementedException("An object of type Volunteer with this Id does not exist");
+            throw new Exception("An object of type Volunteer with this Id does not exist");
         DataSource.Volunteers.Remove(v);
     }
 
@@ -47,7 +47,7 @@ public class VolunteerImplementation : IVolunteer
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
         if (v == null)
-            throw new NotImplementedException("An object of type Volunteer with this Id does not exist");
+            throw new Exception("An object of type Volunteer with this Id does not exist");
         DataSource.Volunteers.Remove(v);
         DataSource.Volunteers.Add(item);
     }

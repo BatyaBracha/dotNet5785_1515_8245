@@ -17,27 +17,38 @@ public class AssignmentImplementation : IAssignment
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        Assignment a = DataSource.Assignments.Find(element => element.Id == id);
+        if (a == null)
+            throw new Exception($"An object of type Volunteer with this Id {id} does not exist");
+        DataSource.Assignments.Remove(a);
     }
 
     public void DeleteAll()
     {
-        throw new NotImplementedException();
+        DataSource.Assignments.Clear();
     }
 
     public Assignment? Read(int id)
     {
-        throw new NotImplementedException();
+        Assignment a = DataSource.Assignments.Find(element => element.Id == id);
+        if (a != null)
+            return a;
+        return null;
     }
 
     public List<Assignment> ReadAll()
     {
-        throw new NotImplementedException();
+        return new List<Assignment>(DataSource.Assignments);
     }
 
     public void Update(Assignment item)
     {
-        throw new NotImplementedException();
+        Assignment a = DataSource.Assignments.Find(element => element.Id == item.Id);
+        if (a == null)
+            throw new Exception($"An object of type Volunteer with this Id {item.Id} does not exist");
+        DataSource.Assignments.Remove(a);
+        DataSource.Assignments.Add(item);
     }
+   
 }
 
