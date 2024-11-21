@@ -55,10 +55,6 @@ public static class Initialization
         {
             idArr[j] =  s_rand.Next(400000000, 200000000);
         }
-        string phoneStarter = "054554110";
-        string emailEnder = "@organization.org.il";
-        string startedPassword = "1234567";
-        int i = 0;
         foreach (var id in idArr)
         {
             int callId;
@@ -73,6 +69,31 @@ public static class Initialization
             DateTime treatmentdStartTime = startDate();
             DateTime treatmentEndTime = endTime();
             TypeOfTreatmentEnding typeOfTreatmentEnding= (TypeOfTreatmentEnding)s_rand.Next(0, 2);
+            s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding);
+        }
+    }
+
+    private static void createCalls()
+    {
+        int[] idArr = new int[5];
+        for (int j = 0; j < idArr.Length; j++)
+        {
+            idArr[j] = s_rand.Next(400000000, 200000000);
+        }
+        foreach (var id in idArr)
+        {
+            int callId;
+            do
+                callId = s_rand.Next(400000000, 200000000);
+            while (s_dalVolunteer!.Read(callId) != null);
+            int volunteerId;
+            do
+                volunteerId = s_rand.Next(400000000, 200000000);
+            while (s_dalVolunteer!.Read(volunteerId) != null);
+
+            DateTime treatmentdStartTime = startDate();
+            DateTime treatmentEndTime = endTime();
+            TypeOfTreatmentEnding typeOfTreatmentEnding = (TypeOfTreatmentEnding)s_rand.Next(0, 2);
             s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding);
         }
     }

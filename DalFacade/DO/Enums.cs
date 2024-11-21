@@ -2,9 +2,9 @@
 
 public enum TypeOfCall { };
 
-public enum TypeOfTreatmentEnding { };
+public enum TypeOfTreatmentEnding {HOSPITAL_ADMISSION, STAY_AT_HOME,DEAD };
 
-public enum TypeOfDistance {intracity, intercity, international };
+public enum TypeOfDistance {INTRACITY, INTRECITY, INTERNATIONAL };
 
 public enum Role {ADMINISTRATOR,CO,STANDARD};
 
