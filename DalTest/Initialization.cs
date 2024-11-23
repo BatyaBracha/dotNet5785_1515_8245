@@ -10,7 +10,9 @@ public static class Initialization
     private static IAssignment? s_dalAssignment; //stage 1
     private static IConfig? s_dalConfig; //stage 1
     private static readonly Random s_rand = new();
-    private static string[] Addresses = { "Hagmul", "Man", "Haroeh", "Hazait", "Yirmyahu" };
+    private static string[] Addresses =
+{ "Hagmul", "Man", "Tchelet", "Heller", "Shachal", "aviad" };
+
     private static void createVolunteers()
     {
         string[] volunteerNames =
@@ -103,7 +105,9 @@ public static class Initialization
         int range = (s_dalConfig.Clock - end).Days; //stage 1
         return end.AddDays(s_rand.Next(range));
     }
-    public static void Do(IAssignment? dalAssignment, ICall? dalcall, IConfig? dalConfig, IVolunteer? dalVolunteer)
+
+
+    public static void  Do(IAssignment? dalAssignment,ICall? dalcall,IConfig? dalConfig,IVolunteer? dalVolunteer)
     {
         //s_dalConfig = dalConfig ?? throw new NullReferenceException("DAL can not be null!");
         s_dalAssignment = dalAssignment ?? throw new NullReferenceException("DAL can not be null!");
