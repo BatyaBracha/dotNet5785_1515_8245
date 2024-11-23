@@ -5,7 +5,7 @@ using DO;
 using DalApi;
 using System.Collections.Generic;
 
-public class AssignmentImplementation : IAssignment
+public class AssignmentImplementation 
 {
     public int Create(Assignment item)
     {

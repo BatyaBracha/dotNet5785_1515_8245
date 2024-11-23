@@ -5,7 +5,7 @@ using DO;
 using DalApi;
 using System.Collections.Generic;
 
-public class CallImplementation : ICall
+public class CallImplementation 
 {
     public int Create(Call item)
     {

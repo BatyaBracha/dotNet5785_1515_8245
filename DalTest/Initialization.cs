@@ -10,6 +10,7 @@ public static class Initialization
     private static IAssignment? s_dalAssignment; //stage 1
     private static IConfig? s_dalConfig; //stage 1
     private static readonly Random s_rand = new();
+    private static string[] Addresses = { "Hagmul", "Man", "Haroeh", "Hazait", "Yirmyahu" };
     private static void createVolunteers()
     {
         string[] volunteerNames =
@@ -17,7 +18,7 @@ public static class Initialization
 
         string phoneStarter = "054554110";
         string emailEnder = "@organization.org.il";
-        string startedPassword =  "1234567";
+        string startedPassword = "1234567";
         int i = 0;
         foreach (var name in volunteerNames)
         {
@@ -28,7 +29,7 @@ public static class Initialization
             string phone = $"{phoneStarter}{i++}";
             string email = $"{name}{emailEnder}";
 
-            string password=$"{startedPassword}{i}";
+            string password = $"{startedPassword}{i}";
             string address = Addresses[i];
 
             double latitude = 31.7769;
@@ -41,7 +42,7 @@ public static class Initialization
 
             double MaxDistance = i * 100;
 
-            TypeOfDistance TypeOfDistance= (TypeOfDistance)s_rand.Next(0, 2);
+            TypeOfDistance TypeOfDistance = (TypeOfDistance)s_rand.Next(0, 2);
 
             s_dalVolunteer!.Create(new(id, name, phone, email, password, address, latitude, longitude, role, Active, MaxDistance, TypeOfDistance));
         }
@@ -51,7 +52,7 @@ public static class Initialization
         int[] idArr = new int[5];
         for (int j = 0; j < idArr.Length; j++)
         {
-            idArr[j] =  s_rand.Next(400000000, 200000000);
+            idArr[j] = s_rand.Next(400000000, 200000000);
         }
         foreach (var id in idArr)
         {
@@ -66,7 +67,7 @@ public static class Initialization
 
             DateTime treatmentdStartTime = startDate();
             DateTime treatmentEndTime = endTime();
-            TypeOfTreatmentEnding typeOfTreatmentEnding= (TypeOfTreatmentEnding)s_rand.Next(0, 2);
+            TypeOfTreatmentEnding typeOfTreatmentEnding = (TypeOfTreatmentEnding)s_rand.Next(0, 2);
             s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding);
         }
     }
@@ -85,8 +86,8 @@ public static class Initialization
             string address = Addresses[idArr[id]];
             double latitude = 31.7769;
             double longitude = 35.2300;
-            DateTime OpeningTime=startDate();
-            DateTime maxClosingTime=endTime();
+            DateTime OpeningTime = startDate();
+            DateTime maxClosingTime = endTime();
             s_dalCall!.Create(new(id, typeOfCall, description, address, latitude, longitude, OpeningTime, maxClosingTime));
         }
     }
@@ -126,3 +127,4 @@ public static class Initialization
         Console.WriteLine("Initializing Students list ...");
         createVolunteers();
     }
+}

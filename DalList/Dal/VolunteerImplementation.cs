@@ -6,7 +6,7 @@ using DalApi;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-public class VolunteerImplementation : IVolunteer
+public class VolunteerImplementation 
 {
     public int Create(Volunteer item)
     {

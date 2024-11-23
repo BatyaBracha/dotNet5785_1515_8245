@@ -12,3 +12,9 @@ public record Call
     DateTime OpeningTime,
     DateTime? MaxClosingTime
 );
+public call() : this(null) { }
+public call() : this(0, default(AssignmentType), 0, DateTime.MinValue, null, null)
+{
+
+}
+
