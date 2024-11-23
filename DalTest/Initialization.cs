@@ -109,5 +109,4 @@ public static class Initialization
         int range = (s_dalConfig.Clock - end).Days; //stage 1
         return end.AddDays(s_rand.Next(range));
     }
-
 }
