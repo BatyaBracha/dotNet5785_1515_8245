@@ -4,7 +4,7 @@
 namespace DalApi;
 using DO;
 
-public interface ICall
+public interface ICall: IConfig
 {
     void Create(Call item); //Creates new entity object in DAL
     Call? Read(int id); //Reads entity object by its ID 
