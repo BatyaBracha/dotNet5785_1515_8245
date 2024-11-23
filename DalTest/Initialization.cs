@@ -14,8 +14,6 @@ public static class Initialization
     {
         string[] volunteerNames =
             { "Dani Levy", "Eli Amar", "Yair Cohen", "Ariela Levin", "Dina Klein", "Shira Israelof" };
-        string[] Addresses =
-    { "Hagmul", "Man", "Tchelet", "Heller", "Shachal", "aviad" };
 
         string phoneStarter = "054554110";
         string emailEnder = "@organization.org.il";
@@ -82,19 +80,14 @@ public static class Initialization
         }
         foreach (var id in idArr)
         {
-            int callId;
-            do
-                callId = s_rand.Next(400000000, 200000000);
-            while (s_dalVolunteer!.Read(callId) != null);
-            int volunteerId;
-            do
-                volunteerId = s_rand.Next(400000000, 200000000);
-            while (s_dalVolunteer!.Read(volunteerId) != null);
-
-            DateTime treatmentdStartTime = startDate();
-            DateTime treatmentEndTime = endTime();
-            TypeOfTreatmentEnding typeOfTreatmentEnding = (TypeOfTreatmentEnding)s_rand.Next(0, 2);
-            s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding);
+            TypeOfCall typeOfCall = (TypeOfCall)s_rand.Next(0, 2);
+            string description = "";
+            string address = Addresses[idArr[id]];
+            double latitude = 31.7769;
+            double longitude = 35.2300;
+            DateTime OpeningTime=startDate();
+            DateTime maxClosingTime=endTime();
+            s_dalCall!.Create(new(id, typeOfCall, description, address, latitude, longitude, OpeningTime, maxClosingTime));
         }
     }
     private static DateTime startDate()
@@ -105,8 +98,31 @@ public static class Initialization
     }
     private static DateTime endTime()
     {
-        DateTime end = new DateTime(s_dalConfig.Clock.Year +2, 1, 1); //stage 1
+        DateTime end = new DateTime(s_dalConfig.Clock.Year + 2, 1, 1); //stage 1
         int range = (s_dalConfig.Clock - end).Days; //stage 1
         return end.AddDays(s_rand.Next(range));
     }
-}
+    public static void Do(IAssignment? dalAssignment, ICall? dalcall, IConfig? dalConfig, IVolunteer? dalVolunteer)
+    {
+        //s_dalConfig = dalConfig ?? throw new NullReferenceException("DAL can not be null!");
+        s_dalAssignment = dalAssignment ?? throw new NullReferenceException("DAL can not be null!");
+        Console.WriteLine("Reset Configuration values and List values...");
+        s_dalAssignment.Reset(); //stage 1
+        s_dalAssignment.DeleteAll(); //stage 1
+        Console.WriteLine("Initializing Students list ...");
+        createAssignments();
+
+        s_dalCall = dalcall ?? throw new NullReferenceException("DAL can not be null!");
+        Console.WriteLine("Reset Configuration values and List values...");
+        s_dalCall.Reset(); //stage 1
+        s_dalCall.DeleteAll(); //stage 1
+        Console.WriteLine("Initializing Students list ...");
+        createCalls();
+
+        s_dalVolunteer = dalVolunteer ?? throw new NullReferenceException("DAL can not be null!");
+        Console.WriteLine("Reset Configuration values and List values...");
+        s_dalVolunteer.Reset(); //stage 1
+        s_dalVolunteer.DeleteAll(); //stage 1
+        Console.WriteLine("Initializing Students list ...");
+        createVolunteers();
+    }
