@@ -13,12 +13,7 @@ public record Assignment
  )
 {
     /// <summary>
-    /// Default constructor for stage 3
+    /// Default constructor with default property values
     /// </summary>
-    public Assignment() : this(null) { }
-    public Assignment() : this(0, default(AssignmentType), 0, DateTime.MinValue, null, null)
-    {
-        
-    }
+    public Assignment() : this(0, 0, 0, DateTime.MinValue, DateTime.MaxValue, default(TypeOfTreatmentEnding)){ }
 }
-

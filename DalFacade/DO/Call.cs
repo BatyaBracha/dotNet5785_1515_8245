@@ -1,4 +1,6 @@
-﻿namespace DO;
+﻿using Microsoft.VisualBasic;
+
+namespace DO;
 
 public record Call
 (
@@ -10,11 +12,11 @@ public record Call
     double latitude,
     double longitude,
     DateTime OpeningTime,
-    DateTime? MaxClosingTime
-);
-public call() : this(null) { }
-public call() : this(0, default(AssignmentType), 0, DateTime.MinValue, null, null)
+    DateTime? MaxClosingTime = null
+)
 {
-
+    /// <summary>
+    /// Default constructor with default property values
+    /// </summary>
+    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0, DateTime.MinValue){}
 }
-
