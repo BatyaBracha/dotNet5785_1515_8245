@@ -216,7 +216,64 @@ namespace DalTest
         {
 
         }
-        private void callMenu() { }
+        private void callMenu() 
+        {
+            try
+            {
+                SpecificOptions choice = SpecificOptions.EXIT;
+                do
+                {
+                    choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine());
+                    switch (choice)
+                    {
+                        case SpecificOptions.EXIT:
+                            break;
+                        case SpecificOptions.CREATE:
+                            callCreate();
+                            break;
+                        case SpecificOptions.READ:
+                            callRead();
+                            break;
+                        case SpecificOptions.READ_ALL:
+                            callReadAll();
+                            break;
+                        case SpecificOptions.UPDATE:
+                            callUpdate();
+                            break;
+                        case SpecificOptions.DELETE:
+                            callDelete();
+                            break;
+                        case SpecificOptions.DELETE_ALL:
+                            callDeleteAll();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            break;
+                    }
+                } while (choice != SpecificOptions.EXIT);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+        }
+        private void callCreate()
+        {
+            Console.WriteLine("Enter the call id");
+            string callId = Console.ReadLine();
+            Console.WriteLine("Enter type of call");
+            string typeOfCall = Console.ReadLine();
+            Console.WriteLine("Enter the volunteer's id");
+            Console.WriteLine("Enter a discription");
+            string discription = Console.ReadLine();
+            Console.WriteLine("Enter the call address");
+            string address = Console.ReadLine();
+
+            s_dalCall.Create(new(0, typeOfCall, Description, address, null, null,s_dalConfig.Clock,null));
+            //newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.OpeningTime,item.MaxClosingTime
+        }
         private void initialize() { }
         private void printAllData() { }
         private void configMenu() { }
