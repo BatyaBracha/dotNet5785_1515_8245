@@ -349,6 +349,89 @@ namespace DalTest
             }
 
         }
+        private void configMenu()
+        {
+            try
+            {
+                configOptions choice = configOptions.EXIT;
+                do
+                {
+                    choice = (configOptions)Enum.Parse(typeof(configOptions), Console.ReadLine());
+                    switch (choice)
+                    {
+                        case configOptions.EXIT:
+                            break;
+                        case configOptions.ADVANCE_SYSTEM_CLOCK_BY_MINUTE:
+                            advanceSystem("minute");
+                            break;
+                        case configOptions.ADVANCE_SYSTEM_CLOCK_BY_HOUR:
+                            advanceSystem("hour");
+                            break;
+                        case configOptions.ADVANCE_SYSTEM_CLOCK_BY_DAY:
+                            advanceSystem("day");
+                            break;
+                        case configOptions.ADVANCE_SYSTEM_CLOCK_BY_YEAR:
+                            advanceSystem("year");
+
+                            callCreate();
+                            break;
+                        case configOptions.DISPLAY_CURRENT_TIME:
+                            callRead();
+                            break;
+                        case configOptions.CHANGE_VALUE:
+                            callReadAll();
+                            break;
+                        case configOptions.DISPLAY_CURRENT_VALUE:
+                            callUpdate();
+                            break;
+                        case configOptions.RESET_CONFIG:
+                            callDelete();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            break;
+                    }
+                } while (choice != configOptions.EXIT);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+        }
+        private void advanceSystem(string amount)
+        {
+            switch (amount)
+            {
+                case "minute":
+                    if (int.TryParse(amount, out int minutes))
+                    {
+                        s_dalConfig.Clock = s_dalConfig.Clock.AddMinutes(minutes);
+                    }
+                    break;
+                case "hour":
+                    if (int.TryParse(amount, out int hours))
+                    {
+                        s_dalConfig.Clock = s_dalConfig.Clock.AddHours(hours);
+                    }
+                    break;
+                case "day":
+                    if (int.TryParse(amount, out int days))
+                    {
+                        s_dalConfig.Clock = s_dalConfig.Clock.AddHours(days);
+                    }
+                    break;
+                case "year":
+                    if (int.TryParse(amount, out int years))
+                    {
+                        s_dalConfig.Clock = s_dalConfig.Clock.AddHours(years);
+                    }
+                    break;
+
+            }
+        }
+            private void resetDbAndConfig() { }
         private void configMenu() { }
         private void resetDbAndConfig()
         {
