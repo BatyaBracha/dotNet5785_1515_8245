@@ -18,20 +18,20 @@ public static class Initialization
         string[] volunteerNames =
             { "Dani Levy", "Eli Amar", "Yair Cohen", "Ariela Levin", "Dina Klein", "Shira Israelof" };
 
-        string phoneStarter = "054554110";
+        string phoneStarter = "05455411";
         string emailEnder = "@organization.org.il";
         string startedPassword = "1234567";
-        int i = 0;
         foreach (var name in volunteerNames)
         {
+            int i = 0;
             int id;
             do
                 id = s_rand.Next(400000000, 200000000);
             while (s_dalVolunteer!.Read(id) != null);
-            string phone = $"{phoneStarter}{i++}";
+            string phone = $"{phoneStarter}{ +10}";
             string email = $"{name}{emailEnder}";
 
-            string password = $"{startedPassword}{i}";
+            string password = $"{startedPassword}{i+10}";
             string address = Addresses[i];
 
             double latitude = 31.7769;
@@ -42,11 +42,11 @@ public static class Initialization
 
             bool active = s_rand.Next(0, 2) == 1;
 
-            double MaxDistance = i * 100;
+            double MaxDistance = i++ * 100;
 
             TypeOfDistance TypeOfDistance = (TypeOfDistance)s_rand.Next(0, 2);
 
-            s_dalVolunteer!.Create(new(id, name, phone, email, password, address, latitude, longitude, role, Active, MaxDistance, TypeOfDistance));
+            s_dalVolunteer!.Create(new(id, name, phone, email, password, address, latitude, longitude, role, active, MaxDistance, TypeOfDistance));
         }
     }
     private static void createAssignments()

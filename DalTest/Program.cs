@@ -24,18 +24,18 @@ namespace DalTest
             CONFIG_MENU,
             RESET_DB_CONFIG
         }
-        private void volunteerMenue() 
+        private void volunteerMenu() 
         { 
 
         }
-        private void assignmentMenue() 
+        private void assignmentMenu() 
         {
 
         }
-        private void callMenue() { }
+        private void callMenu() { }
         private void initialize() { }
         private void printAllData() { }
-        private void configMenue() { }
+        private void configMenu() { }
         private void resetDbAndConfig() { }
 
 
