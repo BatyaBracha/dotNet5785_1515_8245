@@ -2,7 +2,6 @@
 using DalApi;
 using Dal;
 using DO;
-using System.Data;
 
 namespace DalTest
 {
@@ -12,8 +11,6 @@ namespace DalTest
         private static IAssignment? s_dalAssignment = new AssignmentImplementation();
         private static ICall? s_dalCall = new CallImplementation();
         private static IConfig? s_dalConfig = new ConfigImplementation();
-
-        // Define an enum with specific values
 
         private void volunteerMenu()
         {
@@ -91,6 +88,7 @@ namespace DalTest
                 Console.WriteLine(v);
             }
         }
+
         private void volunteerRead()
         {
             Console.WriteLine("Enter an ID");
@@ -123,16 +121,19 @@ namespace DalTest
             TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
             s_dalVolunteer.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
+
         private void volunteerDelete()
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine();
             s_dalVolunteer.Delete(int.Parse(id));
         }
+
         private void volunteerDeleteAll()
         {
             s_dalVolunteer.DeleteAll();
         }
+
         private void assignmentMenu()
         {
             try
@@ -175,6 +176,7 @@ namespace DalTest
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
+
         private void assignmentCreate()
         {
             Console.WriteLine("Enter the call id");
@@ -224,6 +226,7 @@ namespace DalTest
         {
             s_dalAssignment.DeleteAll();
         }
+
         private void callMenu()
         {
             try
@@ -324,7 +327,6 @@ namespace DalTest
         {
             Initialization.Do(s_dalAssignment, s_dalCall, s_dalConfig, s_dalVolunteer);
         }
-
 
         private void printAllData()
         {
@@ -430,6 +432,14 @@ namespace DalTest
             }
         }
             private void resetDbAndConfig() { }
+        private void configMenu() { }
+        private void resetDbAndConfig()
+        {
+            s_dalVolunteer.DeleteAll();
+            s_dalAssignment.DeleteAll();
+            s_dalCall.DeleteAll();
+            s_dalConfig.Reset();
+        }
 
 
         public void Main(string[] args)
