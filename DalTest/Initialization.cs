@@ -69,7 +69,7 @@ public static class Initialization
             DateTime treatmentdStartTime = startDate();
             DateTime treatmentEndTime = endTime();
             TypeOfTreatmentEnding typeOfTreatmentEnding = (TypeOfTreatmentEnding)s_rand.Next(0, 2);
-            s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding);
+            s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding));
         }
     }
 

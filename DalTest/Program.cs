@@ -325,6 +325,30 @@ namespace DalTest
             Initialization.Do(s_dalAssignment, s_dalCall, s_dalConfig, s_dalVolunteer);
         }
         private void printAllData() { }
+
+        private void callMenu() { }
+        private void initialize() { }
+        private void printAllData() 
+        {
+            List<Volunteer> vList = s_dalVolunteer.ReadAll();
+            foreach (var item in vList)
+            {
+                Console.WriteLine(item);
+            }
+
+            List<Volunteer> aList = s_dalAssignment.ReadAll();
+            foreach (var item in aList)
+            {
+                Console.WriteLine(item);
+            }
+
+            List<Volunteer> cList = s_dalCall.ReadAll();
+            foreach (var item in cList)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
         private void configMenu() { }
         private void resetDbAndConfig() { }
 
