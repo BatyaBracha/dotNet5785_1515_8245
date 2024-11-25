@@ -365,7 +365,7 @@ namespace DalTest
             {
                 Options choice = Options.EXIT; // Set a default choice
                 choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine());
-                //Initialization.Do(s_dalAssignment, s_dalCall, s_dalConfig, s_dalVolunteer);
+
                 while (choice != Options.EXIT)
                 {
                     Console.WriteLine("Enter your choice:");
