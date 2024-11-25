@@ -35,7 +35,6 @@ public static class Initialization
             string address = Addresses[i];
 
             double latitude = 31.7769;
-
             double longitude = 35.2300;
 
             Role role = (Role)s_rand.Next(0, 2);
