@@ -2,7 +2,6 @@
 using DalApi;
 using Dal;
 using DO;
-using System.Data;
 
 namespace DalTest
 {
@@ -322,12 +321,9 @@ namespace DalTest
         }
         private void initialize()
         {
-            Initialization.Do;
+            Initialization.Do();
         }
-        private void printAllData() { }
 
-        private void callMenu() { }
-        private void initialize() { }
         private void printAllData() 
         {
             List<Volunteer> vList = s_dalVolunteer.ReadAll();
@@ -336,13 +332,13 @@ namespace DalTest
                 Console.WriteLine(item);
             }
 
-            List<Volunteer> aList = s_dalAssignment.ReadAll();
+            List<Assignment> aList = s_dalAssignment.ReadAll();
             foreach (var item in aList)
             {
                 Console.WriteLine(item);
             }
 
-            List<Volunteer> cList = s_dalCall.ReadAll();
+            List<Call> cList = s_dalCall.ReadAll();
             foreach (var item in cList)
             {
                 Console.WriteLine(item);
