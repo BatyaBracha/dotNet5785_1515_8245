@@ -1,7 +1,143 @@
-﻿namespace DalTest;
+﻿//namespace DalTest;
+//using DalApi;
+//using DO;
+//using System;
+
+//public static class Initialization
+//{
+//    private static IVolunteer? s_dalVolunteer; //stage 1
+//    private static ICall? s_dalCall; //stage 1
+//    private static IAssignment? s_dalAssignment; //stage 1
+//    private static IConfig? s_dalConfig; //stage 1
+//    private static readonly Random s_rand = new();
+//    private static string[] Addresses =
+//{ "Hagmul", "Man", "Tchelet", "Heller", "Shachal", "aviad" };
+
+//    private static void createVolunteers()
+//    {
+//        string[] volunteerNames =
+//            { "Dani Levy", "Eli Amar", "Yair Cohen", "Ariela Levin", "Dina Klein", "Shira Israelof" };
+
+//        string phoneStarter = "05455411";
+//        string emailEnder = "@organization.org.il";
+//        string startedPassword = "1234567";
+//        foreach (var name in volunteerNames)
+//        {
+//            int i = 0;
+//            int id;
+//            do
+//                id = s_rand.Next(400000000, 200000000);
+//            while (s_dalVolunteer!.Read(id) != null);
+//            string phone = $"{phoneStarter}{ +10}";
+//            string email = $"{name}{emailEnder}";
+
+//            string password = $"{startedPassword}{i+10}";
+//            string address = Addresses[i];
+
+//            double latitude = 31.7769;
+//            double longitude = 35.2300;
+
+//            Role role = (Role)s_rand.Next(0, 2);
+
+//            bool active = s_rand.Next(0, 2) == 1;
+
+//            double MaxDistance = i++ * 100;
+
+//            TypeOfDistance TypeOfDistance = (TypeOfDistance)s_rand.Next(0, 2);
+
+//            s_dalVolunteer!.Create(new(id, name, phone, email, password, address, latitude, longitude, role, active, MaxDistance, TypeOfDistance));
+//        }
+//    }
+//    private static void createAssignments()
+//    {
+//        int[] idArr = new int[5];
+//        for (int j = 0; j < idArr.Length; j++)
+//        {
+//            idArr[j] = s_rand.Next(400000000, 200000000);
+//        }
+//        foreach (var id in idArr)
+//        {
+//            int callId;
+//            do
+//                callId = s_rand.Next(400000000, 200000000);
+//            while (s_dalVolunteer!.Read(callId) != null);
+//            int volunteerId;
+//            do
+//                volunteerId = s_rand.Next(400000000, 200000000);
+//            while (s_dalVolunteer!.Read(volunteerId) != null);
+
+//            DateTime treatmentdStartTime = startDate();
+//            DateTime treatmentEndTime = endTime();
+//            TypeOfTreatmentEnding typeOfTreatmentEnding = (TypeOfTreatmentEnding)s_rand.Next(0, 2);
+//            s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding));
+//        }
+//    }
+
+//    private static void createCalls()
+//    {
+//        int[] idArr = new int[5];
+//        for (int j = 0; j < idArr.Length; j++)
+//        {
+//            idArr[j] = s_rand.Next(400000000, 200000000);
+//        }
+//        foreach (var id in idArr)
+//        {
+//            TypeOfCall typeOfCall = (TypeOfCall)s_rand.Next(0, 2);
+//            string description = "";
+//            string address = Addresses[idArr[id]];
+//            double latitude = 31.7769;
+//            double longitude = 35.2300;
+//            DateTime OpeningTime = startDate();
+//            DateTime maxClosingTime = endTime();
+//            s_dalCall!.Create(new(id, typeOfCall, description, address, latitude, longitude, OpeningTime, maxClosingTime));
+//        }
+//    }
+//    private static DateTime startDate()
+//    {
+//        DateTime start = new DateTime(s_dalConfig.Clock.Year - 2, 1, 1); //stage 1
+//        int range = (s_dalConfig.Clock - start).Days; //stage 1
+//        return start.AddDays(s_rand.Next(range));
+//    }
+//    private static DateTime endTime()
+//    {
+//        DateTime end = new DateTime(s_dalConfig.Clock.Year + 2, 1, 1); //stage 1
+//        int range = (s_dalConfig.Clock - end).Days; //stage 1
+//        return end.AddDays(s_rand.Next(range));
+//    }
+
+
+//    public static void  Do(IAssignment? dalAssignment,ICall? dalcall,IConfig? dalConfig,IVolunteer? dalVolunteer)
+//    {
+//        //s_dalConfig = dalConfig ?? throw new NullReferenceException("DAL can not be null!");
+//        s_dalAssignment = dalAssignment ?? throw new NullReferenceException("DAL can not be null!");
+//        Console.WriteLine("Reset Configuration values and List values...");
+//        s_dalAssignment.Reset(); //stage 1
+//        s_dalAssignment.DeleteAll(); //stage 1
+//        Console.WriteLine("Initializing Students list ...");
+//        createAssignments();
+
+//        s_dalCall = dalcall ?? throw new NullReferenceException("DAL can not be null!");
+//        Console.WriteLine("Reset Configuration values and List values...");
+//        s_dalCall.Reset(); //stage 1
+//        s_dalCall.DeleteAll(); //stage 1
+//        Console.WriteLine("Initializing Students list ...");
+//        createCalls();
+
+//        s_dalVolunteer = dalVolunteer ?? throw new NullReferenceException("DAL can not be null!");
+//        Console.WriteLine("Reset Configuration values and List values...");
+//        s_dalVolunteer.Reset(); //stage 1
+//        s_dalVolunteer.DeleteAll(); //stage 1
+//        Console.WriteLine("Initializing Students list ...");
+//        createVolunteers();
+//    }
+//}
+
+
+namespace DalTest;
 using DalApi;
 using DO;
-using System;
+
+
 
 public static class Initialization
 {
@@ -10,124 +146,117 @@ public static class Initialization
     private static IAssignment? s_dalAssignment; //stage 1
     private static IConfig? s_dalConfig; //stage 1
     private static readonly Random s_rand = new();
-    private static string[] Addresses =
-{ "Hagmul", "Man", "Tchelet", "Heller", "Shachal", "aviad" };
-
-    private static void createVolunteers()
+    private static void CreateVolunteer()
     {
-        string[] volunteerNames =
-            { "Dani Levy", "Eli Amar", "Yair Cohen", "Ariela Levin", "Dina Klein", "Shira Israelof" };
+        const int MIN_ID = 100000000;
+        const int MAX_ID = 999999999;
+        string[] names = { "Tzipy", "Chani", "Yehudit", "Shira", "Moishy", "Efraim", "Shloimy", "Yosi", "Yoni", "Avi", "Chaim", "Ester", "Rachel", "Shani", "Michali" };
+        string[] phones = { "0527614421", "0527614422", "0527614423", "0527614424", "0527614425", "0527614426", "0527614427", "0527614428", "0527614429", "0527614430", "0527614431", "0527614432", "0527614433", "0527614434", "0527614435" };
+        string[] addresses = { "Malchei Israel 12", "Minchat Itzchak 23", "Hashofar 3", "Hare'em 14", "Eben Ezra 6", "HaTzvi 4", "Hakfir 5", "Hadishon 6", "Ha'ari 13", "Hatan 17", "Tchelet Mordechei 18", "Hamarkalim 4", "Rabi Akiva 15", "Hazon Ish 53", "Harav Shach 3" };
+        (double Latitude, double Longitude)[] coordinates = {(31.771959, 35.217018 ), (  31.775469, 35.229568 ),  (  31.774578, 35.207031 ),
+  (  31.780125,  35.207889 ),  (  31.792178,  35.205321 ), (  31.784222,  35.213127 ), (  31.797433,  35.214278 ), (  31.798189,  35.206539 ),
+   (  31.794056,  35.221325 ),(  31.798832,  35.214994 ),(  31.799845,  35.227146 ), (  31.780829,  35.229744 ),
+  (31.781869,  35.236349 ),(  31.799467,  35.240458 ), (  31.788469,  35.235679 )};
 
-        string phoneStarter = "05455411";
-        string emailEnder = "@organization.org.il";
-        string startedPassword = "1234567";
-        foreach (var name in volunteerNames)
+        s_dalVolunteer!.Create(new(s_rand.Next(MIN_ID, MAX_ID), "Mali Horowitz", "0583278625", "mh0583278625@gmail.com", true, Role.ADMINISTRATOR, "mh0583278625@", "Ha'ayalot 25", 31.8, 35.1, 10));
+        for (int i = 0; i < 15; i++)
         {
-            int i = 0;
-            int id;
-            do
-                id = s_rand.Next(400000000, 200000000);
-            while (s_dalVolunteer!.Read(id) != null);
-            string phone = $"{phoneStarter}{ +10}";
-            string email = $"{name}{emailEnder}";
+            s_dalVolunteer!.Create(new(s_rand.Next(MIN_ID, MAX_ID), names[i], phones[i], $"{names[i]}{phones[i]}@gmail.com", true, Position.Volunteer, $"{names[i].Substring(0, 4)}{phones[i].Substring(0, 4)}", addresses[i], coordinates[i].Latitude, coordinates[i].Longitude, s_rand.Next(0, 10)));
+        }
 
-            string password = $"{startedPassword}{i+10}";
-            string address = Addresses[i];
 
-            double latitude = 31.7769;
-            double longitude = 35.2300;
+    }
+    private static void CreateCall()
+    {
+        string[] addresses = { "Herzl St, Tel Aviv", "Jaffa St, Jerusalem", "Ben Gurion Blvd, Haifa", "Main St, Beersheba", "Eilat Promenade, Eilat", "Rothschild Blvd, Tel Aviv", "Dizengoff St, Tel Aviv", "Ben Yehuda St, Tel Aviv", "Shderot Ben Gurion, Netanya", "David HaMelech St, Herzliya" };
+        // קואורדינטות של מיקומים בישראל (בהתאמה לכתובות)
+        (double Latitude, double Longitude)[] coordinates =
+        { (32.0853, 34.7818), // תל אביב (31.7683, 35.2137), // ירושלים
+            (32.7940, 34.9896), // חיפה
+            (31.2518, 34.7913), // באר שבע
+            (29.5581, 34.9482), // אילת
+            (32.0656, 34.7770), // רוטשילד תל אביב
+            (32.0755, 34.7756), // דיזנגוף תל אביב
+            (32.0838, 34.7698), // בן יהודה תל אביב
+            (32.3320, 34.8599), // נתניה
+            (32.1673, 34.8360)  // הרצליה
+        };
 
-            Role role = (Role)s_rand.Next(0, 2);
+        // תיאורים מילוליים רנדומליים
+        string[] descriptions =
+        {
+            "Flat tire on the highway.",
+            "Car battery is dead, needs jump start.",
+            "Ran out of fuel near the city center.",
+            "Locked keys inside the vehicle.",
+            "Vehicle recovery required from the beach.",
+            "Minor mechanical issue near the mall.",
+            "Medical emergency near the park.",
+            "Car stuck in the sand, needs assistance.",
+            "Flat tire on the road to Jerusalem.",
+            "Jump start required at the parking lot."
+        };
 
-            bool active = s_rand.Next(0, 2) == 1;
 
-            double MaxDistance = i++ * 100;
+        DateTime start = new DateTime(s_dalConfig!.Clock.Year, s_dalConfig.Clock.Month, s_dalConfig.Clock.Day, s_dalConfig.Clock.Hour - 7, 0, 0); ; //stage 1
+        int range = (int)(s_dalConfig.Clock - start).TotalMinutes;
 
-            TypeOfDistance TypeOfDistance = (TypeOfDistance)s_rand.Next(0, 2);
+        for (int i = 0; i < 50; i++)
+        {
 
-            s_dalVolunteer!.Create(new(id, name, phone, email, password, address, latitude, longitude, role, active, MaxDistance, TypeOfDistance));
+            int startingTime = s_rand.Next(range);
+            int index = s_rand.Next(addresses.Length);
+            s_dalCall!.Create(new Call(
+                (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
+                addresses[index],
+                coordinates[index].Latitude,
+                coordinates[index].Longitude,
+                start.AddMinutes(startingTime),
+                start.AddMinutes(startingTime + s_rand.Next(30, 360)),
+                descriptions[s_rand.Next(descriptions.Length)]
+            ));
         }
     }
-    private static void createAssignments()
+    private static void CreateAssignment()
     {
-        int[] idArr = new int[5];
-        for (int j = 0; j < idArr.Length; j++)
-        {
-            idArr[j] = s_rand.Next(400000000, 200000000);
-        }
-        foreach (var id in idArr)
-        {
-            int callId;
-            do
-                callId = s_rand.Next(400000000, 200000000);
-            while (s_dalVolunteer!.Read(callId) != null);
-            int volunteerId;
-            do
-                volunteerId = s_rand.Next(400000000, 200000000);
-            while (s_dalVolunteer!.Read(volunteerId) != null);
+        List<Call>? callsList = s_dalCall!.ReadAll();
+        List<Volunteer>? volunteersList = s_dalVolunteer!.ReadAll();
 
-            DateTime treatmentdStartTime = startDate();
-            DateTime treatmentEndTime = endTime();
-            TypeOfTreatmentEnding typeOfTreatmentEnding = (TypeOfTreatmentEnding)s_rand.Next(0, 2);
-            s_dalAssignment!.Create(new(id, callId, volunteerId, treatmentdStartTime, treatmentEndTime, typeOfTreatmentEnding));
+        for (int i = 0; i < 50; i++)
+        {
+            // חישוב הזמן ההתחלתי והזמן הסופי עבור כל שיחה
+
+            DateTime minTime = callsList[i].OpeningTime; // הזמן המינימלי
+            DateTime maxTime = (DateTime)callsList[i].MaxTimeFinishCalling!; // הזמן המקסימלי
+            TimeSpan diff = maxTime - minTime - TimeSpan.FromHours(2);
+            DateTime randomTime = minTime.AddMinutes(s_rand.Next((int)diff.TotalMinutes));
+            s_dalAssignment!.Create(new Assignment(callsList[i].Id, volunteersList[s_rand.Next(volunteersList.Count())].Id, randomTime, randomTime.AddHours(2), (EndingTimeType)s_rand.Next(Enum.GetValues(typeof(EndingTimeType)).Length - 1)));
         }
     }
 
-    private static void createCalls()
+    public static void Do(IVolunteer? dalVolunteer, ICall? dalCall, IAssignment? dalAssignment, IConfig? dalConfig) //stage 1
     {
-        int[] idArr = new int[5];
-        for (int j = 0; j < idArr.Length; j++)
-        {
-            idArr[j] = s_rand.Next(400000000, 200000000);
-        }
-        foreach (var id in idArr)
-        {
-            TypeOfCall typeOfCall = (TypeOfCall)s_rand.Next(0, 2);
-            string description = "";
-            string address = Addresses[idArr[id]];
-            double latitude = 31.7769;
-            double longitude = 35.2300;
-            DateTime OpeningTime = startDate();
-            DateTime maxClosingTime = endTime();
-            s_dalCall!.Create(new(id, typeOfCall, description, address, latitude, longitude, OpeningTime, maxClosingTime));
-        }
-    }
-    private static DateTime startDate()
-    {
-        DateTime start = new DateTime(s_dalConfig.Clock.Year - 2, 1, 1); //stage 1
-        int range = (s_dalConfig.Clock - start).Days; //stage 1
-        return start.AddDays(s_rand.Next(range));
-    }
-    private static DateTime endTime()
-    {
-        DateTime end = new DateTime(s_dalConfig.Clock.Year + 2, 1, 1); //stage 1
-        int range = (s_dalConfig.Clock - end).Days; //stage 1
-        return end.AddDays(s_rand.Next(range));
-    }
+        s_dalVolunteer = dalVolunteer ?? throw new NullReferenceException("DAL object can not be null!"); //stage 1
+        s_dalCall = dalCall ?? throw new NullReferenceException("DAL object can not be null!"); //stage 1
+        s_dalAssignment = dalAssignment ?? throw new NullReferenceException("DAL object can not be null!"); //stage 1
+        s_dalConfig = dalConfig ?? throw new NullReferenceException("DAL object can not be null!"); //stage 1
 
 
-    public static void  Do(IAssignment? dalAssignment,ICall? dalcall,IConfig? dalConfig,IVolunteer? dalVolunteer)
-    {
-        //s_dalConfig = dalConfig ?? throw new NullReferenceException("DAL can not be null!");
-        s_dalAssignment = dalAssignment ?? throw new NullReferenceException("DAL can not be null!");
         Console.WriteLine("Reset Configuration values and List values...");
-        s_dalAssignment.Reset(); //stage 1
-        s_dalAssignment.DeleteAll(); //stage 1
-        Console.WriteLine("Initializing Students list ...");
-        createAssignments();
+        s_dalConfig.Reset();
+        s_dalVolunteer.DeleteAll();
+        s_dalCall.DeleteAll();
+        s_dalAssignment.DeleteAll();
 
-        s_dalCall = dalcall ?? throw new NullReferenceException("DAL can not be null!");
-        Console.WriteLine("Reset Configuration values and List values...");
-        s_dalCall.Reset(); //stage 1
-        s_dalCall.DeleteAll(); //stage 1
-        Console.WriteLine("Initializing Students list ...");
-        createCalls();
+        Console.WriteLine("Initializing Volunteers list ...");
+        Console.WriteLine("Initializing Calls list ...");
+        Console.WriteLine("Initializing Assignments list ...");
 
-        s_dalVolunteer = dalVolunteer ?? throw new NullReferenceException("DAL can not be null!");
-        Console.WriteLine("Reset Configuration values and List values...");
-        s_dalVolunteer.Reset(); //stage 1
-        s_dalVolunteer.DeleteAll(); //stage 1
-        Console.WriteLine("Initializing Students list ...");
-        createVolunteers();
+        CreateVolunteer();
+        CreateCall();
+        CreateAssignment();
+
     }
+
+
 }

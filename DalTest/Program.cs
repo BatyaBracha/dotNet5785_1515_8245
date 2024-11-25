@@ -12,8 +12,6 @@ namespace DalTest
         private static ICall? s_dalCall = new CallImplementation();
         private static IConfig? s_dalConfig = new ConfigImplementation();
 
-        // Define an enum with specific values
-
         private void volunteerMenu()
         {
             try
@@ -90,6 +88,7 @@ namespace DalTest
                 Console.WriteLine(v);
             }
         }
+
         private void volunteerRead()
         {
             Console.WriteLine("Enter an ID");
@@ -122,16 +121,19 @@ namespace DalTest
             TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
             s_dalVolunteer.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
+
         private void volunteerDelete()
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine();
             s_dalVolunteer.Delete(int.Parse(id));
         }
+
         private void volunteerDeleteAll()
         {
             s_dalVolunteer.DeleteAll();
         }
+
         private void assignmentMenu()
         {
             try
@@ -174,6 +176,7 @@ namespace DalTest
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
+
         private void assignmentCreate()
         {
             Console.WriteLine("Enter the call id");
@@ -223,7 +226,8 @@ namespace DalTest
         {
             s_dalAssignment.DeleteAll();
         }
-        private void callMenu() 
+
+        private void callMenu()
         {
             try
             {
@@ -277,7 +281,7 @@ namespace DalTest
             string discription = Console.ReadLine();
             Console.WriteLine("Enter the call address");
             string address = Console.ReadLine();
-            s_dalCall.Create(new(0, convertedTypeOfCall, discription, address, null, null,s_dalConfig.Clock,null));
+            s_dalCall.Create(new(0, convertedTypeOfCall, discription, address, null, null, s_dalConfig.Clock, null));
             //newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.OpeningTime,item.MaxClosingTime
         }
         private void callRead()
@@ -295,7 +299,7 @@ namespace DalTest
                 Console.WriteLine(item);
             }
         }
-        private void callUpdate() 
+        private void callUpdate()
         {
             Console.WriteLine("Enter the call id");
             string callId = Console.ReadLine();
@@ -321,10 +325,10 @@ namespace DalTest
         }
         private void initialize()
         {
-            Initialization.Do();
+            Initialization.Do(s_dalAssignment, s_dalCall, s_dalConfig, s_dalVolunteer);
         }
 
-        private void printAllData() 
+        private void printAllData()
         {
             List<Volunteer> vList = s_dalVolunteer.ReadAll();
             foreach (var item in vList)
@@ -346,7 +350,13 @@ namespace DalTest
 
         }
         private void configMenu() { }
-        private void resetDbAndConfig() { }
+        private void resetDbAndConfig()
+        {
+            s_dalVolunteer.DeleteAll();
+            s_dalAssignment.DeleteAll();
+            s_dalCall.DeleteAll();
+            s_dalConfig.Reset();
+        }
 
 
         public void Main(string[] args)
