@@ -203,7 +203,7 @@ namespace DalTest
         private void assignmentUpdate()
         {
             Console.WriteLine("Enter assignment ID");
-            string assignmentId=Console.ReadLine();
+            string assignmentId = Console.ReadLine();
             s_dalAssignment.Read(int.Parse(assignmentId));
             Console.WriteLine("Enter the call id");
             string callId = Console.ReadLine();
@@ -214,7 +214,14 @@ namespace DalTest
 
         private void assignmentDelete()
         {
+            Console.WriteLine("Enter assignment Id");
+            string assignmentId = Console.ReadLine();
+            s_dalAssignment.Delete(int.Parse(assignmentId));
+        }
 
+        private void assignmentDeleteAll()
+        {
+            s_dalAssignment.DeleteAll();
         }
         private void callMenu() 
         {
