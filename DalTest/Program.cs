@@ -431,8 +431,6 @@ namespace DalTest
 
             }
         }
-            private void resetDbAndConfig() { }
-        private void configMenu() { }
         private void resetDbAndConfig()
         {
             s_dalVolunteer.DeleteAll();
