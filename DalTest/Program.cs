@@ -13,33 +13,108 @@ namespace DalTest
         private static IConfig? s_dalConfig = new ConfigImplementation();
 
         // Define an enum with specific values
-        enum Options
+
+        private void volunteerMenu() 
         {
-            EXIT,
-            VOLUNTEER_MENU,
-            ASSIGNMENT_MENU,
-            CALL_MENU,
-            INITIALIZE,
-            PRINT_DATA,
-            CONFIG_MENU,
-            RESET_DB_CONFIG
+            try
+            {
+                SpecificOptions choice = SpecificOptions.EXIT;
+                do
+                {
+                    choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine());
+                    switch (choice)
+                    {
+                        case SpecificOptions.EXIT:
+                            break;
+                        case SpecificOptions.CREATE:
+                            volunteerCreate();
+                            break;
+                        case SpecificOptions.READ:
+                            volunteerRead();
+                            break;
+                        case SpecificOptions.READ_ALL:
+                            volunteerReadAll();
+                            break;
+                        case SpecificOptions.UPDATE:
+                            volunteerUpdate();
+                            break;
+                        case SpecificOptions.DELETE:
+                            printAllData();
+                            break;
+                        case SpecificOptions.DELETE_ALL:
+                            configMenu();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            break;
+                    }
+                }while (choice!=SpecificOptions.EXIT);
+  
+            }
+            catch (Exception ex) {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
         }
-        private void volunteerMenue() 
-        { 
+
+        private void volunteerUpdate()
+        {
+            Console.WriteLine("Enter an ID");
+            string id = Console.ReadLine();
+            
 
         }
-        private void assignmentMenue() 
+
+        private void volunteerReadAll()
+        {
+            List<Volunteer> volunteerList = s_dalVolunteer.ReadAll();
+            foreach (var v in volunteerList)
+            {
+                Console.WriteLine(v);
+            }
+        }
+        private void volunteerRead() {
+            Console.WriteLine("Enter an ID");
+            string id=Console.ReadLine();
+            Volunteer volunteer = s_dalVolunteer.Read(int.Parse(id));
+            Console.WriteLine(volunteer);//לבדוק איך כותב למסך
+        }
+
+        private void volunteerCreate()
+        {
+            Console.WriteLine("Enter your ID");
+            string id = Console.ReadLine();
+            Console.WriteLine("Enter your name");
+            string name=Console.ReadLine();
+            Console.WriteLine("Enter your phone");
+            string phone = Console.ReadLine();
+            Console.WriteLine("Enter your email");
+            string email = Console.ReadLine();
+            Console.WriteLine("Enter your address");
+            string address = Console.ReadLine();
+            Console.WriteLine("Enter your password");
+            string password = Console.ReadLine();
+            Console.WriteLine("Enter your max distance");
+            string maxDistance = Console.ReadLine();
+            Console.WriteLine("Enter your role");
+            string role = Console.ReadLine();
+            Console.WriteLine("Enter your type of distance");
+            Role convertedRole=(Role)Enum.Parse(typeof(Role),role);
+            string typeOfDistance = Console.ReadLine();
+            TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance),typeOfDistance);
+            s_dalVolunteer.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+        }
+        private void assignmentMenu() 
         {
 
         }
-        private void callMenue() { }
+        private void callMenu() { }
         private void initialize() { }
         private void printAllData() { }
-        private void configMenue() { }
+        private void configMenu() { }
         private void resetDbAndConfig() { }
 
 
-        public static void Main(string[] args)
+        public void Main(string[] args)
         {
             try
             {
@@ -56,13 +131,13 @@ namespace DalTest
                         case Options.EXIT:
                             break;
                         case Options.VOLUNTEER_MENU:
-                            volunteerMenue();
+                            volunteerMenu();
                             break;
                         case Options.ASSIGNMENT_MENU:
-                            assignmentMenue();
+                            assignmentMenu();
                             break;
                         case Options.CALL_MENU:
-                            callMenue();
+                            callMenu();
                             break;
                         case Options.INITIALIZE:
                             initialize();
@@ -71,7 +146,7 @@ namespace DalTest
                             printAllData();
                             break;
                         case Options.CONFIG_MENU:
-                            configMenue();
+                            configMenu();
                             break;
                         case Options.RESET_DB_CONFIG:
                             resetDbAndConfig();
