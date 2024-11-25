@@ -9,8 +9,8 @@ public record Call
     TypeOfCall TypeOfCall,
     string? Description,
     string Address,
-    double latitude,
-    double longitude,
+    double? latitude,
+    double? longitude,
     DateTime OpeningTime,
     DateTime? MaxClosingTime = null
 )

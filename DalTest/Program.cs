@@ -2,6 +2,7 @@
 using DalApi;
 using Dal;
 using DO;
+using System.Data;
 
 namespace DalTest
 {
@@ -223,6 +224,107 @@ namespace DalTest
         {
             s_dalAssignment.DeleteAll();
         }
+        private void callMenu() 
+        {
+            try
+            {
+                SpecificOptions choice = SpecificOptions.EXIT;
+                do
+                {
+                    choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine());
+                    switch (choice)
+                    {
+                        case SpecificOptions.EXIT:
+                            break;
+                        case SpecificOptions.CREATE:
+                            callCreate();
+                            break;
+                        case SpecificOptions.READ:
+                            callRead();
+                            break;
+                        case SpecificOptions.READ_ALL:
+                            callReadAll();
+                            break;
+                        case SpecificOptions.UPDATE:
+                            callUpdate();
+                            break;
+                        case SpecificOptions.DELETE:
+                            callDelete();
+                            break;
+                        case SpecificOptions.DELETE_ALL:
+                            callDeleteAll();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            break;
+                    }
+                } while (choice != SpecificOptions.EXIT);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+        }
+        private void callCreate()
+        {
+            Console.WriteLine("Enter the call id");
+            string callId = Console.ReadLine();
+            Console.WriteLine("Enter type of call");
+            string typeOfCall = Console.ReadLine();
+            TypeOfCall convertedTypeOfCall = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), convertedTypeOfCall);
+            Console.WriteLine("Enter a discription");
+            string discription = Console.ReadLine();
+            Console.WriteLine("Enter the call address");
+            string address = Console.ReadLine();
+            s_dalCall.Create(new(0, convertedTypeOfCall, discription, address, null, null,s_dalConfig.Clock,null));
+            //newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.OpeningTime,item.MaxClosingTime
+        }
+        private void callRead()
+        {
+            Console.WriteLine("Enter callId");
+            string callId = Console.ReadLine();
+            Call call = s_dalCall.Read(int.Parse(callId));
+            Console.WriteLine(call);//לבדוק איך כותב למסך
+        }
+        private void callReadAll()
+        {
+            List<Call> callList = s_dalCall.ReadAll();
+            foreach (var item in callList)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        private void callUpdate() 
+        {
+            Console.WriteLine("Enter the call id");
+            string callId = Console.ReadLine();
+            s_dalAssignment.Read(int.Parse(callId));
+            Console.WriteLine("Enter type of call");
+            string typeOfCall = Console.ReadLine();
+            TypeOfCall convertedTypeOfCall = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), convertedTypeOfCall);
+            Console.WriteLine("Enter a discription");
+            string discription = Console.ReadLine();
+            Console.WriteLine("Enter the call address");
+            string address = Console.ReadLine();
+            s_dalCall.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dalConfig.Clock, null));
+        }
+        private void callDelete()
+        {
+            Console.WriteLine("Enter call Id");
+            string callId = Console.ReadLine();
+            s_dalAssignment.Delete(int.Parse(callId));
+        }
+        private void callDeleteAll()
+        {
+            s_dalCall.DeleteAll();
+        }
+        private void initialize()
+        {
+            Initialization.Do;
+        }
+        private void printAllData() { }
 
         private void callMenu() { }
         private void initialize() { }
