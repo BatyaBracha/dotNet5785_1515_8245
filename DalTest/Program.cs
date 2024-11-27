@@ -18,7 +18,7 @@ namespace DalTest
                 SpecificOptions choice = SpecificOptions.EXIT;
                 do
                 {
-                    Console.WriteLine("Enter tour choice:\n" +
+                    Console.WriteLine("Enter your choice:\n" +
                         "to exit press 0\n" +
                         "to create a new volunteer press 1\n" +
                         "to read a volunteer's details press 2\n" +
@@ -80,14 +80,13 @@ namespace DalTest
                 string password = Console.ReadLine()!;
                 Console.WriteLine("Enter your max distance");
                 string maxDistance = Console.ReadLine()!;
-                Console.WriteLine("Enter your role");
-                string role = Console.ReadLine()!;
+                //Console.WriteLine("Enter your role");
+                //string role = Console.ReadLine()!;
                 Console.WriteLine("Enter your type of distance");
-                Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
+                //Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
                 string typeOfDistance = Console.ReadLine()!;
                 TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-                s_dalVolunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
-
+                s_dalVolunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
             }
             else
                 throw new Exception("an obj with this id does not exist\n");
@@ -137,8 +136,8 @@ namespace DalTest
 
         private static void volunteerDelete()
         {
-                Console.WriteLine("Enter your ID");
-                string id = Console.ReadLine()!;
+            Console.WriteLine("Enter your ID");
+            string id = Console.ReadLine()!;
             if (s_dalVolunteer!.Read(int.Parse(id)) != null)
                 s_dalVolunteer!.Delete(int.Parse(id));
             else
@@ -157,7 +156,7 @@ namespace DalTest
                 SpecificOptions choice = SpecificOptions.EXIT;
                 do
                 {
-                    Console.WriteLine("Enter tour choice:\n" +
+                    Console.WriteLine("Enter your choice:\n" +
                         "to exit press 0\n" +
                         "to create a new assignment press 1\n" +
                         "to read an assignment's details press 2\n" +
@@ -236,7 +235,7 @@ namespace DalTest
                 string callId = Console.ReadLine()!;
                 Console.WriteLine("Enter the volunteer's id");
                 string volunteerId = Console.ReadLine()!;
-                s_dalAssignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
+                s_dalAssignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dalConfig!.Clock, null, null));
             }
             else
                 throw new Exception("an obj with this id does not exist\n");
@@ -264,7 +263,7 @@ namespace DalTest
                 SpecificOptions choice = SpecificOptions.EXIT;
                 do
                 {
-                    Console.WriteLine("Enter tour choice:\n" +
+                    Console.WriteLine("Enter your choice:\n" +
                         "to exit press 0\n" +
                         "to create a new call press 1\n" +
                         "to read a cal's details press 2\n" +
@@ -310,8 +309,8 @@ namespace DalTest
         }
         private static void callCreate()
         {
-            Console.WriteLine("Enter the call id");
-            string callId = Console.ReadLine()!;
+            //Console.WriteLine("Enter the call id");
+            //string callId = Console.ReadLine()!;
             Console.WriteLine("Enter type of call");
             string typeOfCall = Console.ReadLine()!;
             TypeOfCall convertedType = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), typeOfCall);
@@ -400,7 +399,7 @@ namespace DalTest
                 configOptions choice = configOptions.EXIT;
                 do
                 {
-                    Console.WriteLine("Enter tour choice:\n" +
+                    Console.WriteLine("Enter your choice:\n" +
                         "to exit press 0\n" +
                         "to advance the system clock by a minute press 1\n" +
                         "to advance the system clock by an hour press 2\n" +
@@ -560,19 +559,18 @@ namespace DalTest
         {
             try
             {
-                Console.WriteLine("Enter your choice:\n" +
-                             "to exit press 0\n" +
-                             "to the volunteer menu press 1\n" +
-                             "to the assignment menu press 2\n" +
-                             "to the call menue press 3\n" +
-                             "to initialize the system press 4\n" +
-                             "to print all the data press 5\n" +
-                             "to the configuration menu press 6\n" +
-                             "to reset the data base and the configurationpress 7.");
-                Options choice = Options.EXIT; // Set a default choice
-                choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
+                //Console.WriteLine("Enter your choice:\n" +
+                //             "to exit press 0\n" +
+                //             "to the volunteer menu press 1\n" +
+                //             "to the assignment menu press 2\n" +
+                //             "to the call menue press 3\n" +
+                //             "to initialize the system press 4\n" +
+                //             "to print all the data press 5\n" +
+                //             "to the configuration menu press 6\n" +
+                //             "to reset the data base and the configuration press 7.");
 
-                while (choice != Options.EXIT)
+                Options choice = Options.EXIT; // Set a default choice
+                do
                 {
                     Console.WriteLine("Enter your choice:\n" +
                         "to exit press 0\n" +
@@ -614,7 +612,7 @@ namespace DalTest
                             Console.WriteLine("Invalid choice.");
                             break;
                     }
-                }
+                } while (choice != Options.EXIT);
             }
             catch (Exception ex)
             {
