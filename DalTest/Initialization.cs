@@ -206,7 +206,7 @@ public static class Initialization
         {
 
             int startingTime = s_rand.Next(range);
-            int index = s_rand.Next(addresses.Length);
+            int index = s_rand.Next(addresses.Length-1);
             s_dalCall!.Create(new Call(0,
                 (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
                  descriptions[s_rand.Next(descriptions.Length)],
