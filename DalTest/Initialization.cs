@@ -230,7 +230,12 @@ public static class Initialization
 
             DateTime minTime = callsList[i].OpeningTime; // הזמן המינימלי
             DateTime maxTime = (DateTime)callsList[i].MaxClosingTime!; // הזמן המקסימלי
+            //TimeSpan diff = maxTime - minTime - TimeSpan.FromHours(2);
             TimeSpan diff = maxTime - minTime - TimeSpan.FromHours(2);
+            if (diff.TotalMinutes <= 0)
+            {
+                diff = TimeSpan.FromMinutes(1); // ערך ברירת מחדל למניעת שגיאה
+            }
             DateTime randomTime = minTime.AddMinutes(s_rand.Next((int)diff.TotalMinutes));
             s_dalAssignment!.Create(new Assignment(0,callsList[i].Id, volunteersList[s_rand.Next(volunteersList.Count())].Id, randomTime, randomTime.AddHours(2), (TypeOfTreatmentEnding)s_rand.Next(Enum.GetValues(typeof(TypeOfTreatmentEnding)).Length - 1)));
         }
