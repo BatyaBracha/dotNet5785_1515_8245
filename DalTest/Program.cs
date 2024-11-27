@@ -18,6 +18,14 @@ namespace DalTest
                 SpecificOptions choice = SpecificOptions.EXIT;
                 do
                 {
+                    Console.WriteLine("Enter tour choice:\n" +
+                        "to exit press 1\n" +
+                        "to create a new volunteer press 2\n" +
+                        "to read a volunteer's details press 3\n" +
+                        "to read all volunteers' details press 4\n" +
+                        "to update a volunteer's datails press 5\n" +
+                        "to delete a volunteer press 6\n" +
+                        "to delete all volunteers press 7");
                     choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                     switch (choice)
                     {
@@ -140,7 +148,15 @@ namespace DalTest
                 SpecificOptions choice = SpecificOptions.EXIT;
                 do
                 {
-                    choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine());
+                    Console.WriteLine("Enter tour choice:\n" +
+                        "to exit press 1\n" +
+                        "to create a new assignment press 2\n" +
+                        "to read an assignment's details press 3\n" +
+                        "to read all assignments' details press 4\n" +
+                        "to update an assignment's datails press 5\n" +
+                        "to delete an assignment press 6\n" +
+                        "to delete all assignments press 7");
+                    choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                     switch (choice)
                     {
                         case SpecificOptions.EXIT:
@@ -183,7 +199,6 @@ namespace DalTest
             Console.WriteLine("Enter the volunteer's id");
             string volunteerId = Console.ReadLine()!;
             s_dalAssignment!.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
-            //newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding
         }
 
         private void assignmentRead()
@@ -233,6 +248,14 @@ namespace DalTest
                 SpecificOptions choice = SpecificOptions.EXIT;
                 do
                 {
+                    Console.WriteLine("Enter tour choice:\n" +
+                        "to exit press 1\n" +
+                        "to create a new call press 2\n" +
+                        "to read a cal's details press 3\n" +
+                        "to read all calls' details press 4\n" +
+                        "to update a call's datails press 5\n" +
+                        "to delete a call press 6\n" +
+                        "to delete all calls press 7");
                     choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine());
                     switch (choice)
                     {
@@ -355,7 +378,17 @@ namespace DalTest
                 configOptions choice = configOptions.EXIT;
                 do
                 {
-                    choice = (configOptions)Enum.Parse(typeof(configOptions), Console.ReadLine());
+                    Console.WriteLine("Enter tour choice:\n" +
+                        "to exit press 1\n" +
+                        "to advance the system clock by a minute press 2\n" +
+                        "to advance the system clock by an hour press 3\n" +
+                        "to advance the system clock by a day press 4\n" +
+                        "to advance the system clock by a year press 5\n" +
+                        "to display the current time press 6\n" +
+                        "to change a configuration value press 7\n" +
+                        "to display a current configuration value press 8\n" +
+                        "to reset the configuration press 9");
+                    choice = (configOptions)Enum.Parse(typeof(configOptions), Console.ReadLine()!);
                     switch (choice)
                     {
                         case configOptions.EXIT:
@@ -430,38 +463,58 @@ namespace DalTest
         }
         private void changeValue()
         {
-            Console.WriteLine("Enter the number of the change you want to make:\n 1 for  ");
-        }
-        private void resetDbAndConfig()
-        {
-            s_dalVolunteer!.DeleteAll();
-            s_dalAssignment!.DeleteAll();
-            s_dalCall!.DeleteAll();
-            s_dalConfig!.Reset();
-        }
-        private void displayCurrentValue()
-        {
-            Console.WriteLine("Enter the number of the variable you want to be displayed:\n 1 for startCallId\n 2 for startAssignmentId\n 3 for RiskRange\n 4 for Clock");
+            Console.WriteLine("Enter the number of the variable you want to change:\n" +
+                " 1 for RiskRange\n" +
+                " 2 for Clock");
             string choice = Console.ReadLine()!;
             switch (choice)
             {
                 case "1":
                     {
+                        Console.WriteLine(s_dalCall!.RiskRange);
+                        Console.WriteLine("Enter the details of the new risk range:\nhours:\n");
+                        string hours=Console.ReadLine()!;
+                        Console.WriteLine("minutes:\n");
+                        string minutes = Console.ReadLine()!;
+                        Console.WriteLine("seconds:");
+                        string seconds = Console.ReadLine()!;
+                        s_dalConfig!.RiskRange = new TimeSpan(int.Parse(hours), int.Parse(minutes), int.Parse(seconds));
                     }
                     break;
+
                 case "2":
                     {
-
+                        Console.WriteLine(s_dalConfig!.Clock);
+                        Console.WriteLine("Enter the details of the new clock:\nhour:\n");
+                        string hour = Console.ReadLine()!;
+                        Console.WriteLine("minute:\n");
+                        string minute = Console.ReadLine()!;
+                        Console.WriteLine("second:");
+                        string second = Console.ReadLine()!;
+                        s_dalConfig!.Clock = new DateTime(int.Parse(hour), int.Parse(minute), int.Parse(second));
                     }
                     break;
+                default:
+                    Console.WriteLine("Invalid choice.");
+                    break;
 
-                case "3":
+            }
+        }
+        private void displayCurrentValue()
+        {
+            Console.WriteLine("Enter the number of the variable you want to be displayed:\n" +
+                " 1 for RiskRange\n" +
+                " 2 for Clock");
+            string choice = Console.ReadLine()!;
+            switch (choice)
+            {
+                case "1":
                     {
-
+                        Console.WriteLine(s_dalCall!.RiskRange);
                     }
                     break;
 
-                case "4":
+                case "2":
                     {
                         Console.WriteLine(s_dalConfig!.Clock);
                     }
@@ -472,8 +525,16 @@ namespace DalTest
 
             }
         }
+        private void resetDbAndConfig()
+        {
+            s_dalVolunteer!.DeleteAll();
+            s_dalAssignment!.DeleteAll();
+            s_dalCall!.DeleteAll();
+            s_dalConfig!.Reset();
+        }
 
-            public void Main(string[] args)
+
+        public void Main(string[] args)
         {
             try
             {
@@ -482,7 +543,15 @@ namespace DalTest
 
                 while (choice != Options.EXIT)
                 {
-                    Console.WriteLine("Enter your choice:");
+                    Console.WriteLine("Enter your choice:\n" +
+                        "to exit press 1\n" +
+                        "to the volunteer menu press 2\n" +
+                        "to the assignment menu press 3\n" +
+                        "to the call menue press 4\n" +
+                        "to initialize the system press 5\n" +
+                        "to print all the data press 6\n" +
+                        "to the configuration menu press 7\n" +
+                        "to reset the data base and the configurationpress 8.");
                     choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
 
                     switch (choice)
