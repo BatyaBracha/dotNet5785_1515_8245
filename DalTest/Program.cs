@@ -415,16 +415,16 @@ namespace DalTest
                         case configOptions.EXIT:
                             break;
                         case configOptions.ADVANCE_SYSTEM_CLOCK_BY_MINUTE:
-                            advanceSystem("minute");
+                            advanceSystem(1);
                             break;
                         case configOptions.ADVANCE_SYSTEM_CLOCK_BY_HOUR:
-                            advanceSystem("hour");
+                            advanceSystem(2);
                             break;
                         case configOptions.ADVANCE_SYSTEM_CLOCK_BY_DAY:
-                            advanceSystem("day");
+                            advanceSystem(3);
                             break;
                         case configOptions.ADVANCE_SYSTEM_CLOCK_BY_YEAR:
-                            advanceSystem("year");
+                            advanceSystem(4);
                             break;
                         case configOptions.DISPLAY_CURRENT_TIME:
                             Console.WriteLine(s_dalConfig!.Clock);
@@ -451,34 +451,22 @@ namespace DalTest
             }
 
         }
-        private static void advanceSystem(string amount)
+        private static void advanceSystem(int amount)
         {
             Console.WriteLine($"current time:{s_dalConfig!.Clock}");
             switch (amount)
             {
-                case "minute":
-                    if (int.TryParse(amount, out int minutes))
-                    {
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddMinutes(minutes);
-                    }
+                case 1:
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddMinutes(1);
                     break;
-                case "hour":
-                    if (int.TryParse(amount, out int hours))
-                    {
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddHours(hours);
-                    }
+                case 2:
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddHours(1);
                     break;
-                case "day":
-                    if (int.TryParse(amount, out int days))
-                    {
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddDays(days);
-                    }
+                case 3:
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddDays(1);
                     break;
-                case "year":
-                    if (int.TryParse(amount, out int years))
-                    {
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddYears(years);
-                    }
+                case 4:
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddYears(1);
                     break;
 
             }
