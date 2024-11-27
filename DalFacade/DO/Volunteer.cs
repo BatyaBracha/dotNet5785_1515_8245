@@ -3,14 +3,21 @@ using System.Xml;
 
 namespace DO;
 /// <summary>
-///  Volunteer Entity represents a volunteer with all its props
+/// Volunteer Entity
 /// </summary>
-/// <param name = "Id" > Personal unique ID of the volunteer(as in national id card)</param>
-/// <param name="Name">Private Name of the volunteer</param>
-/// <param name="RegistrationDate">Registration date of the volunteer into the graduation program</param>
-/// <param name="Alias">volunteer’s alias name (default empty)</param>
-/// <param name="IsActive">whether the volunteer is active in volunteering (default true)</param>
-/// <param name="BirthDate">volunteer’s birthday (default empty)</param>
+/// <param name="Id">unique ID (created automatically - provide 0 as an argument)</param>
+/// <param name="FullName">FullName of volunteer</param>
+/// <param name="Phone">PhoneNumber of volunteer</param>
+/// <param name="Email">Email of volunteer</param>
+/// <param name="Password">Password of volunteer</param>
+/// <param name="CurrentAddress">CurrentAddress of volunteer</param>
+/// <param name="Position">Position of volunteer - can be a manager or a volunteer</param>
+/// <param name="Latitude">Indicate how far a point on the earth is north or south of the equator </param>
+/// <param name="Longitude">Indicate how far a point on the earth is east or west of the equator </param>
+/// <param name="IsActive">Indicate if  the volunteer is active or not </param>
+/// <param name="MaxDistance">The  MaxDistance  to receive a call</param>
+/// <param name="DistanceType">DistanceType - type of Distance ,default - AIR </param>
+///
 public record Volunteer
    (
      int Id,
