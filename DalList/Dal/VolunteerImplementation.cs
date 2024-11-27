@@ -4,11 +4,10 @@ namespace Dal;
 using DO;
 using DalApi;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
-public class VolunteerImplementation 
+public class VolunteerImplementation :IVolunteer
 {
-    public int Create(Volunteer item)
+    public  int Create(Volunteer item)
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
         if (v != null)

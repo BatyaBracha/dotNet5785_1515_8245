@@ -10,7 +10,7 @@ public record Call
     string Address,
     double? latitude,
     double? longitude,
-    //TimeSpan? riskRange,
+    TimeSpan? riskRange,
     DateTime OpeningTime,
     DateTime? MaxClosingTime = null
 )
@@ -18,5 +18,5 @@ public record Call
     /// <summary>
     /// Default constructor with default property values
     /// </summary>
-    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0, DateTime.MinValue){}
+    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0,null, DateTime.MinValue){}
 }

@@ -3,9 +3,8 @@
 namespace Dal;
 using DO;
 using DalApi;
-using System.Collections.Generic;
 
-public class CallImplementation 
+public class CallImplementation : ICall
 {
     public int Create(Call item)
     {
@@ -13,7 +12,7 @@ public class CallImplementation
         if (c != null)
             throw new Exception($"An object of type Call with this id {item.Id} already exists");
         int newId = Dal.Config.NextCallId;
-        Call callCopy = new Call(newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.OpeningTime,item.MaxClosingTime);
+        Call callCopy = new Call(newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.riskRange,item.OpeningTime,item.MaxClosingTime);
         DataSource.Calls.Add(callCopy);
         return callCopy.Id;
     }

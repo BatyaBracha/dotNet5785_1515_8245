@@ -66,25 +66,31 @@ namespace DalTest
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine()!;
-            Console.WriteLine("Enter your name");
-            string name = Console.ReadLine()!;
-            Console.WriteLine("Enter your phone");
-            string phone = Console.ReadLine()!;
-            Console.WriteLine("Enter your email");
-            string email = Console.ReadLine()!;
-            Console.WriteLine("Enter your address");
-            string address = Console.ReadLine()!;
-            Console.WriteLine("Enter your password");
-            string password = Console.ReadLine()!;
-            Console.WriteLine("Enter your max distance");
-            string maxDistance = Console.ReadLine()!;
-            Console.WriteLine("Enter your role");
-            string role = Console.ReadLine()!;
-            Console.WriteLine("Enter your type of distance");
-            Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
-            string typeOfDistance = Console.ReadLine()!;
-            TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-            s_dalVolunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+            if (s_dalVolunteer!.Read(int.Parse(id)) != null)
+            {
+                Console.WriteLine("Enter your name");
+                string name = Console.ReadLine()!;
+                Console.WriteLine("Enter your phone");
+                string phone = Console.ReadLine()!;
+                Console.WriteLine("Enter your email");
+                string email = Console.ReadLine()!;
+                Console.WriteLine("Enter your address");
+                string address = Console.ReadLine()!;
+                Console.WriteLine("Enter your password");
+                string password = Console.ReadLine()!;
+                Console.WriteLine("Enter your max distance");
+                string maxDistance = Console.ReadLine()!;
+                Console.WriteLine("Enter your role");
+                string role = Console.ReadLine()!;
+                Console.WriteLine("Enter your type of distance");
+                Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
+                string typeOfDistance = Console.ReadLine()!;
+                TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
+                s_dalVolunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+
+            }
+            else
+                throw new Exception("an obj with this id does not exist\n");
         }
 
         private void volunteerReadAll()
@@ -131,9 +137,12 @@ namespace DalTest
 
         private void volunteerDelete()
         {
-            Console.WriteLine("Enter your ID");
-            string id = Console.ReadLine()!;
-            s_dalVolunteer!.Delete(int.Parse(id));
+                Console.WriteLine("Enter your ID");
+                string id = Console.ReadLine()!;
+            if (s_dalVolunteer!.Read(int.Parse(id)) != null)
+                s_dalVolunteer!.Delete(int.Parse(id));
+            else
+                throw new Exception("an obj with this id does not exist\n");
         }
 
         private void volunteerDeleteAll()
@@ -221,19 +230,26 @@ namespace DalTest
         {
             Console.WriteLine("Enter assignment ID");
             string assignmentId = Console.ReadLine()!;
-            s_dalAssignment!.Read(int.Parse(assignmentId));
-            Console.WriteLine("Enter the call id");
-            string callId = Console.ReadLine()!;
-            Console.WriteLine("Enter the volunteer's id");
-            string volunteerId = Console.ReadLine()!;
-            s_dalAssignment.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
+            if (s_dalAssignment!.Read(int.Parse(assignmentId)) != null)
+            {
+                Console.WriteLine("Enter the call id");
+                string callId = Console.ReadLine()!;
+                Console.WriteLine("Enter the volunteer's id");
+                string volunteerId = Console.ReadLine()!;
+                s_dalAssignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
+            }
+            else
+                throw new Exception("an obj with this id does not exist\n");
         }
 
         private void assignmentDelete()
         {
             Console.WriteLine("Enter assignment Id");
             string assignmentId = Console.ReadLine()!;
-            s_dalAssignment!.Delete(int.Parse(assignmentId));
+            if (s_dalAssignment!.Read(int.Parse(assignmentId)) != null)
+                s_dalAssignment!.Delete(int.Parse(assignmentId));
+            else
+                throw new Exception("an obj with this id does not exist\n");
         }
 
         private void assignmentDeleteAll()
@@ -303,8 +319,7 @@ namespace DalTest
             string discription = Console.ReadLine()!;
             Console.WriteLine("Enter the call address");
             string address = Console.ReadLine()!;
-            s_dalCall.Create(new(0, convertedType, discription, address, null, null, s_dalConfig.Clock, null));
-            //newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.OpeningTime,item.MaxClosingTime
+            s_dalCall!.Create(new(0, convertedType, discription, address, null, null, s_dalConfig!.RiskRange, s_dalConfig.Clock, null));
         }
         private void callRead()
         {
@@ -325,21 +340,28 @@ namespace DalTest
         {
             Console.WriteLine("Enter the call id");
             string callId = Console.ReadLine()!;
-            s_dalAssignment!.Read(int.Parse(callId));
-            Console.WriteLine("Enter type of call");
-            string typeOfCall = Console.ReadLine()!;
-            TypeOfCall convertedTypeOfCall = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), typeOfCall);
-            Console.WriteLine("Enter a discription");
-            string discription = Console.ReadLine()!;
-            Console.WriteLine("Enter the call address");
-            string address = Console.ReadLine()!;
-            s_dalCall!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dalConfig.Clock, null));
+            if (s_dalCall!.Read(int.Parse(callId)) != null)
+            {
+                Console.WriteLine("Enter type of call");
+                string typeOfCall = Console.ReadLine()!;
+                TypeOfCall convertedTypeOfCall = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), typeOfCall);
+                Console.WriteLine("Enter a discription");
+                string discription = Console.ReadLine()!;
+                Console.WriteLine("Enter the call address");
+                string address = Console.ReadLine()!;
+                s_dalCall!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dalConfig!.RiskRange, s_dalConfig.Clock, null));
+            }
+            else
+                throw new Exception("an obj with this id does not exist\n");
         }
         private void callDelete()
         {
             Console.WriteLine("Enter call Id");
             string callId = Console.ReadLine()!;
-            s_dalAssignment!.Delete(int.Parse(callId));
+            if (s_dalVolunteer!.Read(int.Parse(callId)) != null)
+                s_dalAssignment!.Delete(int.Parse(callId));
+            else
+                throw new Exception("an obj with this id does not exist\n");
         }
         private void callDeleteAll()
         {
@@ -347,7 +369,7 @@ namespace DalTest
         }
         private void initialize()
         {
-            Initialization.Do( s_dalVolunteer, s_dalCall, s_dalAssignment, s_dalConfig );
+            Initialization.Do(s_dalVolunteer, s_dalCall, s_dalAssignment, s_dalConfig);
         }
 
         private void printAllData()
@@ -471,9 +493,9 @@ namespace DalTest
             {
                 case "1":
                     {
-                        Console.WriteLine(s_dalCall!.RiskRange);
+                        Console.WriteLine(s_dalConfig!.RiskRange);
                         Console.WriteLine("Enter the details of the new risk range:\nhours:\n");
-                        string hours=Console.ReadLine()!;
+                        string hours = Console.ReadLine()!;
                         Console.WriteLine("minutes:\n");
                         string minutes = Console.ReadLine()!;
                         Console.WriteLine("seconds:");
@@ -510,7 +532,7 @@ namespace DalTest
             {
                 case "1":
                     {
-                        Console.WriteLine(s_dalCall!.RiskRange);
+                        Console.WriteLine(s_dalConfig!.RiskRange);
                     }
                     break;
 
@@ -534,7 +556,7 @@ namespace DalTest
         }
 
 
-        public void Main(string[] args)
+        public  void Main(string[] args)
         {
             try
             {

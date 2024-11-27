@@ -213,6 +213,7 @@ public static class Initialization
                 addresses[index],
                 coordinates[index].Latitude,
                 coordinates[index].Longitude,
+                s_dalConfig.RiskRange,
                 start.AddMinutes(startingTime),
                 start.AddMinutes(startingTime + s_rand.Next(30, 360))
             ));
