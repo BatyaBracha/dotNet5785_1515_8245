@@ -157,13 +157,14 @@ public static class Initialization
   (  31.780125,  35.207889 ),  (  31.792178,  35.205321 ), (  31.784222,  35.213127 ), (  31.797433,  35.214278 ), (  31.798189,  35.206539 ),
    (  31.794056,  35.221325 ),(  31.798832,  35.214994 ),(  31.799845,  35.227146 ), (  31.780829,  35.229744 ),
   (31.781869,  35.236349 ),(  31.799467,  35.240458 ), (  31.788469,  35.235679 )};
+        string[] passwords = { "0ZRhtg@fX8", "Yyxk%zHBBv", "xaCVl@@YVk", "op*pix&iZ&", "(zdMnv9K26", "A7bR#ZX^^2", "pnK6U31HCR", "2tvFx(*92!", "C0pjk1NzwI", "aAmrbepq#3", "%1IlDaLWn%", "chNF08*vWn", "qBf$@2HDyS", "ca*)&UrEgJ", "p!L2z#7h@m}" };
+        int[] maxDistances = { 219, 748, 298, 767, 893, 419, 974, 908, 959, 450, 166, 978, 595, 250, 575 };
+        s_dalVolunteer!.Create(new(s_rand.Next(MIN_ID, MAX_ID), "Mali Horowitz", "0583278625", "mh0583278625@gmail.com", "password", "Ha'ayalot 25", 31.8, 35.1, Role.ADMINISTRATOR, true, 250, (TypeOfDistance)s_rand.Next(0, 2)));
 
-        s_dalVolunteer!.Create(new(s_rand.Next(MIN_ID, MAX_ID), "Mali Horowitz", "0583278625", "mh0583278625@gmail.com", true, Role.ADMINISTRATOR, "mh0583278625@", "Ha'ayalot 25", 31.8, 35.1, 10));
         for (int i = 0; i < 15; i++)
         {
-            s_dalVolunteer!.Create(new(s_rand.Next(MIN_ID, MAX_ID), names[i], phones[i], $"{names[i]}{phones[i]}@gmail.com", true, Position.Volunteer, $"{names[i].Substring(0, 4)}{phones[i].Substring(0, 4)}", addresses[i], coordinates[i].Latitude, coordinates[i].Longitude, s_rand.Next(0, 10)));
+            s_dalVolunteer!.Create(new(s_rand.Next(MIN_ID, MAX_ID), names[i], phones[i], $"{names[i]}{phones[i]}@gmail.com", passwords[i], addresses[i], coordinates[i].Latitude, coordinates[i].Longitude, Role.STANDARD, true, maxDistances[i], (TypeOfDistance)s_rand.Next(0, 2)));
         }
-
 
     }
     private static void CreateCall()
@@ -206,14 +207,14 @@ public static class Initialization
 
             int startingTime = s_rand.Next(range);
             int index = s_rand.Next(addresses.Length);
-            s_dalCall!.Create(new Call(
+            s_dalCall!.Create(new Call(0,
                 (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
+                 descriptions[s_rand.Next(descriptions.Length)],
                 addresses[index],
                 coordinates[index].Latitude,
                 coordinates[index].Longitude,
                 start.AddMinutes(startingTime),
-                start.AddMinutes(startingTime + s_rand.Next(30, 360)),
-                descriptions[s_rand.Next(descriptions.Length)]
+                start.AddMinutes(startingTime + s_rand.Next(30, 360))
             ));
         }
     }
@@ -224,13 +225,13 @@ public static class Initialization
 
         for (int i = 0; i < 50; i++)
         {
-            // חישוב הזמן ההתחלתי והזמן הסופי עבור כל שיחה
+            // חישוב הזמן ההתחלתי והזמן הסופי עבור כל קריאה
 
             DateTime minTime = callsList[i].OpeningTime; // הזמן המינימלי
-            DateTime maxTime = (DateTime)callsList[i].MaxTimeFinishCalling!; // הזמן המקסימלי
+            DateTime maxTime = (DateTime)callsList[i].MaxClosingTime!; // הזמן המקסימלי
             TimeSpan diff = maxTime - minTime - TimeSpan.FromHours(2);
             DateTime randomTime = minTime.AddMinutes(s_rand.Next((int)diff.TotalMinutes));
-            s_dalAssignment!.Create(new Assignment(callsList[i].Id, volunteersList[s_rand.Next(volunteersList.Count())].Id, randomTime, randomTime.AddHours(2), (EndingTimeType)s_rand.Next(Enum.GetValues(typeof(EndingTimeType)).Length - 1)));
+            s_dalAssignment!.Create(new Assignment(0,callsList[i].Id, volunteersList[s_rand.Next(volunteersList.Count())].Id, randomTime, randomTime.AddHours(2), (TypeOfTreatmentEnding)s_rand.Next(Enum.GetValues(typeof(TypeOfTreatmentEnding)).Length - 1)));
         }
     }
 

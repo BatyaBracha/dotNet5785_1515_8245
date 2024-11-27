@@ -7,11 +7,10 @@ namespace DalTest
 {
     internal class Program
     {
-        private static IVolunteer? s_dalVolunteer = new VolunteerImplementation();
-        private static IAssignment? s_dalAssignment = new AssignmentImplementation();
-        private static ICall? s_dalCall = new CallImplementation();
-        private static IConfig? s_dalConfig = new ConfigImplementation();
-
+        private static IVolunteer? s_dalVolunteer = new VolunteerImplementation(); //stage 1
+        private static IAssignment? s_dalAssignment = new AssignmentImplementation(); //stage 1
+        private static ICall? s_dalCall = new CallImplementation(); //stage 1
+        private static IConfig? s_dalConfig = new ConfigImplementation(); //stage 1
         private void volunteerMenu()
         {
             try
@@ -19,7 +18,7 @@ namespace DalTest
                 SpecificOptions choice = SpecificOptions.EXIT;
                 do
                 {
-                    choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine());
+                    choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                     switch (choice)
                     {
                         case SpecificOptions.EXIT:
@@ -58,31 +57,31 @@ namespace DalTest
         private void volunteerUpdate()
         {
             Console.WriteLine("Enter your ID");
-            string id = Console.ReadLine();
+            string id = Console.ReadLine()!;
             Console.WriteLine("Enter your name");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine()!;
             Console.WriteLine("Enter your phone");
-            string phone = Console.ReadLine();
+            string phone = Console.ReadLine()!;
             Console.WriteLine("Enter your email");
-            string email = Console.ReadLine();
+            string email = Console.ReadLine()!;
             Console.WriteLine("Enter your address");
-            string address = Console.ReadLine();
+            string address = Console.ReadLine()!;
             Console.WriteLine("Enter your password");
-            string password = Console.ReadLine();
+            string password = Console.ReadLine()!;
             Console.WriteLine("Enter your max distance");
-            string maxDistance = Console.ReadLine();
+            string maxDistance = Console.ReadLine()!;
             Console.WriteLine("Enter your role");
-            string role = Console.ReadLine();
+            string role = Console.ReadLine()!;
             Console.WriteLine("Enter your type of distance");
             Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
-            string typeOfDistance = Console.ReadLine();
+            string typeOfDistance = Console.ReadLine()!;
             TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-            s_dalVolunteer.Update(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+            s_dalVolunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
         private void volunteerReadAll()
         {
-            List<Volunteer> volunteerList = s_dalVolunteer.ReadAll();
+            List<Volunteer> volunteerList = s_dalVolunteer!.ReadAll();
             foreach (var v in volunteerList)
             {
                 Console.WriteLine(v);
@@ -92,46 +91,46 @@ namespace DalTest
         private void volunteerRead()
         {
             Console.WriteLine("Enter an ID");
-            string id = Console.ReadLine();
-            Volunteer volunteer = s_dalVolunteer.Read(int.Parse(id));
+            string id = Console.ReadLine()!;
+            Volunteer volunteer = s_dalVolunteer!.Read(int.Parse(id))!;
             Console.WriteLine(volunteer);//לבדוק איך כותב למסך
         }
 
         private void volunteerCreate()
         {
             Console.WriteLine("Enter your ID");
-            string id = Console.ReadLine();
+            string id = Console.ReadLine()!;
             Console.WriteLine("Enter your name");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine()!;
             Console.WriteLine("Enter your phone");
-            string phone = Console.ReadLine();
+            string phone = Console.ReadLine()!;
             Console.WriteLine("Enter your email");
-            string email = Console.ReadLine();
+            string email = Console.ReadLine()!;
             Console.WriteLine("Enter your address");
-            string address = Console.ReadLine();
+            string address = Console.ReadLine()!;
             Console.WriteLine("Enter your password");
-            string password = Console.ReadLine();
+            string password = Console.ReadLine()!;
             Console.WriteLine("Enter your max distance");
-            string maxDistance = Console.ReadLine();
+            string maxDistance = Console.ReadLine()!;
             Console.WriteLine("Enter your role");
-            string role = Console.ReadLine();
+            string role = Console.ReadLine()!;
             Console.WriteLine("Enter your type of distance");
             Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
-            string typeOfDistance = Console.ReadLine();
+            string typeOfDistance = Console.ReadLine()!;
             TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-            s_dalVolunteer.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+            s_dalVolunteer!.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
         private void volunteerDelete()
         {
             Console.WriteLine("Enter your ID");
-            string id = Console.ReadLine();
-            s_dalVolunteer.Delete(int.Parse(id));
+            string id = Console.ReadLine()!;
+            s_dalVolunteer!.Delete(int.Parse(id));
         }
 
         private void volunteerDeleteAll()
         {
-            s_dalVolunteer.DeleteAll();
+            s_dalVolunteer!.DeleteAll();
         }
 
         private void assignmentMenu()
@@ -180,23 +179,23 @@ namespace DalTest
         private void assignmentCreate()
         {
             Console.WriteLine("Enter the call id");
-            string callId = Console.ReadLine();
+            string callId = Console.ReadLine()!;
             Console.WriteLine("Enter the volunteer's id");
-            string volunteerId = Console.ReadLine();
-            s_dalAssignment.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
+            string volunteerId = Console.ReadLine()!;
+            s_dalAssignment!.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
             //newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding
         }
 
         private void assignmentRead()
         {
             Console.WriteLine("Enter an ID");
-            string id = Console.ReadLine();
-            Console.WriteLine(s_dalAssignment.Read(int.Parse(id)));
+            string id = Console.ReadLine()!;
+            Console.WriteLine(s_dalAssignment!.Read(int.Parse(id)));
         }
 
         private void assignmentReadAll()
         {
-            List<Assignment> assignmentList = s_dalAssignment.ReadAll();
+            List<Assignment> assignmentList = s_dalAssignment!.ReadAll();
             foreach (var item in assignmentList)
             {
                 Console.WriteLine(item);
@@ -206,25 +205,25 @@ namespace DalTest
         private void assignmentUpdate()
         {
             Console.WriteLine("Enter assignment ID");
-            string assignmentId = Console.ReadLine();
-            s_dalAssignment.Read(int.Parse(assignmentId));
+            string assignmentId = Console.ReadLine()!;
+            s_dalAssignment!.Read(int.Parse(assignmentId));
             Console.WriteLine("Enter the call id");
-            string callId = Console.ReadLine();
+            string callId = Console.ReadLine()!;
             Console.WriteLine("Enter the volunteer's id");
-            string volunteerId = Console.ReadLine();
+            string volunteerId = Console.ReadLine()!;
             s_dalAssignment.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
         }
 
         private void assignmentDelete()
         {
             Console.WriteLine("Enter assignment Id");
-            string assignmentId = Console.ReadLine();
-            s_dalAssignment.Delete(int.Parse(assignmentId));
+            string assignmentId = Console.ReadLine()!;
+            s_dalAssignment!.Delete(int.Parse(assignmentId));
         }
 
         private void assignmentDeleteAll()
         {
-            s_dalAssignment.DeleteAll();
+            s_dalAssignment!.DeleteAll();
         }
 
         private void callMenu()
@@ -273,27 +272,27 @@ namespace DalTest
         private void callCreate()
         {
             Console.WriteLine("Enter the call id");
-            string callId = Console.ReadLine();
+            string callId = Console.ReadLine()!;
             Console.WriteLine("Enter type of call");
-            string typeOfCall = Console.ReadLine();
-            TypeOfCall convertedTypeOfCall = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), convertedTypeOfCall);
+            string typeOfCall = Console.ReadLine()!;
+            TypeOfCall convertedType = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), typeOfCall);
             Console.WriteLine("Enter a discription");
-            string discription = Console.ReadLine();
+            string discription = Console.ReadLine()!;
             Console.WriteLine("Enter the call address");
-            string address = Console.ReadLine();
-            s_dalCall.Create(new(0, convertedTypeOfCall, discription, address, null, null, s_dalConfig.Clock, null));
+            string address = Console.ReadLine()!;
+            s_dalCall.Create(new(0, convertedType, discription, address, null, null, s_dalConfig.Clock, null));
             //newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.OpeningTime,item.MaxClosingTime
         }
         private void callRead()
         {
             Console.WriteLine("Enter callId");
-            string callId = Console.ReadLine();
+            string callId = Console.ReadLine()!;
             Call call = s_dalCall.Read(int.Parse(callId));
             Console.WriteLine(call);//לבדוק איך כותב למסך
         }
         private void callReadAll()
         {
-            List<Call> callList = s_dalCall.ReadAll();
+            List<Call> callList = s_dalCall!.ReadAll();
             foreach (var item in callList)
             {
                 Console.WriteLine(item);
@@ -302,47 +301,47 @@ namespace DalTest
         private void callUpdate()
         {
             Console.WriteLine("Enter the call id");
-            string callId = Console.ReadLine();
-            s_dalAssignment.Read(int.Parse(callId));
+            string callId = Console.ReadLine()!;
+            s_dalAssignment!.Read(int.Parse(callId));
             Console.WriteLine("Enter type of call");
-            string typeOfCall = Console.ReadLine();
-            TypeOfCall convertedTypeOfCall = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), convertedTypeOfCall);
+            string typeOfCall = Console.ReadLine()!;
+            TypeOfCall convertedTypeOfCall = (TypeOfCall)Enum.Parse(typeof(TypeOfCall), typeOfCall);
             Console.WriteLine("Enter a discription");
-            string discription = Console.ReadLine();
+            string discription = Console.ReadLine()!;
             Console.WriteLine("Enter the call address");
-            string address = Console.ReadLine();
-            s_dalCall.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dalConfig.Clock, null));
+            string address = Console.ReadLine()!;
+            s_dalCall!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dalConfig.Clock, null));
         }
         private void callDelete()
         {
             Console.WriteLine("Enter call Id");
-            string callId = Console.ReadLine();
-            s_dalAssignment.Delete(int.Parse(callId));
+            string callId = Console.ReadLine()!;
+            s_dalAssignment!.Delete(int.Parse(callId));
         }
         private void callDeleteAll()
         {
-            s_dalCall.DeleteAll();
+            s_dalCall!.DeleteAll();
         }
         private void initialize()
         {
-            Initialization.Do(s_dalAssignment, s_dalCall, s_dalConfig, s_dalVolunteer);
+            Initialization.Do( s_dalVolunteer, s_dalCall, s_dalAssignment, s_dalConfig );
         }
 
         private void printAllData()
         {
-            List<Volunteer> vList = s_dalVolunteer.ReadAll();
+            List<Volunteer> vList = s_dalVolunteer!.ReadAll();
             foreach (var item in vList)
             {
                 Console.WriteLine(item);
             }
 
-            List<Assignment> aList = s_dalAssignment.ReadAll();
+            List<Assignment> aList = s_dalAssignment!.ReadAll();
             foreach (var item in aList)
             {
                 Console.WriteLine(item);
             }
 
-            List<Call> cList = s_dalCall.ReadAll();
+            List<Call> cList = s_dalCall!.ReadAll();
             foreach (var item in cList)
             {
                 Console.WriteLine(item);
@@ -372,20 +371,18 @@ namespace DalTest
                             break;
                         case configOptions.ADVANCE_SYSTEM_CLOCK_BY_YEAR:
                             advanceSystem("year");
-
-                            callCreate();
                             break;
                         case configOptions.DISPLAY_CURRENT_TIME:
-                            callRead();
+                            Console.WriteLine(s_dalConfig!.Clock);
                             break;
                         case configOptions.CHANGE_VALUE:
-                            callReadAll();
+                            changeValue();
                             break;
                         case configOptions.DISPLAY_CURRENT_VALUE:
-                            callUpdate();
+                            displayCurrentValue();
                             break;
                         case configOptions.RESET_CONFIG:
-                            callDelete();
+                            s_dalConfig!.Reset();
                             break;
                         default:
                             Console.WriteLine("Invalid choice.");
@@ -407,50 +404,86 @@ namespace DalTest
                 case "minute":
                     if (int.TryParse(amount, out int minutes))
                     {
-                        s_dalConfig.Clock = s_dalConfig.Clock.AddMinutes(minutes);
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddMinutes(minutes);
                     }
                     break;
                 case "hour":
                     if (int.TryParse(amount, out int hours))
                     {
-                        s_dalConfig.Clock = s_dalConfig.Clock.AddHours(hours);
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddHours(hours);
                     }
                     break;
                 case "day":
                     if (int.TryParse(amount, out int days))
                     {
-                        s_dalConfig.Clock = s_dalConfig.Clock.AddHours(days);
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddDays(days);
                     }
                     break;
                 case "year":
                     if (int.TryParse(amount, out int years))
                     {
-                        s_dalConfig.Clock = s_dalConfig.Clock.AddHours(years);
+                        s_dalConfig!.Clock = s_dalConfig.Clock.AddYears(years);
                     }
                     break;
 
             }
         }
+        private void changeValue()
+        {
+            Console.WriteLine("Enter the number of the change you want to make:\n 1 for  ");
+        }
         private void resetDbAndConfig()
         {
-            s_dalVolunteer.DeleteAll();
-            s_dalAssignment.DeleteAll();
-            s_dalCall.DeleteAll();
-            s_dalConfig.Reset();
+            s_dalVolunteer!.DeleteAll();
+            s_dalAssignment!.DeleteAll();
+            s_dalCall!.DeleteAll();
+            s_dalConfig!.Reset();
+        }
+        private void displayCurrentValue()
+        {
+            Console.WriteLine("Enter the number of the variable you want to be displayed:\n 1 for startCallId\n 2 for startAssignmentId\n 3 for RiskRange\n 4 for Clock");
+            string choice = Console.ReadLine()!;
+            switch (choice)
+            {
+                case "1":
+                    {
+                    }
+                    break;
+                case "2":
+                    {
+
+                    }
+                    break;
+
+                case "3":
+                    {
+
+                    }
+                    break;
+
+                case "4":
+                    {
+                        Console.WriteLine(s_dalConfig!.Clock);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice.");
+                    break;
+
+            }
         }
 
-
-        public void Main(string[] args)
+            public void Main(string[] args)
         {
             try
             {
                 Options choice = Options.EXIT; // Set a default choice
-                choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine());
+                choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
 
                 while (choice != Options.EXIT)
                 {
                     Console.WriteLine("Enter your choice:");
-                    choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine());
+                    choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
 
                     switch (choice)
                     {

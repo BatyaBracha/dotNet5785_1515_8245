@@ -30,7 +30,7 @@ public record Volunteer
     /// <summary>
     /// Default constructor with default property values
     /// </summary>
-    public Volunteer() : this(0, "noName", "noPhone", "noEmail", null, null, null,null,default(Role),false,0,default(TypeOfDistance)
+    public Volunteer() : this(0, "noName", "noPhone", "noEmail", null, null, null,null,default(Role),false,0,default(TypeOfDistance))
     {
         // Additional initialization if needed
     }
