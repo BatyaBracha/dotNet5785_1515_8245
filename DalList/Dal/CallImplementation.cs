@@ -4,7 +4,7 @@ namespace Dal;
 using DO;
 using DalApi;
 
-public class CallImplementation : ICall
+public class CallImplementation : 
 {
     public int Create(Call item)
     {
