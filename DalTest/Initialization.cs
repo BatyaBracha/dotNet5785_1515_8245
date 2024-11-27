@@ -227,7 +227,6 @@ public static class Initialization
         for (int i = 0; i < 50; i++)
         {
             // חישוב הזמן ההתחלתי והזמן הסופי עבור כל קריאה
-
             DateTime minTime = callsList[i].OpeningTime; // הזמן המינימלי
             DateTime maxTime = (DateTime)callsList[i].MaxClosingTime!; // הזמן המקסימלי
             //TimeSpan diff = maxTime - minTime - TimeSpan.FromHours(2);
@@ -262,8 +261,5 @@ public static class Initialization
         CreateVolunteer();
         CreateCall();
         CreateAssignment();
-
     }
-
-
 }

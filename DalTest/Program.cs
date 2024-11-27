@@ -453,6 +453,7 @@ namespace DalTest
         }
         private static void advanceSystem(string amount)
         {
+            Console.WriteLine($"current time:{s_dalConfig!.Clock}");
             switch (amount)
             {
                 case "minute":
@@ -481,6 +482,7 @@ namespace DalTest
                     break;
 
             }
+            Console.WriteLine($"updated time:{s_dalConfig!.Clock}");
         }
         private static void changeValue()
         {
@@ -492,6 +494,7 @@ namespace DalTest
             {
                 case "1":
                     {
+                        Console.WriteLine($"current risk range:{s_dalConfig!.RiskRange}");
                         Console.WriteLine(s_dalConfig!.RiskRange);
                         Console.WriteLine("Enter the details of the new risk range:\nhours:\n");
                         string hours = Console.ReadLine()!;
@@ -500,11 +503,13 @@ namespace DalTest
                         Console.WriteLine("seconds:");
                         string seconds = Console.ReadLine()!;
                         s_dalConfig!.RiskRange = new TimeSpan(int.Parse(hours), int.Parse(minutes), int.Parse(seconds));
+                        Console.WriteLine($"updated risk range:{s_dalConfig!.RiskRange}");
                     }
                     break;
 
                 case "2":
                     {
+                        Console.WriteLine($"current time:{s_dalConfig!.Clock}");
                         Console.WriteLine(s_dalConfig!.Clock);
                         Console.WriteLine("Enter the details of the new clock:\nhour:\n");
                         string hour = Console.ReadLine()!;
@@ -513,6 +518,7 @@ namespace DalTest
                         Console.WriteLine("second:");
                         string second = Console.ReadLine()!;
                         s_dalConfig!.Clock = new DateTime(int.Parse(hour), int.Parse(minute), int.Parse(second));
+                        Console.WriteLine($"updated risk range:{s_dalConfig!.Clock}");
                     }
                     break;
                 default:
