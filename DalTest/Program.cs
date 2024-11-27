@@ -11,7 +11,7 @@ namespace DalTest
         private static IAssignment? s_dalAssignment = new AssignmentImplementation(); //stage 1
         private static ICall? s_dalCall = new CallImplementation(); //stage 1
         private static IConfig? s_dalConfig = new ConfigImplementation(); //stage 1
-        private void volunteerMenu()
+        private static void volunteerMenu()
         {
             try
             {
@@ -19,13 +19,13 @@ namespace DalTest
                 do
                 {
                     Console.WriteLine("Enter tour choice:\n" +
-                        "to exit press 1\n" +
-                        "to create a new volunteer press 2\n" +
-                        "to read a volunteer's details press 3\n" +
-                        "to read all volunteers' details press 4\n" +
-                        "to update a volunteer's datails press 5\n" +
-                        "to delete a volunteer press 6\n" +
-                        "to delete all volunteers press 7");
+                        "to exit press 0\n" +
+                        "to create a new volunteer press 1\n" +
+                        "to read a volunteer's details press 2\n" +
+                        "to read all volunteers' details press 3\n" +
+                        "to update a volunteer's datails press 4\n" +
+                        "to delete a volunteer press 5\n" +
+                        "to delete all volunteers press 6");
                     choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                     switch (choice)
                     {
@@ -62,7 +62,7 @@ namespace DalTest
             }
         }
 
-        private void volunteerUpdate()
+        private static void volunteerUpdate()
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine()!;
@@ -93,7 +93,7 @@ namespace DalTest
                 throw new Exception("an obj with this id does not exist\n");
         }
 
-        private void volunteerReadAll()
+        private static void volunteerReadAll()
         {
             List<Volunteer> volunteerList = s_dalVolunteer!.ReadAll();
             foreach (var v in volunteerList)
@@ -102,7 +102,7 @@ namespace DalTest
             }
         }
 
-        private void volunteerRead()
+        private static void volunteerRead()
         {
             Console.WriteLine("Enter an ID");
             string id = Console.ReadLine()!;
@@ -110,7 +110,7 @@ namespace DalTest
             Console.WriteLine(volunteer);//לבדוק איך כותב למסך
         }
 
-        private void volunteerCreate()
+        private static void volunteerCreate()
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine()!;
@@ -135,7 +135,7 @@ namespace DalTest
             s_dalVolunteer!.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
-        private void volunteerDelete()
+        private static void volunteerDelete()
         {
                 Console.WriteLine("Enter your ID");
                 string id = Console.ReadLine()!;
@@ -145,12 +145,12 @@ namespace DalTest
                 throw new Exception("an obj with this id does not exist\n");
         }
 
-        private void volunteerDeleteAll()
+        private static void volunteerDeleteAll()
         {
             s_dalVolunteer!.DeleteAll();
         }
 
-        private void assignmentMenu()
+        private static void assignmentMenu()
         {
             try
             {
@@ -158,13 +158,13 @@ namespace DalTest
                 do
                 {
                     Console.WriteLine("Enter tour choice:\n" +
-                        "to exit press 1\n" +
-                        "to create a new assignment press 2\n" +
-                        "to read an assignment's details press 3\n" +
-                        "to read all assignments' details press 4\n" +
-                        "to update an assignment's datails press 5\n" +
-                        "to delete an assignment press 6\n" +
-                        "to delete all assignments press 7");
+                        "to exit press 0\n" +
+                        "to create a new assignment press 1\n" +
+                        "to read an assignment's details press 2\n" +
+                        "to read all assignments' details press 3\n" +
+                        "to update an assignment's datails press 4\n" +
+                        "to delete an assignment press 5\n" +
+                        "to delete all assignments press 6");
                     choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                     switch (choice)
                     {
@@ -201,7 +201,7 @@ namespace DalTest
             }
         }
 
-        private void assignmentCreate()
+        private static void assignmentCreate()
         {
             Console.WriteLine("Enter the call id");
             string callId = Console.ReadLine()!;
@@ -210,14 +210,14 @@ namespace DalTest
             s_dalAssignment!.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
         }
 
-        private void assignmentRead()
+        private static void assignmentRead()
         {
             Console.WriteLine("Enter an ID");
             string id = Console.ReadLine()!;
             Console.WriteLine(s_dalAssignment!.Read(int.Parse(id)));
         }
 
-        private void assignmentReadAll()
+        private static void assignmentReadAll()
         {
             List<Assignment> assignmentList = s_dalAssignment!.ReadAll();
             foreach (var item in assignmentList)
@@ -226,7 +226,7 @@ namespace DalTest
             }
         }
 
-        private void assignmentUpdate()
+        private static void assignmentUpdate()
         {
             Console.WriteLine("Enter assignment ID");
             string assignmentId = Console.ReadLine()!;
@@ -242,7 +242,7 @@ namespace DalTest
                 throw new Exception("an obj with this id does not exist\n");
         }
 
-        private void assignmentDelete()
+        private static void assignmentDelete()
         {
             Console.WriteLine("Enter assignment Id");
             string assignmentId = Console.ReadLine()!;
@@ -252,12 +252,12 @@ namespace DalTest
                 throw new Exception("an obj with this id does not exist\n");
         }
 
-        private void assignmentDeleteAll()
+        private static void assignmentDeleteAll()
         {
             s_dalAssignment!.DeleteAll();
         }
 
-        private void callMenu()
+        private static void callMenu()
         {
             try
             {
@@ -265,13 +265,13 @@ namespace DalTest
                 do
                 {
                     Console.WriteLine("Enter tour choice:\n" +
-                        "to exit press 1\n" +
-                        "to create a new call press 2\n" +
-                        "to read a cal's details press 3\n" +
-                        "to read all calls' details press 4\n" +
-                        "to update a call's datails press 5\n" +
-                        "to delete a call press 6\n" +
-                        "to delete all calls press 7");
+                        "to exit press 0\n" +
+                        "to create a new call press 1\n" +
+                        "to read a cal's details press 2\n" +
+                        "to read all calls' details press 3\n" +
+                        "to update a call's datails press 4\n" +
+                        "to delete a call press 5\n" +
+                        "to delete all calls press 6");
                     choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine());
                     switch (choice)
                     {
@@ -308,7 +308,7 @@ namespace DalTest
             }
 
         }
-        private void callCreate()
+        private static void callCreate()
         {
             Console.WriteLine("Enter the call id");
             string callId = Console.ReadLine()!;
@@ -321,14 +321,14 @@ namespace DalTest
             string address = Console.ReadLine()!;
             s_dalCall!.Create(new(0, convertedType, discription, address, null, null, s_dalConfig!.RiskRange, s_dalConfig.Clock, null));
         }
-        private void callRead()
+        private static void callRead()
         {
             Console.WriteLine("Enter callId");
             string callId = Console.ReadLine()!;
             Call call = s_dalCall.Read(int.Parse(callId));
             Console.WriteLine(call);//לבדוק איך כותב למסך
         }
-        private void callReadAll()
+        private static void callReadAll()
         {
             List<Call> callList = s_dalCall!.ReadAll();
             foreach (var item in callList)
@@ -336,7 +336,7 @@ namespace DalTest
                 Console.WriteLine(item);
             }
         }
-        private void callUpdate()
+        private static void callUpdate()
         {
             Console.WriteLine("Enter the call id");
             string callId = Console.ReadLine()!;
@@ -354,7 +354,7 @@ namespace DalTest
             else
                 throw new Exception("an obj with this id does not exist\n");
         }
-        private void callDelete()
+        private static void callDelete()
         {
             Console.WriteLine("Enter call Id");
             string callId = Console.ReadLine()!;
@@ -363,16 +363,16 @@ namespace DalTest
             else
                 throw new Exception("an obj with this id does not exist\n");
         }
-        private void callDeleteAll()
+        private static void callDeleteAll()
         {
             s_dalCall!.DeleteAll();
         }
-        private void initialize()
+        private static void initialize()
         {
             Initialization.Do(s_dalVolunteer, s_dalCall, s_dalAssignment, s_dalConfig);
         }
 
-        private void printAllData()
+        private static void printAllData()
         {
             List<Volunteer> vList = s_dalVolunteer!.ReadAll();
             foreach (var item in vList)
@@ -393,7 +393,7 @@ namespace DalTest
             }
 
         }
-        private void configMenu()
+        private static void configMenu()
         {
             try
             {
@@ -401,15 +401,15 @@ namespace DalTest
                 do
                 {
                     Console.WriteLine("Enter tour choice:\n" +
-                        "to exit press 1\n" +
-                        "to advance the system clock by a minute press 2\n" +
-                        "to advance the system clock by an hour press 3\n" +
-                        "to advance the system clock by a day press 4\n" +
-                        "to advance the system clock by a year press 5\n" +
-                        "to display the current time press 6\n" +
-                        "to change a configuration value press 7\n" +
-                        "to display a current configuration value press 8\n" +
-                        "to reset the configuration press 9");
+                        "to exit press 0\n" +
+                        "to advance the system clock by a minute press 1\n" +
+                        "to advance the system clock by an hour press 2\n" +
+                        "to advance the system clock by a day press 3\n" +
+                        "to advance the system clock by a year press 4\n" +
+                        "to display the current time press 5\n" +
+                        "to change a configuration value press 6\n" +
+                        "to display a current configuration value press 7\n" +
+                        "to reset the configuration press 8");
                     choice = (configOptions)Enum.Parse(typeof(configOptions), Console.ReadLine()!);
                     switch (choice)
                     {
@@ -452,7 +452,7 @@ namespace DalTest
             }
 
         }
-        private void advanceSystem(string amount)
+        private static void advanceSystem(string amount)
         {
             switch (amount)
             {
@@ -483,7 +483,7 @@ namespace DalTest
 
             }
         }
-        private void changeValue()
+        private static void changeValue()
         {
             Console.WriteLine("Enter the number of the variable you want to change:\n" +
                 " 1 for RiskRange\n" +
@@ -522,7 +522,7 @@ namespace DalTest
 
             }
         }
-        private void displayCurrentValue()
+        private static void displayCurrentValue()
         {
             Console.WriteLine("Enter the number of the variable you want to be displayed:\n" +
                 " 1 for RiskRange\n" +
@@ -547,7 +547,7 @@ namespace DalTest
 
             }
         }
-        private void resetDbAndConfig()
+        private static void resetDbAndConfig()
         {
             s_dalVolunteer!.DeleteAll();
             s_dalAssignment!.DeleteAll();
@@ -556,24 +556,33 @@ namespace DalTest
         }
 
 
-        public  void Main(string[] args)
+        static void Main(string[] args)
         {
             try
             {
+                Console.WriteLine("Enter your choice:\n" +
+                             "to exit press 0\n" +
+                             "to the volunteer menu press 1\n" +
+                             "to the assignment menu press 2\n" +
+                             "to the call menue press 3\n" +
+                             "to initialize the system press 4\n" +
+                             "to print all the data press 5\n" +
+                             "to the configuration menu press 6\n" +
+                             "to reset the data base and the configurationpress 7.");
                 Options choice = Options.EXIT; // Set a default choice
                 choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
 
                 while (choice != Options.EXIT)
                 {
                     Console.WriteLine("Enter your choice:\n" +
-                        "to exit press 1\n" +
-                        "to the volunteer menu press 2\n" +
-                        "to the assignment menu press 3\n" +
-                        "to the call menue press 4\n" +
-                        "to initialize the system press 5\n" +
-                        "to print all the data press 6\n" +
-                        "to the configuration menu press 7\n" +
-                        "to reset the data base and the configurationpress 8.");
+                        "to exit press 0\n" +
+                        "to the volunteer menu press 1\n" +
+                        "to the assignment menu press 2\n" +
+                        "to the call menue press 3\n" +
+                        "to initialize the system press 4\n" +
+                        "to print all the data press 5\n" +
+                        "to the configuration menu press 6\n" +
+                        "to reset the data base and the configurationpress 7.");
                     choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
 
                     switch (choice)
