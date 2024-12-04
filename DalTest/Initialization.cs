@@ -62,8 +62,8 @@ public static class Initialization
         };
 
 
-        DateTime start = new DateTime(s_dalConfig!.Clock.Year,  s_dalConfig.Clock.Month, s_dalConfig.Clock.Day,  s_dalConfig.Clock.Hour - 7, 0, 0); ; //stage 1
-        int range = (int)(s_dalConfig.Clock - start).TotalMinutes;
+        DateTime start = new DateTime(s_dal.Config!.Clock.Year,  s_dal.Config.Clock.Month, s_dal.Config.Clock.Day,  s_dal.Config.Clock.Hour - 7, 0, 0); ; //stage 1
+        int range = (int)(s_dal.Config.Clock - start).TotalMinutes;
 
         for (int i = 0; i < 50; i++)
         {
@@ -76,7 +76,7 @@ public static class Initialization
                 addresses[index],
                 coordinates[index].Latitude,
                 coordinates[index].Longitude,
-                s_dalConfig.RiskRange,
+                s_dal.Config.RiskRange,
                 start.AddMinutes(startingTime),
                 start.AddMinutes(startingTime + s_rand.Next(30, 360))
             ));
@@ -84,8 +84,8 @@ public static class Initialization
     }
     private static void CreateAssignment()
     {
-        List<Call>? callsList = s_dalCall!.ReadAll();
-        List<Volunteer>? volunteersList = s_dalVolunteer!.ReadAll();
+        List<Call>? callsList = s_dal.Call!.ReadAll();
+        List<Volunteer>? volunteersList = s_dal.Volunteer!.ReadAll();
 
         for (int i = 0; i < 50; i++)
         {

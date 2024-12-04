@@ -7,10 +7,7 @@ namespace DalTest
 {
     internal class Program
     {
-        private static IVolunteer? s_dalVolunteer = new VolunteerImplementation(); //stage 1
-        private static IAssignment? s_dalAssignment = new AssignmentImplementation(); //stage 1
-        private static ICall? s_dalCall = new CallImplementation(); //stage 1
-        private static IConfig? s_dalConfig = new ConfigImplementation(); //stage 1
+        static readonly IDal s_dal = new DalList();
         private static void volunteerMenu()
         {
             try
@@ -368,7 +365,7 @@ namespace DalTest
         }
         private static void initialize()
         {
-            Initialization.Do(s_dalVolunteer, s_dalCall, s_dalAssignment, s_dalConfig);
+            Initialization.Do(s_dal);
         }
 
         private static void printAllData()
