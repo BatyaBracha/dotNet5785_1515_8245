@@ -62,7 +62,7 @@ public static class Initialization
         };
 
 
-        DateTime start = new DateTime(s_dalConfig!.Clock.Year, s_dalConfig.Clock.Month, s_dalConfig.Clock.Day, s_dalConfig.Clock.Hour - 7, 0, 0); ; //stage 1
+        DateTime start = new DateTime(s_dalConfig!.Clock.Year,  s_dalConfig.Clock.Month, s_dalConfig.Clock.Day,  s_dalConfig.Clock.Hour - 7, 0, 0); ; //stage 1
         int range = (int)(s_dalConfig.Clock - start).TotalMinutes;
 
         for (int i = 0; i < 50; i++)
