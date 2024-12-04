@@ -5,7 +5,7 @@ using DO;
 using DalApi;
 using System.Collections.Generic;
 
-public class VolunteerImplementation :IVolunteer
+internal class VolunteerImplementation :IVolunteer
 {
     public  int Create(Volunteer item)
     {
