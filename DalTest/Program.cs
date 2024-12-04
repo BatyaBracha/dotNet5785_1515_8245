@@ -7,10 +7,7 @@ namespace DalTest
 {
     internal class Program
     {
-        private static IVolunteer? s_dalVolunteer = new VolunteerImplementation(); //stage 1
-        private static IAssignment? s_dalAssignment = new AssignmentImplementation(); //stage 1
-        private static ICall? s_dalCall = new CallImplementation(); //stage 1
-        private static IConfig? s_dalConfig = new ConfigImplementation(); //stage 1
+        static readonly IDal s_dal = new DalList();
         private static void volunteerMenu()
         {
             try
@@ -66,7 +63,7 @@ namespace DalTest
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine()!;
-            if (s_dalVolunteer!.Read(int.Parse(id)) != null)
+            if (s_dal.Volunteer!.Read(int.Parse(id)) != null)
             {
                 Console.WriteLine("Enter your name");
                 string name = Console.ReadLine()!;
@@ -86,7 +83,7 @@ namespace DalTest
                 //Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
                 string typeOfDistance = Console.ReadLine()!;
                 TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-                s_dalVolunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
+                s_dal.Volunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
             }
             else
                 throw new Exception("an obj with this id does not exist\n");
@@ -94,7 +91,7 @@ namespace DalTest
 
         private static void volunteerReadAll()
         {
-            List<Volunteer> volunteerList = s_dalVolunteer!.ReadAll();
+            IEnumerable<Volunteer> volunteerList = s_dal.Volunteer!.ReadAll();
             foreach (var v in volunteerList)
             {
                 Console.WriteLine(v);
@@ -105,7 +102,7 @@ namespace DalTest
         {
             Console.WriteLine("Enter an ID");
             string id = Console.ReadLine()!;
-            Volunteer volunteer = s_dalVolunteer!.Read(int.Parse(id))!;
+            Volunteer volunteer = s_dal.Volunteer!.Read(int.Parse(id))!;
             Console.WriteLine(volunteer);//לבדוק איך כותב למסך
         }
 
@@ -131,22 +128,22 @@ namespace DalTest
             Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
             string typeOfDistance = Console.ReadLine()!;
             TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-            s_dalVolunteer!.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+            s_dal.Volunteer!.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
         private static void volunteerDelete()
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine()!;
-            if (s_dalVolunteer!.Read(int.Parse(id)) != null)
-                s_dalVolunteer!.Delete(int.Parse(id));
+            if (s_dal.Volunteer!.Read(int.Parse(id)) != null)
+                s_dal.Volunteer!.Delete(int.Parse(id));
             else
                 throw new Exception("an obj with this id does not exist\n");
         }
 
         private static void volunteerDeleteAll()
         {
-            s_dalVolunteer!.DeleteAll();
+            s_dal.Volunteer!.DeleteAll();
         }
 
         private static void assignmentMenu()
@@ -206,19 +203,19 @@ namespace DalTest
             string callId = Console.ReadLine()!;
             Console.WriteLine("Enter the volunteer's id");
             string volunteerId = Console.ReadLine()!;
-            s_dalAssignment!.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dalConfig.Clock, null, null));
+            s_dal.Assignment!.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dal.Config.Clock, null, null));
         }
 
         private static void assignmentRead()
         {
             Console.WriteLine("Enter an ID");
             string id = Console.ReadLine()!;
-            Console.WriteLine(s_dalAssignment!.Read(int.Parse(id)));
+            Console.WriteLine(s_dal.Assignment!.Read(int.Parse(id)));
         }
 
         private static void assignmentReadAll()
         {
-            List<Assignment> assignmentList = s_dalAssignment!.ReadAll();
+            IEnumerable<Assignment> assignmentList = s_dal.Assignment!.ReadAll();
             foreach (var item in assignmentList)
             {
                 Console.WriteLine(item);
@@ -229,13 +226,13 @@ namespace DalTest
         {
             Console.WriteLine("Enter assignment ID");
             string assignmentId = Console.ReadLine()!;
-            if (s_dalAssignment!.Read(int.Parse(assignmentId)) != null)
+            if (s_dal.Assignment!.Read(int.Parse(assignmentId)) != null)
             {
                 Console.WriteLine("Enter the call id");
                 string callId = Console.ReadLine()!;
                 Console.WriteLine("Enter the volunteer's id");
                 string volunteerId = Console.ReadLine()!;
-                s_dalAssignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dalConfig!.Clock, null, null));
+                s_dal.Assignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dal.Config!.Clock, null, null));
             }
             else
                 throw new Exception("an obj with this id does not exist\n");
@@ -245,15 +242,15 @@ namespace DalTest
         {
             Console.WriteLine("Enter assignment Id");
             string assignmentId = Console.ReadLine()!;
-            if (s_dalAssignment!.Read(int.Parse(assignmentId)) != null)
-                s_dalAssignment!.Delete(int.Parse(assignmentId));
+            if (s_dal.Assignment!.Read(int.Parse(assignmentId)) != null)
+                s_dal.Assignment!.Delete(int.Parse(assignmentId));
             else
                 throw new Exception("an obj with this id does not exist\n");
         }
 
         private static void assignmentDeleteAll()
         {
-            s_dalAssignment!.DeleteAll();
+            s_dal.Assignment!.DeleteAll();
         }
 
         private static void callMenu()
@@ -318,18 +315,18 @@ namespace DalTest
             string discription = Console.ReadLine()!;
             Console.WriteLine("Enter the call address");
             string address = Console.ReadLine()!;
-            s_dalCall!.Create(new(0, convertedType, discription, address, null, null, s_dalConfig!.RiskRange, s_dalConfig.Clock, null));
+            s_dal.Call!.Create(new(0, convertedType, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, null));
         }
         private static void callRead()
         {
             Console.WriteLine("Enter callId");
             string callId = Console.ReadLine()!;
-            Call call = s_dalCall.Read(int.Parse(callId));
+            Call call = s_dal.Call!.Read(int.Parse(callId));
             Console.WriteLine(call);//לבדוק איך כותב למסך
         }
         private static void callReadAll()
         {
-            List<Call> callList = s_dalCall!.ReadAll();
+            IEnumerable<Call> callList = s_dal.Call!.ReadAll();
             foreach (var item in callList)
             {
                 Console.WriteLine(item);
@@ -339,7 +336,7 @@ namespace DalTest
         {
             Console.WriteLine("Enter the call id");
             string callId = Console.ReadLine()!;
-            if (s_dalCall!.Read(int.Parse(callId)) != null)
+            if (s_dal.Call!.Read(int.Parse(callId)) != null)
             {
                 Console.WriteLine("Enter type of call");
                 string typeOfCall = Console.ReadLine()!;
@@ -348,7 +345,7 @@ namespace DalTest
                 string discription = Console.ReadLine()!;
                 Console.WriteLine("Enter the call address");
                 string address = Console.ReadLine()!;
-                s_dalCall!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dalConfig!.RiskRange, s_dalConfig.Clock, null));
+                s_dal.Call!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, null));
             }
             else
                 throw new Exception("an obj with this id does not exist\n");
@@ -357,35 +354,35 @@ namespace DalTest
         {
             Console.WriteLine("Enter call Id");
             string callId = Console.ReadLine()!;
-            if (s_dalVolunteer!.Read(int.Parse(callId)) != null)
-                s_dalAssignment!.Delete(int.Parse(callId));
+            if (s_dal.Volunteer!.Read(int.Parse(callId)) != null)
+                s_dal.Assignment!.Delete(int.Parse(callId));
             else
                 throw new Exception("an obj with this id does not exist\n");
         }
         private static void callDeleteAll()
         {
-            s_dalCall!.DeleteAll();
+            s_dal.Call!.DeleteAll();
         }
         private static void initialize()
         {
-            Initialization.Do(s_dalVolunteer, s_dalCall, s_dalAssignment, s_dalConfig);
+            Initialization.Do(s_dal);
         }
 
         private static void printAllData()
         {
-            List<Volunteer> vList = s_dalVolunteer!.ReadAll();
+            IEnumerable<Volunteer> vList = s_dal.Volunteer!.ReadAll();
             foreach (var item in vList)
             {
                 Console.WriteLine(item);
             }
 
-            List<Assignment> aList = s_dalAssignment!.ReadAll();
+            IEnumerable<Assignment> aList = s_dal.Assignment!.ReadAll();
             foreach (var item in aList)
             {
                 Console.WriteLine(item);
             }
 
-            List<Call> cList = s_dalCall!.ReadAll();
+            IEnumerable<Call> cList = s_dal.Call!.ReadAll();
             foreach (var item in cList)
             {
                 Console.WriteLine(item);
@@ -427,7 +424,7 @@ namespace DalTest
                             advanceSystem(4);
                             break;
                         case configOptions.DISPLAY_CURRENT_TIME:
-                            Console.WriteLine(s_dalConfig!.Clock);
+                            Console.WriteLine(s_dal.Config!.Clock);
                             break;
                         case configOptions.CHANGE_VALUE:
                             changeValue();
@@ -436,7 +433,7 @@ namespace DalTest
                             displayCurrentValue();
                             break;
                         case configOptions.RESET_CONFIG:
-                            s_dalConfig!.Reset();
+                            s_dal.Config!.Reset();
                             break;
                         default:
                             Console.WriteLine("Invalid choice.");
@@ -453,24 +450,24 @@ namespace DalTest
         }
         private static void advanceSystem(int amount)
         {
-            Console.WriteLine($"current time:{s_dalConfig!.Clock}");
+            Console.WriteLine($"current time:{s_dal.Config!.Clock}");
             switch (amount)
             {
                 case 1:
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddMinutes(1);
+                    s_dal.Config!.Clock = s_dal.Config.Clock.AddMinutes(1);
                     break;
                 case 2:
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddHours(1);
+                    s_dal.Config!.Clock = s_dal.Config.Clock.AddHours(1);
                     break;
                 case 3:
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddDays(1);
+                    s_dal.Config!.Clock = s_dal.Config.Clock.AddDays(1);
                     break;
                 case 4:
-                        s_dalConfig!.Clock = s_dalConfig.Clock.AddYears(1);
+                        s_dal.Config!.Clock = s_dal.Config.Clock.AddYears(1);
                     break;
 
             }
-            Console.WriteLine($"updated time:{s_dalConfig!.Clock}");
+            Console.WriteLine($"updated time:{s_dal.Config!.Clock}");
         }
         private static void changeValue()
         {
@@ -482,31 +479,31 @@ namespace DalTest
             {
                 case "1":
                     {
-                        Console.WriteLine($"current risk range:{s_dalConfig!.RiskRange}");
-                        Console.WriteLine(s_dalConfig!.RiskRange);
+                        Console.WriteLine($"current risk range:{s_dal.Config!.RiskRange}");
+                        Console.WriteLine(s_dal.Config!.RiskRange);
                         Console.WriteLine("Enter the details of the new risk range:\nhours:\n");
                         string hours = Console.ReadLine()!;
                         Console.WriteLine("minutes:\n");
                         string minutes = Console.ReadLine()!;
                         Console.WriteLine("seconds:");
                         string seconds = Console.ReadLine()!;
-                        s_dalConfig!.RiskRange = new TimeSpan(int.Parse(hours), int.Parse(minutes), int.Parse(seconds));
-                        Console.WriteLine($"updated risk range:{s_dalConfig!.RiskRange}");
+                        s_dal.Config!.RiskRange = new TimeSpan(int.Parse(hours), int.Parse(minutes), int.Parse(seconds));
+                        Console.WriteLine($"updated risk range:{s_dal.Config!.RiskRange}");
                     }
                     break;
 
                 case "2":
                     {
-                        Console.WriteLine($"current time:{s_dalConfig!.Clock}");
-                        Console.WriteLine(s_dalConfig!.Clock);
+                        Console.WriteLine($"current time:{s_dal.Config!.Clock}");
+                        Console.WriteLine(s_dal.Config!.Clock);
                         Console.WriteLine("Enter the details of the new clock:\nhour:\n");
                         string hour = Console.ReadLine()!;
                         Console.WriteLine("minute:\n");
                         string minute = Console.ReadLine()!;
                         Console.WriteLine("second:");
                         string second = Console.ReadLine()!;
-                        s_dalConfig!.Clock = new DateTime(int.Parse(hour), int.Parse(minute), int.Parse(second));
-                        Console.WriteLine($"updated risk range:{s_dalConfig!.Clock}");
+                        s_dal.Config!.Clock = new DateTime(int.Parse(hour), int.Parse(minute), int.Parse(second));
+                        Console.WriteLine($"updated risk range:{s_dal.Config!.Clock}");
                     }
                     break;
                 default:
@@ -525,13 +522,13 @@ namespace DalTest
             {
                 case "1":
                     {
-                        Console.WriteLine(s_dalConfig!.RiskRange);
+                        Console.WriteLine(s_dal.Config!.RiskRange);
                     }
                     break;
 
                 case "2":
                     {
-                        Console.WriteLine(s_dalConfig!.Clock);
+                        Console.WriteLine(s_dal.Config!.Clock);
                     }
                     break;
                 default:
@@ -542,10 +539,10 @@ namespace DalTest
         }
         private static void resetDbAndConfig()
         {
-            s_dalVolunteer!.DeleteAll();
-            s_dalAssignment!.DeleteAll();
-            s_dalCall!.DeleteAll();
-            s_dalConfig!.Reset();
+            s_dal.Volunteer!.DeleteAll();
+            s_dal.Assignment!.DeleteAll();
+            s_dal.Call!.DeleteAll();
+            s_dal.Config!.Reset();
         }
 
 

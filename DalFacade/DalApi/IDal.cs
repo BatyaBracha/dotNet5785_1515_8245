@@ -2,7 +2,7 @@
 
 namespace DalApi;
 
-internal interface IDal
+public interface IDal
 {
     IVolunteer Volunteer { get; }
     ICall Call { get; }

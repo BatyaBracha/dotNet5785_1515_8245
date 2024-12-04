@@ -4,7 +4,7 @@ namespace Dal;
 using DO;
 using DalApi;
 
-public class CallImplementation : ICall
+internal class CallImplementation : ICall
 {
     public int Create(Call item)
     {
@@ -32,16 +32,16 @@ public class CallImplementation : ICall
 
     public Call? Read(int id)
     {
-        Call c = DataSource.Calls.Find(element => element.Id == id);
+        Call c = DataSource.Calls.FirstOrDefault(element => element.Id == id)!;
         if (c != null)
             return c;
         return null;
     }
 
-    public List<Call> ReadAll()
-    {
-        return new List<Call>(DataSource.Calls);
-    }
+    public IEnumerable<Call> ReadAll(Func<Call, bool>? filter = null) //stage 2
+       => filter == null
+           ? DataSource.Calls.Select(item => item)
+           : DataSource.Calls.Where(filter);
 
     public void Update(Call item)
     {
@@ -50,6 +50,14 @@ public class CallImplementation : ICall
             throw new Exception("An object of type Volunteer with this Id does not exist");
         DataSource.Calls.Remove(c);
         DataSource.Calls.Add(item);
+    }
+
+    public Call? Read(Func<Call, bool> filter)
+    {
+        if (filter == null)
+            throw new Exception($"{nameof(filter)} Filter function cannot be null");
+
+        return DataSource.Calls.Cast<Call>().FirstOrDefault(filter);
     }
 
 }
