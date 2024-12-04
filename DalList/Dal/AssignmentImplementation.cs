@@ -30,16 +30,26 @@ internal class AssignmentImplementation :IAssignment
 
     public Assignment? Read(int id)
     {
-        Assignment a = DataSource.Assignments.Find(element => element.Id == id);
+        Assignment a = DataSource.Assignments.FirstOrDefault(item => item.Id == id)!;
         if (a != null)
             return a;
         return null;
     }
 
-    public List<Assignment> ReadAll()
-    {
-        return new List<Assignment>(DataSource.Assignments);
-    }
+    //public List<Assignment> ReadAll()
+    //{
+        //return new List<Assignment>(DataSource.Assignments);
+    
+    // ... 
+    public IEnumerable<Assignment> ReadAll(Func<Assignment, bool>? filter = null) //stage 2
+        => filter == null
+            ? DataSource.Assignments.Select(item => item)
+            : DataSource.Assignments.Where(filter);
+  //…
+
+
+
+//}
 
     public void Update(Assignment item)
     {
@@ -49,6 +59,14 @@ internal class AssignmentImplementation :IAssignment
         DataSource.Assignments.Remove(a);
         DataSource.Assignments.Add(item);
     }
-   
+
+    public Assignment? Read(Func<Assignment, bool> filter)
+    {
+        if (filter == null)
+            throw new Exception($"{nameof(filter)} Filter function cannot be null");
+
+        return DataSource.Assignments.Cast<Assignment>().FirstOrDefault(filter);
+    }
+
 }
 

@@ -31,16 +31,16 @@ internal class VolunteerImplementation :IVolunteer
 
     public Volunteer? Read(int id)
     {
-        Volunteer v = DataSource.Volunteers.Find(element => element.Id == id);
+        Volunteer v = DataSource.Volunteers.FirstOrDefault(element => element.Id == id)!;
         if (v != null)
             return v;
         return null;
     }
 
-    public List<Volunteer> ReadAll()
-    {
-        return new List<Volunteer>(DataSource.Volunteers);
-    }
+    public IEnumerable<Volunteer> ReadAll(Func<Volunteer, bool>? filter = null) //stage 2
+      => filter == null
+          ? DataSource.Volunteers.Select(item => item)
+          : DataSource.Volunteers.Where(filter);
 
     public void Update(Volunteer item)
     {
@@ -49,5 +49,13 @@ internal class VolunteerImplementation :IVolunteer
             throw new Exception("An object of type Volunteer with this Id does not exist");
         DataSource.Volunteers.Remove(v);
         DataSource.Volunteers.Add(item);
+    }
+
+    public Volunteer? Read(Func<Volunteer, bool> filter)
+    {
+        if (filter == null)
+            throw new Exception($"{nameof(filter)} Filter function cannot be null");
+
+        return DataSource.Volunteers.Cast<Volunteer>().FirstOrDefault(filter);
     }
 }
