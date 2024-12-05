@@ -19,7 +19,7 @@ internal class AssignmentImplementation :IAssignment
     {
         Assignment a = DataSource.Assignments.Find(element => element.Id == id);
         if (a == null)
-            throw new Exception($"An object of type Volunteer with this Id {id} does not exist");
+            throw new DalDoesNotExistException($"An object of type Volunteer with this Id {id} does not exist");
         DataSource.Assignments.Remove(a);
     }
 
@@ -55,7 +55,7 @@ internal class AssignmentImplementation :IAssignment
     {
         Assignment a = DataSource.Assignments.Find(element => element.Id == item.Id);
         if (a == null)
-            throw new Exception($"An object of type Volunteer with this Id {item.Id} does not exist");
+            throw new DalDoesNotExistException($"An object of type Volunteer with this Id {item.Id} does not exist");
         DataSource.Assignments.Remove(a);
         DataSource.Assignments.Add(item);
     }
@@ -63,7 +63,7 @@ internal class AssignmentImplementation :IAssignment
     public Assignment? Read(Func<Assignment, bool> filter)
     {
         if (filter == null)
-            throw new Exception($"{nameof(filter)} Filter function cannot be null");
+            throw new NullException($"{nameof(filter)} Filter function cannot be null");
 
         return DataSource.Assignments.Cast<Assignment>().FirstOrDefault(filter);
     }

@@ -10,7 +10,7 @@ internal class CallImplementation : ICall
     {
         Call c = DataSource.Calls.Find(element => element.Id == item.Id);
         if (c != null)
-            throw new Exception($"An object of type Call with this id {item.Id} already exists");
+            throw new DalAlreadyExistsException($"An object of type Call with this id {item.Id} already exists");
         int newId = Dal.Config.NextCallId;
         Call callCopy = new Call(newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.riskRange,item.OpeningTime,item.MaxClosingTime);
         DataSource.Calls.Add(callCopy);
@@ -21,7 +21,7 @@ internal class CallImplementation : ICall
     {
         Call c = DataSource.Calls.Find(element => element.Id == id);
         if (c == null)
-            throw new Exception($"An object of type Call with this Id does not exist");
+            throw new DalDoesNotExistException($"An object of type Call with this Id does not exist");
         DataSource.Calls.Remove(c);
     }
 
@@ -47,7 +47,7 @@ internal class CallImplementation : ICall
     {
         Call c = DataSource.Calls.Find(element => element.Id == item.Id);
         if (c == null)
-            throw new Exception("An object of type Volunteer with this Id does not exist");
+            throw new DalDoesNotExistException("An object of type Volunteer with this Id does not exist");
         DataSource.Calls.Remove(c);
         DataSource.Calls.Add(item);
     }
@@ -55,7 +55,7 @@ internal class CallImplementation : ICall
     public Call? Read(Func<Call, bool> filter)
     {
         if (filter == null)
-            throw new Exception($"{nameof(filter)} Filter function cannot be null");
+            throw new NullException($"{nameof(filter)} Filter function cannot be null");
 
         return DataSource.Calls.Cast<Call>().FirstOrDefault(filter);
     }

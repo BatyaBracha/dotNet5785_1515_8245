@@ -11,7 +11,7 @@ internal class VolunteerImplementation :IVolunteer
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
         if (v != null)
-            throw new Exception("An object of type volunteer with this id already exists");
+            throw new DalAlreadyExistsException("An object of type volunteer with this id already exists");
         DataSource.Volunteers.Add(item);
         return item.Id;
     }
@@ -20,7 +20,7 @@ internal class VolunteerImplementation :IVolunteer
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == id);
         if (v == null)
-            throw new Exception("An object of type Volunteer with this Id does not exist");
+            throw new DalDoesNotExistException("An object of type Volunteer with this Id does not exist");
         DataSource.Volunteers.Remove(v);
     }
 
@@ -46,7 +46,7 @@ internal class VolunteerImplementation :IVolunteer
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
         if (v == null)
-            throw new Exception("An object of type Volunteer with this Id does not exist");
+            throw new DalDoesNotExistException("An object of type Volunteer with this Id does not exist");
         DataSource.Volunteers.Remove(v);
         DataSource.Volunteers.Add(item);
     }
@@ -54,7 +54,7 @@ internal class VolunteerImplementation :IVolunteer
     public Volunteer? Read(Func<Volunteer, bool> filter)
     {
         if (filter == null)
-            throw new Exception($"{nameof(filter)} Filter function cannot be null");
+            throw new NullException($"{nameof(filter)} Filter function cannot be null");
 
         return DataSource.Volunteers.Cast<Volunteer>().FirstOrDefault(filter);
     }

@@ -86,7 +86,7 @@ namespace DalTest
                 s_dal.Volunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
             }
             else
-                throw new Exception("an obj with this id does not exist\n");
+                throw new DalDoesNotExistException("an obj with this id does not exist\n");
         }
 
         private static void volunteerReadAll()
@@ -138,7 +138,7 @@ namespace DalTest
             if (s_dal.Volunteer!.Read(int.Parse(id)) != null)
                 s_dal.Volunteer!.Delete(int.Parse(id));
             else
-                throw new Exception("an obj with this id does not exist\n");
+                throw new DalDoesNotExistException("an obj with this id does not exist\n");
         }
 
         private static void volunteerDeleteAll()
@@ -235,7 +235,7 @@ namespace DalTest
                 s_dal.Assignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dal.Config!.Clock, null, null));
             }
             else
-                throw new Exception("an obj with this id does not exist\n");
+                throw new DalDoesNotExistException("an obj with this id does not exist\n");
         }
 
         private static void assignmentDelete()
@@ -245,7 +245,7 @@ namespace DalTest
             if (s_dal.Assignment!.Read(int.Parse(assignmentId)) != null)
                 s_dal.Assignment!.Delete(int.Parse(assignmentId));
             else
-                throw new Exception("an obj with this id does not exist\n");
+                throw new DalDoesNotExistException("an obj with this id does not exist\n");
         }
 
         private static void assignmentDeleteAll()
@@ -348,7 +348,7 @@ namespace DalTest
                 s_dal.Call!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, null));
             }
             else
-                throw new Exception("an obj with this id does not exist\n");
+                throw new DalDoesNotExistException("an obj with this id does not exist\n");
         }
         private static void callDelete()
         {
@@ -357,7 +357,7 @@ namespace DalTest
             if (s_dal.Volunteer!.Read(int.Parse(callId)) != null)
                 s_dal.Assignment!.Delete(int.Parse(callId));
             else
-                throw new Exception("an obj with this id does not exist\n");
+                throw new DalDoesNotExistException("an obj with this id does not exist\n");
         }
         private static void callDeleteAll()
         {
