@@ -60,4 +60,5 @@ internal class CallImplementation : ICall
         return DataSource.Calls.Cast<Call>().FirstOrDefault(filter);
     }
 
+
 }
