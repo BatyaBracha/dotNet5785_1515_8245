@@ -9,10 +9,10 @@ using System.Xml.Linq;
 
 internal class VolunteerImplementation : IVolunteer
 {
-    static Volunteer getStudent(XElement v)
+    static Volunteer getVolunteer(XElement v)
     {
-        string r = (string?)v.Element("Role") ?? ""; // Your string value
-        Role? Role = r.ToEnumNullable<Role>();
+        //string r = (string?)v.Element("Role") ?? ""; // Your string value
+        //Role? Role = r.ToEnumNullable<Role>();
         return new DO.Volunteer()
         {
             Id = v.ToIntNullable("Id") ?? throw new FormatException("can't convert id"),
@@ -23,9 +23,7 @@ internal class VolunteerImplementation : IVolunteer
             Address = (string?)v.Element("Address") ?? "",
             latitude = v.ToDoubleNullable("latitude") ?? throw new FormatException("can't convert latitude"),
             longitude = v.ToDoubleNullable("longitude") ?? throw new FormatException("can't convert longitude"),
-
-            Role = (string?)v.Element("Role") ?? "".ToEnumNullable<Role>()
-            //Role =,
+            Role = (string?)v.Element("Role") ?? "".ToEnumNullable<Role>(),
             Active = (bool?)v.Element("IsActive") ?? false
             //MaxDistance,
             //TypeOfDistance
@@ -66,15 +64,15 @@ internal class VolunteerImplementation : IVolunteer
 
     public void Update(Volunteer item)
     {
-        XElement studentsRootElem = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
+        XElement volunteersRootElem = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
 
-        (studentsRootElem.Elements().FirstOrDefault(st => (int?)st.Element("Id") == item.Id)
-        ?? throw new DO.DalDoesNotExistException($"Student with ID={item.Id} does Not exist"))
+        (volunteersRootElem.Elements().FirstOrDefault(st => (int?)st.Element("Id") == item.Id)
+        ?? throw new DO.DalDoesNotExistException($"Volunteer with ID={item.Id} does Not exist"))
                 .Remove();
 
-        studentsRootElem.Add(new XElement("Volunteer", createVolunteerElement(item)));
+        volunteersRootElem.Add(new XElement("Volunteer", createVolunteerElement(item)));
 
-        XMLTools.SaveListToXMLElement(studentsRootElem, Config.s_volunteers_xml);
+        XMLTools.SaveListToXMLElement(volunteersRootElem, Config.s_volunteers_xml);
     }
 
 }
