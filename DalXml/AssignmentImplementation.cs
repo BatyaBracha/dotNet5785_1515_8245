@@ -4,9 +4,9 @@ using DO;
 
 internal class AssignmentImplementation : IAssignment
 {
-    public void Create(Assignment item)
+    public int Create(Assignment item)
     {
-        int newId = DalXml.Config.NextAssignmentId;
+        int newId = Config.NextAssignmentId;
         Assignment copy = new Assignment(newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding);
         List<Assignment> Assignments = XMLTools.LoadListFromXMLSerializer<Assignment>(Config.s_assignments_xml);
         Assignments.Add(copy);
@@ -31,13 +31,24 @@ internal class AssignmentImplementation : IAssignment
         return Assignments.FirstOrDefault(filter);
     }
 
+    //public IEnumerable<Assignment> ReadAll(Func<Assignment, bool>? filter = null)
+    //{
+    //    List<Assignments> Assignments = XMLTools.LoadListFromXMLSerializer<Assignment>(Config.s_assignments_xml);
+    //    => filter == null
+    //        ? Assignments.Select(item => item)
+    //        : Assignments.Where(filter);
+    //}
+
     public IEnumerable<Assignment> ReadAll(Func<Assignment, bool>? filter = null)
-    {
-        List<Assignments> Assignments = XMLTools.LoadListFromXMLSerializer<call>(Config.s_assignments_xml);
-        => filter == null
-            ? Assignments.Select(item => item)
-            : Assignments.Where(filter);
+    {//stage 2
+        List<Assignment> Assignments = XMLTools.LoadListFromXMLSerializer<Assignment>(Config.s_assignments_xml);
+
+        if (filter == null)
+            return Assignments.Select(item => item);
+        else
+            return Assignments.Where(filter);
     }
+
     public void Update(Assignment item)
     {
         List<Assignment> Assignments = XMLTools.LoadListFromXMLSerializer<Assignment>(Config.s_assignments_xml);
@@ -59,4 +70,8 @@ internal class AssignmentImplementation : IAssignment
         XMLTools.SaveListToXMLSerializer(new List<Assignment>(), Config.s_assignments_xml);
     }
 
+    int ICrud<Assignment>.Create(Assignment item)
+    {
+        throw new NotImplementedException();
+    }
 }
