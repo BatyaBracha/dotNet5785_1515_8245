@@ -1,4 +1,6 @@
 ﻿namespace Dal;
+using DalApi;
+using System.Reflection.Metadata.Ecma335;
 
 internal class ConfigImplementation : IConfig
 {
@@ -11,5 +13,15 @@ internal class ConfigImplementation : IConfig
     public void Reset()
     {
         Config.Reset();
+    }
+    //public DateTime RiskRange
+    //{
+    //    get => Config.RiskRange;
+    //    set => Config.RiskRange = value;
+    //}
+    public TimeSpan RiskRange
+    {
+        get => Config.RiskRange;
+        set => Config.RiskRange = value;
     }
 }

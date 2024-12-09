@@ -62,29 +62,28 @@ public static class Initialization
         };
 
 
-        DateTime start = new DateTime(s_dal.Config!.Clock.Year,  s_dal.Config.Clock.Month, s_dal.Config.Clock.Day,  s_dal.Config.Clock.Hour - 7, 0, 0); ; //stage 1
+        DateTime start = new DateTime(s_dal!.Config!.Clock.Year,  s_dal.Config.Clock.Month, s_dal.Config.Clock.Day,  s_dal.Config.Clock.Hour - 7, 0, 0); ; //stage 1
         int range = (int)(s_dal.Config.Clock - start).TotalMinutes;
 
         for (int i = 0; i < 50; i++)
         {
-
-            int startingTime = s_rand.Next(range);
-            int index = s_rand.Next(addresses.Length-1);
-            s_dal!.Call.Create(new Call(0,
-                (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
-                 descriptions[s_rand.Next(descriptions.Length)],
-                addresses[index],
-                coordinates[index].Latitude,
-                coordinates[index].Longitude,
-                s_dal.Config.RiskRange,
-                start.AddMinutes(startingTime),
-                start.AddMinutes(startingTime + s_rand.Next(30, 360))
-            ));
+                int startingTime = s_rand.Next(range);
+                int index = s_rand.Next(addresses.Length - 1);
+                s_dal!.Call.Create(new Call(0,
+                    (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
+                     descriptions[s_rand.Next(descriptions.Length)],
+                    addresses[index],
+                    coordinates[index].Latitude,
+                    coordinates[index].Longitude,
+                    s_dal.Config.RiskRange,
+                    start.AddMinutes(startingTime),
+                    start.AddMinutes(startingTime + s_rand.Next(30, 360))
+                ));
         }
     }
     private static void CreateAssignment()
     {
-        List<Call>? callsList = s_dal.Call!.ReadAll().ToList();
+        List<Call>? callsList = s_dal!.Call!.ReadAll().ToList();
         List<Volunteer>? volunteersList = s_dal.Volunteer!.ReadAll().ToList();
 
         for (int i = 0; i < 50; i++)

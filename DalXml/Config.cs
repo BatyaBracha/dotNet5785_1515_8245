@@ -23,11 +23,11 @@ internal static class Config
 
     //...
     //	
-    internal static DateTime RiskRange
-    {
-        get => XMLTools.GetConfigDateVal(s_data_config_xml, "RiskRange");
-        set => XMLTools.SetConfigDateVal(s_data_config_xml, "RiskRange", value);
-    }
+    internal static TimeSpan RiskRange { get; set; }
+    //{
+    //    get => XMLTools.GetConfigDateVal(s_data_config_xml, "RiskRange");
+    //    set => XMLTools.SetConfigDateVal(s_data_config_xml, "RiskRange", value);
+    //}
 
     internal static DateTime Clock
     {
@@ -38,8 +38,8 @@ internal static class Config
     internal static void Reset()
     {
 
-        NextCourseId = 1000
-            //...
+        NextCallId = 1000;
+        //...
         Clock = DateTime.Now;
         //...
     }
