@@ -30,57 +30,111 @@ public static class Initialization
         }
 
     }
+    //private static void CreateCall()
+    //{
+    //    string[] addresses = { "Herzl St, Tel Aviv", "Jaffa St, Jerusalem", "Ben Gurion Blvd, Haifa", "Main St, Beersheba", "Eilat Promenade, Eilat", "Rothschild Blvd, Tel Aviv", "Dizengoff St, Tel Aviv", "Ben Yehuda St, Tel Aviv", "Shderot Ben Gurion, Netanya", "David HaMelech St, Herzliya" };
+    //    // קואורדינטות של מיקומים בישראל (בהתאמה לכתובות)
+    //    (double Latitude, double Longitude)[] coordinates =
+    //    { (32.0853, 34.7818), // תל אביב (31.7683, 35.2137), // ירושלים
+    //        (32.7940, 34.9896), // חיפה
+    //        (31.2518, 34.7913), // באר שבע
+    //        (29.5581, 34.9482), // אילת
+    //        (32.0656, 34.7770), // רוטשילד תל אביב
+    //        (32.0755, 34.7756), // דיזנגוף תל אביב
+    //        (32.0838, 34.7698), // בן יהודה תל אביב
+    //        (32.3320, 34.8599), // נתניה
+    //        (32.1673, 34.8360)  // הרצליה
+    //    };
+
+    //    // תיאורים מילוליים רנדומליים
+    //    string[] descriptions =
+    //    {
+    //        "Flat tire on the highway.",
+    //        "Car battery is dead, needs jump start.",
+    //        "Ran out of fuel near the city center.",
+    //        "Locked keys inside the vehicle.",
+    //        "Vehicle recovery required from the beach.",
+    //        "Minor mechanical issue near the mall.",
+    //        "Medical emergency near the park.",
+    //        "Car stuck in the sand, needs assistance.",
+    //        "Flat tire on the road to Jerusalem.",
+    //        "Jump start required at the parking lot."
+    //    };
+
+
+    //    DateTime start = new DateTime(s_dal!.Config!.Clock.Year,  s_dal.Config.Clock.Month, s_dal.Config.Clock.Day,  s_dal.Config.Clock.Hour - 7, 0, 0); ; //stage 1
+    //    int range = (int)(s_dal.Config.Clock - start).TotalMinutes;
+
+    //    for (int i = 0; i < 50; i++)
+    //    {
+    //            int startingTime = s_rand.Next(range);
+    //            int index = s_rand.Next(addresses.Length - 1);
+    //            s_dal!.Call.Create(new Call(0,
+    //                (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
+    //                 descriptions[s_rand.Next(descriptions.Length)],
+    //                addresses[index],
+    //                coordinates[index].Latitude,
+    //                coordinates[index].Longitude,
+    //                s_dal.Config.RiskRange,
+    //                start.AddMinutes(startingTime),
+    //                start.AddMinutes(startingTime + s_rand.Next(30, 360))
+    //            ));
+    //    }
+    //}
     private static void CreateCall()
     {
         string[] addresses = { "Herzl St, Tel Aviv", "Jaffa St, Jerusalem", "Ben Gurion Blvd, Haifa", "Main St, Beersheba", "Eilat Promenade, Eilat", "Rothschild Blvd, Tel Aviv", "Dizengoff St, Tel Aviv", "Ben Yehuda St, Tel Aviv", "Shderot Ben Gurion, Netanya", "David HaMelech St, Herzliya" };
-        // קואורדינטות של מיקומים בישראל (בהתאמה לכתובות)
         (double Latitude, double Longitude)[] coordinates =
-        { (32.0853, 34.7818), // תל אביב (31.7683, 35.2137), // ירושלים
-            (32.7940, 34.9896), // חיפה
-            (31.2518, 34.7913), // באר שבע
-            (29.5581, 34.9482), // אילת
-            (32.0656, 34.7770), // רוטשילד תל אביב
-            (32.0755, 34.7756), // דיזנגוף תל אביב
-            (32.0838, 34.7698), // בן יהודה תל אביב
-            (32.3320, 34.8599), // נתניה
-            (32.1673, 34.8360)  // הרצליה
-        };
-
-        // תיאורים מילוליים רנדומליים
+        { (32.0853, 34.7818), (31.7683, 35.2137), (32.7940, 34.9896), (31.2518, 34.7913), (29.5581, 34.9482), (32.0656, 34.7770), (32.0755, 34.7756), (32.0838, 34.7698), (32.3320, 34.8599), (32.1673, 34.8360) };
         string[] descriptions =
         {
-            "Flat tire on the highway.",
-            "Car battery is dead, needs jump start.",
-            "Ran out of fuel near the city center.",
-            "Locked keys inside the vehicle.",
-            "Vehicle recovery required from the beach.",
-            "Minor mechanical issue near the mall.",
-            "Medical emergency near the park.",
-            "Car stuck in the sand, needs assistance.",
-            "Flat tire on the road to Jerusalem.",
-            "Jump start required at the parking lot."
-        };
+        "Flat tire on the highway.",
+        "Car battery is dead, needs jump start.",
+        "Ran out of fuel near the city center.",
+        "Locked keys inside the vehicle.",
+        "Vehicle recovery required from the beach.",
+        "Minor mechanical issue near the mall.",
+        "Medical emergency near the park.",
+        "Car stuck in the sand, needs assistance.",
+        "Flat tire on the road to Jerusalem.",
+        "Jump start required at the parking lot."
+    };
 
+        // בדיקה ששעון המערכת מאותחל
+        if (s_dal.Config.Clock == default)
+            throw new Exception("Clock value is not initialized in configuration.");
 
-        DateTime start = new DateTime(s_dal!.Config!.Clock.Year,  s_dal.Config.Clock.Month, s_dal.Config.Clock.Day,  s_dal.Config.Clock.Hour - 7, 0, 0); ; //stage 1
+        DateTime start = new DateTime(
+            s_dal.Config.Clock.Year,
+            s_dal.Config.Clock.Month,
+            s_dal.Config.Clock.Day,
+            s_dal.Config.Clock.Hour - 7, 0, 0);
+
         int range = (int)(s_dal.Config.Clock - start).TotalMinutes;
+        if (range <= 0)
+            throw new Exception("Invalid time range for creating calls.");
 
         for (int i = 0; i < 50; i++)
         {
-                int startingTime = s_rand.Next(range);
-                int index = s_rand.Next(addresses.Length - 1);
-                s_dal!.Call.Create(new Call(0,
-                    (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
-                     descriptions[s_rand.Next(descriptions.Length)],
-                    addresses[index],
-                    coordinates[index].Latitude,
-                    coordinates[index].Longitude,
-                    s_dal.Config.RiskRange,
-                    start.AddMinutes(startingTime),
-                    start.AddMinutes(startingTime + s_rand.Next(30, 360))
-                ));
+            int startingTime = s_rand.Next(range);
+            int index = s_rand.Next(addresses.Length);
+            Call newCall = new Call(
+                0,
+                (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
+                descriptions[s_rand.Next(descriptions.Length)],
+                addresses[index],
+                coordinates[index].Latitude,
+                coordinates[index].Longitude,
+                s_dal.Config.RiskRange,
+                start.AddMinutes(startingTime),
+                start.AddMinutes(startingTime + s_rand.Next(30, 360))
+            );
+
+            // יצירה ב-DAL
+            s_dal.Call.Create(newCall);
         }
     }
+
     private static void CreateAssignment()
     {
         List<Call>? callsList = s_dal!.Call!.ReadAll().ToList();
