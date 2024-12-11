@@ -49,7 +49,10 @@ internal class VolunteerImplementation : IVolunteer
             new XElement("latitude", item.latitude),
             new XElement("longitude", item.longitude),
             new XElement("Role", item.Role.ToString() ?? ""),
-            new XElement("IsActive", item.Active)
+            new XElement("IsActive", item.Active),
+            new XElement("MaxDistance", item.MaxDistance),
+            new XElement("TypeOfDistance", item.TypeOfDistance.ToString() ?? "")
+
         );
 
         volunteersRoot.Add(newVolunteer);

@@ -70,8 +70,8 @@ internal class AssignmentImplementation : IAssignment
         XMLTools.SaveListToXMLSerializer(new List<Assignment>(), Config.s_assignments_xml);
     }
 
-    int ICrud<Assignment>.Create(Assignment item)
-    {
-        throw new NotImplementedException();
-    }
+    //int ICrud<Assignment>.Create(Assignment item)
+    //{
+    //    throw new NotImplementedException();
+    //}
 }

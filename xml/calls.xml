@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Call>
+    <Id>1050</Id>
+    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
+    <Description>1</Description>
+    <Address>1</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2024-12-11T18:43:51</OpeningTime>
+    <MaxClosingTime xsi:nil="true" />
+  </Call>
+  <Call>
+    <Id>1051</Id>
+    <TypeOfCall>DIABETIC_EMERGENCY</TypeOfCall>
+    <Description>9</Description>
+    <Address>9</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2024-12-11T18:43:51</OpeningTime>
+    <MaxClosingTime xsi:nil="true" />
+  </Call>
+</ArrayOfCall>
