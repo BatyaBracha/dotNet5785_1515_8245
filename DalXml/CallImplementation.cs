@@ -60,8 +60,8 @@ internal class CallImplementation : ICall
         XMLTools.SaveListToXMLSerializer(new List<Call>(), Config.s_calls_xml);
     }
 
-    int ICrud<Call>.Create(Call item)
-    {
-        throw new NotImplementedException();
-    }
+    //int ICrud<Call>.Create(Call item)
+    //{
+    //    throw new NotImplementedException();
+    //}
 }

@@ -121,6 +121,10 @@ namespace DalTest
             string address = Console.ReadLine()!;
             Console.WriteLine("Enter your password");
             string password = Console.ReadLine()!;
+            Console.WriteLine("Enter your latitude");
+            string latitude = Console.ReadLine()!;
+            Console.WriteLine("Enter your longitude");
+            string longitude = Console.ReadLine()!;
             Console.WriteLine("Enter your max distance");
             string maxDistance = Console.ReadLine()!;
             Console.WriteLine("Enter your role");
@@ -129,7 +133,7 @@ namespace DalTest
             Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
             string typeOfDistance = Console.ReadLine()!;
             TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-            s_dal.Volunteer!.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+            s_dal.Volunteer!.Create(new(int.Parse(id), name, phone, email, password, address, Convert.ToDouble(latitude), Convert.ToDouble(longitude), convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
         private static void volunteerDelete()

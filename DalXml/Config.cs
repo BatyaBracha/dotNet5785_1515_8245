@@ -23,11 +23,11 @@ internal static class Config
 
     //...
     //	
-    internal static TimeSpan RiskRange { get; set; }
-    //{
-    //    get => XMLTools.GetConfigDateVal(s_data_config_xml, "RiskRange");
-    //    set => XMLTools.SetConfigDateVal(s_data_config_xml, "RiskRange", value);
-    //}
+    internal static TimeSpan RiskRange 
+    {
+        get => XMLTools.GetConfigTimeSpanVal(s_data_config_xml, "RiskRange");
+        set => XMLTools.SetConfigTimeSpanVal(s_data_config_xml, "RiskRange", value);
+    }
 
     internal static DateTime Clock
     {

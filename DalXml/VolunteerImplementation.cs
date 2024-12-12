@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 internal class VolunteerImplementation : IVolunteer
 {
-    static Volunteer getVolunteer(XElement v)
+    static Volunteer GetVolunteer(XElement v)
     {
         //string r = (string?)v.Element("Role") ?? ""; // Your string value
         //Role? Role = r.ToEnumNullable<Role>();
@@ -24,9 +24,9 @@ internal class VolunteerImplementation : IVolunteer
             latitude = v.ToDoubleNullable("latitude") ?? throw new FormatException("can't convert latitude"),
             longitude = v.ToDoubleNullable("longitude") ?? throw new FormatException("can't convert longitude"),
             Role = v.ToEnumNullable<Role>("Role") ?? throw new FormatException("can't convert Role"),
-            Active = (bool?)v.Element("IsActive") ?? false,
+            Active = (bool?)v.Element("Active") ?? false,
             MaxDistance = v.ToDoubleNullable("MaxDistance") ?? throw new FormatException("can't convert MaxDistance"),
-            TypeOfDistance= v.ToEnumNullable<TypeOfDistance>("TypeOfDistance") ?? throw new FormatException("can't convert TypeOfDistance")
+            TypeOfDistance = v.ToEnumNullable<TypeOfDistance>("TypeOfDistance") ?? throw new FormatException("can't convert TypeOfDistance")
         };
     }
 
@@ -49,7 +49,10 @@ internal class VolunteerImplementation : IVolunteer
             new XElement("latitude", item.latitude),
             new XElement("longitude", item.longitude),
             new XElement("Role", item.Role.ToString() ?? ""),
-            new XElement("IsActive", item.Active)
+            new XElement("IsActive", item.Active),
+            new XElement("MaxDistance", item.MaxDistance),
+            new XElement("TypeOfDistance", item.TypeOfDistance.ToString() ?? "")
+
         );
 
         volunteersRoot.Add(newVolunteer);
@@ -78,12 +81,12 @@ internal class VolunteerImplementation : IVolunteer
     {
         XElement? volunteerElm =
     XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml).Elements().FirstOrDefault(st => (int?)st.Element("Id") == id);
-        return volunteerElm is null ? null : getVolunteer(volunteerElm);
+        return volunteerElm is null ? null : GetVolunteer(volunteerElm);
     }
 
     public Volunteer? Read(Func<Volunteer, bool> filter)
     {
-        return XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml).Elements().Select(s => getVolunteer(s)).FirstOrDefault(filter);
+        return XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml).Elements().Select(s => GetVolunteer(s)).FirstOrDefault(filter);
     }
 
     public IEnumerable<Volunteer> ReadAll(Func<Volunteer, bool>? filter = null)
@@ -91,7 +94,7 @@ internal class VolunteerImplementation : IVolunteer
         IEnumerable<Volunteer> Volunteers = XMLTools
             .LoadListFromXMLElement(Config.s_volunteers_xml)
             .Elements()
-            .Select(v => getVolunteer(v));
+            .Select(v => GetVolunteer(v));
         return filter == null ? Volunteers : Volunteers.Where(filter);
     }
 
