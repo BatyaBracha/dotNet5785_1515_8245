@@ -503,7 +503,7 @@ namespace DalTest
                         Console.WriteLine("second:");
                         string second = Console.ReadLine()!;
                         s_dal.Config!.Clock = new DateTime(int.Parse(hour), int.Parse(minute), int.Parse(second));
-                        Console.WriteLine($"updated risk range:{s_dal.Config!.Clock}");
+                        Console.WriteLine($"updated clock:{s_dal.Config!.Clock}");
                     }
                     break;
                 default:
