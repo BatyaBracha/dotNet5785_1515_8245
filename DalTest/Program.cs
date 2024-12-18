@@ -64,30 +64,25 @@ namespace DalTest
         {
             Console.WriteLine("Enter your ID");
             string id = Console.ReadLine()!;
-            if (s_dal.Volunteer!.Read(int.Parse(id)) != null)
-            {
-                Console.WriteLine("Enter your name");
-                string name = Console.ReadLine()!;
-                Console.WriteLine("Enter your phone");
-                string phone = Console.ReadLine()!;
-                Console.WriteLine("Enter your email");
-                string email = Console.ReadLine()!;
-                Console.WriteLine("Enter your address");
-                string address = Console.ReadLine()!;
-                Console.WriteLine("Enter your password");
-                string password = Console.ReadLine()!;
-                Console.WriteLine("Enter your max distance");
-                string maxDistance = Console.ReadLine()!;
-                //Console.WriteLine("Enter your role");
-                //string role = Console.ReadLine()!;
-                Console.WriteLine("Enter your type of distance");
-                //Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
-                string typeOfDistance = Console.ReadLine()!;
-                TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-                s_dal.Volunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
-            }
-            else
-                throw new DalDoesNotExistException("an obj with this id does not exist\n");
+            Console.WriteLine("Enter your name");
+            string name = Console.ReadLine()!;
+            Console.WriteLine("Enter your phone");
+            string phone = Console.ReadLine()!;
+            Console.WriteLine("Enter your email");
+            string email = Console.ReadLine()!;
+            Console.WriteLine("Enter your address");
+            string address = Console.ReadLine()!;
+            Console.WriteLine("Enter your password");
+            string password = Console.ReadLine()!;
+            Console.WriteLine("Enter your max distance");
+            string maxDistance = Console.ReadLine()!;
+            //Console.WriteLine("Enter your role");
+            //string role = Console.ReadLine()!;
+            Console.WriteLine("Enter your type of distance");
+            //Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
+            string typeOfDistance = Console.ReadLine()!;
+            TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
+            s_dal.Volunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
         private static void volunteerReadAll()
@@ -121,10 +116,10 @@ namespace DalTest
             string address = Console.ReadLine()!;
             Console.WriteLine("Enter your password");
             string password = Console.ReadLine()!;
-            Console.WriteLine("Enter your latitude");
-            string latitude = Console.ReadLine()!;
-            Console.WriteLine("Enter your longitude");
-            string longitude = Console.ReadLine()!;
+            //Console.WriteLine("Enter your latitude");
+            //string latitude = Console.ReadLine()!;
+            //Console.WriteLine("Enter your longitude");
+            //string longitude = Console.ReadLine()!;
             Console.WriteLine("Enter your max distance");
             string maxDistance = Console.ReadLine()!;
             Console.WriteLine("Enter your role");
@@ -133,7 +128,7 @@ namespace DalTest
             Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
             string typeOfDistance = Console.ReadLine()!;
             TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-            s_dal.Volunteer!.Create(new(int.Parse(id), name, phone, email, password, address, Convert.ToDouble(latitude), Convert.ToDouble(longitude), convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
+            s_dal.Volunteer!.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
         private static void volunteerDelete()

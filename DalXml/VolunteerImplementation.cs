@@ -21,8 +21,10 @@ internal class VolunteerImplementation : IVolunteer
             Email = (string?)v.Element("Email") ?? "",
             Password = (string?)v.Element("Password") ?? "",
             Address = (string?)v.Element("Address") ?? "",
-            latitude = v.ToDoubleNullable("latitude") ?? throw new FormatException("can't convert latitude"),
-            longitude = v.ToDoubleNullable("longitude") ?? throw new FormatException("can't convert longitude"),
+            latitude = v.ToDoubleNullable("latitude") ??0.0,
+            //throw new FormatException("can't convert latitude"),
+            longitude = v.ToDoubleNullable("longitude") ?? 0.0,
+            //throw new FormatException("can't convert longitude"),
             Role = v.ToEnumNullable<Role>("Role") ?? throw new FormatException("can't convert Role"),
             Active = (bool?)v.Element("Active") ?? false,
             MaxDistance = v.ToDoubleNullable("MaxDistance") ?? throw new FormatException("can't convert MaxDistance"),
@@ -98,17 +100,50 @@ internal class VolunteerImplementation : IVolunteer
         return filter == null ? Volunteers : Volunteers.Where(filter);
     }
 
+    //public void Update(Volunteer item)
+    //{
+    //    XElement volunteersRootElem = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
+
+    //    (volunteersRootElem.Elements().FirstOrDefault(st => (int?)st.Element("Id") == item.Id)
+    //    ?? throw new DO.DalDoesNotExistException($"Volunteer with ID={item.Id} does Not exist"))
+    //            .Remove();
+
+    //    volunteersRootElem.Add(new XElement("Volunteer", Create(item)));
+
+    //    XMLTools.SaveListToXMLElement(volunteersRootElem, Config.s_volunteers_xml);
+    //}
+
     public void Update(Volunteer item)
     {
         XElement volunteersRootElem = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
 
-        (volunteersRootElem.Elements().FirstOrDefault(st => (int?)st.Element("Id") == item.Id)
-        ?? throw new DO.DalDoesNotExistException($"Volunteer with ID={item.Id} does Not exist"))
-                .Remove();
+        // מחפש את המתנדב לפי ה-ID ומוודא שהוא קיים
+        XElement volunteerToUpdate = volunteersRootElem.Elements()
+            .FirstOrDefault(st => (int?)st.Element("Id") == item.Id)
+            ?? throw new DO.DalDoesNotExistException($"Volunteer with ID={item.Id} does Not exist");
 
-        volunteersRootElem.Add(new XElement("Volunteer", Create(item)));
+        // מסיר את המתנדב הקיים
+        volunteerToUpdate.Remove();
 
+        // מוסיף את המתנדב המעודכן תחת אותו ID
+        volunteersRootElem.Add(new XElement("Volunteer",
+            new XElement("Id", item.Id),
+            new XElement("Name", item.Name),
+            new XElement("Phone", item.Phone),
+            new XElement("Email", item.Email),
+            new XElement("Password", item.Password),
+            new XElement("Address", item.Address),
+            new XElement("latitude", item.latitude),
+            new XElement("longitude", item.longitude),
+            new XElement("Role", item.Role.ToString() ?? ""),
+            new XElement("IsActive", item.Active),
+            new XElement("MaxDistance", item.MaxDistance),
+            new XElement("TypeOfDistance", item.TypeOfDistance.ToString() ?? "")
+        ));
+
+        // שומר את השינויים בקובץ
         XMLTools.SaveListToXMLElement(volunteersRootElem, Config.s_volunteers_xml);
     }
+
 
 }
