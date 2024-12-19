@@ -13,7 +13,7 @@ public static class Initialization
     {
         const int MIN_ID = 100000000;
         const int MAX_ID = 999999999;
-        string[] names = { "Tzipy", "Chani", "Yehudit", "Shira", "Moishy", "Efraim", "Shloimy", "Yosi", "Yoni", "Avi", "Chaim", "Ester", "Rachel", "Shani", "Michali" };
+        string[] names = { "Tzipy", "Chani", "Yehudit", "Shira", "Moishy" , "Efraim", "Shloimy", "Yosi", "Yoni", "Avi", "Chaim", "Ester", "Rachel", "Shani", "Michali" };
         string[] phones = { "0527614421", "0527614422", "0527614423", "0527614424", "0527614425", "0527614426", "0527614427", "0527614428", "0527614429", "0527614430", "0527614431", "0527614432", "0527614433", "0527614434", "0527614435" };
         string[] addresses = { "Malchei Israel 12", "Minchat Itzchak 23", "Hashofar 3", "Hare'em 14", "Eben Ezra 6", "HaTzvi 4", "Hakfir 5", "Hadishon 6", "Ha'ari 13", "Hatan 17", "Tchelet Mordechei 18", "Hamarkalim 4", "Rabi Akiva 15", "Hazon Ish 53", "Harav Shach 3" };
         (double Latitude, double Longitude)[] coordinates = {(31.771959, 35.217018 ), (  31.775469, 35.229568 ),  (  31.774578, 35.207031 ),
