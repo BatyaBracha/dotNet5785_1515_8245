@@ -321,8 +321,8 @@ namespace DalTest
         {
             Console.WriteLine("Enter callId");
             string callId = Console.ReadLine()!;
-            Call call = s_dal.Call!.Read(int.Parse(callId));
-            Console.WriteLine(call);//לבדוק איך כותב למסך
+            Call call = s_dal.Call.Read(int.Parse(callId))!;
+            Console.WriteLine(call);
         }
         private static void callReadAll()
         {
@@ -550,17 +550,8 @@ namespace DalTest
         {
             try
             {
-                //Console.WriteLine("Enter your choice:\n" +
-                //             "to exit press 0\n" +
-                //             "to the volunteer menu press 1\n" +
-                //             "to the assignment menu press 2\n" +
-                //             "to the call menue press 3\n" +
-                //             "to initialize the system press 4\n" +
-                //             "to print all the data press 5\n" +
-                //             "to the configuration menu press 6\n" +
-                //             "to reset the data base and the configuration press 7.");
 
-                Options choice = Options.EXIT; // Set a default choice
+                Options choice = Options.EXIT; 
                 do
                 {
                     Console.WriteLine("Enter your choice:\n" +
@@ -571,7 +562,7 @@ namespace DalTest
                         "to initialize the system press 4\n" +
                         "to print all the data press 5\n" +
                         "to the configuration menu press 6\n" +
-                        "to reset the data base and the configurationpress 7.");
+                        "to reset the data base and the configuration press 7.");
                     choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
 
                     switch (choice)
