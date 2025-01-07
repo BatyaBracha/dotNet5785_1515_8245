@@ -1,2 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ArrayOfVolunteer />
+<ArrayOfVolunteer>
+  <Volunteer>
+    <Id>32</Id>
+    <Name>32</Name>
+    <Phone>32</Phone>
+    <Email>32</Email>
+    <Password>32</Password>
+    <Address>32</Address>
+    <latitude />
+    <longitude />
+    <Role>2</Role>
+    <IsActive>false</IsActive>
+    <MaxDistance>2</MaxDistance>
+    <TypeOfDistance>DRIVE</TypeOfDistance>
+  </Volunteer>
+</ArrayOfVolunteer>

@@ -13,7 +13,7 @@ public static class Initialization
     {
         const int MIN_ID = 100000000;
         const int MAX_ID = 999999999;
-        string[] names = { "Tzipy", "Chani", "Yehudit", "Shira", "Moishy", "Efraim", "Shloimy", "Yosi", "Yoni", "Avi", "Chaim", "Ester", "Rachel", "Shani", "Michali" };
+        string[] names = { "Tzipy", "Chani", "Yehudit", "Shira", "Moishy" , "Efraim", "Shloimy", "Yosi", "Yoni", "Avi", "Chaim", "Ester", "Rachel", "Shani", "Michali" };
         string[] phones = { "0527614421", "0527614422", "0527614423", "0527614424", "0527614425", "0527614426", "0527614427", "0527614428", "0527614429", "0527614430", "0527614431", "0527614432", "0527614433", "0527614434", "0527614435" };
         string[] addresses = { "Malchei Israel 12", "Minchat Itzchak 23", "Hashofar 3", "Hare'em 14", "Eben Ezra 6", "HaTzvi 4", "Hakfir 5", "Hadishon 6", "Ha'ari 13", "Hatan 17", "Tchelet Mordechei 18", "Hamarkalim 4", "Rabi Akiva 15", "Hazon Ish 53", "Harav Shach 3" };
         (double Latitude, double Longitude)[] coordinates = {(31.771959, 35.217018 ), (  31.775469, 35.229568 ),  (  31.774578, 35.207031 ),
@@ -30,57 +30,6 @@ public static class Initialization
         }
 
     }
-    //private static void CreateCall()
-    //{
-    //    string[] addresses = { "Herzl St, Tel Aviv", "Jaffa St, Jerusalem", "Ben Gurion Blvd, Haifa", "Main St, Beersheba", "Eilat Promenade, Eilat", "Rothschild Blvd, Tel Aviv", "Dizengoff St, Tel Aviv", "Ben Yehuda St, Tel Aviv", "Shderot Ben Gurion, Netanya", "David HaMelech St, Herzliya" };
-    //    // קואורדינטות של מיקומים בישראל (בהתאמה לכתובות)
-    //    (double Latitude, double Longitude)[] coordinates =
-    //    { (32.0853, 34.7818), // תל אביב (31.7683, 35.2137), // ירושלים
-    //        (32.7940, 34.9896), // חיפה
-    //        (31.2518, 34.7913), // באר שבע
-    //        (29.5581, 34.9482), // אילת
-    //        (32.0656, 34.7770), // רוטשילד תל אביב
-    //        (32.0755, 34.7756), // דיזנגוף תל אביב
-    //        (32.0838, 34.7698), // בן יהודה תל אביב
-    //        (32.3320, 34.8599), // נתניה
-    //        (32.1673, 34.8360)  // הרצליה
-    //    };
-
-    //    // תיאורים מילוליים רנדומליים
-    //    string[] descriptions =
-    //    {
-    //        "Flat tire on the highway.",
-    //        "Car battery is dead, needs jump start.",
-    //        "Ran out of fuel near the city center.",
-    //        "Locked keys inside the vehicle.",
-    //        "Vehicle recovery required from the beach.",
-    //        "Minor mechanical issue near the mall.",
-    //        "Medical emergency near the park.",
-    //        "Car stuck in the sand, needs assistance.",
-    //        "Flat tire on the road to Jerusalem.",
-    //        "Jump start required at the parking lot."
-    //    };
-
-
-    //    DateTime start = new DateTime(s_dal!.Config!.Clock.Year,  s_dal.Config.Clock.Month, s_dal.Config.Clock.Day,  s_dal.Config.Clock.Hour - 7, 0, 0); ; //stage 1
-    //    int range = (int)(s_dal.Config.Clock - start).TotalMinutes;
-
-    //    for (int i = 0; i < 50; i++)
-    //    {
-    //            int startingTime = s_rand.Next(range);
-    //            int index = s_rand.Next(addresses.Length - 1);
-    //            s_dal!.Call.Create(new Call(0,
-    //                (TypeOfCall)s_rand.Next(Enum.GetValues(typeof(TypeOfCall)).Length),
-    //                 descriptions[s_rand.Next(descriptions.Length)],
-    //                addresses[index],
-    //                coordinates[index].Latitude,
-    //                coordinates[index].Longitude,
-    //                s_dal.Config.RiskRange,
-    //                start.AddMinutes(startingTime),
-    //                start.AddMinutes(startingTime + s_rand.Next(30, 360))
-    //            ));
-    //    }
-    //}
     private static void CreateCall()
     {
         string[] addresses = { "Herzl St, Tel Aviv", "Jaffa St, Jerusalem", "Ben Gurion Blvd, Haifa", "Main St, Beersheba", "Eilat Promenade, Eilat", "Rothschild Blvd, Tel Aviv", "Dizengoff St, Tel Aviv", "Ben Yehuda St, Tel Aviv", "Shderot Ben Gurion, Netanya", "David HaMelech St, Herzliya" };
@@ -156,9 +105,11 @@ public static class Initialization
         }
     }
    
-    public static void Do(IDal dal) //stage 1
+    public static void Do() //stage 1
     {
-        s_dal = dal ?? throw new NullException("DAL object can not be null!");
+        //s_dal = dal ?? throw new NullException("DAL object can not be null!");
+        s_dal = DalApi.Factory.Get; //stage 4
+
 
         Console.WriteLine("Reset Configuration values and List values...");
         s_dal.ResetDB();
