@@ -1,7 +1,7 @@
 ﻿
 namespace BlApi;
 
-internal interface Ivolunteer
+public interface IVolunteer
 {
     void Create(BO.Volunteer boVolunteer);
     BO.Volunteer? Read(int id);
