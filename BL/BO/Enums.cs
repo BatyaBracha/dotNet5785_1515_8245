@@ -25,9 +25,10 @@ public enum TypeOfCall
     HEAT_STROKE
 };
 
-public enum Status {BEING_HANDELED, BEING_HANDELED_IN_RISK}
-public enum CallStatus { OPEN, BEING_HANDELED ,CLOSED,OUT_OF_DATE,OPEN_IN_RISK, BEING_HANDELED_IN_RISK }
+public enum Status { BEING_HANDELED, BEING_HANDELED_IN_RISK }
+public enum CallStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_IN_RISK, BEING_HANDELED_IN_RISK }
 public enum TypeOfTreatmentEnding { HOSPITAL_ADMISSION, STAY_AT_HOME, DEAD };
-public enum VolunteerFields { CallInProgress , CallsChosenOutOfdate , CallsDeleted , CallsDone , TypeOfDistance , MaxDistance , Active , Role , Longitude , Latitude , CurrentAddress , Password , Email , PhoneNumber , Name , Id }
-public enum Active { TRUE,FALSE}
+public enum VolunteerFields { CallInProgress, CallsChosenOutOfdate, CallsDeleted, CallsDone, TypeOfDistance, MaxDistance, Active, Role, Longitude, Latitude, CurrentAddress, Password, Email, PhoneNumber, Name, Id }
+public enum Active { TRUE, FALSE }
 public enum CallFieldFilter { Id, TypeOfCall, Description, Address, Latitude, Longitude, Openingtime, MaxClosingtime, StatusAssignedVolunteers }
+public enum TimeUnit { YEAR, DAY, HOUR, MINUTE }

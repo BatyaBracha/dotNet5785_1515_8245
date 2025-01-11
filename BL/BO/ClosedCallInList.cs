@@ -2,7 +2,7 @@
 
 namespace BO;
 
-internal class ClosedCallInList
+public class ClosedCallInList
 {
     public int Id { get; set; }
     public TypeOfCall TypeOfCall { get; set; }

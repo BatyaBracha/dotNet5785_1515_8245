@@ -3,20 +3,15 @@ namespace BlApi;
 
 public interface ICall
 {
-    void Create(BO.Call boCall);
-    BO.Call? Read(int id);
-    public int[] GetCallQuantitiesByStatus(BO.CallInList callInList);
-    IEnumerable<BO.CallInList> ReadAll(BO.CallFieldFilter? sort = null, BO.CallFieldFilter? filter = null, object? value = null);
+    IEnumerable<int> GetCallsCount();
+    IEnumerable<BO.CallInList> GetCallsList(Enum? filterBy, object? filter, Enum? sortBy);
+    BO.Call GetCallDetails(int id);
     void Update(BO.Call boCall);
     void Delete(int id);
-
-    void RegisterStudentToCourse(int studentId, int courseId);
-    void UnRegisterStudentFromCourse(int studentId, int courseId);
-
-    IEnumerable<BO.CallInList> GetRegisteredCoursesForStudent(int studentId, BO.Year year = BO.Year.None);
-    IEnumerable<BO.CallInList> GetUnRegisteredCoursesForStudent(int studentId, BO.Year year = BO.Year.None);
-
-    BO.StudentGradeSheet GetGradeSheetPerStudent(int studentId, BO.Year year = BO.Year.None);
-    void UpdateGrade(int studentId, int courseId, double grade);
-
+    void Create(BO.Call boCall);
+    IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? sortBy);
+    IEnumerable<BO.OpenCallInList> GetOpenCallsCanBeSelectedByAVolunteer(int volunteerId, Enum? filterBy, Enum? sortBy);
+    void TreatmentCompletionUpdate(int volunteerId, int AssignmentId);
+    void TreatmentCancellationUpdate(int volunteerId, int AssignmentId);
+    void ChoosingACallForTreatment(int volunteerId, int AssignmentId);
 }
