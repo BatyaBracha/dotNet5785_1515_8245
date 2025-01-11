@@ -14,5 +14,4 @@ public interface ICall
     void TreatmentCompletionUpdate(int volunteerId, int AssignmentId);
     void TreatmentCancellationUpdate(int volunteerId, int AssignmentId);
     void ChoosingACallForTreatment(int volunteerId, int AssignmentId);
-
 }
