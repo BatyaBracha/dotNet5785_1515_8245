@@ -22,7 +22,7 @@ public record Call
     double? longitude,
     TimeSpan? riskRange,
     DateTime OpeningTime,
-    DateTime? MaxClosingTime = null
+    DateTime? MaxClosingTime=null
 )
 {
     /// <summary>
