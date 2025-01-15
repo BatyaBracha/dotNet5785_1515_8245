@@ -1,43 +1,205 @@
 ﻿
-
 using BlApi;
+using Helpers;
 namespace BlImplementation;
 
 internal class VolunteerImplementation : IVolunteer
 {
     private readonly DalApi.IDal Volunteer_dal = DalApi.Factory.Get;
-    public void Create(BO.Volunteer boVolunteer)
+    public BO.Role Login(string username, string password)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var user = Volunteer_dal.Volunteer.ReadAll()
+                .FirstOrDefault(u => u.Name == username);
+
+            if (user == null || user.Password != password)
+                throw new BO.InvalidCredentialsException("שם המשתמש או הסיסמה אינם נכונים.");
+
+            return (BO.Role)user.Role;
+        }
+        catch (DO.DataAccessException ex)
+        {
+            throw new BO.DataAccessException("שגיאה בגישה לנתוני משתמשים.", ex);
+        }
     }
+
+    private void ValidateVolunteer(BO.Volunteer volunteer)
+    {
+        if (string.IsNullOrWhiteSpace(volunteer.Name))
+            throw new BO.ValidationException("שם המתנדב אינו תקין.");
+        if (!IsValidEmail(volunteer.Email))
+            throw new BO.ValidationException("כתובת האימייל אינה תקינה.");
+        if (!IsValidPhone(volunteer.Phone))
+            throw new BO.ValidationException("מספר הטלפון אינו תקין.");
+    }
+
+    private bool IsValidEmail(string email) =>
+        new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(email);
+
+    private bool IsValidPhone(string phone) =>
+        phone.All(char.IsDigit) && phone.Length == 10;
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var activeAssignments = Volunteer_dal.Assignment.ReadAll()
+                .Where(a => a.VolunteerId == id && a.TreatmentEndTime == null)
+                .ToList();
+
+            if (activeAssignments.Any())
+                throw new BO.InvalidOperationException("לא ניתן למחוק מתנדב שמטפל כרגע בקריאה.");
+
+            Volunteer_dal.Volunteer.Delete(id);
+        }
+        catch (DO.DataAccessException ex)
+        {
+            throw new BO.DataAccessException("שגיאה במחיקת נתוני מתנדבים.", ex);
+        }
     }
 
     public void MatchVolunteerToCall(int volunteerId, int callId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var existingAssignment = Volunteer_dal.Assignment.ReadAll()
+                .FirstOrDefault(a => a.VolunteerId == volunteerId && a.TreatmentEndTime == null);
+
+            if (existingAssignment != null)
+                throw new BO.InvalidOperationException("לא ניתן להתאים מתנדב שכבר מטפל בקריאה אחרת.");
+
+            var newAssignment = new DO.Assignment
+            {
+                VolunteerId = volunteerId,
+                CallId = callId,
+                TreatmentStartTime = ClockManager.Now
+            };
+
+            Volunteer_dal.Assignment.Create(newAssignment);
+        }
+        catch (DO.DataAccessException ex)
+        {
+            throw new BO.DataAccessException("שגיאה בהתאמת מתנדב לקריאה.", ex);
+        }
     }
 
     public BO.Volunteer? Read(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var doVolunteer = Volunteer_dal.Volunteer.Read(id)
+                ?? throw new BO.NotFoundException("המתנדב לא נמצא.");
+
+            var assignment = Volunteer_dal.Assignment.ReadAll()
+                .FirstOrDefault(a => a.VolunteerId == id && a.TreatmentEndTime == null);
+
+            BO.CallInProgress? callInProgress = null;
+
+            if (assignment != null)
+            {
+                var call = Volunteer_dal.Call.Read(assignment.CallId);
+                callInProgress = new BO.CallInProgress
+                {
+                    CallId = call.Id,
+                    Address = call.Address,
+                    Description = call.Description
+                };
+            }
+
+            return new BO.Volunteer
+            {
+                Id = doVolunteer.Id,
+                Name = doVolunteer.Name,
+                Email = doVolunteer.Email,
+                PhoneNumber = doVolunteer.Phone,
+                CallInProgress = callInProgress
+            };
+        }
+        catch (DO.DataAccessException ex)
+        {
+            throw new BO.DataAccessException("שגיאה בגישה לנתוני מתנדבים.", ex);
+        }
     }
 
     public IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? sort = null, BO.VolunteerFields? filter = null, object? value = null)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var volunteers = Volunteer_dal.Volunteer.ReadAll();
+
+            // סינון לפי סטטוס
+            if (sort.HasValue)
+                volunteers = volunteers.Where(v => v.Active == (sort == BO.Active.TRUE)).ToList();
+
+            var volunteerList = volunteers.Select(v => new BO.VolunteerInList
+            {
+                Id = v.Id,
+                Name = v.Name,
+                Active = v.Active
+            });
+
+            // מיון לפי שדה ספציפי
+            if (filter.HasValue)
+            {
+                volunteerList = filter switch
+                {
+                    BO.VolunteerFields.Name => volunteerList.OrderBy(v => v.Name),
+                    BO.VolunteerFields.Id => volunteerList.OrderBy(v => v.Id),
+                    _ => volunteerList.OrderBy(v => v.Id)
+                };
+            }
+
+            return volunteerList.ToList();
+        }
+        catch (DO.DataAccessException ex)
+        {
+            throw new BO.DataAccessException("שגיאה בגישה לנתוני מתנדבים.", ex);
+        }
     }
 
     public void UnMatchVolunteerToCall(int volunteerId, int callId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var assignment = Volunteer_dal.Assignment.ReadAll()
+                .FirstOrDefault(a => a.VolunteerId == volunteerId && a.CallId == callId && a.TreatmentEndTime == null);
+
+            if (assignment == null)
+                throw new BO.NotFoundException("לא נמצאה התאמה בין המתנדב לקריאה.");
+
+            assignment.TreatmentEndTime = ClockManager.Now;
+            assignment.TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.UNMATCHED;
+
+            Volunteer_dal.Assignment.Update(assignment);
+        }
+        catch (DO.DataAccessException ex)
+        {
+            throw new BO.DataAccessException("שגיאה בביטול התאמת מתנדב לקריאה.", ex);
+        }
     }
 
     public void Update(BO.Volunteer boVolunteer)
     {
-        throw new NotImplementedException();
+        try
+        {
+            ValidateVolunteer(boVolunteer);
+
+            var doVolunteer = new DO.Volunteer
+            {
+                Id = boVolunteer.Id,
+                Name = boVolunteer.Name,
+                Email = boVolunteer.Email,
+                Phone = boVolunteer.PhoneNumber,
+                Active = boVolunteer.Active
+            };
+
+            Volunteer_dal.Volunteer.Update(doVolunteer);
+        }
+        catch (DO.DataAccessException ex)
+        {
+            throw new BO.DataAccessException("שגיאה בעדכון נתוני מתנדבים.", ex);
+        }
     }
+
 }
