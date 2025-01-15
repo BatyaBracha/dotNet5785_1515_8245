@@ -11,7 +11,7 @@ internal static class CallManager
 {
     private static IDal s_dal = Factory.Get; //stage 4
 
-    private static Status CallStatus(int callId) { return CallManager.CallStatus(callId); }
+    private static BO.Status CallStatus(int callId) { return CallManager.CallStatus(callId); }
 
     private class Coordinates
     {
@@ -19,7 +19,7 @@ internal static class CallManager
         public double lon { get; set; }
     }
 
-    private static (double Latitude, double Longitude) GetCoordinates(string address)
+    internal static (double Latitude, double Longitude) GetCoordinates(string address)
     {
         if (string.IsNullOrWhiteSpace(address))
             throw new ArgumentException("Address cannot be null or empty.");
@@ -53,7 +53,7 @@ internal static class CallManager
         }
     }
 
-    private static double GetAerialDistance(string address1, string address2)
+    internal static double GetAerialDistance(string address1, string address2)
     {
         (double lat1, double lon1) = GetCoordinates(address1);
         (double lat2, double lon2) = GetCoordinates(address2);

@@ -7,8 +7,8 @@ public class Call
     public string Address { get; set; }
     public double Latitude {  get; set; }
     public double Longitude { get; set; }
-    public DateTime Openingtime { get; init; }
-    public DateTime? MaxClosingtime { get; set; }
+    public DateTime OpeningTime { get; init; }
+    public DateTime? MaxClosingTime { get; set; }
     public CallStatus Status { get; set; }
     public List<BO.CallAssignInList> AssignedVolunteers { get; set; }
 }
