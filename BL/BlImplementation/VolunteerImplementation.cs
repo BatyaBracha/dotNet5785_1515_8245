@@ -6,7 +6,12 @@ namespace BlImplementation;
 internal class VolunteerImplementation : IVolunteer
 {
     private readonly DalApi.IDal Volunteer_dal = DalApi.Factory.Get;
-    public BO.Role Login(string username, string password)
+    public BO.Role Login(string username, string password) 
+    {
+        return 0;
+    }
+
+    public void Create(BO.Volunteer boVolunteer)
     {
         try
         {

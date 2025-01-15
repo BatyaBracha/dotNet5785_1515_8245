@@ -22,11 +22,13 @@ public record Call
     double? longitude,
     TimeSpan? riskRange,
     DateTime OpeningTime,
+    CallStatus Status,
     DateTime? MaxClosingTime = null
+
 )
 {
     /// <summary>
     /// Default constructor with default property values
     /// </summary>
-    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0,null, DateTime.MinValue){}
+    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0,null, DateTime.MinValue,CallStatus.OPEN){}
 }

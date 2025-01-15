@@ -24,11 +24,12 @@ public enum TypeOfCall
     HEAT_STROKE
 };
 
-public enum TypeOfTreatmentEnding {HOSPITAL_ADMISSION, STAY_AT_HOME,DEAD };
+public enum TypeOfTreatmentEnding {HOSPITAL_ADMISSION, STAY_AT_HOME,DEAD , EXPIRED, UNMATCHED };
 
 public enum TypeOfDistance {AIR, WALK, DRIVE };
 
 public enum Role {ADMINISTRATOR,STANDARD};
+public enum Status { WAITING, BEING_HANDELED, BEING_HANDELED_IN_RISK }
 
 public enum Options
 {
@@ -41,7 +42,8 @@ public enum Options
     CONFIG_MENU,
     RESET_DB_CONFIG
 }
-
+public enum CallStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_IN_RISK, BEING_HANDELED_IN_RISK }
+public enum AssignmentStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_IN_RISK, BEING_HANDELED_IN_RISK, COMPLETED }
 public enum SpecificOptions
 {
     EXIT,
