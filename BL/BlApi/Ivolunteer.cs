@@ -3,9 +3,9 @@ namespace BlApi;
 
 public interface IVolunteer
 {
+    public BO.Role Login(string username, string password);
     void Create(BO.Volunteer boVolunteer);
     BO.Volunteer? Read(int id);
-
     IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? sort = null, BO.VolunteerFields? filter = null, object? value = null);
     void Update(BO.Volunteer boVolunteer);
     void Delete(int id);
