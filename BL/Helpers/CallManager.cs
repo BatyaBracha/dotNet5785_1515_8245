@@ -1,6 +1,7 @@
 ﻿
 using BO;
 using DalApi;
+using DO;
 using System.Net;
 using System.Text.Json;
 
@@ -86,12 +87,82 @@ internal static class CallManager
     private static void UpdatingExpiredReadings()
     {
         var calls = s_dal.Call.ReadAll();
-        var assignments = s_dal.Assignment.ReadAll;
+        var assignments = s_dal.Assignment.ReadAll();
         DateTime systemTime = ClockManager.Now;
-        // Filter calls where EndTime has passed and process them
+
         var expiredCalls = calls
-            .Where(call =>call.MaxClosingTime < systemTime )
+            .Where(call => call.MaxClosingTime < systemTime)
             .ToList();
+
+        var callsWithoutAssignments = expiredCalls
+            .Where(call => !assignments.Any(a => a.CallId == call.Id))
+            .Select(call => new Assignment
+            {
+                CallId = call.Id,
+                VolunteerId = 0,
+                TreatmentStartTime = call.MaxClosingTime ?? systemTime,
+                TreatmentEndTime = systemTime,
+                TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.EXPIRED
+            })
+            .ToList();
+
+        callsWithoutAssignments.ForEach(newAssignment => s_dal.Assignment.Create(newAssignment));
+
+        var assignmentsToUpdate = expiredCalls
+            .SelectMany(call => assignments.Where(a => a.CallId == call.Id && a.TreatmentEndTime == null))
+            .ToList();
+
+        assignmentsToUpdate.ForEach(assignment =>
+        {
+            var updatedAssignment = assignment with
+            {
+                TreatmentEndTime = systemTime,
+                TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.EXPIRED
+            };
+            s_dal.Assignment.Update(updatedAssignment);
+        });
     }
+
+    private static void SimulateCallAssignment()
+    {
+        // קריאת רשימות מתנדבים והקצאות
+        var volunteers = s_dal.Volunteer.ReadAll();
+        var assignments = s_dal.Assignment.ReadAll();
+        var calls = s_dal.Call.ReadAll();
+        DateTime systemTime = ClockManager.Now;
+
+        // סינון מתנדבים שאין להם הקצאת קריאה נוכחית
+        var availableVolunteers = volunteers
+            .Where(volunteer => !assignments.Any(a => a.VolunteerId == volunteer.Id && a.TreatmentEndTime == null))
+            .ToList();
+
+        // ביצוע הלוגיקה: XXX
+        foreach (var volunteer in availableVolunteers)
+        {
+            // כאן תתבצע לוגיקה עתידית לבחירת קריאה למתנדב (תעדכן בשלב 7)
+            var suitableCall = calls
+                .Where(call => call.MaxClosingTime > systemTime) // קריאות בתוקף
+                .OrderBy(call => call.OpeningTime) // לדוגמה: סדר לפי זמן פתיחה
+                .FirstOrDefault();
+
+            if (suitableCall != null)
+            {
+                // יצירת הקצאה למתנדב
+                var newAssignment = new Assignment
+                {
+                    CallId = suitableCall.Id,
+                    VolunteerId = volunteer.Id,
+                    TreatmentStartTime = systemTime,
+                    TreatmentEndTime = null,
+                    TypeOfTreatmentEnding = null
+                };
+
+                // הוספת ההקצאה ל-DAL
+                s_dal.Assignment.Create(newAssignment);
+            }
+        }
+    }
+
+
 
 }

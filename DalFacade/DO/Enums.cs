@@ -24,7 +24,7 @@ public enum TypeOfCall
     HEAT_STROKE
 };
 
-public enum TypeOfTreatmentEnding {HOSPITAL_ADMISSION, STAY_AT_HOME,DEAD };
+public enum TypeOfTreatmentEnding {HOSPITAL_ADMISSION, STAY_AT_HOME,DEAD , EXPIRED};
 
 public enum TypeOfDistance {AIR, WALK, DRIVE };
 
