@@ -31,7 +31,7 @@ public enum VolunteerFields { CallInProgress, CallsChosenOutOfdate, CallsDeleted
 public enum Active { TRUE, FALSE }
 public enum AssignmentStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_IN_RISK, BEING_HANDELED_IN_RISK, COMPLETED }
 public enum CallFieldFilter { Id, TypeOfCall, Description, Address, Latitude, Longitude, Openingtime, MaxClosingtime, StatusAssignedVolunteers }
-public enum TimeUnit { YEAR, DAY, HOUR, MINUTE }
+public enum TimeUnit { YEAR,MONTH, DAY, HOUR, MINUTE }
 public enum TypeOfTreatmentEnding { HOSPITAL_ADMISSION, STAY_AT_HOME, DEAD, EXPIRED, UNMATCHED };
 public enum CallField { STATUS,PRIORITY,TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID }
 

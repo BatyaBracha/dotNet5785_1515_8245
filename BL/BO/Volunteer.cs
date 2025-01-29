@@ -20,4 +20,24 @@ public class Volunteer
     public int CallsDeleted { get; set; }
     public int CallsChosenOutOfdate { get; set; }
     public BO.CallInProgress? CallInProgress { get; set; }
+    public Volunteer(int id, string name, string phoneNumber, string email, string password, string? currentAddress, double? latitude, double? longitude, Role role, bool active, double? maxDistance, TypeOfDistance typeOfDistance, int callsDone, int callsDeleted, int callsChosenOutOfdate, CallInProgress? callInProgress)
+    {
+        Id = id;
+        Name = name;
+        PhoneNumber = phoneNumber;
+        Email = email;
+        Password = password;
+        CurrentAddress = currentAddress;
+        Latitude = latitude;
+        Longitude = longitude;
+        Role = role;
+        Active = active;
+        MaxDistance = maxDistance;
+        TypeOfDistance = typeOfDistance;
+        CallsDone = callsDone;
+        CallsDeleted = callsDeleted;
+        CallsChosenOutOfdate = callsChosenOutOfdate;
+        CallInProgress = callInProgress;
+    }
 }
+

@@ -10,7 +10,6 @@ namespace DalTest
         //static readonly IDal s_dal = new DalList();//stage 2
         //static readonly IDal s_dal = new DalXml(); //stage 3
         static readonly IDal s_dal = Factory.Get; //stage 4
-
         private static void volunteerMenu()
         {
             try
@@ -62,30 +61,6 @@ namespace DalTest
             }
         }
 
-        private static void volunteerUpdate()
-        {
-            Console.WriteLine("Enter your ID");
-            string id = Console.ReadLine()!;
-            Console.WriteLine("Enter your name");
-            string name = Console.ReadLine()!;
-            Console.WriteLine("Enter your phone");
-            string phone = Console.ReadLine()!;
-            Console.WriteLine("Enter your email");
-            string email = Console.ReadLine()!;
-            Console.WriteLine("Enter your address");
-            string address = Console.ReadLine()!;
-            Console.WriteLine("Enter your password");
-            string password = Console.ReadLine()!;
-            Console.WriteLine("Enter your max distance");
-            string maxDistance = Console.ReadLine()!;
-            //Console.WriteLine("Enter your role");
-            //string role = Console.ReadLine()!;
-            Console.WriteLine("Enter your type of distance");
-            //Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
-            string typeOfDistance = Console.ReadLine()!;
-            TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
-            s_dal.Volunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
-        }
 
         private static void volunteerReadAll()
         {
@@ -205,7 +180,7 @@ namespace DalTest
             string callId = Console.ReadLine()!;
             Console.WriteLine("Enter the volunteer's id");
             string volunteerId = Console.ReadLine()!;
-            s_dal.Assignment!.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dal.Config.Clock, null, null));
+            s_dal.Assignment!.Create(new(0, int.Parse(callId), int.Parse(volunteerId), s_dal.Config.Clock, null, null,AssignmentStatus.OPEN));
         }
 
         private static void assignmentRead()
@@ -234,7 +209,7 @@ namespace DalTest
                 string callId = Console.ReadLine()!;
                 Console.WriteLine("Enter the volunteer's id");
                 string volunteerId = Console.ReadLine()!;
-                s_dal.Assignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dal.Config!.Clock, null, null));
+                s_dal.Assignment!.Update(new(int.Parse(assignmentId), int.Parse(callId), int.Parse(volunteerId), s_dal.Config!.Clock, null, null,AssignmentStatus.OPEN));
             }
             else
                 throw new DalDoesNotExistException("an obj with this id does not exist\n");
@@ -317,7 +292,7 @@ namespace DalTest
             string discription = Console.ReadLine()!;
             Console.WriteLine("Enter the call address");
             string address = Console.ReadLine()!;
-            s_dal.Call!.Create(new(0, convertedType, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, null));
+            s_dal.Call!.Create(new(0, convertedType, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, CallStatus.OPEN));
         }
         private static void callRead()
         {
@@ -347,7 +322,7 @@ namespace DalTest
                 string discription = Console.ReadLine()!;
                 Console.WriteLine("Enter the call address");
                 string address = Console.ReadLine()!;
-                s_dal.Call!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, null));
+                s_dal.Call!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, CallStatus.OPEN));
             }
             else
                 throw new DalDoesNotExistException("an obj with this id does not exist\n");

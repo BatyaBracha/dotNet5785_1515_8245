@@ -7,7 +7,7 @@ internal class AssignmentImplementation : IAssignment
     public int Create(Assignment item)
     {
         int newId = Config.NextAssignmentId;
-        Assignment copy = new Assignment(newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding);
+        Assignment copy = new Assignment(newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding, item.AssignmentStatus);
         List<Assignment> Assignments = XMLTools.LoadListFromXMLSerializer<Assignment>(Config.s_assignments_xml);
         Assignments.Add(copy);
         XMLTools.SaveListToXMLSerializer(Assignments, Config.s_assignments_xml);

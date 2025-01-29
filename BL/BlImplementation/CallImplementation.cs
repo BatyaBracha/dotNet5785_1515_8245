@@ -1,4 +1,5 @@
 ﻿using BlApi;
+using BO;
 using Helpers;
 
 namespace BlImplementation
@@ -9,25 +10,25 @@ namespace BlImplementation
         private void ValidateCall(BO.Call boCall)
         {
             if (boCall == null)
-                throw new ArgumentNullException(nameof(boCall), "The call object cannot be null.");
+                throw new BlNullPropertyException( "The call object cannot be null.",null);
 
             // Check if the ID is valid
             if (boCall.Id <= 0)
-                throw new ArgumentException("Call ID must be a positive number.");
+                throw new BlArgumentException("Call ID must be a positive number.");
 
             // Validate time constraints
-            if (boCall.MaxClosingtime.HasValue && boCall.MaxClosingtime.Value <= boCall.OpeningTime)
-                throw new ArgumentException("End time must be greater than the start time.");
+            if (boCall.MaxClosingTime.HasValue && boCall.MaxClosingTime.Value <= boCall.OpeningTime)
+                throw new BlArgumentException("End time must be greater than the start time.");
 
             // Check if the address is valid
             if (string.IsNullOrWhiteSpace(boCall.Address))
-                throw new ArgumentException("Address cannot be null or empty.");
+                throw new BlArgumentException("Address cannot be null or empty.");
 
             // Validate the address against a geolocation service
-            (double lat, double lon) = CallManager.GetCoordinates(boCall.Address);
+            (double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address);
 
-            if (lat == null || lon == null)
-                throw new ArgumentException("Address is invalid or could not be found.");
+            if (lat==null || lon == null)
+                throw new BlArgumentException("Address is invalid or could not be found.");
 
             // Assign valid coordinates
             boCall.Latitude =lat;
@@ -35,18 +36,18 @@ namespace BlImplementation
 
             // Check for other business logic conditions if needed
             if (boCall.Status == BO.CallStatus.CLOSED && boCall.OpeningTime > DateTime.Now)
-                throw new ArgumentException("A closed call cannot have a start time in the future.");
+                throw new BlArgumentException("A closed call cannot have a start time in the future.");
         }
         public void ChoosingACallForTreatment(int volunteerId, int callId)
         {
             var call = Call_dal.Call.Read(callId)
-                ?? throw new BO.EntityNotFoundException("קריאה לא נמצאה במערכת.");
+                ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
 
-            if (call.Status != DO.Status.BEING_HANDELED && call.Status != DO.Status.BEING_HANDELED_IN_RISK)
-                throw new BO.InvalidOperationException("קריאה זו אינה פתוחה לטיפול.");
+            if (call.Status != DO.CallStatus.BEING_HANDELED && call.Status != DO.CallStatus.BEING_HANDELED_IN_RISK)
+                throw new BO.BlDoesNotExistException("קריאה זו אינה פתוחה לטיפול.");
 
             if (Call_dal.Assignment.ReadAll().Any(a => a.CallId == callId))
-                throw new BO.InvalidOperationException("קריאה זו כבר בטיפול.");
+                throw new BO.BlDoesNotExistException("קריאה זו כבר בטיפול.");
 
             var newAssignment = new DO.Assignment
             {
@@ -80,10 +81,10 @@ namespace BlImplementation
         public void Delete(int id)
         {
             var call = Call_dal.Call.Read(id)
-                ?? throw new BO.EntityNotFoundException("קריאה לא נמצאה במערכת.");
+                ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
 
-            if (call.Status != DO.Status.BEING_HANDELED || Call_dal.Assignment.ReadAll().Any(a => a.CallId == id))
-                throw new BO.InvalidOperationException("לא ניתן למחוק קריאה זו.");
+            if (call.Status != DO.CallStatus.BEING_HANDELED || Call_dal.Assignment.ReadAll().Any(a => a.CallId == id))
+                throw new BO.BlDeletionImpossible("לא ניתן למחוק קריאה זו.");
 
             Call_dal.Call.Delete(id);
         }
@@ -91,7 +92,7 @@ namespace BlImplementation
         public BO.Call GetCallDetails(int id)
         {
             var doCall = Call_dal.Call.Read(id)
-                ?? throw new BO.EntityNotFoundException("קריאה לא נמצאה במערכת.");
+                ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
 
             var assignments = Call_dal.Assignment.ReadAll()
                 .Where(a => a.CallId == id)
@@ -109,8 +110,8 @@ namespace BlImplementation
                 Description = doCall.Description,
                 Status = (BO.CallStatus)doCall.Status,
                 Address = doCall.Address,
-                Latitude = doCall.Latitude,
-                Longitude = doCall.Longitude,
+                Latitude = doCall.latitude,
+                Longitude = doCall.longitude,
                 OpeningTime = doCall.OpeningTime,
                 MaxClosingTime = doCall.MaxClosingTime,
                 AssignedVolunteers = assignments
@@ -190,7 +191,7 @@ namespace BlImplementation
                 case BO.CallField.TYPE:
                     return call.TypeOfCall.Equals(filterValue);
                 default:
-                    throw new ArgumentException("Unsupported filter field", nameof(filterBy));
+                    throw new BlNullPropertyException("Unsupported filter field", nameof(filterBy));
             }
         }
 
@@ -205,7 +206,7 @@ namespace BlImplementation
                 BO.CallField.ADDRESS => openCalls.OrderBy(c => c.Address),
                 BO.CallField.CALL_VOLUNTEER_DISTANCE => openCalls.OrderBy(c => c.CallVolunteerDistance),
                 BO.CallField.ID => openCalls.OrderBy(c => c.Id),
-                _ => throw new ArgumentException("Unsupported sort field", nameof(sortBy)),
+                _ => throw new BlNullPropertyException("Unsupported sort field", nameof(sortBy)),
             };
         }
 
@@ -237,7 +238,7 @@ namespace BlImplementation
         public void TreatmentCancellationUpdate(int volunteerId, int assignmentId)
         {
             var assignment = Call_dal.Assignment.Read(assignmentId)
-                ?? throw new BO.EntityNotFoundException("הקצאה לא נמצאה במערכת.");
+                ?? throw new BO.BlDoesNotExistException("הקצאה לא נמצאה במערכת.");
 
             //if (assignment.Status != DO.AssignmentStatus.Open)
             //    throw new BO.InvalidOperationException("לא ניתן לבטל הקצאה שכבר טופלה או שפג תוקפה.");
@@ -246,21 +247,24 @@ namespace BlImplementation
             //    DO.AssignmentStatus.CanceledByVolunteer :
             //    DO.AssignmentStatus.CanceledByManager;
 
-            assignment.TreatmentEndTime = ClockManager.Now;
-
-            Call_dal.Assignment.Update(assignment);
+            var newAssignment = new DO.Assignment
+            {
+                Id = assignment.Id,
+                TreatmentEndTime = ClockManager.Now
+            }
+                Call_dal.Assignment.Update(newAssignment);
         }
 
         public void TreatmentCompletionUpdate(int volunteerId, int assignmentId)
         {
             var assignment = Call_dal.Assignment.Read(assignmentId)
-                ?? throw new BO.EntityNotFoundException("הקצאה לא נמצאה במערכת.");
+                ?? throw new BO.BlDoesNotExistException("הקצאה לא נמצאה במערכת.");
 
             if (assignment.AssignmentStatus != DO.AssignmentStatus.OPEN)
-                throw new BO.InvalidOperationException("לא ניתן לעדכן סיום לטיפול שכבר טופל או שפג תוקפו.");
+                throw new BO.BlUnauthorizedOperationException("לא ניתן לעדכן סיום לטיפול שכבר טופל או שפג תוקפו.");
 
             if (assignment.VolunteerId != volunteerId)
-                throw new BO.UnauthorizedOperationException("רק המתנדב שהוקצה יכול לעדכן סיום טיפול.");
+                throw new BO.BlUnauthorizedOperationException("רק המתנדב שהוקצה יכול לעדכן סיום טיפול.");
 
             assignment.Status = DO.AssignmentStatus.COMPLETED;
             assignment.TreatmentEndTime = ClockManager.Now;
@@ -273,7 +277,7 @@ namespace BlImplementation
             ValidateCall(boCall);
 
             var doCall = Call_dal.Call.Read(boCall.Id)
-                ?? throw new BO.EntityNotFoundException("קריאה לא נמצאה במערכת.");
+                ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
 
             doCall.Description = boCall.Description;
             doCall.Status = (DO.CallStatus)boCall.Status;
