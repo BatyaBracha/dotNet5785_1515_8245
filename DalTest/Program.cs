@@ -108,6 +108,31 @@ namespace DalTest
             s_dal.Volunteer!.Create(new(int.Parse(id), name, phone, email, password, address, null, null, convertedRole, false, int.Parse(maxDistance), convertedTypeOfDistance));
         }
 
+        private static void volunteerUpdate()
+        {
+            Console.WriteLine("Enter your ID");
+            string id = Console.ReadLine()!;
+            Console.WriteLine("Enter your name");
+            string name = Console.ReadLine()!;
+            Console.WriteLine("Enter your phone");
+            string phone = Console.ReadLine()!;
+            Console.WriteLine("Enter your email");
+            string email = Console.ReadLine()!;
+            Console.WriteLine("Enter your address");
+            string address = Console.ReadLine()!;
+            Console.WriteLine("Enter your password");
+            string password = Console.ReadLine()!;
+            Console.WriteLine("Enter your max distance");
+            string maxDistance = Console.ReadLine()!;
+            //Console.WriteLine("Enter your role");
+            //string role = Console.ReadLine()!;
+            Console.WriteLine("Enter your type of distance");
+            //Role convertedRole = (Role)Enum.Parse(typeof(Role), role);
+            string typeOfDistance = Console.ReadLine()!;
+            TypeOfDistance convertedTypeOfDistance = (TypeOfDistance)Enum.Parse(typeof(TypeOfDistance), typeOfDistance);
+            s_dal.Volunteer!.Update(new(int.Parse(id), name, phone, email, password, address, null, null, Role.STANDARD, false, int.Parse(maxDistance), convertedTypeOfDistance));
+        }
+
         private static void volunteerDelete()
         {
             Console.WriteLine("Enter your ID");

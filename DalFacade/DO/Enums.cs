@@ -52,7 +52,9 @@ public enum SpecificOptions
     READ_ALL,
     UPDATE,
     DELETE,
-    DELETE_ALL
+    DELETE_ALL,
+    ASSIGN_VOLUNTEER_TO_CALL, 
+    UNMATCH_VOLUNTEER_FROM_CALL
 }
 public enum configOptions
 {

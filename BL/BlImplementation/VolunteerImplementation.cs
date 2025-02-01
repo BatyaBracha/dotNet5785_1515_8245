@@ -16,10 +16,10 @@ internal class VolunteerImplementation : IVolunteer
         try
         {
             var user = Volunteer_dal.Volunteer.ReadAll()
-                .FirstOrDefault(u => u.Name == username);
+                .FirstOrDefault(u => u.Name == boVolunteer.Name);
 
-            if (user == null || user.Password != password)
-                throw new BO.InvalidCredentialsException("שם המשתמש או הסיסמה אינם נכונים.");
+            if (user == null || user.Password != boVolunteer.Password)
+                throw new BO.BlArgumentException("שם המשתמש או הסיסמה אינם נכונים.");
 
             return (BO.Role)user.Role;
         }

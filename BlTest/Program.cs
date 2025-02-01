@@ -25,10 +25,12 @@ internal class Program
                     "to exit press 0\n" +
                     "to create a new volunteer press 1\n" +
                     "to read a volunteer's details press 2\n" +
-                    "to read all volunteers' details press 3\n" +
+                    "to read all volunteers' details and filter by active status or sort by name or ID, press 3\n" +
                     "to update a volunteer's details press 4\n" +
                     "to delete a volunteer press 5\n" +
-                    "to delete all volunteers press 6");
+                    "to delete all volunteers press 6\n" +
+                    "to assign a volunteer to a call press 7\n" +
+                    "to unmatch a volunteer from a call press 8");
                 choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                 switch (choice)
                 {
@@ -51,6 +53,12 @@ internal class Program
                         break;
                     case SpecificOptions.DELETE_ALL:
                         volunteerDeleteAll();
+                        break;
+                    case SpecificOptions.ASSIGN_VOLUNTEER_TO_CALL:
+                        AssignVolunteerToCall();
+                        break;
+                    case SpecificOptions.UNMATCH_VOLUNTEER_FROM_CALL:
+                        UnmatchVolunteerFromCall();
                         break;
                     default:
                         Console.WriteLine("Invalid choice.");
@@ -127,7 +135,34 @@ internal class Program
     /// </summary>
     private static void volunteerReadAll()
     {
-        IEnumerable<BO.VolunteerInList> volunteerList = s_bl.Volunteer!.ReadAll();
+        BO.Active? sort = null;
+        BO.VolunteerFields? filter = null;
+
+        // Ask the user if they want to filter by active status
+        Console.WriteLine("Would you like to filter the list by active status? (yes/no)");
+        string filterActiveResponse = Console.ReadLine();
+
+        if (filterActiveResponse?.ToLower() == "yes")
+        {
+            Console.WriteLine("Please specify the active status: (true/false)");
+            string activeStatus = Console.ReadLine();
+            sort = activeStatus?.ToLower() == "true" ? BO.Active.TRUE : BO.Active.FALSE;
+        }
+
+        // Ask the user if they want to sort the list
+        Console.WriteLine("Would you like to sort the list? (yes/no)");
+        string sortResponse = Console.ReadLine();
+
+        if (sortResponse?.ToLower() == "yes")
+        {
+            Console.WriteLine("Please specify the field to sort by: (1 for Name, 2 for ID)");
+            string sortField = Console.ReadLine();
+
+            filter = sortField == "1" ? BO.VolunteerFields.Name : BO.VolunteerFields.Id;
+        }
+
+        // Call the ReadAll method with the gathered parameters
+        IEnumerable<BO.VolunteerInList> volunteerList = s_bl.Volunteer!.ReadAll(sort, filter);
         foreach (var v in volunteerList)
         {
             Console.WriteLine(v);
@@ -188,12 +223,83 @@ internal class Program
             throw new BlUnauthorizedOperationException("An object with this ID does not exist.");
     }
 
+
     /// <summary>
-    /// Deletes all volunteers from the database.
+    /// Assigns a volunteer to a specific call based on user input.
     /// </summary>
-    private static void volunteerDeleteAll()
+    private static void AssignVolunteerToCall()
     {
-        s_bl.Volunteer!.DeleteAll();
+        int volunteerId;
+        int callId;
+
+        // Prompt user for volunteer ID
+        Console.WriteLine("Please enter the Volunteer ID:");
+        if (!int.TryParse(Console.ReadLine(), out volunteerId))
+        {
+            Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
+            return; // Exit the method if input is invalid
+        }
+
+        // Prompt user for call ID
+        Console.WriteLine("Please enter the Call ID:");
+        if (!int.TryParse(Console.ReadLine(), out callId))
+        {
+            Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
+            return; // Exit the method if input is invalid
+        }
+
+        // Call the MatchVolunteerToCall function
+        s_bl.Volunteer!.MatchVolunteerToCall(volunteerId, callId);
+
+        // Inform the user of success
+        Console.WriteLine("The volunteer has been successfully assigned to the call.");
+    }
+
+    /// <summary>
+    /// Unmatches a volunteer from a specific call based on user input.
+    /// </summary>
+    private static void UnmatchVolunteerFromCall()
+    {
+        Console.WriteLine("Please enter the Volunteer ID:");
+        string volunteerIdInput = Console.ReadLine();
+        int volunteerId;
+
+        // Attempt to parse the volunteer ID
+        if (!int.TryParse(volunteerIdInput, out volunteerId))
+        {
+            Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
+            return; // Exit the method if input is invalid
+        }
+
+        Console.WriteLine("Please enter the Call ID:");
+        string callIdInput = Console.ReadLine();
+        int callId;
+
+        // Attempt to parse the call ID
+        if (!int.TryParse(callIdInput, out callId))
+        {
+            Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
+            return; // Exit the method if input is invalid
+        }
+
+        // Call the UnMatchVolunteerToCall function
+        try
+        {
+            s_bl.Volunteer!.UnMatchVolunteerToCall(volunteerId, callId);
+            Console.WriteLine("The volunteer has been successfully unmatched from the call.");
+        }
+        catch (BO.NotFoundException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+        catch (BO.DataAccessException ex)
+        {
+            Console.WriteLine($"Data access error: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+        }
     }
 
     /// <summary>
