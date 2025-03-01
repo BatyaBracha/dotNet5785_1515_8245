@@ -1,6 +1,7 @@
 ﻿using BO;
 using DalApi;
 using DO;
+using System.Data;
 
 namespace BlTest;
 
@@ -50,9 +51,6 @@ internal class Program
                         break;
                     case SpecificOptions.DELETE:
                         volunteerDelete();
-                        break;
-                    case SpecificOptions.DELETE_ALL:
-                        volunteerDeleteAll();
                         break;
                     case SpecificOptions.ASSIGN_VOLUNTEER_TO_CALL:
                         AssignVolunteerToCall();
@@ -302,6 +300,141 @@ internal class Program
         }
     }
 
+    private static void callMenu()
+    {
+        try
+        {
+            SpecificOptions choice = SpecificOptions.EXIT;
+            do
+            {
+                Console.WriteLine("Enter your choice:\n" +
+                    "to exit press 0\n" +
+                    "to create a new call press 1\n" +
+                    "to read a cal's details press 2\n" +
+                    "to read all calls' details press 3\n" +
+                    "to update a call's datails press 4\n" +
+                    "to delete a call press 5\n" +
+                    "to delete all calls press 6");
+                choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
+                switch (choice)
+                {
+                    case SpecificOptions.EXIT:
+                        break;
+                    case SpecificOptions.CREATE:
+                        callCreate();
+                        break;
+                    case SpecificOptions.READ:
+                        callRead();
+                        break;
+                    case SpecificOptions.READ_ALL:
+                        callReadAll();
+                        break;
+                    case SpecificOptions.UPDATE:
+                        callUpdate();
+                        break;
+                    case SpecificOptions.DELETE:
+                        callDelete();
+                        break;
+                    case SpecificOptions.DELETE_ALL:
+                        callDeleteAll();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice.");
+                        break;
+                }
+            } while (choice != SpecificOptions.EXIT);
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+
+    }
+
+    private static void callCreate()
+    {
+        Console.WriteLine("Enter type of call");
+        string typeOfCallInput = Console.ReadLine()!;
+        if (!Enum.TryParse<BO.TypeOfCall>(typeOfCallInput, out BO.TypeOfCall convertedType))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid type of call.");
+
+        Console.WriteLine("Enter a description");
+        string description = Console.ReadLine()!;
+
+        Console.WriteLine("Enter the call address");
+        string address = Console.ReadLine()!;
+
+        Console.WriteLine("Enter the maximum closing time (format: yyyy-MM-dd HH:mm:ss)");
+        string maxClosingTimeInput = Console.ReadLine()!;
+        DateTime? maxClosingTime = DateTime.TryParse(maxClosingTimeInput, out DateTime parsedMaxClosingTime) ? parsedMaxClosingTime : (DateTime?)null;
+
+        s_bl.Call!.Create(new BO.Call(0, convertedType, description, address, null, null,  s_bl.Admin.Clock(), maxClosingTime, BO.CallStatus.OPEN));
+    }
+
+    private static void callRead()
+    {
+        Console.WriteLine("Enter an ID");
+        if (!int.TryParse(Console.ReadLine(), out int id))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
+        BO.Call call = s_bl.Call!.Read(id)!;
+        Console.WriteLine(call); // Display the volunteer details
+    }
+
+    /// <summary>
+    /// Handles user login for both managers and volunteers.
+    /// </summary>
+    private static void Login()
+    {
+        Console.WriteLine("Enter your ID:");
+        if (!int.TryParse(Console.ReadLine(), out int userId))
+        {
+            Console.WriteLine("Invalid ID. Please enter a valid integer.");
+            return;
+        }
+
+        Console.WriteLine("Enter your password (leave blank if not applicable):");
+        string password = Console.ReadLine();
+
+        // Validate user credentials (you will need to implement this method)
+        BO.Volunteer user = s_bl.Volunteer.Read(userId);
+        if (user == null || (password != null && user.Password != password))
+        {
+            Console.WriteLine("Invalid credentials. Please try again.");
+            return;
+        }
+
+        // Determine user type and redirect accordingly
+        if (user.Role == BO.Role.STANDARD)
+        {
+            Console.WriteLine("Welcome to the Volunteer Screen!");
+            // Call method to display volunteer screen
+            DisplayVolunteerScreen();
+        }
+        else if (user.Role == BO.Role.ADMINISTRATOR)
+        {
+            Console.WriteLine("Welcome to the Manager Screen! Choose your next step:");
+            Console.WriteLine("1. Go to Volunteer Screen");
+            Console.WriteLine("2. Go to Main Management Screen");
+            string choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                // Call method to display volunteer screen
+                volunteerMenu();
+            }
+            else if (choice == "2")
+            {
+                // Call method to display main management screen
+                callMenue();
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Returning to login.");
+            }
+        }
+    }
+
     /// <summary>
     /// The main entry point of the program.
     /// </summary>
@@ -310,54 +443,24 @@ internal class Program
     {
         try
         {
-            Options choice = Options.EXIT;
-            do
-            {
-                Console.WriteLine("Enter your choice:\n" +
-                    "to exit press 0\n" +
-                    "to the volunteer menu press 1\n" +
-                    "to the assignment menu press 2\n" +
-                    "to the call menu press 3\n" +
-                    "to initialize the system press 4\n" +
-                    "to print all the data press 5\n" +
-                    "to the configuration menu press 6\n" +
-                    "to reset the database and the configuration press 7.");
-                choice = (Options)Enum.Parse(typeof(Options), Console.ReadLine()!);
-
-                switch (choice)
-                {
-                    case Options.EXIT:
-                        break;
-                    case Options.VOLUNTEER_MENU:
-                        volunteerMenu();
-                        break;
-                    case Options.ASSIGNMENT_MENU:
-                        assignmentMenu();
-                        break;
-                    case Options.CALL_MENU:
-                        callMenu();
-                        break;
-                    case Options.INITIALIZE:
-                        initialize();
-                        break;
-                    case Options.PRINT_DATA:
-                        printAllData();
-                        break;
-                    case Options.CONFIG_MENU:
-                        configMenu();
-                        break;
-                    case Options.RESET_DB_CONFIG:
-                        resetDbAndConfig();
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice.");
-                        break;
-                }
-            } while (choice != Options.EXIT);
+            // Start the login process
+            Login();
+        }
+        catch (BlUnauthorizedOperationException ex)
+        {
+            Console.WriteLine($"Unauthorized operation: {ex.Message}");
+        }
+        catch (BO.NotFoundException ex)
+        {
+            Console.WriteLine($"Not found: {ex.Message}");
+        }
+        catch (BO.DataAccessException ex)
+        {
+            Console.WriteLine($"Data access error: {ex.Message}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred: {ex.Message}");
+            Console.WriteLine($"An unexpected error occurred: {ex.Message}");
         }
     }
 }

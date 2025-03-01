@@ -34,4 +34,19 @@ public enum CallFieldFilter { Id, TypeOfCall, Description, Address, Latitude, Lo
 public enum TimeUnit { YEAR,MONTH, DAY, HOUR, MINUTE }
 public enum TypeOfTreatmentEnding { HOSPITAL_ADMISSION, STAY_AT_HOME, DEAD, EXPIRED, UNMATCHED };
 public enum CallField { STATUS,PRIORITY,TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID }
-
+public enum Options
+{
+    EXIT,
+    VOLUNTEER_MENU,
+    ASSIGNMENT_MENU,
+    CALL_MENU,
+    INITIALIZE,
+    PRINT_DATA,
+    CONFIG_MENU,
+    RESET_DB_CONFIG,
+    MANAGE_VOLUNTEERS,
+    MANAGE_CALLS,
+    CONFIGURE_SYSTEM,
+    RESET_DATABASE,
+    INITIALIZE_DATABASE
+}
