@@ -335,9 +335,9 @@ internal class Program
                     case SpecificOptions.DELETE:
                         callDelete();
                         break;
-                    case SpecificOptions.DELETE_ALL:
-                        callDeleteAll();
-                        break;
+                    //case SpecificOptions.DELETE_ALL:
+                    //    callDeleteAll();
+                    //    break;
                     default:
                         Console.WriteLine("Invalid choice.");
                         break;
@@ -381,6 +381,99 @@ internal class Program
         BO.Call call = s_bl.Call!.Read(id)!;
         Console.WriteLine(call); // Display the volunteer details
     }
+
+    public static void callReadAll()
+    {
+        // Prompt user for filter options
+        Console.WriteLine("Do you want to filter by a specific field? (yes/no)");
+        string filterResponse = Console.ReadLine()?.ToLower();
+
+        Enum? filterBy = null;
+        object? filterValue = null;
+
+        if (filterResponse == "yes")
+        {
+            Console.WriteLine("Select a filter field (STATUS, PRIORITY, TYPE):");
+            string filterFieldInput = Console.ReadLine();
+            filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
+
+            Console.WriteLine("Enter the filter value:");
+            filterValue = Console.ReadLine(); // Adjust parsing based on expected type
+        }
+
+        // Prompt user for sorting options
+        Console.WriteLine("Do you want to sort the results? (yes/no)");
+        string sortResponse = Console.ReadLine()?.ToLower();
+
+        Enum? sortBy = null;
+
+        if (sortResponse == "yes")
+        {
+            Console.WriteLine("Select a sort field (ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
+            string sortFieldInput = Console.ReadLine();
+            sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
+        }
+
+        // Call the existing ReadAll method with user inputs
+        IEnumerable<BO.CallInList> callList = s_bl.Call!.ReadAll(filterBy, filterValue,sortBy);
+        foreach (var c in callList)
+        {
+            Console.WriteLine(c);
+        }
+    }
+
+    private static void callUpdate()
+    {
+        Console.WriteLine("Enter the Call ID");
+        if (!int.TryParse(Console.ReadLine(), out int id))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
+        Console.WriteLine("Enter the type of call (e.g., TYPE1, TYPE2):");
+        string typeOfCallInput = Console.ReadLine()!;
+        BO.TypeOfCall typeOfCall = (BO.TypeOfCall)Enum.Parse(typeof(BO.TypeOfCall), typeOfCallInput);
+
+        Console.WriteLine("Enter the description:");
+        string? description = Console.ReadLine();
+
+        Console.WriteLine("Enter the address:");
+        string? address = Console.ReadLine();
+
+        Console.WriteLine("Enter the latitude:");
+        if (!double.TryParse(Console.ReadLine(), out double latitude))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
+
+        Console.WriteLine("Enter the longitude:");
+        if (!double.TryParse(Console.ReadLine(), out double longitude))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
+
+        Console.WriteLine("Enter the opening time (yyyy-mm-dd hh:mm:ss, or leave blank):");
+        if (!DateTime.TryParse(Console.ReadLine(), out DateTime openingTime))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid date and time.");
+
+        Console.WriteLine("Enter the max closing time (yyyy-mm-dd hh:mm:ss, or leave blank):");
+        if (!DateTime.TryParse(Console.ReadLine(), out DateTime maxClosingTime))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid date and time.");
+
+        Console.WriteLine("Enter the status of the call (e.g., OPEN, CLOSED):");
+        string statusInput = Console.ReadLine()!;
+        BO.CallStatus status = (BO.CallStatus)Enum.Parse(typeof(BO.CallStatus), statusInput);
+
+        // Assuming s_bl.Call is the service layer for managing calls
+        s_bl.Call!.Update(new BO.Call(id, typeOfCall, description, address, latitude, longitude, openingTime, maxClosingTime, status));
+    }
+
+    private static void callDelete()
+    {
+        Console.WriteLine("Enter the call ID");
+        if (!int.TryParse(Console.ReadLine(), out int id))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+        if (s_bl.Call!.Read(id) != null)
+            s_bl.Call!.Delete(id);
+        else
+            throw new BlUnauthorizedOperationException("An object with this ID does not exist.");
+    }
+
+
 
     /// <summary>
     /// Handles user login for both managers and volunteers.
