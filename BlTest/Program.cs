@@ -30,8 +30,9 @@ internal class Program
                     "to update a volunteer's details press 4\n" +
                     "to delete a volunteer press 5\n" +
                     "to delete all volunteers press 6\n" +
-                    "to assign a volunteer to a call press 7\n" +
-                    "to unmatch a volunteer from a call press 8");
+                    //"to assign a volunteer to a call press 7\n" +
+                    //"to unmatch a volunteer from a call press 8"
+                    );
                 choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                 switch (choice)
                 {
@@ -52,12 +53,12 @@ internal class Program
                     case SpecificOptions.DELETE:
                         volunteerDelete();
                         break;
-                    case SpecificOptions.ASSIGN_VOLUNTEER_TO_CALL:
-                        AssignVolunteerToCall();
-                        break;
-                    case SpecificOptions.UNMATCH_VOLUNTEER_FROM_CALL:
-                        UnmatchVolunteerFromCall();
-                        break;
+                    //case SpecificOptions.ASSIGN_VOLUNTEER_TO_CALL:
+                    //    AssignVolunteerToCall();
+                    //    break;
+                    //case SpecificOptions.UNMATCH_VOLUNTEER_FROM_CALL:
+                    //    UnmatchVolunteerFromCall();
+                    //    break;
                     default:
                         Console.WriteLine("Invalid choice.");
                         break;
@@ -309,16 +310,25 @@ internal class Program
             {
                 Console.WriteLine("Enter your choice:\n" +
                     "to exit press 0\n" +
-                    "to create a new call press 1\n" +
-                    "to read a cal's details press 2\n" +
-                    "to read all calls' details press 3\n" +
-                    "to update a call's datails press 4\n" +
-                    "to delete a call press 5\n" +
-                    "to delete all calls press 6");
+                    "to get the amount of calls prss 1\n"
+                    "to create a new call press 2\n" +
+                    "to read a cal's details press 3\n" +
+                    "to read all calls' details press 4\n" +
+                    "to update a call's datails press 5\n" +
+                    "to delete a call press 6\n" +
+                    "to read all closed calls press 7\n"+
+                    "to read all open calls press 8\n"+
+                    "to update a call cancelation press 9\n"+
+                    "to end a call press 10\n"+
+                    "to choose a call for treatment press 11\n"
+                    );
                 choice = (SpecificOptions)Enum.Parse(typeof(SpecificOptions), Console.ReadLine()!);
                 switch (choice)
                 {
                     case SpecificOptions.EXIT:
+                        break;
+                    case SpecificOptions.CALLCOUNT:
+                        callCount();
                         break;
                     case SpecificOptions.CREATE:
                         callCreate();
@@ -335,6 +345,22 @@ internal class Program
                     case SpecificOptions.DELETE:
                         callDelete();
                         break;
+                    case SpecificOptions.CLOSEDCALLS:
+                        closedCalls();
+                        break;
+                    case SpecificOptions.OPENCALLS:
+                        openCalls();
+                        break;
+                    case SpecificOptions.UPDATECALLCANCELATION:
+                        updateCallCancelation();
+                        break;
+                    case SpecificOptions.UPDATEENDOFCALL:
+                        updateEndOfcall();
+                        break;
+                    case SpecificOptions.ASSIGN_VOLUNTEER_TO_CALL:
+                        ChooseACallForTreatment();
+                        break;
+
                     //case SpecificOptions.DELETE_ALL:
                     //    callDeleteAll();
                     //    break;
@@ -350,6 +376,20 @@ internal class Program
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
 
+    }
+
+    private static void callCount()
+    {
+        // Assuming the class name is CallService
+        //CallService callService = new CallService(); // Create an instance of the class
+        // currentcall=new BO.Call();
+        IEnumerable<int> callsCount = s_bl.GetCallsCount(); // Call the method
+
+        // Optionally, you can iterate through the results to display them
+        foreach (var count in callsCount)
+        {
+            Console.WriteLine(count);
+        }
     }
 
     private static void callCreate()
@@ -378,7 +418,7 @@ internal class Program
         if (!int.TryParse(Console.ReadLine(), out int id))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
 
-        BO.Call call = s_bl.Call!.Read(id)!;
+        BO.Call call = s_bl.Call!.GetCallDetails(id)!;
         Console.WriteLine(call); // Display the volunteer details
     }
 
@@ -473,6 +513,99 @@ internal class Program
             throw new BlUnauthorizedOperationException("An object with this ID does not exist.");
     }
 
+    private static void closedCalls()
+    {
+        // Get volunteer ID from user
+        Console.WriteLine("Enter your volunteer ID:");
+        if (!int.TryParse(Console.ReadLine(), out int volunteerId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
+
+        // Get sorting criteria from user
+        Console.WriteLine("Enter sorting criteria (e.g., Name, Address):");
+        string sortByInput = Console.ReadLine();
+        Enum? sortBy = ConvertToSortByEnum(sortByInput); // Implement this method based on your Enum
+
+        // Call the method to get closed calls
+        var closedCalls = s_bl.GetClosedCallsHandledByTheVolunteer(volunteerId, sortBy);
+
+        // Print all closed calls
+        foreach (var call in closedCalls)
+        {
+            Console.WriteLine(call);
+        }
+    }
+    private static void openCalls()
+    {
+        // Get volunteer ID from user
+        Console.WriteLine("Enter your volunteer ID:");
+        if (!int.TryParse(Console.ReadLine(), out int volunteerId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
+
+        // Get sorting criteria from user
+        Console.WriteLine("Enter sorting criteria (e.g., Name, Address):");
+        string sortByInput = Console.ReadLine();
+        Enum? sortBy = ConvertToSortByEnum(sortByInput); // Implement this method based on your Enum
+
+        // Call the method to get closed calls
+        var openCalls = s_bl.GetOpenCallsCanBeSelectedByAVolunteer(volunteerId, sortBy);
+
+        // Print all closed calls
+        foreach (var call in openCalls)
+        {
+            Console.WriteLine(call);
+        }
+    }
+    private static void updateCallCancelation()
+    {
+        Console.WriteLine("Enter your volunteer ID:");
+        if (!int.TryParse(Console.ReadLine(), out int volunteerId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
+
+        // Get assignment ID from user
+        Console.WriteLine("Enter the assignment ID:");
+        if (!int.TryParse(Console.ReadLine(), out int assignmentId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the assignment ID.");
+
+        // Call the TreatmentCancellationUpdate method
+        s_bl.TreatmentCancellationUpdate(volunteerId, assignmentId);
+
+        Console.WriteLine("Treatment has been successfully canceled.");
+    }
+
+    private static void updateEndOfcall()
+    {
+        Console.WriteLine("Enter your volunteer ID:");
+        if (!int.TryParse(Console.ReadLine(), out int volunteerId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
+
+        // Get assignment ID from user
+        Console.WriteLine("Enter the assignment ID:");
+        if (!int.TryParse(Console.ReadLine(), out int assignmentId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the assignment ID.");
+
+        // Call the TreatmentCompletionUpdate method
+        s_bl.TreatmentCompletionUpdate(volunteerId, assignmentId);
+
+        Console.WriteLine("Treatment has been successfully marked as completed.");
+    }
+
+    private static void ChooseACallForTreatment()
+    {
+        // Get volunteer ID from user
+        Console.WriteLine("Enter your volunteer ID:");
+        if (!int.TryParse(Console.ReadLine(), out int volunteerId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
+
+        // Get call ID from user
+        Console.WriteLine("Enter the call ID:");
+        if (!int.TryParse(Console.ReadLine(), out int callId))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the call ID.");
+
+        // Call the ChoosingACallForTreatment method
+        s_bl.ChoosingACallForTreatment(volunteerId, callId);
+
+        Console.WriteLine("The call has been successfully assigned for treatment.");
+    }
 
 
     /// <summary>

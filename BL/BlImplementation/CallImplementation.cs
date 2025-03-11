@@ -273,53 +273,53 @@ namespace BlImplementation
 
             Call_dal.Assignment.Update(assignment);
         }
-        public BO.Call? Read(int id)
-        {
-            try
-            {
-                var doCall = Call_dal.Call.Read(id)
-                    ?? throw new BO.NotFoundException("הקריאה לא נמצאה.");
+        //public BO.Call? Read(int id)
+        //{
+        //    try
+        //    {
+        //        var doCall = Call_dal.Call.Read(id)
+        //            ?? throw new BO.NotFoundException("הקריאה לא נמצאה.");
 
-                var assignment = Call_dal.Assignment.ReadAll()
-                    .FirstOrDefault(a => a.VolunteerId == id && a.TreatmentEndTime == null);
+        //        var assignment = Call_dal.Assignment.ReadAll()
+        //            .FirstOrDefault(a => a.VolunteerId == id && a.TreatmentEndTime == null);
 
-                BO.CallInProgress? callInProgress = null;
+        //        BO.CallInProgress? callInProgress = null;
 
-                if (assignment != null)
-                {
-                    var call = Call_dal.Call.Read(assignment.CallId);
-                    callInProgress = new BO.CallInProgress
-                    {
-                        CallId = call.Id,
-                        Address = call.Address,
-                        Description = call.Description
-                    };
-                }
+        //        if (assignment != null)
+        //        {
+        //            var call = Call_dal.Call.Read(assignment.CallId);
+        //            callInProgress = new BO.CallInProgress
+        //            {
+        //                CallId = call.Id,
+        //                Address = call.Address,
+        //                Description = call.Description
+        //            };
+        //        }
 
-                return new BO.Call
-                (
-                    //Id = do.Id,
-                    //Name = doVolunteer.Name,
-                    //Email = doVolunteer.Email,
-                    //PhoneNumber = doVolunteer.Phone,
-                    //CallInProgress = callInProgress
-                    id = doCall.id,
-                    TypeOfCall = doCall.typeOfCall,
-                    Description = doCall.description,
-                    Address = doCall.address,
-                    Latitude = doCall.latitude,
-                    Longitude = doCall.longitude,
-                    OpeningTime = doCall.openingTime,
-                    MaxClosingTime = doCall.maxClosingTime,
-                    Status = doCall.status
-                    //AssignedVolunteers = new List<BO.CallAssignInList>();
-                );
-            }
-            catch (DO.DataAccessException ex)
-            {
-                throw new BO.DataAccessException("שגיאה בגישה לנתוני קריאות.", ex);
-            }
-        }
+        //        return new BO.Call
+        //        (
+        //            //Id = do.Id,
+        //            //Name = doVolunteer.Name,
+        //            //Email = doVolunteer.Email,
+        //            //PhoneNumber = doVolunteer.Phone,
+        //            //CallInProgress = callInProgress
+        //            id = doCall.id,
+        //            TypeOfCall = doCall.typeOfCall,
+        //            Description = doCall.description,
+        //            Address = doCall.address,
+        //            Latitude = doCall.latitude,
+        //            Longitude = doCall.longitude,
+        //            OpeningTime = doCall.openingTime,
+        //            MaxClosingTime = doCall.maxClosingTime,
+        //            Status = doCall.status
+        //            //AssignedVolunteers = new List<BO.CallAssignInList>();
+        //        );
+        //    }
+        //    catch (DO.DataAccessException ex)
+        //    {
+        //        throw new BO.DataAccessException("שגיאה בגישה לנתוני קריאות.", ex);
+        //    }
+        //}
 
         public void Update(BO.Call boCall)
         {
