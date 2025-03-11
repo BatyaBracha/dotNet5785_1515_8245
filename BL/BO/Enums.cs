@@ -50,3 +50,14 @@ public enum Options
     RESET_DATABASE,
     INITIALIZE_DATABASE
 }
+
+public enum AdminOptions
+{
+    EXIT,
+    GET_CLOCK,
+    PROMOTION_CLOCK,        
+    GET_RISK_RANGE,
+    SET_RISK_RANGE,
+    RESET_DB,
+    INITIALIZE_DB
+}

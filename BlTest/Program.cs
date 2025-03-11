@@ -369,7 +369,7 @@ internal class Program
         string maxClosingTimeInput = Console.ReadLine()!;
         DateTime? maxClosingTime = DateTime.TryParse(maxClosingTimeInput, out DateTime parsedMaxClosingTime) ? parsedMaxClosingTime : (DateTime?)null;
 
-        s_bl.Call!.Create(new BO.Call(0, convertedType, description, address, null, null,  s_bl.Admin.Clock(), maxClosingTime, BO.CallStatus.OPEN));
+        s_bl.Call!.Create(new BO.Call(0, convertedType, description, address, null, null, s_bl.Admin.Clock(), maxClosingTime, BO.CallStatus.OPEN));
     }
 
     private static void callRead()
@@ -415,7 +415,7 @@ internal class Program
         }
 
         // Call the existing ReadAll method with user inputs
-        IEnumerable<BO.CallInList> callList = s_bl.Call!.ReadAll(filterBy, filterValue,sortBy);
+        IEnumerable<BO.CallInList> callList = s_bl.Call!.ReadAll(filterBy, filterValue, sortBy);
         foreach (var c in callList)
         {
             Console.WriteLine(c);
@@ -528,6 +528,115 @@ internal class Program
         }
     }
 
+    private static void adminMenu()
+    {
+        try
+        {
+            AdminOptions choice = AdminOptions.EXIT;
+            do
+            {
+                Console.WriteLine("Enter your choice:\n" +
+                    "to exit press 0\n" +
+                    "to see what the system time is, press 1\n" +
+                    "to advance the clock, press 2\n" +
+                    "to get the risk range, press 3\n" +
+                    "to set the risk range, press 4\n" +
+                    "to reset all the DB, press 5\n" +
+                    "to initialize the DB, press 6\n");
+                choice = (AdminOptions)Enum.Parse(typeof(AdminOptions), Console.ReadLine()!);
+                switch (choice)
+                {
+                    case AdminOptions.EXIT:
+                        break;
+                    case AdminOptions.GET_CLOCK:
+                        getClock();
+                        break;
+                    case AdminOptions.PROMOTION_CLOCK:
+                        promotionClock();
+                        break;
+                    case AdminOptions.GET_RISK_RANGE:
+                        getRiskRange();
+                        break;
+                    case AdminOptions.SET_RISK_RANGE:
+                        setRiskRange();
+                        break;
+                    case AdminOptions.RESET_DB:
+                        resetDB();
+                        break;
+                    case AdminOptions.INITIALIZE_DB:
+                        initializeDB();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice.");
+                        break;
+                }
+            } while (choice != AdminOptions.EXIT);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+    private static void initializeDB()
+    {
+        s_bl.Admin.InitializeDB();
+    }
+    private static void resetDB() 
+    {
+        s_bl.Admin.ResetDB();
+    }
+    private static void setRiskRange()
+    {
+        Console.WriteLine("Please enter the risk range:");
+        if (!TimeSpan.TryParse(Console.ReadLine(), out TimeSpan riskRange))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the risk range.");
+        s_bl.Admin.SetRiskRange(riskRange);
+    }
+    private static void getRiskRange()
+    {
+        s_bl.Admin.GetRiskRange();
+    }
+    private static void getClock()
+    {
+        s_bl.Admin.Clock();
+    }
+    private static void promotionClock()
+    {
+        Console.WriteLine("Enter the time unit you want to advanced by:");
+        if (!TimeUnit.TryParse(Console.ReadLine(), out TimeUnit timeUnit))
+            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the time unit.");
+            Console.WriteLine("Enter your choice:\n" +
+                "to advanced the clock by one year, press 0\n" +
+                "to advanced the clock by one month, press 1\n" +
+                "to advanced the clock by one day, press 2\n" +
+                "to advanced the clock by one hoar, press 3\n" +
+                "to advanced the clock by one minute, press 4\n");
+
+            switch (timeUnit)
+            {
+                case BO.TimeUnit.MINUTE:
+                    timeUnit = TimeUnit.MINUTE;
+                    break;
+                case BO.TimeUnit.HOUR:
+                    timeUnit = TimeUnit.HOUR;
+                    break;
+                case BO.TimeUnit.DAY:
+                    timeUnit = TimeUnit.DAY;
+                    break;
+                case BO.TimeUnit.MONTH:
+                    timeUnit = TimeUnit.MONTH;
+                    break;
+                case BO.TimeUnit.YEAR:
+                    timeUnit = TimeUnit.YEAR;
+                    break;
+                default:
+                    throw new BlArgumentException("Unknown time unit");
+            }
+
+        s_bl.Admin.PromotionClock(timeUnit);
+
+    }
+
     /// <summary>
     /// The main entry point of the program.
     /// </summary>
@@ -556,4 +665,6 @@ internal class Program
             Console.WriteLine($"An unexpected error occurred: {ex.Message}");
         }
     }
+
+
 }
