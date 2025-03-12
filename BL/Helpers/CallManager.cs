@@ -25,27 +25,29 @@ internal static class CallManager
             throw new ArgumentException("Address cannot be null or empty.");
         try
         {
-            using (HttpClient client = new HttpClient())
+            //using (HttpClient client = new HttpClient())
             {
-                string baseUrl = "https://geocode.maps.co/search?";
-                string requestUrl = $"{baseUrl}q={Uri.EscapeDataString(address)}";
+                //string baseUrl = "https://geocode.maps.co/search?";
+                //string requestUrl = $"{baseUrl}q={Uri.EscapeDataString(address)}";
 
-                // Send the HTTP request and get the response
-                HttpResponseMessage response = client.GetAsync(requestUrl).Result;
+                //// Send the HTTP request and get the response
+                //HttpResponseMessage response = client.GetAsync(requestUrl).Result;
 
-                if (!response.IsSuccessStatusCode)
-                    throw new Exception($"Failed to retrieve data. HTTP Status: {response.StatusCode}");
+                //if (!response.IsSuccessStatusCode)
+                //    throw new Exception($"Failed to retrieve data. HTTP Status: {response.StatusCode}");
 
-                string responseContent = response.Content.ReadAsStringAsync().Result;
+                //string responseContent = response.Content.ReadAsStringAsync().Result;
 
-                // Deserialize the JSON response
-                var results = JsonSerializer.Deserialize<Coordinates[]>(responseContent);
+                //// Deserialize the JSON response
+                //var results = JsonSerializer.Deserialize<Coordinates[]>(responseContent);
 
-                if (results == null || results.Length == 0)
-                    throw new Exception("No results found for the given address.");
+                //if (results == null || results.Length == 0)
+                //    throw new Exception("No results found for the given address.");
 
-                return (results[0].lat, results[0].lon);
+                //return (results[0].lat, results[0].lon);
             }
+            return (0, 0);
+
         }
         catch (Exception ex)
         {

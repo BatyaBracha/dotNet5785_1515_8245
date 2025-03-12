@@ -13,5 +13,11 @@ public class CallInList
     public TimeSpan? TreatmentDuration { get; set; }
     public CallStatus Status { get; set; }
     public int AssignmentsSum {  get; set; }
-
+    public override string ToString()
+    {
+        return $"Id: {Id}, CallId: {CallId}, TypeOfCall: {TypeOfCall}, " +
+               $"OpeningTime: {OpeningTime}, TimeLeft: {TimeLeft}, " +
+               $"LastVolunteerName: {LastVolunteerName}, TreatmentDuration: {TreatmentDuration}, " +
+               $"Status: {Status}, AssignmentsSum: {AssignmentsSum}";
+    }
 }

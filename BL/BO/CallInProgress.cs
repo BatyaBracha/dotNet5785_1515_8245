@@ -15,4 +15,12 @@ public class CallInProgress
     public DateTime TimeOfEntryToTreatment { get; set; }
     public double CallVolunteerDistance { get; set; }
     public Status Status { get; set; }
+    public override string ToString()
+    {
+        return $"Id: {Id}, CallId: {CallId}, TypeOfCall: {TypeOfCall}, " +
+               $"Description: {Description}, Address: {Address}, " +
+               $"TimeOfOpening: {TimeOfOpening}, MaxFinishTime: {MaxFinishTime}, " +
+               $"TimeOfEntryToTreatment: {TimeOfEntryToTreatment}, " +
+               $"CallVolunteerDistance: {CallVolunteerDistance}, Status: {Status}";
+    }
 }
