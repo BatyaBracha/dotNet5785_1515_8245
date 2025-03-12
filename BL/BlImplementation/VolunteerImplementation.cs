@@ -1,6 +1,11 @@
 ﻿
 using BlApi;
+using BO;
+using DO;
 using Helpers;
+using System.Data;
+using System;
+using System.Xml.Linq;
 namespace BlImplementation;
 
 internal class VolunteerImplementation : IVolunteer
@@ -15,30 +20,51 @@ internal class VolunteerImplementation : IVolunteer
     {
         try
         {
+            ValidateVolunteer(boVolunteer);
             var user = Volunteer_dal.Volunteer.ReadAll()
-                .FirstOrDefault(u => u.Name == boVolunteer.Name);
-
-            if (user == null || user.Password != boVolunteer.Password)
+                .FirstOrDefault(u => u.Id == boVolunteer.Id);
+            if (user != null || user.Password != boVolunteer.Password)
                 throw new BO.BlArgumentException("שם המשתמש או הסיסמה אינם נכונים.");
+            var doVolunteer = new DO.Volunteer
+            {
+                Id = boVolunteer.Id,
+                Name = boVolunteer.Name,
+                Phone = boVolunteer.PhoneNumber,
+                Email = boVolunteer.Email,
+                Password = boVolunteer.Password,
+                Address = boVolunteer.CurrentAddress,
+                latitude = boVolunteer.Latitude,
+                longitude = boVolunteer.Longitude,
+                Role = (DO.Role)boVolunteer.Role,
+                Active = boVolunteer.Active,
+                MaxDistance = boVolunteer.MaxDistance,
+                TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
+            };
 
-            return (BO.Role)user.Role;
+            Volunteer_dal.Volunteer.Create(doVolunteer);
         }
-        catch (DO.DataAccessException ex)
+        catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.DataAccessException("שגיאה בגישה לנתוני משתמשים.", ex);
+            throw new BO.BlUnauthorizedOperationException("שגיאה בגישה לנתוני משתמשים.");
         }
     }
 
     private void ValidateVolunteer(BO.Volunteer volunteer)
     {
         if (string.IsNullOrWhiteSpace(volunteer.Name))
-            throw new BO.ValidationException("שם המתנדב אינו תקין.");
+            throw new BO.BlValidationException("שם המתנדב אינו תקין.");
         if (!IsValidEmail(volunteer.Email))
-            throw new BO.ValidationException("כתובת האימייל אינה תקינה.");
-        if (!IsValidPhone(volunteer.Phone))
-            throw new BO.ValidationException("מספר הטלפון אינו תקין.");
+            throw new BO.BlValidationException("כתובת האימייל אינה תקינה.");
+        if (!IsValidPhone(volunteer.PhoneNumber))
+            throw new BO.BlValidationException("מספר הטלפון אינו תקין.");
+        if(!isValidAddress(volunteer.CurrentAddress))
+            throw new BO.BlValidationException("this address does not exist")
     }
 
+    private bool isValidAddress(string address)
+    {
+
+    }
     private bool IsValidEmail(string email) =>
         new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(email);
 
@@ -54,13 +80,13 @@ internal class VolunteerImplementation : IVolunteer
                 .ToList();
 
             if (activeAssignments.Any())
-                throw new BO.InvalidOperationException("לא ניתן למחוק מתנדב שמטפל כרגע בקריאה.");
+                throw new BO.BlInvalidOperationException("לא ניתן למחוק מתנדב שמטפל כרגע בקריאה.");
 
             Volunteer_dal.Volunteer.Delete(id);
         }
-        catch (DO.DataAccessException ex)
+        catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.DataAccessException("שגיאה במחיקת נתוני מתנדבים.", ex);
+            throw new BO.BlUnauthorizedOperationException("שגיאה במחיקת נתוני מתנדבים.");
         }
     }
 
@@ -72,7 +98,7 @@ internal class VolunteerImplementation : IVolunteer
                 .FirstOrDefault(a => a.VolunteerId == volunteerId && a.TreatmentEndTime == null);
 
             if (existingAssignment != null)
-                throw new BO.InvalidOperationException("לא ניתן להתאים מתנדב שכבר מטפל בקריאה אחרת.");
+                throw new BO.BlInvalidOperationException("לא ניתן להתאים מתנדב שכבר מטפל בקריאה אחרת.");
 
             var newAssignment = new DO.Assignment
             {
@@ -83,9 +109,9 @@ internal class VolunteerImplementation : IVolunteer
 
             Volunteer_dal.Assignment.Create(newAssignment);
         }
-        catch (DO.DataAccessException ex)
+        catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.DataAccessException("שגיאה בהתאמת מתנדב לקריאה.", ex);
+            throw new BO.BlUnauthorizedOperationException("שגיאה בהתאמת מתנדב לקריאה.");
         }
     }
 
@@ -94,7 +120,7 @@ internal class VolunteerImplementation : IVolunteer
         try
         {
             var doVolunteer = Volunteer_dal.Volunteer.Read(id)
-                ?? throw new BO.NotFoundException("המתנדב לא נמצא.");
+                ?? throw new BO.BlDoesNotExistException("המתנדב לא נמצא.");
 
             var assignment = Volunteer_dal.Assignment.ReadAll()
                 .FirstOrDefault(a => a.VolunteerId == id && a.TreatmentEndTime == null);
@@ -113,17 +139,27 @@ internal class VolunteerImplementation : IVolunteer
             }
 
             return new BO.Volunteer
-            {
-                Id = doVolunteer.Id,
-                Name = doVolunteer.Name,
-                Email = doVolunteer.Email,
-                PhoneNumber = doVolunteer.Phone,
-                CallInProgress = callInProgress
-            };
+            (
+                doVolunteer.Id,
+                doVolunteer.Name,
+                doVolunteer.Phone,
+                doVolunteer.Email,
+                doVolunteer.Password,
+                doVolunteer.Address,
+                doVolunteer.latitude,
+                doVolunteer.longitude,
+                (BO.Role)doVolunteer.Role,
+                doVolunteer.Active,
+                doVolunteer.MaxDistance,
+                (BO.TypeOfDistance)doVolunteer.TypeOfDistance,
+                0,
+                0,
+                0,
+               callInProgress);
         }
-        catch (DO.DataAccessException ex)
+        catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.DataAccessException("שגיאה בגישה לנתוני מתנדבים.", ex);
+            throw new BO.BlUnauthorizedOperationException("שגיאה בגישה לנתוני מתנדבים.");
         }
     }
 
@@ -157,9 +193,9 @@ internal class VolunteerImplementation : IVolunteer
 
             return volunteerList.ToList();
         }
-        catch (DO.DataAccessException ex)
+        catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.DataAccessException("שגיאה בגישה לנתוני מתנדבים.", ex);
+            throw new BO.BlUnauthorizedOperationException("שגיאה בגישה לנתוני מתנדבים.");
         }
     }
 
@@ -171,16 +207,14 @@ internal class VolunteerImplementation : IVolunteer
                 .FirstOrDefault(a => a.VolunteerId == volunteerId && a.CallId == callId && a.TreatmentEndTime == null);
 
             if (assignment == null)
-                throw new BO.NotFoundException("לא נמצאה התאמה בין המתנדב לקריאה.");
+                throw new BO.BlDoesNotExistException("לא נמצאה התאמה בין המתנדב לקריאה.");
 
-            assignment.TreatmentEndTime = ClockManager.Now;
-            assignment.TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.UNMATCHED;
 
-            Volunteer_dal.Assignment.Update(assignment);
+            Volunteer_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId,assignment.VolunteerId, assignment.TreatmentStartTime,ClockManager.Now, DO.TypeOfTreatmentEnding.UNMATCHED,assignment.AssignmentStatus));
         }
-        catch (DO.DataAccessException ex)
+        catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.DataAccessException("שגיאה בביטול התאמת מתנדב לקריאה.", ex);
+            throw new BO.BlUnauthorizedOperationException("שגיאה בביטול התאמת מתנדב לקריאה.");
         }
     }
 
@@ -194,16 +228,23 @@ internal class VolunteerImplementation : IVolunteer
             {
                 Id = boVolunteer.Id,
                 Name = boVolunteer.Name,
-                Email = boVolunteer.Email,
                 Phone = boVolunteer.PhoneNumber,
-                Active = boVolunteer.Active
+                Email = boVolunteer.Email,
+                Password = boVolunteer.Password,
+                Address = boVolunteer.CurrentAddress,
+                latitude = boVolunteer.Latitude,
+                longitude = boVolunteer.Longitude,
+                Role = (DO.Role)boVolunteer.Role,
+                Active = boVolunteer.Active,
+                MaxDistance = boVolunteer.MaxDistance,
+                TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
             };
 
             Volunteer_dal.Volunteer.Update(doVolunteer);
         }
-        catch (DO.DataAccessException ex)
+        catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.DataAccessException("שגיאה בעדכון נתוני מתנדבים.", ex);
+            throw new BO.BlUnauthorizedOperationException("שגיאה בעדכון נתוני מתנדבים.");
         }
     }
 

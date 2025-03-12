@@ -30,7 +30,7 @@ public record Volunteer
     double? longitude,
     Role Role,
     bool Active,
-    double MaxDistance,
+    double? MaxDistance,
     TypeOfDistance TypeOfDistance
     )
 {
