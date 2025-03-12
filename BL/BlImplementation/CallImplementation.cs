@@ -164,7 +164,7 @@ namespace BlImplementation
                 Id = c.Id,
                 TypeOfCall = (BO.TypeOfCall)c.TypeOfCall,
                 OpeningTime = c.OpeningTime,
-                Address = c.Address
+                Address = c.Address,
             });
 
             if (sortBy != null)
