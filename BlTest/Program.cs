@@ -772,11 +772,11 @@ internal class Program
     }
     private static void getRiskRange()
     {
-        s_bl.Admin.GetRiskRange();
+        Console.WriteLine(s_bl.Admin.GetRiskRange());
     }
     private static void getClock()
     {
-        s_bl.Admin.Clock();
+        Console.WriteLine(s_bl.Admin.Clock());
     }
     private static void promotionClock()
     {
