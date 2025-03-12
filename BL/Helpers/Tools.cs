@@ -44,7 +44,7 @@ internal static class Tools
 
     public static double DegreesToRadians(double degrees)
     {
-        return degrees * Math.PI / 180;
+        return degrees *  Math.PI / 180;
     }
 
     //public static CallStatusInProgress CalculateStatus(DO.Call call, int riskThreshold = 30)
