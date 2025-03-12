@@ -2,614 +2,650 @@
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
     <Id>1000</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Vehicle recovery required from the beach.</Description>
-    <Address>David HaMelech St, Herzliya</Address>
-    <latitude>32.1673</latitude>
-    <longitude>34.836</longitude>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:22:00</OpeningTime>
+    <OpeningTime>2025-03-12T17:46:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T10:52:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T21:55:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1001</Id>
     <TypeOfCall>SEIZURE</TypeOfCall>
-    <Description>Medical emergency near the park.</Description>
-    <Address>Rothschild Blvd, Tel Aviv</Address>
-    <latitude>32.0656</latitude>
-    <longitude>34.777</longitude>
+    <Description>Locked keys inside the vehicle.</Description>
+    <Address>Ben Gurion Blvd, Haifa</Address>
+    <latitude>32.794</latitude>
+    <longitude>34.9896</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T03:16:00</OpeningTime>
+    <OpeningTime>2025-03-12T17:30:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:49:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T19:19:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1002</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Locked keys inside the vehicle.</Description>
-    <Address>Rothschild Blvd, Tel Aviv</Address>
-    <latitude>32.0656</latitude>
-    <longitude>34.777</longitude>
+    <TypeOfCall>HEAT_STROKE</TypeOfCall>
+    <Description>Minor mechanical issue near the mall.</Description>
+    <Address>Herzl St, Tel Aviv</Address>
+    <latitude>32.0853</latitude>
+    <longitude>34.7818</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:23:00</OpeningTime>
+    <OpeningTime>2025-03-12T15:21:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T10:36:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:38:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1003</Id>
-    <TypeOfCall>HEAT_STROKE</TypeOfCall>
-    <Description>Jump start required at the parking lot.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
+    <TypeOfCall>CHOKING</TypeOfCall>
+    <Description>Flat tire on the highway.</Description>
+    <Address>Eilat Promenade, Eilat</Address>
+    <latitude>29.5581</latitude>
+    <longitude>34.9482</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T07:31:00</OpeningTime>
+    <OpeningTime>2025-03-12T15:20:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T13:25:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T17:28:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1004</Id>
-    <TypeOfCall>DIABETIC_EMERGENCY</TypeOfCall>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
     <Description>Flat tire on the highway.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
+    <Address>Dizengoff St, Tel Aviv</Address>
+    <latitude>32.0755</latitude>
+    <longitude>34.7756</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:49:00</OpeningTime>
+    <OpeningTime>2025-03-12T17:39:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T11:32:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T22:06:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1005</Id>
-    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
-    <Description>Minor mechanical issue near the mall.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>Locked keys inside the vehicle.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T10:24:00</OpeningTime>
+    <OpeningTime>2025-03-12T14:41:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T13:08:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T15:13:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1006</Id>
-    <TypeOfCall>CHOKING</TypeOfCall>
-    <Description>Locked keys inside the vehicle.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>Vehicle recovery required from the beach.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:44:00</OpeningTime>
+    <OpeningTime>2025-03-12T16:12:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T10:23:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:27:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1007</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Minor mechanical issue near the mall.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
+    <TypeOfCall>UNCONSCIOUS_PERSON</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:13:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:37:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:59:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T23:52:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1008</Id>
-    <TypeOfCall>STROKE</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
+    <TypeOfCall>UNCONSCIOUS_PERSON</TypeOfCall>
+    <Description>Jump start required at the parking lot.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:00:00</OpeningTime>
+    <OpeningTime>2025-03-12T18:18:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T09:58:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T19:42:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1009</Id>
-    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>Jaffa St, Jerusalem</Address>
-    <latitude>31.7683</latitude>
-    <longitude>35.2137</longitude>
+    <TypeOfCall>SEIZURE</TypeOfCall>
+    <Description>Car battery is dead, needs jump start.</Description>
+    <Address>Herzl St, Tel Aviv</Address>
+    <latitude>32.0853</latitude>
+    <longitude>34.7818</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T09:30:00</OpeningTime>
+    <OpeningTime>2025-03-12T20:08:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T10:30:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-13T00:43:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1010</Id>
-    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
-    <Description>Vehicle recovery required from the beach.</Description>
-    <Address>Ben Gurion Blvd, Haifa</Address>
-    <latitude>32.794</latitude>
-    <longitude>34.9896</longitude>
+    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
+    <Description>Car stuck in the sand, needs assistance.</Description>
+    <Address>Main St, Beersheba</Address>
+    <latitude>31.2518</latitude>
+    <longitude>34.7913</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:25:00</OpeningTime>
+    <OpeningTime>2025-03-12T15:40:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T09:41:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T18:13:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1011</Id>
-    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
+    <TypeOfCall>SEIZURE</TypeOfCall>
+    <Description>Minor mechanical issue near the mall.</Description>
     <Address>Main St, Beersheba</Address>
     <latitude>31.2518</latitude>
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:32:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:39:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T09:01:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T23:56:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1012</Id>
-    <TypeOfCall>STROKE</TypeOfCall>
-    <Description>Locked keys inside the vehicle.</Description>
-    <Address>Eilat Promenade, Eilat</Address>
-    <latitude>29.5581</latitude>
-    <longitude>34.9482</longitude>
+    <TypeOfCall>DIABETIC_EMERGENCY</TypeOfCall>
+    <Description>Flat tire on the highway.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T07:03:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:14:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T13:01:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T22:08:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1013</Id>
-    <TypeOfCall>CHOKING</TypeOfCall>
-    <Description>Car battery is dead, needs jump start.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
+    <TypeOfCall>BURN_INJURY</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:34:00</OpeningTime>
+    <OpeningTime>2025-03-12T17:18:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:30:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T23:15:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1014</Id>
-    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Flat tire on the highway.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:13:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:38:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:47:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-13T00:53:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1015</Id>
-    <TypeOfCall>DIABETIC_EMERGENCY</TypeOfCall>
-    <Description>Vehicle recovery required from the beach.</Description>
+    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
+    <Description>Car stuck in the sand, needs assistance.</Description>
     <Address>Main St, Beersheba</Address>
     <latitude>31.2518</latitude>
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T07:17:00</OpeningTime>
+    <OpeningTime>2025-03-12T17:50:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:47:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:17:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1016</Id>
-    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>Ben Gurion Blvd, Haifa</Address>
-    <latitude>32.794</latitude>
-    <longitude>34.9896</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T08:28:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T09:37:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1017</Id>
-    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:59:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:16:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1018</Id>
-    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
-    <Description>Car battery is dead, needs jump start.</Description>
-    <Address>Shderot Ben Gurion, Netanya</Address>
-    <latitude>32.332</latitude>
-    <longitude>34.8599</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:41:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:24:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1019</Id>
-    <TypeOfCall>BURN_INJURY</TypeOfCall>
-    <Description>Medical emergency near the park.</Description>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Car stuck in the sand, needs assistance.</Description>
     <Address>David HaMelech St, Herzliya</Address>
     <latitude>32.1673</latitude>
     <longitude>34.836</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T09:54:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:02:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T14:51:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T22:00:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1020</Id>
-    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
+    <Id>1017</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Vehicle recovery required from the beach.</Description>
+    <Address>Ben Gurion Blvd, Haifa</Address>
+    <latitude>32.794</latitude>
+    <longitude>34.9896</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T07:27:00</OpeningTime>
+    <OpeningTime>2025-03-12T15:32:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T10:37:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:24:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1021</Id>
+    <Id>1018</Id>
     <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Main St, Beersheba</Address>
-    <latitude>31.2518</latitude>
-    <longitude>34.7913</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:08:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T06:52:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1022</Id>
-    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
-    <Description>Minor mechanical issue near the mall.</Description>
+    <Description>Vehicle recovery required from the beach.</Description>
     <Address>Eilat Promenade, Eilat</Address>
     <latitude>29.5581</latitude>
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T03:10:00</OpeningTime>
+    <OpeningTime>2025-03-12T16:21:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:44:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:14:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1023</Id>
-    <TypeOfCall>DROWNING</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T07:29:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:28:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1024</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>David HaMelech St, Herzliya</Address>
-    <latitude>32.1673</latitude>
-    <longitude>34.836</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T09:56:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T11:37:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1025</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T03:59:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:55:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1026</Id>
-    <TypeOfCall>SEIZURE</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>Shderot Ben Gurion, Netanya</Address>
-    <latitude>32.332</latitude>
-    <longitude>34.8599</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:11:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:12:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1027</Id>
-    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
-    <Description>Car stuck in the sand, needs assistance.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:10:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T10:00:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1028</Id>
-    <TypeOfCall>HEAT_STROKE</TypeOfCall>
-    <Description>Car stuck in the sand, needs assistance.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:10:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:34:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1029</Id>
-    <TypeOfCall>SEIZURE</TypeOfCall>
-    <Description>Locked keys inside the vehicle.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:52:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T06:39:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1030</Id>
-    <TypeOfCall>STROKE</TypeOfCall>
-    <Description>Car stuck in the sand, needs assistance.</Description>
-    <Address>Rothschild Blvd, Tel Aviv</Address>
-    <latitude>32.0656</latitude>
-    <longitude>34.777</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T07:04:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T12:54:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1031</Id>
-    <TypeOfCall>STROKE</TypeOfCall>
-    <Description>Car battery is dead, needs jump start.</Description>
-    <Address>David HaMelech St, Herzliya</Address>
-    <latitude>32.1673</latitude>
-    <longitude>34.836</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:54:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:29:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1032</Id>
+    <Id>1019</Id>
     <TypeOfCall>CHOKING</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:04:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T09:21:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1033</Id>
-    <TypeOfCall>STROKE</TypeOfCall>
     <Description>Medical emergency near the park.</Description>
-    <Address>Ben Gurion Blvd, Haifa</Address>
-    <latitude>32.794</latitude>
-    <longitude>34.9896</longitude>
+    <Address>Eilat Promenade, Eilat</Address>
+    <latitude>29.5581</latitude>
+    <longitude>34.9482</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T07:23:00</OpeningTime>
+    <OpeningTime>2025-03-12T18:24:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T13:10:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-13T00:23:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1034</Id>
-    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
+    <Id>1020</Id>
+    <TypeOfCall>SEVERE_BLEEDING</TypeOfCall>
     <Description>Flat tire on the highway.</Description>
-    <Address>David HaMelech St, Herzliya</Address>
-    <latitude>32.1673</latitude>
-    <longitude>34.836</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:54:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:57:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1035</Id>
-    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T10:19:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T12:00:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1036</Id>
-    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
-    <Description>Jump start required at the parking lot.</Description>
     <Address>Jaffa St, Jerusalem</Address>
     <latitude>31.7683</latitude>
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T09:43:00</OpeningTime>
+    <OpeningTime>2025-03-12T14:34:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T11:04:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T18:53:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1037</Id>
-    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
-    <Description>Medical emergency near the park.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T08:04:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T12:40:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1038</Id>
-    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
-    <Description>Car stuck in the sand, needs assistance.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:36:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:01:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1039</Id>
-    <TypeOfCall>HEAD_INJURY</TypeOfCall>
+    <Id>1021</Id>
+    <TypeOfCall>HEAT_STROKE</TypeOfCall>
     <Description>Ran out of fuel near the city center.</Description>
-    <Address>Eilat Promenade, Eilat</Address>
-    <latitude>29.5581</latitude>
-    <longitude>34.9482</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:51:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1040</Id>
-    <TypeOfCall>SEIZURE</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T10:04:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T14:25:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1041</Id>
-    <TypeOfCall>SEVERE_BLEEDING</TypeOfCall>
-    <Description>Car stuck in the sand, needs assistance.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T09:47:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T15:19:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1042</Id>
-    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Main St, Beersheba</Address>
-    <latitude>31.2518</latitude>
-    <longitude>34.7913</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T03:05:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:42:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1043</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Jump start required at the parking lot.</Description>
-    <Address>Eilat Promenade, Eilat</Address>
-    <latitude>29.5581</latitude>
-    <longitude>34.9482</longitude>
-    <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T04:59:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T10:39:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1044</Id>
-    <TypeOfCall>BROKEN_BONE</TypeOfCall>
-    <Description>Car battery is dead, needs jump start.</Description>
     <Address>Ben Gurion Blvd, Haifa</Address>
     <latitude>32.794</latitude>
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:11:00</OpeningTime>
+    <OpeningTime>2025-03-12T18:40:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T08:27:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T19:43:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1045</Id>
-    <TypeOfCall>BURN_INJURY</TypeOfCall>
-    <Description>Jump start required at the parking lot.</Description>
+    <Id>1022</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>Car stuck in the sand, needs assistance.</Description>
+    <Address>Ben Gurion Blvd, Haifa</Address>
+    <latitude>32.794</latitude>
+    <longitude>34.9896</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T19:37:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T20:15:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1023</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>Vehicle recovery required from the beach.</Description>
+    <Address>Ben Gurion Blvd, Haifa</Address>
+    <latitude>32.794</latitude>
+    <longitude>34.9896</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T21:06:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-13T02:51:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1024</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
     <Address>Rothschild Blvd, Tel Aviv</Address>
     <latitude>32.0656</latitude>
     <longitude>34.777</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:36:00</OpeningTime>
+    <OpeningTime>2025-03-12T20:49:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T09:11:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T23:16:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1046</Id>
-    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
-    <Description>Locked keys inside the vehicle.</Description>
+    <Id>1025</Id>
+    <TypeOfCall>BURN_INJURY</TypeOfCall>
+    <Description>Minor mechanical issue near the mall.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T17:11:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T17:53:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1026</Id>
+    <TypeOfCall>BURN_INJURY</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>Main St, Beersheba</Address>
+    <latitude>31.2518</latitude>
+    <longitude>34.7913</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T20:35:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-13T00:12:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1027</Id>
+    <TypeOfCall>BURN_INJURY</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
     <Address>Ben Yehuda St, Tel Aviv</Address>
     <latitude>32.0838</latitude>
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T06:18:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:17:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T11:12:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:52:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1047</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Id>1028</Id>
+    <TypeOfCall>DIABETIC_EMERGENCY</TypeOfCall>
+    <Description>Jump start required at the parking lot.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T20:16:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-13T01:12:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1029</Id>
+    <TypeOfCall>STROKE</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>Main St, Beersheba</Address>
+    <latitude>31.2518</latitude>
+    <longitude>34.7913</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T16:33:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T18:52:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1030</Id>
+    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
+    <Description>Jump start required at the parking lot.</Description>
+    <Address>Ben Gurion Blvd, Haifa</Address>
+    <latitude>32.794</latitude>
+    <longitude>34.9896</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T15:19:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T16:02:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1031</Id>
+    <TypeOfCall>HEAD_INJURY</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
+    <Address>Herzl St, Tel Aviv</Address>
+    <latitude>32.0853</latitude>
+    <longitude>34.7818</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T14:47:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T20:07:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1032</Id>
+    <TypeOfCall>UNCONSCIOUS_PERSON</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T18:56:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T21:39:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1033</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T18:33:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T21:10:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1034</Id>
+    <TypeOfCall>SEVERE_BLEEDING</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T21:01:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-13T00:53:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1035</Id>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>Flat tire on the highway.</Description>
+    <Address>Eilat Promenade, Eilat</Address>
+    <latitude>29.5581</latitude>
+    <longitude>34.9482</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T15:19:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T17:18:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1036</Id>
+    <TypeOfCall>BURN_INJURY</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Dizengoff St, Tel Aviv</Address>
+    <latitude>32.0755</latitude>
+    <longitude>34.7756</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T17:51:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T20:26:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1037</Id>
+    <TypeOfCall>CHOKING</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>Jaffa St, Jerusalem</Address>
+    <latitude>31.7683</latitude>
+    <longitude>35.2137</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T20:17:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T22:25:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1038</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T20:18:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T23:32:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1039</Id>
+    <TypeOfCall>STROKE</TypeOfCall>
     <Description>Vehicle recovery required from the beach.</Description>
     <Address>Jaffa St, Jerusalem</Address>
     <latitude>31.7683</latitude>
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T03:41:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:15:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T07:51:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:39:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1040</Id>
+    <TypeOfCall>HEAT_STROKE</TypeOfCall>
+    <Description>Minor mechanical issue near the mall.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T18:15:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T21:52:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1041</Id>
+    <TypeOfCall>UNCONSCIOUS_PERSON</TypeOfCall>
+    <Description>Jump start required at the parking lot.</Description>
+    <Address>Main St, Beersheba</Address>
+    <latitude>31.2518</latitude>
+    <longitude>34.7913</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T17:28:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T18:01:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1042</Id>
+    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
+    <Description>Locked keys inside the vehicle.</Description>
+    <Address>Ben Gurion Blvd, Haifa</Address>
+    <latitude>32.794</latitude>
+    <longitude>34.9896</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T16:57:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T22:50:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1043</Id>
+    <TypeOfCall>STROKE</TypeOfCall>
+    <Description>Car stuck in the sand, needs assistance.</Description>
+    <Address>Main St, Beersheba</Address>
+    <latitude>31.2518</latitude>
+    <longitude>34.7913</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T17:29:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T20:45:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1044</Id>
+    <TypeOfCall>CHOKING</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
+    <Address>Eilat Promenade, Eilat</Address>
+    <latitude>29.5581</latitude>
+    <longitude>34.9482</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T15:13:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T20:29:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1045</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Vehicle recovery required from the beach.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T20:45:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-13T02:16:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1046</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Car battery is dead, needs jump start.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T17:23:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T22:24:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1047</Id>
+    <TypeOfCall>HEAT_STROKE</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
+    <Address>Shderot Ben Gurion, Netanya</Address>
+    <latitude>32.332</latitude>
+    <longitude>34.8599</longitude>
+    <riskRange>PT2H2M2S</riskRange>
+    <OpeningTime>2025-03-12T19:25:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-03-12T23:49:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1048</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Jump start required at the parking lot.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
+    <TypeOfCall>BROKEN_BONE</TypeOfCall>
+    <Description>Locked keys inside the vehicle.</Description>
+    <Address>Main St, Beersheba</Address>
+    <latitude>31.2518</latitude>
+    <longitude>34.7913</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:04:00</OpeningTime>
+    <OpeningTime>2025-03-12T14:34:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T09:35:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T20:19:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1049</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
+    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
+    <Description>Car battery is dead, needs jump start.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
     <riskRange>PT2H2M2S</riskRange>
-    <OpeningTime>2025-01-07T05:40:00</OpeningTime>
+    <OpeningTime>2025-03-12T19:43:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-01-07T11:10:00</MaxClosingTime>
+    <MaxClosingTime>2025-03-12T22:44:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1050</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>1</Description>
-    <Address>Man 3</Address>
+    <Description>dxwd</Description>
+    <Address>Man</Address>
     <latitude>0</latitude>
     <longitude>0</longitude>
     <riskRange xsi:nil="true" />
-    <OpeningTime>2026-07-01T10:28:44</OpeningTime>
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2027-10-10T12:12:12</MaxClosingTime>
+    <MaxClosingTime>2026-06-06T10:10:10</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1051</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>fh</Description>
+    <Address>fvkmhyu</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1052</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>jhj</Description>
+    <Address>vhj,</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1053</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>hhy</Description>
+    <Address>hgdk</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>BEING_HANDELED</Status>
+    <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
   </Call>
 </ArrayOfCall>

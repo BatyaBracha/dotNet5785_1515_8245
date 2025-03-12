@@ -1,12 +1,14 @@
 ﻿using BlApi;
 using BO;
+using DalApi;
 using DO;
 using Helpers;
+using System.Collections;
 using System.Net;
 
 namespace BlImplementation
 {
-    internal class CallImplementation : ICall
+    internal class CallImplementation : BlApi.ICall
     {
         private readonly DalApi.IDal Call_dal = DalApi.Factory.Get;
         private void ValidateCall(BO.Call boCall)
@@ -42,15 +44,30 @@ namespace BlImplementation
         }
         public void ChoosingACallForTreatment(int volunteerId, int callId)
         {
+            // Validate call exists
             var call = Call_dal.Call.Read(callId)
-                ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
+                ?? throw new BO.BlDoesNotExistException("call is not found in the system.");
 
-            if (call.Status != DO.CallStatus.BEING_HANDELED && call.Status != DO.CallStatus.BEING_HANDELED_IN_RISK)
-                throw new BO.BlDoesNotExistException("קריאה זו אינה פתוחה לטיפול.");
+            // Validate call status
+            if (call.Status == DO.CallStatus.BEING_HANDELED || call.Status == DO.CallStatus.BEING_HANDELED_IN_RISK)
+                throw new BO.BlDoesNotExistException("this call is not open for treatment.");
 
-            if (Call_dal.Assignment.ReadAll().Any(a => a.CallId == callId))
-                throw new BO.BlDoesNotExistException("קריאה זו כבר בטיפול.");
+            // Get all assignments for this call (past and present)
+            List<BO.CallAssignInList>? callAssignments = Call_dal.Assignment
+                .ReadAll()
+                .Where(a => a.CallId == callId)
+                .Select(a => new BO.CallAssignInList
+                {
+                    VolunteerId = a.VolunteerId,
+                    // Add other necessary properties
+                })
+                .ToList();
 
+            // Check if call is already being treated
+            if (callAssignments.Any())
+                throw new BO.BlDoesNotExistException("this call is already being treated.");
+
+            // Create new assignment
             var newAssignment = new DO.Assignment
             {
                 VolunteerId = volunteerId,
@@ -59,7 +76,20 @@ namespace BlImplementation
                 TreatmentEndTime = null,
             };
 
+            // Create the assignment and update call status
             Call_dal.Assignment.Create(newAssignment);
+            Update(new BO.Call(
+                call.Id,
+                (BO.TypeOfCall)call.TypeOfCall,
+                call.Description,
+                call.Address,
+                call.latitude,
+                call.longitude,
+                call.OpeningTime,
+                call.MaxClosingTime,
+                BO.CallStatus.BEING_HANDELED,
+                callAssignments
+            ));
         }
 
         public void Create(BO.Call boCall)
@@ -85,7 +115,7 @@ namespace BlImplementation
             var call = Call_dal.Call.Read(id)
                 ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
 
-            if (call.Status != DO.CallStatus.BEING_HANDELED || Call_dal.Assignment.ReadAll().Any(a => a.CallId == id))
+            if (call.Status != DO.CallStatus.CLOSED || Call_dal.Assignment.ReadAll().Any(a => a.CallId == id))
                 throw new BO.BlDeletionImpossible("לא ניתן למחוק קריאה זו.");
 
             Call_dal.Call.Delete(id);
@@ -337,7 +367,16 @@ namespace BlImplementation
             ValidateCall(boCall);
             DO.Call doCall = Call_dal.Call.Read(boCall.Id)
                 ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
-            Call_dal.Call.Update(doCall);
+            Call_dal.Call.Update(new DO.Call(boCall.Id,
+            (DO.TypeOfCall)boCall.TypeOfCall,
+            boCall.Description,
+            boCall.Address,
+            doCall.latitude,
+            doCall.longitude,
+            doCall.riskRange,
+            doCall.OpeningTime,
+            (DO.CallStatus)boCall.Status,
+            doCall.MaxClosingTime));
         }
 
         // Helper methods for validation, filtering, sorting, and distance calculation...
