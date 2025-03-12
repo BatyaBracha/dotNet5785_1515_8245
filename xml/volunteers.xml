@@ -224,18 +224,4 @@
     <MaxDistance>575</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
-  <Volunteer>
-    <Id>216223669</Id>
-    <Name>R</Name>
-    <Phone>0583251410</Phone>
-    <Email>r@gmail.com</Email>
-    <Password>pass</Password>
-    <Address>Man 3</Address>
-    <latitude>0</latitude>
-    <longitude>0</longitude>
-    <Role>STANDARD</Role>
-    <IsActive>false</IsActive>
-    <MaxDistance>32</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
 </ArrayOfVolunteer>

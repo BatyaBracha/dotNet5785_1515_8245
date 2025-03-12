@@ -1,5 +1,7 @@
 ﻿
 
+using System.Xml.Linq;
+
 namespace BO;
 
 public class OpenCallInList
@@ -11,5 +13,12 @@ public class OpenCallInList
     public DateTime OpeningTime { get; init; }
     public DateTime? MaxCloseingTime { get; set; }
     public double CallVolunteerDistance { get;set; }
+    public override string ToString()
+    {
+        return $"Id: {Id}, TypeOfCall: {TypeOfCall}, Description: {Description}, " +
+               $"Address: {Address}, OpeningTime: {OpeningTime}, " +
+               $"MaxCloseingTime: {MaxCloseingTime}, CallVolunteerDistance: {CallVolunteerDistance}, " +
+               $"CallVolunteerDistance: {CallVolunteerDistance} ";
+    }
 
 }
