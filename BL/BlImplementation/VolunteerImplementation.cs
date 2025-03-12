@@ -20,10 +20,10 @@ internal class VolunteerImplementation : IVolunteer
     {
         try
         {
-            (double? lat,double? lon)=ValidateVolunteer(boVolunteer);
+            (double lat,double lon)=ValidateVolunteer(boVolunteer);
             var user = Volunteer_dal.Volunteer.ReadAll()
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
-            if (user != null || user.Password != boVolunteer.Password)
+            if (user != null)
                 throw new BO.BlArgumentException("username or password are incorrect.");
             var doVolunteer = new DO.Volunteer
             {
@@ -49,7 +49,7 @@ internal class VolunteerImplementation : IVolunteer
         }
     }
 
-    private (double? lat, double? lon) ValidateVolunteer(BO.Volunteer volunteer)
+    private (double lat, double lon) ValidateVolunteer(BO.Volunteer volunteer)
     {
         if (!IsValidIsraeliID(volunteer.Id.ToString()))
             throw new BO.BlValidationException("ID is invalid.");
@@ -59,7 +59,7 @@ internal class VolunteerImplementation : IVolunteer
             throw new BO.BlValidationException("Email address is invalid.");
         if (!IsValidPhone(volunteer.PhoneNumber))
             throw new BO.BlValidationException("Phone number is invalid.");
-        (double? lat, double? lon) = isValidAddress(volunteer.CurrentAddress);
+        (double lat, double lon) = isValidAddress(volunteer.CurrentAddress);
         if (lat==null||lon==null)
             throw new BO.BlValidationException("The address does not exist");
         return (lat,lon);
@@ -93,7 +93,7 @@ internal class VolunteerImplementation : IVolunteer
         }
         return sum % 10 == 0;
     }
-    private (double? lat, double? lon) isValidAddress(string address)
+    private (double lat, double lon) isValidAddress(string address)
     {
         return Tools.GetCoordinatesFromAddress(address);
     }

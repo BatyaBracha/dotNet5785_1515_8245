@@ -60,53 +60,56 @@ internal static class Tools
 
     public static (double Latitude, double Longitude) GetCoordinatesFromAddress(string address)
     {
-        if (string.IsNullOrWhiteSpace(address))
-        {
-            throw new BlInvalidAddressException(address); // חריגה אם הכתובת לא תקינה
-        }
+        //פונקציה זו מיורקת כיוון שלא קיבלנו הנחיה מה לעשות עם כך שיש אי התאמה בין גרסאות החבילה שהיה צריך להתקין.
+        //לכן נתנו ערכי ברירת מחדל לקווי האורך והרוחב עד שנקבל הוראות כיצד לפתור את הבעיה.
+        //    if (string.IsNullOrWhiteSpace(address))
+        //    {
+        //        throw new BlInvalidAddressException(address); // חריגה אם הכתובת לא תקינה
+        //    }
 
-        try
-        {
-            // יצירת ה-URL לפנייה ל-API
-            string url = string.Format(apiUrl, Uri.EscapeDataString(address), apiKey);
+        //    try
+        //    {
+        //        // יצירת ה-URL לפנייה ל-API
+        //        string url = string.Format(apiUrl, Uri.EscapeDataString(address), apiKey);
 
-            using (HttpClient client = new HttpClient())
-            {
-                // בקשה סינכרונית ל-API
-                HttpResponseMessage response = client.GetAsync(url).Result;
+        //        using (HttpClient client = new HttpClient())
+        //        {
+        //            // בקשה סינכרונית ל-API
+        //            HttpResponseMessage response = client.GetAsync(url).Result;
 
-                // בדיקה אם הבקשה הצליחה
-                if (response.IsSuccessStatusCode)
-                {
-                    string jsonResponse = response.Content.ReadAsStringAsync().Result;
+        //            // בדיקה אם הבקשה הצליחה
+        //            if (response.IsSuccessStatusCode)
+        //            {
+        //                string jsonResponse = response.Content.ReadAsStringAsync().Result;
 
-                    // ניתוח התשובה כ-JSON
-                    JArray jsonArray = JArray.Parse(jsonResponse);
+        //                // ניתוח התשובה כ-JSON
+        //                JArray jsonArray = JArray.Parse(jsonResponse);
 
-                    // אם יש תוצאות, מחזירים את הקואורדינטות
-                    if (jsonArray.Count > 0)
-                    {
-                        var firstResult = jsonArray[0];
-                        double latitude = (double)firstResult["lat"];
-                        double longitude = (double)firstResult["lon"];
-                        return (latitude, longitude);
-                    }
-                    else
-                    {
-                        throw new GeolocationNotFoundException(address); // חריגה אם לא נמצאה גיאוקולציה
-                    }
-                }
-                else
-                {
-                    throw new ApiRequestException($"API request failed with status code: {response.StatusCode}"); // חריגה אם הבקשה נכשלה
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            // אם קרתה שגיאה כלשהי, זורקים חריגה עם פרטי השגיאה
-            throw new ApiRequestException($"Error occurred while fetching coordinates for the address. {ex.Message}");
-        }
+        //                // אם יש תוצאות, מחזירים את הקואורדינטות
+        //                if (jsonArray.Count > 0)
+        //                {
+        //                    var firstResult = jsonArray[0];
+        //                    double latitude = (double)firstResult["lat"];
+        //                    double longitude = (double)firstResult["lon"];
+        //                    return (latitude, longitude);
+        //                }
+        //                else
+        //                {
+        //                    throw new GeolocationNotFoundException(address); // חריגה אם לא נמצאה גיאוקולציה
+        //                }
+        //            }
+        //            else
+        //            {
+        //                throw new ApiRequestException($"API request failed with status code: {response.StatusCode}"); // חריגה אם הבקשה נכשלה
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // אם קרתה שגיאה כלשהי, זורקים חריגה עם פרטי השגיאה
+        //        throw new ApiRequestException($"Error occurred while fetching coordinates for the address. {ex.Message}");
+        //    }
+        return (0, 0);
     }
 }
    
