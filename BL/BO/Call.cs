@@ -24,4 +24,12 @@ public class Call
         Status = status;
         AssignedVolunteers = AssignedVolunteers;
     }
+    public override string ToString()
+    {
+        return $"Id: {Id}, TypeOfCall: {TypeOfCall}, Description: {Description}, " +
+               $"Address: {Address}, Latitude: {Latitude}, Longitude: {Longitude}, " +
+               $"OpeningTime: {OpeningTime}, MaxClosingTime: {MaxClosingTime}, " +
+               $"Status: {Status}, AssignedVolunteers: {string.Join(", ", AssignedVolunteers)}";
+    }
+
 }

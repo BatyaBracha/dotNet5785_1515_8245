@@ -39,5 +39,15 @@ public class Volunteer
         CallsChosenOutOfdate = callsChosenOutOfdate;
         CallInProgress = callInProgress;
     }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}, Name: {Name}, PhoneNumber: {PhoneNumber}, Email: {Email}, " +
+               $"CurrentAddress: {CurrentAddress}, Latitude: {Latitude}, Longitude: {Longitude}, " +
+               $"Role: {Role}, Active: {Active}, MaxDistance: {MaxDistance}, " +
+               $"TypeOfDistance: {TypeOfDistance}, CallsDone: {CallsDone}, " +
+               $"CallsDeleted: {CallsDeleted}, CallsChosenOutOfdate: {CallsChosenOutOfdate}, " +
+               $"CallInProgress: {CallInProgress}";
+    }
 }
 

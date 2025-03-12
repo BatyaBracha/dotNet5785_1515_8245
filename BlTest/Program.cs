@@ -678,30 +678,32 @@ internal class Program
             Console.WriteLine("Invalid credentials. Please try again.");
             return;
         }
+        string choice;
+        do
+        {
+            Console.WriteLine("Welcome to the Main Screen! Choose your next step:");
+            Console.WriteLine("1. Go to Volunteer Screen");
+            Console.WriteLine("2. Go to Call Screen");
+            Console.WriteLine("3. Go to Main Management Screen");
+            choice = Console.ReadLine()!;
 
-        Console.WriteLine("Welcome to the Main Screen! Choose your next step:");
-        Console.WriteLine("1. Go to Volunteer Screen");
-        Console.WriteLine("2. Go to Call Screen");
-        Console.WriteLine("3. Go to Main Management Screen");
-        string choice = Console.ReadLine()!;
-        if (choice == "1")
-        {
-            // Call method to display volunteer screen
-            volunteerMenu();
-        }
-        else if (choice == "2")
-        {
-            // Call method to display main management screen
-            callMenu();
-        }
-        else if (choice == "3")
-        {
-            adminMenu();
-        }
-        else
-        {
-            Console.WriteLine("Invalid choice. Returning to login.");
-        }
+            switch (choice)
+            {
+                case "1":
+                    volunteerMenu();
+                    break;
+                case "2":
+                    callMenu();
+                    break;
+                case "3":
+                    adminMenu();
+                    break;
+                default:
+
+                    Console.WriteLine("Invalid choice. Returning to login.");
+                    break;
+            };
+        } while (choice != "0");
     }
 
     private static void adminMenu()
