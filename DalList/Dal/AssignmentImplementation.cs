@@ -10,7 +10,7 @@ internal class AssignmentImplementation :IAssignment
     public int Create(Assignment item)
     {
         int newId = Dal.Config.NextAssignmentId;
-        Assignment copy = new Assignment(newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding);
+        Assignment copy = new Assignment(newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding,item.AssignmentStatus);
         DataSource.Assignments.Add(copy);
         return newId;
     }

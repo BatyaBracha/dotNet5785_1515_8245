@@ -61,3 +61,29 @@ public enum AdminOptions
     RESET_DB,
     INITIALIZE_DB
 }
+public enum VolunteerOptions
+{
+    EXIT,
+    CREATE,
+    READ,
+    READ_ALL,
+    UPDATE,
+    DELETE,
+}
+
+public enum SpecificOptions
+{
+    EXIT,
+    CALLCOUNT,
+    CREATE,
+    READ,
+    READ_ALL,
+    UPDATE,
+    DELETE,
+    CLOSEDCALLS,
+    OPENCALLS,
+    UPDATECALLCANCELATION,
+    UPDATEENDOFCALL,
+    ASSIGN_VOLUNTEER_TO_CALL,
+    UNMATCH_VOLUNTEER_FROM_CALL
+}

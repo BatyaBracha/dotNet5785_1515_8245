@@ -102,7 +102,7 @@ public static class Initialization
                 diff = TimeSpan.FromMinutes(1); // ערך ברירת מחדל למניעת שגיאה
             }
             DateTime randomTime = minTime.AddMinutes(s_rand.Next((int)diff.TotalMinutes));
-            s_dal!.Assignment.Create(new Assignment(0, callsList[i].Id, volunteersList[s_rand.Next(volunteersList.Count())].Id, randomTime, randomTime.AddHours(2), (TypeOfTreatmentEnding)s_rand.Next(Enum.GetValues(typeof(TypeOfTreatmentEnding)).Length - 1)),AssignmentStatus.OPEN);
+            s_dal!.Assignment.Create(new Assignment(0, callsList[i].Id, volunteersList[s_rand.Next(volunteersList.Count())].Id, randomTime, randomTime.AddHours(2), (TypeOfTreatmentEnding)s_rand.Next(Enum.GetValues(typeof(TypeOfTreatmentEnding)).Length), AssignmentStatus.OPEN));
         }
     }
 

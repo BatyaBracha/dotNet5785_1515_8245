@@ -12,7 +12,7 @@ internal class CallImplementation : ICall
         if (c != null)
             throw new DalAlreadyExistsException($"An object of type Call with this id {item.Id} already exists");
         int newId = Dal.Config.NextCallId;
-        Call callCopy = new Call(newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.riskRange,item.OpeningTime,item.MaxClosingTime);
+        Call callCopy = new Call(newId,item.TypeOfCall,item.Description,item.Address,item.latitude,item.longitude,item.riskRange,item.OpeningTime,item.Status,item.MaxClosingTime);
         DataSource.Calls.Add(callCopy);
         return callCopy.Id;
     }

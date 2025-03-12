@@ -56,3 +56,15 @@ public class BlUnauthorizedOperationException : Exception
     public BlUnauthorizedOperationException(string? message) : base(message) { }
 }
 
+public class BlValidationException : Exception
+{
+    public BlValidationException(string? message) : base(message) { }
+}
+
+public class BlInvalidOperationException : Exception
+{
+    public BlInvalidOperationException(string? message) : base(message) { }
+}
+
+
+

@@ -12,7 +12,7 @@ namespace BlImplementation
         private void ValidateCall(BO.Call boCall)
         {
             if (boCall == null)
-                throw new BlNullPropertyException( "The call object cannot be null.",null);
+                throw new BlNullPropertyException("The call object cannot be null.", null);
 
             // Check if the ID is valid
             if (boCall.Id <= 0)
@@ -29,11 +29,11 @@ namespace BlImplementation
             // Validate the address against a geolocation service
             (double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address);
 
-            if (lat==null || lon == null)
+            if (lat == null || lon == null)
                 throw new BlArgumentException("Address is invalid or could not be found.");
 
             // Assign valid coordinates
-            boCall.Latitude =lat;
+            boCall.Latitude = lat;
             boCall.Longitude = lon;
 
             // Check for other business logic conditions if needed
@@ -106,18 +106,8 @@ namespace BlImplementation
                     //Status = (BO.Status)a.Status
                 }).ToList();
 
-            return new BO.Call
-            {
-                Id = doCall.Id,
-                Description = doCall.Description,
-                Status = (BO.CallStatus)doCall.Status,
-                Address = doCall.Address,
-                Latitude = doCall.latitude,
-                Longitude = doCall.longitude,
-                OpeningTime = doCall.OpeningTime,
-                MaxClosingTime = doCall.MaxClosingTime,
-                AssignedVolunteers = assignments
-            };
+            return new BO.Call(doCall.Id, (BO.TypeOfCall)doCall.TypeOfCall, doCall.Description, doCall.Address, doCall.latitude, doCall.longitude, doCall.OpeningTime, doCall.MaxClosingTime, (BO.CallStatus)doCall.Status, assignments);
+
         }
 
         public IEnumerable<int> GetCallsCount()
@@ -154,7 +144,7 @@ namespace BlImplementation
             return callList.ToList();
         }
 
-        public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? sortBy)
+        public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
         {
             var calls = Call_dal.Assignment.ReadAll()
                 .Where(a => a.VolunteerId == volunteerId && a.AssignmentStatus == DO.AssignmentStatus.CLOSED)
@@ -163,10 +153,17 @@ namespace BlImplementation
                 .Select(id => Call_dal.Call.Read(id))
                 .Where(c => c.Status == DO.CallStatus.CLOSED);
 
+            // Apply filtering using the new filterValue parameter
+            if (filterBy != null && filterValue != null)
+            {
+                calls = calls.Where(c => MatchField(filterBy, c, filterValue));
+            }
+
             var closedCalls = calls.Select(c => new BO.ClosedCallInList
             {
                 Id = c.Id,
-                //Name = c.Name,
+                TypeOfCall = (BO.TypeOfCall)c.TypeOfCall,
+                OpeningTime = c.OpeningTime,
                 Address = c.Address
             });
 
@@ -197,17 +194,32 @@ namespace BlImplementation
             }
         }
 
-        private IEnumerable<BO.OpenCallInList> SortByField(Enum? sortBy, IEnumerable<BO.OpenCallInList> openCalls)
+        //private IEnumerable<BO.OpenCallInList> SortByField(Enum? sortBy, List<object> openCalls)
+        //{
+        //    if (sortBy == null)
+        //        return openCalls.OrderBy(c => c.Id); // Default sort by ID
+
+        //    // Sort by the field defined in the sortBy enum
+        //    return sortBy switch
+        //    {
+        //        BO.CallField.ADDRESS => openCalls.OrderBy(c => c.Address),
+        //        BO.CallField.CALL_VOLUNTEER_DISTANCE => openCalls.OrderBy(c => c.CallVolunteerDistance),
+        //        BO.CallField.ID => openCalls.OrderBy(c => c.Id),
+        //        _ => throw new BlNullPropertyException("Unsupported sort field", nameof(sortBy)),
+        //    };
+        //}
+
+        public IEnumerable<T> SortByField<T>(Enum? sortBy, IEnumerable<T> items)
         {
             if (sortBy == null)
-                return openCalls.OrderBy(c => c.Id); // Default sort by ID
+                return items.OrderBy(c => (c as dynamic).Id); // Default sort by ID
 
             // Sort by the field defined in the sortBy enum
             return sortBy switch
             {
-                BO.CallField.ADDRESS => openCalls.OrderBy(c => c.Address),
-                BO.CallField.CALL_VOLUNTEER_DISTANCE => openCalls.OrderBy(c => c.CallVolunteerDistance),
-                BO.CallField.ID => openCalls.OrderBy(c => c.Id),
+                BO.CallField.ADDRESS => items.OrderBy(c => (c as dynamic).Address),
+                BO.CallField.CALL_VOLUNTEER_DISTANCE => items.OrderBy(c => (c as dynamic).CallVolunteerDistance),
+                BO.CallField.ID => items.OrderBy(c => (c as dynamic).Id),
                 _ => throw new BlNullPropertyException("Unsupported sort field", nameof(sortBy)),
             };
         }
@@ -226,7 +238,7 @@ namespace BlImplementation
             {
                 Id = c.Id,
                 Address = c.Address,
-                CallVolunteerDistance = CallManager.GetAerialDistance(Call_dal.Volunteer.Read(volunteerId).Address,c.Address)
+                CallVolunteerDistance = CallManager.GetAerialDistance(Call_dal.Volunteer.Read(volunteerId).Address, c.Address)
             });
 
             if (sortBy != null)
@@ -253,8 +265,8 @@ namespace BlImplementation
             {
                 Id = assignment.Id,
                 TreatmentEndTime = ClockManager.Now
-            }
-                Call_dal.Assignment.Update(newAssignment);
+            };
+            Call_dal.Assignment.Update(newAssignment);
         }
 
         public void TreatmentCompletionUpdate(int volunteerId, int assignmentId)
@@ -267,11 +279,10 @@ namespace BlImplementation
 
             if (assignment.VolunteerId != volunteerId)
                 throw new BO.BlUnauthorizedOperationException("רק המתנדב שהוקצה יכול לעדכן סיום טיפול.");
+            Console.WriteLine("Enter the treatment end type(HOSPITAL_ADMISSION=0, STAY_AT_HOME,DEAD=1 , EXPIRED=2, UNMATCHED=3):");
+            DO.TypeOfTreatmentEnding typeOfTreatmentEnding = (DO.TypeOfTreatmentEnding)Enum.Parse(typeof(DO.TypeOfTreatmentEnding), Console.ReadLine()!);
 
-            assignment.Status = DO.AssignmentStatus.COMPLETED;
-            assignment.TreatmentEndTime = ClockManager.Now;
-
-            Call_dal.Assignment.Update(assignment);
+            Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, ClockManager.Now, typeOfTreatmentEnding, null));
         }
         //public BO.Call? Read(int id)
         //{
@@ -324,18 +335,8 @@ namespace BlImplementation
         public void Update(BO.Call boCall)
         {
             ValidateCall(boCall);
-
-            var doCall = Call_dal.Call.Read(boCall.Id)
+            DO.Call doCall = Call_dal.Call.Read(boCall.Id)
                 ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
-
-            doCall.Description = boCall.Description;
-            doCall.Status = (DO.CallStatus)boCall.Status;
-            doCall.Address = boCall.Address;
-            doCall.Latitude = boCall.Latitude;
-            doCall.Longitude = boCall.Longitude;
-            doCall.OpeningTime = boCall.OpeningTime;
-            doCall.MaxClosingTime = boCall.MaxClosingTime;
-
             Call_dal.Call.Update(doCall);
         }
 

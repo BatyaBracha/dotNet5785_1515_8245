@@ -11,7 +11,7 @@ internal class CallImplementation : ICall
         if (c != null)
             throw new DalAlreadyExistsException($"An object of type Call with this id {item.Id} already exists");
         int newId = Config.NextCallId;
-        Call callCopy = new Call(newId, item.TypeOfCall, item.Description, item.Address, item.latitude, item.longitude, item.riskRange, item.OpeningTime, item.MaxClosingTime);
+        Call callCopy = new Call(newId, item.TypeOfCall, item.Description, item.Address, item.latitude, item.longitude, item.riskRange, item.OpeningTime,item.Status, item.MaxClosingTime);
         Calls.Add(callCopy);
         XMLTools.SaveListToXMLSerializer(Calls, Config.s_calls_xml);
         return callCopy.Id;
