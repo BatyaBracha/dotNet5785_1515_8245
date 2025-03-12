@@ -253,7 +253,7 @@ namespace BlImplementation
             {
                 Id = assignment.Id,
                 TreatmentEndTime = ClockManager.Now
-            }
+            };
                 Call_dal.Assignment.Update(newAssignment);
         }
 

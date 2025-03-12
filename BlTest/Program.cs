@@ -798,6 +798,4 @@ internal class Program
             Console.WriteLine($"An unexpected error occurred: {ex.Message}");
         }
     }
-
-
 }
