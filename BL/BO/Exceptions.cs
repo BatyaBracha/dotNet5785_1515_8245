@@ -66,5 +66,21 @@ public class BlInvalidOperationException : Exception
     public BlInvalidOperationException(string? message) : base(message) { }
 }
 
+public class BlInvalidAddressException : Exception
+{
+    public BlInvalidAddressException(string? message) : base(message) { }
+}
+
+public class ApiRequestException : Exception
+{
+    public ApiRequestException(string? message) : base(message) { }
+}
+
+public class GeolocationNotFoundException : Exception
+{
+    public GeolocationNotFoundException(string? message) : base(message) { }
+}
+
+
 
 

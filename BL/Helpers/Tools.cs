@@ -47,22 +47,22 @@ internal static class Tools
         return degrees * Math.PI / 180;
     }
 
-    public static CallStatusInProgress CalculateStatus(DO.Call call, int riskThreshold = 30)
-    {
+    //public static CallStatusInProgress CalculateStatus(DO.Call call, int riskThreshold = 30)
+    //{
 
-        var timeToEnd = call.MaxTimeToFinish - ClockManager.Now;
-        if (timeToEnd.TotalMinutes <= riskThreshold)
-        {
-            return CallStatusInProgress.AtRisk;
-        }
-        return CallStatusInProgress.InProgress;
-    }
+    //    var timeToEnd = call.MaxTimeToFinish - ClockManager.Now;
+    //    if (timeToEnd.TotalMinutes <= riskThreshold)
+    //    {
+    //        return CallStatusInProgress.AtRisk;
+    //    }
+    //    return CallStatusInProgress.InProgress;
+    //}
 
     public static (double Latitude, double Longitude) GetCoordinatesFromAddress(string address)
     {
         if (string.IsNullOrWhiteSpace(address))
         {
-            throw new InvalidAddressException(address); // חריגה אם הכתובת לא תקינה
+            throw new BlInvalidAddressException(address); // חריגה אם הכתובת לא תקינה
         }
 
         try

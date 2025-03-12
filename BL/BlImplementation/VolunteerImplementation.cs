@@ -20,11 +20,11 @@ internal class VolunteerImplementation : IVolunteer
     {
         try
         {
-            ValidateVolunteer(boVolunteer);
+            (double? lat,double? lon)=ValidateVolunteer(boVolunteer);
             var user = Volunteer_dal.Volunteer.ReadAll()
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
             if (user != null || user.Password != boVolunteer.Password)
-                throw new BO.BlArgumentException("שם המשתמש או הסיסמה אינם נכונים.");
+                throw new BO.BlArgumentException("username or password are incorrect.");
             var doVolunteer = new DO.Volunteer
             {
                 Id = boVolunteer.Id,
@@ -33,8 +33,8 @@ internal class VolunteerImplementation : IVolunteer
                 Email = boVolunteer.Email,
                 Password = boVolunteer.Password,
                 Address = boVolunteer.CurrentAddress,
-                latitude = boVolunteer.Latitude,
-                longitude = boVolunteer.Longitude,
+                latitude = lat,
+                longitude = lon,
                 Role = (DO.Role)boVolunteer.Role,
                 Active = boVolunteer.Active,
                 MaxDistance = boVolunteer.MaxDistance,
@@ -45,26 +45,59 @@ internal class VolunteerImplementation : IVolunteer
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.BlUnauthorizedOperationException("שגיאה בגישה לנתוני משתמשים.");
+            throw new BO.BlUnauthorizedOperationException("users data access error.");
         }
     }
 
-    private void ValidateVolunteer(BO.Volunteer volunteer)
+    private (double? lat, double? lon) ValidateVolunteer(BO.Volunteer volunteer)
     {
+        if (!IsValidIsraeliID(volunteer.Id.ToString()))
+            throw new BO.BlValidationException("ID is invalid.");
         if (string.IsNullOrWhiteSpace(volunteer.Name))
-            throw new BO.BlValidationException("שם המתנדב אינו תקין.");
+            throw new BO.BlValidationException("Username is invalid.");
         if (!IsValidEmail(volunteer.Email))
-            throw new BO.BlValidationException("כתובת האימייל אינה תקינה.");
+            throw new BO.BlValidationException("Email address is invalid.");
         if (!IsValidPhone(volunteer.PhoneNumber))
-            throw new BO.BlValidationException("מספר הטלפון אינו תקין.");
-        if(!isValidAddress(volunteer.CurrentAddress))
-            throw new BO.BlValidationException("this address does not exist")
+            throw new BO.BlValidationException("Phone number is invalid.");
+        (double? lat, double? lon) = isValidAddress(volunteer.CurrentAddress);
+        if (lat==null||lon==null)
+            throw new BO.BlValidationException("The address does not exist");
+        return (lat,lon);
     }
 
-    private bool isValidAddress(string address)
+    private static bool IsValidIsraeliID(string id)
     {
+        id = id.Replace("-", "").Trim();
 
+        if (id.Length != 9)
+        {
+            return false;
+        }
+
+        int sum = 0;
+
+        for (int i = 0; i < id.Length; i++)
+        {
+            int digit = int.Parse(id[id.Length - 1 - i].ToString());
+
+            if (i % 2 == 1)
+            {
+                digit *= 2;
+                if (digit > 9)
+                {
+                    digit -= 9;
+                }
+            }
+
+            sum += digit;
+        }
+        return sum % 10 == 0;
     }
+    private (double? lat, double? lon) isValidAddress(string address)
+    {
+        return Tools.GetCoordinatesFromAddress(address);
+    }
+
     private bool IsValidEmail(string email) =>
         new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(email);
 
@@ -220,31 +253,33 @@ internal class VolunteerImplementation : IVolunteer
 
     public void Update(BO.Volunteer boVolunteer)
     {
-        try
-        {
-            ValidateVolunteer(boVolunteer);
+        try { 
+             (double? lat, double? lon) = ValidateVolunteer(boVolunteer);
+             var user = Volunteer_dal.Volunteer.ReadAll()
+                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
+             if (user != null || user.Password != boVolunteer.Password)
+                  throw new BO.BlArgumentException("username or password are incorrect.");
+             var doVolunteer = new DO.Volunteer
+             {
+                 Id = boVolunteer.Id,
+                 Name = boVolunteer.Name,
+                 Phone = boVolunteer.PhoneNumber,
+                 Email = boVolunteer.Email,
+                 Password = boVolunteer.Password,
+                 Address = boVolunteer.CurrentAddress,
+                 latitude = lat,
+                 longitude = lon,
+                 Role = (DO.Role)boVolunteer.Role,
+                 Active = boVolunteer.Active,
+                 MaxDistance = boVolunteer.MaxDistance,
+                 TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
+             };
 
-            var doVolunteer = new DO.Volunteer
-            {
-                Id = boVolunteer.Id,
-                Name = boVolunteer.Name,
-                Phone = boVolunteer.PhoneNumber,
-                Email = boVolunteer.Email,
-                Password = boVolunteer.Password,
-                Address = boVolunteer.CurrentAddress,
-                latitude = boVolunteer.Latitude,
-                longitude = boVolunteer.Longitude,
-                Role = (DO.Role)boVolunteer.Role,
-                Active = boVolunteer.Active,
-                MaxDistance = boVolunteer.MaxDistance,
-                TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
-            };
-
-            Volunteer_dal.Volunteer.Update(doVolunteer);
+             Volunteer_dal.Volunteer.Create(doVolunteer);
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.BlUnauthorizedOperationException("שגיאה בעדכון נתוני מתנדבים.");
+            throw new BO.BlUnauthorizedOperationException("users data access error.");
         }
     }
 
