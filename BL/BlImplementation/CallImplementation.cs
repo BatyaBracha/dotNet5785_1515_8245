@@ -15,7 +15,7 @@ namespace BlImplementation
                 throw new BlNullPropertyException("The call object cannot be null.", null);
 
             // Check if the ID is valid
-            if (boCall.Id <= 0)
+            if (boCall.Id < 0)
                 throw new BlArgumentException("Call ID must be a positive number.");
 
             // Validate time constraints
