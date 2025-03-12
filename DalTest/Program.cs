@@ -317,7 +317,7 @@ namespace DalTest
             string discription = Console.ReadLine()!;
             Console.WriteLine("Enter the call address");
             string address = Console.ReadLine()!;
-            s_dal.Call!.Create(new(0, convertedType, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, CallStatus.OPEN));
+            s_dal.Call!.Create(new(0, convertedType, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, CallStatus.OPEN,null));
         }
         private static void callRead()
         {
@@ -347,7 +347,7 @@ namespace DalTest
                 string discription = Console.ReadLine()!;
                 Console.WriteLine("Enter the call address");
                 string address = Console.ReadLine()!;
-                s_dal.Call!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, CallStatus.OPEN));
+                s_dal.Call!.Update(new(int.Parse(callId), convertedTypeOfCall, discription, address, null, null, s_dal.Config!.RiskRange, s_dal.Config.Clock, CallStatus.OPEN, null));
             }
             else
                 throw new DalDoesNotExistException("an obj with this id does not exist\n");

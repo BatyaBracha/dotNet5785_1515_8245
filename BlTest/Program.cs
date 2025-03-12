@@ -469,17 +469,17 @@ internal class Program
         Console.WriteLine("Enter the address:");
         string? address = Console.ReadLine();
 
-        Console.WriteLine("Enter the latitude:");
-        if (!double.TryParse(Console.ReadLine(), out double latitude))
-            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
+        //Console.WriteLine("Enter the latitude:");
+        //if (!double.TryParse(Console.ReadLine(), out double latitude))
+        //    throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
 
-        Console.WriteLine("Enter the longitude:");
-        if (!double.TryParse(Console.ReadLine(), out double longitude))
-            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
+        //Console.WriteLine("Enter the longitude:");
+        //if (!double.TryParse(Console.ReadLine(), out double longitude))
+        //    throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
 
-        Console.WriteLine("Enter the opening time (yyyy-mm-dd hh:mm:ss, or leave blank):");
-        if (!DateTime.TryParse(Console.ReadLine(), out DateTime openingTime))
-            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid date and time.");
+        //Console.WriteLine("Enter the opening time (yyyy-mm-dd hh:mm:ss, or leave blank):");
+        //if (!DateTime.TryParse(Console.ReadLine(), out DateTime openingTime))
+        //    throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid date and time.");
 
         Console.WriteLine("Enter the max closing time (yyyy-mm-dd hh:mm:ss, or leave blank):");
         if (!DateTime.TryParse(Console.ReadLine(), out DateTime maxClosingTime))
@@ -490,7 +490,7 @@ internal class Program
         BO.CallStatus status = (BO.CallStatus)Enum.Parse(typeof(BO.CallStatus), statusInput);
 
         // Assuming s_bl.Call is the service layer for managing calls
-        s_bl.Call!.Update(new BO.Call(id, typeOfCall, description, address, latitude, longitude, openingTime, maxClosingTime, status, null));
+        s_bl.Call!.Update(new BO.Call(id, typeOfCall, description, address, null, null, DateTime.MinValue, maxClosingTime, status, null));
     }
 
     private static void callDelete()

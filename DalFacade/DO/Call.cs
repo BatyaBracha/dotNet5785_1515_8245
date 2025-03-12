@@ -23,12 +23,12 @@ public record Call
     TimeSpan? riskRange,
     DateTime OpeningTime,
     CallStatus Status,
-    DateTime? MaxClosingTime = null
+    DateTime? MaxClosingTime
 
 )
 {
     /// <summary>
     /// Default constructor with default property values
     /// </summary>
-    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0,null, DateTime.MinValue,CallStatus.OPEN){}
+    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0,null, DateTime.MinValue,CallStatus.OPEN,null){}
 }
