@@ -65,29 +65,37 @@ internal class Program
     /// <summary>
     /// Prompts the user for volunteer details and creates a new volunteer.
     /// </summary>
-    /// <exception cref="BlUnauthorizedOperationException">Thrown when user input is invalid.</exception>
     private static void volunteerCreate()
     {
         Console.WriteLine("Enter ID");
         if (!int.TryParse(Console.ReadLine(), out int id))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
         Console.WriteLine("Enter your name");
         string name = Console.ReadLine()!;
+
         Console.WriteLine("Enter your phone");
         string phone = Console.ReadLine()!;
+
         Console.WriteLine("Enter your email");
         string email = Console.ReadLine()!;
+
         Console.WriteLine("Enter your address");
         string address = Console.ReadLine()!;
+
         Console.WriteLine("Enter your password");
         string password = Console.ReadLine()!;
+
         Console.WriteLine("Enter your max distance");
         if (!int.TryParse(Console.ReadLine(), out int maxDistance))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
         Console.WriteLine("Enter your role");
         string role = Console.ReadLine()!;
+
         Console.WriteLine("Enter your type of distance");
         BO.Role convertedRole = (BO.Role)Enum.Parse(typeof(BO.Role), role);
+
         string typeOfDistance = Console.ReadLine()!;
         BO.TypeOfDistance convertedTypeOfDistance = (BO.TypeOfDistance)Enum.Parse(typeof(BO.TypeOfDistance), typeOfDistance);
 
@@ -109,7 +117,6 @@ internal class Program
     /// <summary>
     /// Prompts the user for an ID and reads the details of the corresponding volunteer.
     /// </summary>
-    /// <exception cref="BlUnauthorizedOperationException">Thrown when user input is invalid.</exception>
     private static void volunteerRead()
     {
         Console.WriteLine("Enter an ID");
@@ -128,7 +135,6 @@ internal class Program
         BO.Active? sort = null;
         BO.VolunteerFields? filter = null;
 
-        // Ask the user if they want to filter by active status
         Console.WriteLine("Would you like to filter the list by active status? (yes/no)");
         string filterActiveResponse = Console.ReadLine();
 
@@ -139,7 +145,6 @@ internal class Program
             sort = activeStatus?.ToLower() == "true" ? BO.Active.TRUE : BO.Active.FALSE;
         }
 
-        // Ask the user if they want to sort the list
         Console.WriteLine("Would you like to sort the list? (yes/no)");
         string sortResponse = Console.ReadLine();
 
@@ -151,7 +156,6 @@ internal class Program
             filter = sortField == "1" ? BO.VolunteerFields.Name : BO.VolunteerFields.Id;
         }
 
-        // Call the ReadAll method with the gathered parameters
         IEnumerable<BO.VolunteerInList> volunteerList = s_bl.Volunteer!.ReadAll(sort, filter);
         foreach (var v in volunteerList)
         {
@@ -162,22 +166,27 @@ internal class Program
     /// <summary>
     /// Prompts the user for volunteer details and updates the corresponding volunteer's information.
     /// </summary>
-    /// <exception cref="BlUnauthorizedOperationException">Thrown when user input is invalid.</exception>
     private static void volunteerUpdate()
     {
         Console.WriteLine("Enter your ID");
         if (!int.TryParse(Console.ReadLine(), out int id))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
         Console.WriteLine("Enter your name");
         string name = Console.ReadLine()!;
+
         Console.WriteLine("Enter your phone");
         string phone = Console.ReadLine()!;
+
         Console.WriteLine("Enter your email");
         string email = Console.ReadLine()!;
+
         Console.WriteLine("Enter your address");
         string address = Console.ReadLine()!;
+
         Console.WriteLine("Enter your password");
         string password = Console.ReadLine()!;
+
         Console.WriteLine("Enter your max distance");
         if (!int.TryParse(Console.ReadLine(), out int maxDistance))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
@@ -185,14 +194,15 @@ internal class Program
         Console.WriteLine("Enter calls done");
         if (!int.TryParse(Console.ReadLine(), out int callsDone))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
         Console.WriteLine("Enter calls deleted");
         if (!int.TryParse(Console.ReadLine(), out int callsDeleted))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
         Console.WriteLine("Enter calls chosen out of date");
         if (!int.TryParse(Console.ReadLine(), out int callsChosenOutOfdate))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
 
-        Console.WriteLine("Enter your type of distance");
         string typeOfDistance = Console.ReadLine()!;
         BO.TypeOfDistance convertedTypeOfDistance = (BO.TypeOfDistance)Enum.Parse(typeof(BO.TypeOfDistance), typeOfDistance);
         s_bl.Volunteer!.Update(new BO.Volunteer(id, name, phone, email, password, address, null, null, BO.Role.STANDARD, false, maxDistance, convertedTypeOfDistance, callsDone, callsDeleted, callsChosenOutOfdate, null));
@@ -201,18 +211,17 @@ internal class Program
     /// <summary>
     /// Prompts the user for an ID and deletes the corresponding volunteer.
     /// </summary>
-    /// <exception cref="BlUnauthorizedOperationException">Thrown when user input is invalid.</exception>
     private static void volunteerDelete()
     {
         Console.WriteLine("Enter your ID");
         if (!int.TryParse(Console.ReadLine(), out int id))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
         if (s_bl.Volunteer!.Read(id) != null)
             s_bl.Volunteer!.Delete(id);
         else
             throw new BlUnauthorizedOperationException("An object with this ID does not exist.");
     }
-
 
     /// <summary>
     /// Assigns a volunteer to a specific call based on user input.
@@ -222,26 +231,21 @@ internal class Program
         int volunteerId;
         int callId;
 
-        // Prompt user for volunteer ID
         Console.WriteLine("Please enter the Volunteer ID:");
         if (!int.TryParse(Console.ReadLine(), out volunteerId))
         {
             Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
-            return; // Exit the method if input is invalid
+            return;
         }
 
-        // Prompt user for call ID
         Console.WriteLine("Please enter the Call ID:");
         if (!int.TryParse(Console.ReadLine(), out callId))
         {
             Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
-            return; // Exit the method if input is invalid
+            return;
         }
 
-        // Call the MatchVolunteerToCall function
         s_bl.Volunteer!.MatchVolunteerToCall(volunteerId, callId);
-
-        // Inform the user of success
         Console.WriteLine("The volunteer has been successfully assigned to the call.");
     }
 
@@ -254,25 +258,22 @@ internal class Program
         string volunteerIdInput = Console.ReadLine();
         int volunteerId;
 
-        // Attempt to parse the volunteer ID
         if (!int.TryParse(volunteerIdInput, out volunteerId))
         {
             Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
-            return; // Exit the method if input is invalid
+            return;
         }
 
         Console.WriteLine("Please enter the Call ID:");
         string callIdInput = Console.ReadLine();
         int callId;
 
-        // Attempt to parse the call ID
         if (!int.TryParse(callIdInput, out callId))
         {
             Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
-            return; // Exit the method if input is invalid
+            return;
         }
 
-        // Call the UnMatchVolunteerToCall function
         try
         {
             s_bl.Volunteer!.UnMatchVolunteerToCall(volunteerId, callId);
@@ -292,6 +293,9 @@ internal class Program
         }
     }
 
+    /// <summary>
+    /// Displays the call menu and handles user choices for call operations.
+    /// </summary>
     private static void callMenu()
     {
         try
@@ -301,18 +305,17 @@ internal class Program
             {
                 Console.WriteLine("Enter your choice:\n" +
                     "to exit press 0\n" +
-                    "to get the amount of calls prss 1\n" +
+                    "to get the amount of calls press 1\n" +
                     "to create a new call press 2\n" +
-                    "to read a cal's details press 3\n" +
+                    "to read a call's details press 3\n" +
                     "to read all calls' details press 4\n" +
-                    "to update a call's datails press 5\n" +
+                    "to update a call's details press 5\n" +
                     "to delete a call press 6\n" +
                     "to read all closed calls press 7\n" +
                     "to read all open calls press 8\n" +
                     "to update a call cancelation press 9\n" +
                     "to end a call press 10\n" +
-                    "to choose a call for treatment press 11\n"
-                    );
+                    "to choose a call for treatment press 11\n");
                 choice = (BO.SpecificOptions)Enum.Parse(typeof(BO.SpecificOptions), Console.ReadLine()!);
                 switch (choice)
                 {
@@ -351,38 +354,33 @@ internal class Program
                     case BO.SpecificOptions.ASSIGN_VOLUNTEER_TO_CALL:
                         ChooseACallForTreatment();
                         break;
-
-                    //case SpecificOptions.DELETE_ALL:
-                    //    callDeleteAll();
-                    //    break;
                     default:
                         Console.WriteLine("Invalid choice.");
                         break;
                 }
             } while (choice != BO.SpecificOptions.EXIT);
-
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
-
     }
 
+    /// <summary>
+    /// Retrieves and displays the count of calls.
+    /// </summary>
     private static void callCount()
     {
-        // Assuming the class name is CallService
-        //CallService callService = new CallService(); // Create an instance of the class
-        // currentcall=new BO.Call();
         IEnumerable<int> callsCount = s_bl.Call.GetCallsCount(); // Call the method
-
-        // Optionally, you can iterate through the results to display them
         foreach (var count in callsCount)
         {
             Console.WriteLine(count);
         }
     }
 
+    /// <summary>
+    /// Prompts the user for call details and creates a new call.
+    /// </summary>
     private static void callCreate()
     {
         Console.WriteLine("Enter type of call");
@@ -403,6 +401,9 @@ internal class Program
         s_bl.Call!.Create(new BO.Call(0, convertedType, description, address, null, null, s_bl.Admin.Clock(), maxClosingTime, BO.CallStatus.OPEN, null));
     }
 
+    /// <summary>
+    /// Prompts the user for an ID and reads the details of the corresponding call.
+    /// </summary>
     private static void callRead()
     {
         Console.WriteLine("Enter an ID");
@@ -410,12 +411,14 @@ internal class Program
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
 
         BO.Call call = s_bl.Call!.GetCallDetails(id)!;
-        Console.WriteLine(call); // Display the volunteer details
+        Console.WriteLine(call); // Display the call details
     }
 
+    /// <summary>
+    /// Reads and displays the details of all calls, with optional filtering and sorting.
+    /// </summary>
     public static void callReadAll()
     {
-        // Prompt user for filter options
         Console.WriteLine("Do you want to filter by a specific field? (yes/no)");
         string filterResponse = Console.ReadLine()?.ToLower();
 
@@ -432,7 +435,6 @@ internal class Program
             filterValue = Console.ReadLine(); // Adjust parsing based on expected type
         }
 
-        // Prompt user for sorting options
         Console.WriteLine("Do you want to sort the results? (yes/no)");
         string sortResponse = Console.ReadLine()?.ToLower();
 
@@ -445,7 +447,6 @@ internal class Program
             sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
         }
 
-        // Call the existing ReadAll method with user inputs
         IEnumerable<BO.CallInList> callList = s_bl.Call!.ReadAll(filterBy, filterValue, sortBy);
         foreach (var c in callList)
         {
@@ -453,6 +454,9 @@ internal class Program
         }
     }
 
+    /// <summary>
+    /// Prompts the user for call details and updates the corresponding call's information.
+    /// </summary>
     private static void callUpdate()
     {
         Console.WriteLine("Enter the Call ID");
@@ -469,18 +473,6 @@ internal class Program
         Console.WriteLine("Enter the address:");
         string? address = Console.ReadLine();
 
-        //Console.WriteLine("Enter the latitude:");
-        //if (!double.TryParse(Console.ReadLine(), out double latitude))
-        //    throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
-
-        //Console.WriteLine("Enter the longitude:");
-        //if (!double.TryParse(Console.ReadLine(), out double longitude))
-        //    throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid double.");
-
-        //Console.WriteLine("Enter the opening time (yyyy-mm-dd hh:mm:ss, or leave blank):");
-        //if (!DateTime.TryParse(Console.ReadLine(), out DateTime openingTime))
-        //    throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid date and time.");
-
         Console.WriteLine("Enter the max closing time (yyyy-mm-dd hh:mm:ss, or leave blank):");
         if (!DateTime.TryParse(Console.ReadLine(), out DateTime maxClosingTime))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid date and time.");
@@ -489,27 +481,33 @@ internal class Program
         string statusInput = Console.ReadLine()!;
         BO.CallStatus status = (BO.CallStatus)Enum.Parse(typeof(BO.CallStatus), statusInput);
 
-        // Assuming s_bl.Call is the service layer for managing calls
         s_bl.Call!.Update(new BO.Call(id, typeOfCall, description, address, null, null, DateTime.MinValue, maxClosingTime, status, null));
     }
 
+    /// <summary>
+    /// Prompts the user for a call ID and deletes the corresponding call.
+    /// </summary>
     private static void callDelete()
     {
         Console.WriteLine("Enter the call ID");
         if (!int.TryParse(Console.ReadLine(), out int id))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+
         if (s_bl.Call!.GetCallDetails(id) != null)
             s_bl.Call!.Delete(id);
         else
             throw new BlUnauthorizedOperationException("An object with this ID does not exist.");
     }
 
+    /// <summary>
+    /// Retrieves and displays the closed calls for a specific volunteer based on user input.
+    /// </summary>
     private static void closedCalls()
     {
-        // Get volunteer ID from user
         Console.WriteLine("Enter your volunteer ID:");
         if (!int.TryParse(Console.ReadLine(), out int volunteerId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
+
         Console.WriteLine("Do you want to filter by a specific field? (yes/no)");
         string filterResponse = Console.ReadLine()?.ToLower();
 
@@ -518,7 +516,7 @@ internal class Program
 
         if (filterResponse == "yes")
         {
-            Console.WriteLine("Select a filter field (STATUS,PRIORITY,TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID):");
+            Console.WriteLine("Select a filter field (STATUS, PRIORITY, TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
             string filterFieldInput = Console.ReadLine();
             filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
 
@@ -526,7 +524,6 @@ internal class Program
             filterValue = Console.ReadLine(); // Adjust parsing based on expected type
         }
 
-        // Prompt user for sorting options
         Console.WriteLine("Do you want to sort the results? (yes/no)");
         string sortResponse = Console.ReadLine()?.ToLower();
 
@@ -539,31 +536,23 @@ internal class Program
             sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
         }
 
-        // Call the method to get closed calls
         var closedCalls = s_bl.Call.GetClosedCallsHandledByTheVolunteer(volunteerId, filterBy, filterValue, sortBy);
 
-        // Print all closed calls
         foreach (var call in closedCalls)
         {
             Console.WriteLine(call);
         }
     }
+
+    /// <summary>
+    /// Retrieves and displays the open calls for a specific volunteer based on user input.
+    /// </summary>
     private static void openCalls()
     {
-        // Get volunteer ID from user
         Console.WriteLine("Enter your volunteer ID:");
         if (!int.TryParse(Console.ReadLine(), out int volunteerId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
 
-        //// Get sorting criteria from user
-        //Console.WriteLine("Enter sorting criteria (e.g., Name, Address):");
-        //string sortByInput = Console.ReadLine();
-        //Enum? sortBy = ConvertToSortByEnum(sortByInput); // Implement this method based on your Enum
-
-
-        //// Print all closed calls
-        ///
-        // Prompt user for filter options
         Console.WriteLine("Do you want to filter by a specific field? (yes/no)");
         string filterResponse = Console.ReadLine()?.ToLower();
 
@@ -572,7 +561,7 @@ internal class Program
 
         if (filterResponse == "yes")
         {
-            Console.WriteLine("Select a filter field (STATUS,PRIORITY,TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID):");
+            Console.WriteLine("Select a filter field (STATUS, PRIORITY, TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
             string filterFieldInput = Console.ReadLine();
             filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
 
@@ -580,7 +569,6 @@ internal class Program
             filterValue = Console.ReadLine(); // Adjust parsing based on expected type
         }
 
-        // Prompt user for sorting options
         Console.WriteLine("Do you want to sort the results? (yes/no)");
         string sortResponse = Console.ReadLine()?.ToLower();
 
@@ -592,69 +580,64 @@ internal class Program
             string sortFieldInput = Console.ReadLine();
             sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
         }
-        //// Call the method to get closed calls
-        //var openCalls = s_bl.Call.GetOpenCallsCanBeSelectedByAVolunteer(volunteerId, sortBy);
 
-
-        // Call the existing ReadAll method with user inputs
         IEnumerable<BO.OpenCallInList> openCalls = s_bl.Call!.GetOpenCallsCanBeSelectedByAVolunteer(volunteerId, filterBy, sortBy);
         foreach (var call in openCalls)
         {
             Console.WriteLine(call);
         }
     }
+
+    /// <summary>
+    /// Updates the cancellation status of a treatment based on user input.
+    /// </summary>
     private static void updateCallCancelation()
     {
         Console.WriteLine("Enter your volunteer ID:");
         if (!int.TryParse(Console.ReadLine(), out int volunteerId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
 
-        // Get assignment ID from user
         Console.WriteLine("Enter the assignment ID:");
         if (!int.TryParse(Console.ReadLine(), out int assignmentId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the assignment ID.");
 
-        // Call the TreatmentCancellationUpdate method
         s_bl.Call.TreatmentCancellationUpdate(volunteerId, assignmentId);
-
         Console.WriteLine("Treatment has been successfully canceled.");
     }
 
+    /// <summary>
+    /// Updates the completion status of a treatment based on user input.
+    /// </summary>
     private static void updateEndOfcall()
     {
         Console.WriteLine("Enter your volunteer ID:");
         if (!int.TryParse(Console.ReadLine(), out int volunteerId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
 
-        // Get assignment ID from user
         Console.WriteLine("Enter the assignment ID:");
         if (!int.TryParse(Console.ReadLine(), out int assignmentId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the assignment ID.");
 
-        // Call the TreatmentCompletionUpdate method
         s_bl.Call.TreatmentCompletionUpdate(volunteerId, assignmentId);
-
         Console.WriteLine("Treatment has been successfully marked as completed.");
     }
 
+    /// <summary>
+    /// Assigns a volunteer to a specific call based on user input.
+    /// </summary>
     private static void ChooseACallForTreatment()
     {
-        // Get volunteer ID from user
         Console.WriteLine("Enter your volunteer ID:");
         if (!int.TryParse(Console.ReadLine(), out int volunteerId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the volunteer ID.");
 
-        // Get call ID from user
         Console.WriteLine("Enter the call ID:");
         if (!int.TryParse(Console.ReadLine(), out int callId))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the call ID.");
 
-        // Call the ChoosingACallForTreatment method
         s_bl.Call.ChoosingACallForTreatment(volunteerId, callId);
-
         Console.WriteLine("The call has been successfully assigned for treatment.");
     }
-
 
     /// <summary>
     /// Handles user login for both managers and volunteers.
@@ -671,41 +654,39 @@ internal class Program
         Console.WriteLine("Enter your password (leave blank if not applicable):");
         string password = Console.ReadLine();
 
-        // Validate user credentials (you will need to implement this method)
         BO.Volunteer user = s_bl.Volunteer.Read(userId);
         if (user == null || (password != null && user.Password != password))
         {
             Console.WriteLine("Invalid credentials. Please try again.");
             return;
         }
-        string choice;
-        do
+
+        Console.WriteLine("Welcome to the Main Screen! Choose your next step:");
+        Console.WriteLine("1. Go to Volunteer Screen");
+        Console.WriteLine("2. Go to Call Screen");
+        Console.WriteLine("3. Go to Main Management Screen");
+        string choice = Console.ReadLine()!;
+        if (choice == "1")
         {
-            Console.WriteLine("Welcome to the Main Screen! Choose your next step:");
-            Console.WriteLine("1. Go to Volunteer Screen");
-            Console.WriteLine("2. Go to Call Screen");
-            Console.WriteLine("3. Go to Main Management Screen");
-            choice = Console.ReadLine()!;
-
-            switch (choice)
-            {
-                case "1":
-                    volunteerMenu();
-                    break;
-                case "2":
-                    callMenu();
-                    break;
-                case "3":
-                    adminMenu();
-                    break;
-                default:
-
-                    Console.WriteLine("Invalid choice. Returning to login.");
-                    break;
-            };
-        } while (choice != "0");
+            volunteerMenu();
+        }
+        else if (choice == "2")
+        {
+            callMenu();
+        }
+        else if (choice == "3")
+        {
+            adminMenu();
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice. Returning to login.");
+        }
     }
 
+    /// <summary>
+    /// Displays the admin menu and handles user choices for admin operations.
+    /// </summary>
     private static void adminMenu()
     {
         try
@@ -755,14 +736,17 @@ internal class Program
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
     }
+
     private static void initializeDB()
     {
         s_bl.Admin.InitializeDB();
     }
+
     private static void resetDB()
     {
         s_bl.Admin.ResetDB();
     }
+
     private static void setRiskRange()
     {
         Console.WriteLine("Please enter the risk range:");
@@ -770,25 +754,29 @@ internal class Program
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the risk range.");
         s_bl.Admin.SetRiskRange(riskRange);
     }
+
     private static void getRiskRange()
     {
         Console.WriteLine(s_bl.Admin.GetRiskRange());
     }
+
     private static void getClock()
     {
         Console.WriteLine(s_bl.Admin.Clock());
     }
+
     private static void promotionClock()
     {
-        Console.WriteLine("Enter the time unit you want to advanced by:");
+        Console.WriteLine("Enter the time unit you want to advance by:");
         if (!TimeUnit.TryParse(Console.ReadLine(), out TimeUnit timeUnit))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer for the time unit.");
+
         Console.WriteLine("Enter your choice:\n" +
-            "to advanced the clock by one year, press 0\n" +
-            "to advanced the clock by one month, press 1\n" +
-            "to advanced the clock by one day, press 2\n" +
-            "to advanced the clock by one hoar, press 3\n" +
-            "to advanced the clock by one minute, press 4\n");
+            "to advance the clock by one year, press 0\n" +
+            "to advance the clock by one month, press 1\n" +
+            "to advance the clock by one day, press 2\n" +
+            "to advance the clock by one hour, press 3\n" +
+            "to advance the clock by one minute, press 4\n");
 
         switch (timeUnit)
         {
@@ -812,7 +800,6 @@ internal class Program
         }
 
         s_bl.Admin.PromotionClock(timeUnit);
-
     }
 
     /// <summary>
@@ -823,7 +810,6 @@ internal class Program
     {
         try
         {
-            // Start the login process
             Login();
         }
         catch (BlUnauthorizedOperationException ex)
