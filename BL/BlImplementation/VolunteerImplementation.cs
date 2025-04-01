@@ -6,15 +6,30 @@ using Helpers;
 using System.Data;
 using System;
 using System.Xml.Linq;
+using DalApi;
 namespace BlImplementation;
 
-internal class VolunteerImplementation : IVolunteer
+internal class VolunteerImplementation : BlApi.IVolunteer
 
 {
     private readonly DalApi.IDal Volunteer_dal = DalApi.Factory.Get;
-    public BO.Role Login(string username, string password) 
+    public BO.Role Login(string username, string password)
     {
-        return 0;
+        // Retrieve the volunteer by username
+        var volunteer = Volunteer_dal.Volunteer.ReadAll().FirstOrDefault(v => v.Name == username);
+        if (volunteer == null)
+        {
+            throw new UnauthorizedAccessException("Invalid username or password.");
+        }
+
+        // Verify the password
+        if (!Tools.VerifyPassword(password, volunteer.Password))
+        {
+            throw new UnauthorizedAccessException("Invalid username or password.");
+        }
+
+        // Return the role if the password is correct
+        return (BO.Role)volunteer.Role;
     }
 
     public void Create(BO.Volunteer boVolunteer)
@@ -26,6 +41,7 @@ internal class VolunteerImplementation : IVolunteer
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
             if (user != null)
                 throw new BO.BlArgumentException("username or password are incorrect.");
+            //string hashedPassword = Tools.HashPassword(boVolunteer.Password);
             var doVolunteer = new DO.Volunteer
             {
                 Id = boVolunteer.Id,
@@ -33,6 +49,7 @@ internal class VolunteerImplementation : IVolunteer
                 Phone = boVolunteer.PhoneNumber,
                 Email = boVolunteer.Email,
                 Password = boVolunteer.Password,
+                //Password = hashedPassword,
                 Address = boVolunteer.CurrentAddress,
                 latitude = lat,
                 longitude = lon,

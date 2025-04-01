@@ -1,6 +1,7 @@
 ﻿
-using Helpers;﻿
-
+using Helpers;
+using System.Security.Cryptography;
+using System.Text;
 using BO;
 using Newtonsoft.Json.Linq;
 using System.Text.Json;
@@ -112,6 +113,32 @@ internal static class Tools
         {
             smtpClient.Send(message);
         }
+    }
+    /// <summary>
+    /// Hashes a password using SHA256.
+    /// </summary>
+    /// <param name="password">The password to hash.</param>
+    /// <returns>A hexadecimal string representing the hashed password.</returns>
+    public static string HashPassword(string password)
+    {
+        using (var sha256 = SHA256.Create())
+        {
+            var bytes = Encoding.UTF8.GetBytes(password);
+            var hash = sha256.ComputeHash(bytes);
+            return Convert.ToHexString(hash);
+        }
+    }
+
+    /// <summary>
+    /// Verifies if a password matches its hashed value.
+    /// </summary>
+    /// <param name="password">The password to verify.</param>
+    /// <param name="hashedPassword">The hashed password to compare against.</param>
+    /// <returns>True if the password matches the hash, otherwise false.</returns>
+    public static bool VerifyPassword(string password, string hashedPassword)
+    {
+        var hash = HashPassword(password);
+        return hash == hashedPassword;
     }
 }
    
