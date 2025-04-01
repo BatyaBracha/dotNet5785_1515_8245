@@ -30,5 +30,5 @@ public record Call
     /// <summary>
     /// Default constructor with default property values
     /// </summary>
-    public Call() : this(0, default(TypeOfCall), "noDescription", "noAddress", 0, 0,null, DateTime.MinValue,CallStatus.OPEN,null){}
+    public Call() : this(0, default, "noDescription", "noAddress", null, null, null, DateTime.Now, CallStatus.OPEN, null) { }
 }

@@ -95,19 +95,10 @@ namespace BlImplementation
         public void Create(BO.Call boCall)
         {
             ValidateCall(boCall);
-
-            var doCall = new DO.Call
-            {
-                Id = boCall.Id,
-                Description = boCall.Description,
-                Address = boCall.Address,
-                latitude = boCall.Latitude,
-                longitude = boCall.Longitude,
-                OpeningTime = boCall.OpeningTime,
-                MaxClosingTime = boCall.MaxClosingTime
-            };
-
+            (double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address);
+            var doCall = new DO.Call(boCall.Id, (DO.TypeOfCall)boCall.TypeOfCall, boCall.Description, boCall.Address, lat, lon, null, boCall.OpeningTime, DO.CallStatus.OPEN, boCall.MaxClosingTime);
             Call_dal.Call.Create(doCall);
+            SendEmailWhenCalOpened(boCall);
         }
 
         public void Delete(int id)
@@ -379,6 +370,37 @@ namespace BlImplementation
             doCall.MaxClosingTime));
         }
 
+        internal void SendEmailWhenCalOpened(BO.Call call)
+        {
+            var volunteer = Call_dal.Volunteer.ReadAll();
+            foreach (var item in volunteer)
+            {
+
+                //if (item.MaxDistance >= Tools.CalculateDistance(item.latitude!, item.longitude!, call.Latitude, call.Longitude))
+                {
+                    string subject = "Openning call";
+                    string body = $@"
+                                  Hello {item.Name},
+
+                                  A new call has been opened in your area.
+                                  Call Details:
+                                  - Call ID: {call.Id}
+                                  - Call Type: {call.TypeOfCall}
+                                  - Call Address: {call.Address}
+                                  - Opening Time: {call.OpeningTime}
+                                  - Description: {call.Description}
+                                  - Entry Time for Treatment: {call.MaxClosingTime}
+                                  -call Status:{call.Status}
+ 
+                                  If you wish to handle this call, please log into the system.
+ 
+                                                              Best regards,  
+                                                                      Call Management System";
+
+                    Tools.SendEmail(item.Email, subject, body);
+                }
+            }
+        }
         // Helper methods for validation, filtering, sorting, and distance calculation...
     }
 }

@@ -2,11 +2,11 @@
 <ArrayOfVolunteer>
   <Volunteer>
     <Id>328118245</Id>
-    <Name>Mali Horowitz</Name>
-    <Phone>0583278625</Phone>
-    <Email>mh0583278625@gmail.com</Email>
+    <Name>Batya Oren</Name>
+    <Phone>0548571410</Phone>
+    <Email>riv.yak.36@gmail.com</Email>
     <Password>password</Password>
-    <Address>Ha'ayalot 25</Address>
+    <Address>Man 3</Address>
     <latitude>31.8</latitude>
     <longitude>35.1</longitude>
     <Role>ADMINISTRATOR</Role>
@@ -223,5 +223,19 @@
     <IsActive>true</IsActive>
     <MaxDistance>575</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>216223669</Id>
+    <Name>Rachel</Name>
+    <Phone>0583251410</Phone>
+    <Email>rachel@gmail.com</Email>
+    <Password>passpass</Password>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <Role>2</Role>
+    <IsActive>false</IsActive>
+    <MaxDistance>2</MaxDistance>
+    <TypeOfDistance>DRIVE</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

@@ -648,4 +648,64 @@
     <Status>BEING_HANDELED</Status>
     <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
   </Call>
+  <Call>
+    <Id>1054</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>very bad..........</Description>
+    <Address>Tchelet Mordechay 7</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T13:13:13</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1055</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>hummmmmm</Description>
+    <Address>Man 2</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T12:12:12</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1056</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>jnjn</Description>
+    <Address>Man 7</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1057</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>hbhb</Description>
+    <Address>Man 2</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1058</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>wowwww</Description>
+    <Address>Man 2</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-11-11T11:11:11</MaxClosingTime>
+  </Call>
 </ArrayOfCall>

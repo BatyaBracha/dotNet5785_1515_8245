@@ -7,14 +7,19 @@ using Newtonsoft.Json.Linq;
 using System.Text.Json;
 using System.Net.Mail;
 using System.Net;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
 namespace Helpers;
 internal static class Tools
 {
     private static readonly DalApi.IDal _dal = DalApi.Factory.Get; //stage 4
     private static readonly string apiUrl = "https://geocode.maps.co/search?q={0}&api_key={1}";
-    private static readonly string apiKey = "6797d46098d51743505867ysm058e34";
-
-    public static double CalculateDistance(object latitude1, object longitude1, double latitude2, double longitude2)
+    private const string ApiKey = "PASTE_YOUR_SENDGRID_API_KEY_HERE"; // הכניסי כאן את ה-API Key שלך
+    private const string SenderEmail = "wesaveliveseveryday@gmail.com"; // כתובת המייל שממנה יישלחו המיילים
+    public static double? CalculateDistance(object latitude1, object longitude1, double? latitude2, double? longitude2)
     {
         // המרת פרמטרים מסוג object ל-double
         if (!double.TryParse(latitude1?.ToString(), out double lat1) ||
@@ -22,14 +27,17 @@ internal static class Tools
         {
             throw new ArgumentException("Invalid latitude or longitude values.");
         }
+        if (!latitude2.HasValue|| !longitude2.HasValue)
+
+                   return null;
 
         const double EarthRadiusKm = 6371; // רדיוס כדור הארץ בקילומטרים
 
         // המרת מעלות לרדיאנים
         double lat1Rad = DegreesToRadians(lat1);
         double lon1Rad = DegreesToRadians(lon1);
-        double lat2Rad = DegreesToRadians(latitude2);
-        double lon2Rad = DegreesToRadians(longitude2);
+        double lat2Rad = DegreesToRadians(latitude2.Value);
+        double lon2Rad = DegreesToRadians(longitude2.Value);
 
         // חישוב ההפרשים
         double deltaLat = lat2Rad - lat1Rad;
@@ -48,7 +56,7 @@ internal static class Tools
 
     public static double DegreesToRadians(double degrees)
     {
-        return degrees *  Math.PI / 180;
+            return degrees * Math.PI / 180;
     }
 
     //public static CallStatusInProgress CalculateStatus(DO.Call call, int riskThreshold = 30)
@@ -93,25 +101,53 @@ internal static class Tools
     /// <param name="subject">The subject of the email.</param>
     /// <param name="body">The body of the email.</param>
     /// <exception cref="Exception">Thrown when the email cannot be sent.</exception>
-    public static void SendEmail(string toEmail, string subject, string body)
-    {
-        var fromAddress = new MailAddress("projectydidim@gmail.com", "Yedidim");
-        var toAddress = new MailAddress(toEmail);
+    //public static void SendEmail(string toEmail, string subject, string body)
+    //{
+    //    var fromAddress = new MailAddress("wesaveliveseveryday@gmail.com", "We_Save_Lives");
+    //    var toAddress = new MailAddress(toEmail);
 
-        var smtpClient = new SmtpClient("smtp.gmail.com")
+    //    var smtpClient = new SmtpClient("smtp.gmail.com")
+    //    {
+    //        Port = 587,
+    //        Credentials = new NetworkCredential("wesaveliveseveryday@gmail.com", "wesaveliveseveryday@gmail.com"),
+    //        EnableSsl = true,
+    //    };
+
+    //    using (var message = new MailMessage(fromAddress, toAddress)
+    //    {
+    //        Subject = subject,
+    //        Body = body,
+    //    })
+    //    {
+    //        smtpClient.Send(message);
+    //    }
+    //}
+    public static async Task SendEmail(string toEmail, string subject, string body)
+    {
+        var client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {ApiKey}");
+
+        var emailData = new
         {
-            Port = 587,
-            Credentials = new NetworkCredential("yedidimproject1234@gmail.com", "lucg ughi pfwj fzol"),
-            EnableSsl = true,
+            personalizations = new[]
+            {
+                new { to = new[] { new { email = toEmail } } }
+            },
+            from = new { email = SenderEmail },
+            subject = subject,
+            content = new[]
+            {
+                new { type = "text/plain", value = body }
+            }
         };
 
-        using (var message = new MailMessage(fromAddress, toAddress)
+        var json = JsonConvert.SerializeObject(emailData);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        var response = await client.PostAsync("https://api.sendgrid.com/v3/mail/send", content);
+
+        if (!response.IsSuccessStatusCode)
         {
-            Subject = subject,
-            Body = body,
-        })
-        {
-            smtpClient.Send(message);
+            throw new Exception($"Failed to send email: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
         }
     }
     /// <summary>

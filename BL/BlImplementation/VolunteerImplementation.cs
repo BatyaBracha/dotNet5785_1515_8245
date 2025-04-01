@@ -257,16 +257,47 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             var assignment = Volunteer_dal.Assignment.ReadAll()
                 .FirstOrDefault(a => a.VolunteerId == volunteerId && a.CallId == callId && a.TreatmentEndTime == null);
 
+            var volunteer = Volunteer_dal.Volunteer.Read(volunteerId)!;
+
             if (assignment == null)
                 throw new BO.BlDoesNotExistException("לא נמצאה התאמה בין המתנדב לקריאה.");
 
-
             Volunteer_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId,assignment.VolunteerId, assignment.TreatmentStartTime,ClockManager.Now, DO.TypeOfTreatmentEnding.UNMATCHED,assignment.AssignmentStatus));
+            SendEmailToVolunteer( volunteer, assignment);
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
             throw new BO.BlUnauthorizedOperationException("שגיאה בביטול התאמת מתנדב לקריאה.");
         }
+    }
+
+    /// <summary>
+    /// Sends an email notification to the volunteer when their assignment is canceled.
+    /// </summary>
+    /// <param name="volunteer">The volunteer to notify.</param>
+    /// <param name="assignment">The assignment that was canceled.</param>
+    internal void SendEmailToVolunteer(DO.Volunteer volunteer, DO.Assignment assignment)
+    {
+        var call = Volunteer_dal.Call.Read(assignment.CallId)!;
+
+        string subject = "Assignment Canceled";
+        string body = $@"
+                      Hello {volunteer.Name},
+
+                      Your assignment for handling call {assignment.Id} has been canceled by the administrator.
+
+                      Call Details:
+                      - Call ID: {assignment.CallId}
+                      - Call Type: {call.TypeOfCall}
+                      - Call Address: {call.Address}
+                      - Opening Time: {call.OpeningTime}
+                      - Description: {call.Description}
+                      - Entry Time for Treatment: {assignment.TreatmentStartTime}
+
+                                                                                        Best regards,  
+                                                                                        Call Management System";
+
+        Tools.SendEmail(volunteer.Email, subject, body);
     }
 
     public void Update(BO.Volunteer boVolunteer)

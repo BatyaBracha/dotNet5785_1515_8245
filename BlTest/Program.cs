@@ -99,19 +99,8 @@ internal class Program
         string typeOfDistance = Console.ReadLine()!;
         BO.TypeOfDistance convertedTypeOfDistance = (BO.TypeOfDistance)Enum.Parse(typeof(BO.TypeOfDistance), typeOfDistance);
 
-        Console.WriteLine("Enter calls done");
-        if (!int.TryParse(Console.ReadLine(), out int callsDone))
-            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
 
-        Console.WriteLine("Enter calls deleted");
-        if (!int.TryParse(Console.ReadLine(), out int callsDeleted))
-            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
-
-        Console.WriteLine("Enter calls chosen out of date");
-        if (!int.TryParse(Console.ReadLine(), out int callsChosenOutOfdate))
-            throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
-
-        s_bl.Volunteer!.Create(new BO.Volunteer(id, name, phone, email, password, address, null, null, convertedRole, false, maxDistance, convertedTypeOfDistance, callsDone, callsDeleted, callsChosenOutOfdate, null));
+        s_bl.Volunteer!.Create(new BO.Volunteer(id, name, phone, email, password, address, null, null, convertedRole, false, maxDistance, convertedTypeOfDistance, 0, 0, 0, null));
     }
 
     /// <summary>
