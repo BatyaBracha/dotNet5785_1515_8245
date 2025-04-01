@@ -11,6 +11,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System;
 
 namespace Helpers;
 internal static class Tools
@@ -122,39 +123,35 @@ internal static class Tools
     //        smtpClient.Send(message);
     //    }
     //}
-    public static async Task SendEmail(string toEmail, string subject, string body)
-    {
-        var client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {ApiKey}");
+    //public static void SendEmail(string toEmail, string subject, string body)
+    //{
+    //    var fromAddress = new MailAddress("wesaveliveseveryday@gmail.com", "We_Save_Lives"); // הכניסי כאן את כתובת המייל שלך
+    //    var toAddress = new MailAddress(toEmail);
 
-        var emailData = new
-        {
-            personalizations = new[]
-            {
-                new { to = new[] { new { email = toEmail } } }
-            },
-            from = new { email = SenderEmail },
-            subject = subject,
-            content = new[]
-            {
-                new { type = "text/plain", value = body }
-            }
-        };
+    //    var smtpClient = new SmtpClient("smtp.elasticemail.com") // שרת ה-SMTP של Elastic Email
+    //    {
+    //        Port = 2525, // אפשר גם 587
+    //        Credentials = new NetworkCredential("wesaveliveseveryday@gmail.com", "4DD5AA38AF5EE3AD13E4974305D18DC6FBF2"),
+    //        EnableSsl = true,
+    //    };
 
-        var json = JsonConvert.SerializeObject(emailData);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        var response = await client.PostAsync("https://api.sendgrid.com/v3/mail/send", content);
+    //    using (var message = new MailMessage(fromAddress, toAddress)
+    //    {
+    //        Subject = subject,
+    //        Body = body,
+    //        IsBodyHtml = false // אם את רוצה לשלוח HTML, שימי true
+    //    })
+    //    {
+    //        smtpClient.Send(message);
+    //    }
 
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception($"Failed to send email: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
-        }
-    }
+    //    Console.WriteLine("Email sent successfully!");
+    //}    
     /// <summary>
-    /// Hashes a password using SHA256.
-    /// </summary>
-    /// <param name="password">The password to hash.</param>
-    /// <returns>A hexadecimal string representing the hashed password.</returns>
+         /// Hashes a password using SHA256.
+         /// </summary>
+         /// <param name="password">The password to hash.</param>
+         /// <returns>A hexadecimal string representing the hashed password.</returns>
     public static string HashPassword(string password)
     {
         using (var sha256 = SHA256.Create())

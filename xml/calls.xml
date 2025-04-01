@@ -708,4 +708,40 @@
     <Status>OPEN</Status>
     <MaxClosingTime>2025-11-11T11:11:11</MaxClosingTime>
   </Call>
+  <Call>
+    <Id>1059</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>wowowowow</Description>
+    <Address>Man 3</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-01-01T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1060</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>ghg</Description>
+    <Address>Man 2</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1061</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>ff</Description>
+    <Address>Man 3</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-11-11T11:11:11</MaxClosingTime>
+  </Call>
 </ArrayOfCall>
