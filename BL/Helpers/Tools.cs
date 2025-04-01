@@ -3,6 +3,9 @@ using Helpers;﻿
 
 using BO;
 using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using System.Net.Mail;
+using System.Net;
 namespace Helpers;
 internal static class Tools
 {
@@ -58,58 +61,57 @@ internal static class Tools
     //    return CallStatusInProgress.InProgress;
     //}
 
-    public static (double Latitude, double Longitude) GetCoordinatesFromAddress(string address)
+    public static (double latitude, double longitude) GetCoordinatesFromAddress(string address)
     {
-        //פונקציה זו מיורקת כיוון שלא קיבלנו הנחיה מה לעשות עם כך שיש אי התאמה בין גרסאות החבילה שהיה צריך להתקין.
-        //לכן נתנו ערכי ברירת מחדל לקווי האורך והרוחב עד שנקבל הוראות כיצד לפתור את הבעיה.
-        //    if (string.IsNullOrWhiteSpace(address))
-        //    {
-        //        throw new BlInvalidAddressException(address); // חריגה אם הכתובת לא תקינה
-        //    }
+        string apiKey = "PK.83B935C225DF7E2F9B1ee90A6B46AD86";
+        using var client = new HttpClient();
+        string url = $"https://us1.locationiq.com/v1/search.php?key={apiKey}&q={Uri.EscapeDataString(address)}&format=json";
 
-        //    try
-        //    {
-        //        // יצירת ה-URL לפנייה ל-API
-        //        string url = string.Format(apiUrl, Uri.EscapeDataString(address), apiKey);
+        var response = client.GetAsync(url).GetAwaiter().GetResult();
+        if (!response.IsSuccessStatusCode)
+            throw new Exception("Invalid address or API error.");
 
-        //        using (HttpClient client = new HttpClient())
-        //        {
-        //            // בקשה סינכרונית ל-API
-        //            HttpResponseMessage response = client.GetAsync(url).Result;
+        var json = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+        using var doc = JsonDocument.Parse(json);
 
-        //            // בדיקה אם הבקשה הצליחה
-        //            if (response.IsSuccessStatusCode)
-        //            {
-        //                string jsonResponse = response.Content.ReadAsStringAsync().Result;
+        if (doc.RootElement.ValueKind != JsonValueKind.Array || doc.RootElement.GetArrayLength() == 0)
+            throw new Exception("Address not found.");
 
-        //                // ניתוח התשובה כ-JSON
-        //                JArray jsonArray = JArray.Parse(jsonResponse);
+        var root = doc.RootElement[0];
 
-        //                // אם יש תוצאות, מחזירים את הקואורדינטות
-        //                if (jsonArray.Count > 0)
-        //                {
-        //                    var firstResult = jsonArray[0];
-        //                    double latitude = (double)firstResult["lat"];
-        //                    double longitude = (double)firstResult["lon"];
-        //                    return (latitude, longitude);
-        //                }
-        //                else
-        //                {
-        //                    throw new GeolocationNotFoundException(address); // חריגה אם לא נמצאה גיאוקולציה
-        //                }
-        //            }
-        //            else
-        //            {
-        //                throw new ApiRequestException($"API request failed with status code: {response.StatusCode}"); // חריגה אם הבקשה נכשלה
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // אם קרתה שגיאה כלשהי, זורקים חריגה עם פרטי השגיאה
-        //        throw new ApiRequestException($"Error occurred while fetching coordinates for the address. {ex.Message}");
-        //    }
-        return (0, 0);
+        double latitude = double.Parse(root.GetProperty("lat").GetString());
+        double longitude = double.Parse(root.GetProperty("lon").GetString());
+
+        return (latitude, longitude);
+    }
+
+    /// <summary>
+    /// Sends an email using an SMTP server.
+    /// </summary>
+    /// <param name="toEmail">The recipient's email address.</param>
+    /// <param name="subject">The subject of the email.</param>
+    /// <param name="body">The body of the email.</param>
+    /// <exception cref="Exception">Thrown when the email cannot be sent.</exception>
+    public static void SendEmail(string toEmail, string subject, string body)
+    {
+        var fromAddress = new MailAddress("projectydidim@gmail.com", "Yedidim");
+        var toAddress = new MailAddress(toEmail);
+
+        var smtpClient = new SmtpClient("smtp.gmail.com")
+        {
+            Port = 587,
+            Credentials = new NetworkCredential("yedidimproject1234@gmail.com", "lucg ughi pfwj fzol"),
+            EnableSsl = true,
+        };
+
+        using (var message = new MailMessage(fromAddress, toAddress)
+        {
+            Subject = subject,
+            Body = body,
+        })
+        {
+            smtpClient.Send(message);
+        }
     }
 }
    
