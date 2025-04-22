@@ -6,7 +6,7 @@
     <Description>Flat tire on the road to Jerusalem.</Description>
     <Address>Rothschild Blvd, Tel Aviv</Address>
     <latitude>32.0656</latitude>
-    <longitude>34.777</longitude>
+	<longitude>34.777</longitude>
     <riskRange>PT2H2M2S</riskRange>
     <OpeningTime>2025-03-12T17:46:00</OpeningTime>
     <Status>OPEN</Status>
@@ -743,5 +743,29 @@
     <OpeningTime>2025-03-12T21:11:20</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1062</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>1</Description>
+    <Address>Man 3</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-12-03T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-08-08T12:12:12</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1063</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>1</Description>
+    <Address>Man 3</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-12-03T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-08-08T12:12:12</MaxClosingTime>
   </Call>
 </ArrayOfCall>

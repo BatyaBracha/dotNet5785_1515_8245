@@ -95,7 +95,8 @@ namespace DalTest
             string password = Console.ReadLine()!;
             //Console.WriteLine("Enter your latitude");
             //string latitude = Console.ReadLine()!;
-            //Console.WriteLine("Enter your longitude");
+            //Console.WriteLine("Enter your
+            //");
             //string longitude = Console.ReadLine()!;
             Console.WriteLine("Enter your max distance");
             string maxDistance = Console.ReadLine()!;

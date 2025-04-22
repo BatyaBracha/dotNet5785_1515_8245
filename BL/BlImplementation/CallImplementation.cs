@@ -376,7 +376,7 @@ namespace BlImplementation
             foreach (var item in volunteer)
             {
 
-                //if (item.MaxDistance >= Tools.CalculateDistance(item.latitude!, item.longitude!, call.Latitude, call.Longitude))
+                if (item.MaxDistance >= CallManager.CalculateDistance(item.latitude!, item.longitude!, call.Latitude, call.Longitude))
                 {
                     string subject = "Openning call";
                     string body = $@"

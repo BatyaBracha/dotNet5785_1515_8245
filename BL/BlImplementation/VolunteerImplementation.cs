@@ -113,7 +113,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     }
     private (double lat, double lon) isValidAddress(string address)
     {
-        return Tools.GetCoordinatesFromAddress(address);
+        return CallManager.GetCoordinates(address);
     }
 
     private bool IsValidEmail(string email) =>
