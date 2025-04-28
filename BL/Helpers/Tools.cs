@@ -18,8 +18,8 @@ internal static class Tools
 {
     private static readonly DalApi.IDal _dal = DalApi.Factory.Get; //stage 4
     private static readonly string apiUrl = "https://geocode.maps.co/search?q={0}&api_key={1}";
-    private const string ApiKey = "PASTE_YOUR_SENDGRID_API_KEY_HERE"; // הכניסי כאן את ה-API Key שלך
-    private const string SenderEmail = "wesaveliveseveryday@gmail.com"; // כתובת המייל שממנה יישלחו המיילים
+    //private const string ApiKey = "PASTE_YOUR_SENDGRID_API_KEY_HERE"; // הכניסי כאן את ה-API Key שלך
+    //private const string SenderEmail = "wesaveliveseveryday@gmail.com"; // כתובת המייל שממנה יישלחו המיילים
     //public static double? CalculateDistance(object latitude1, object longitude1, double? latitude2, double? longitude2)
     //{
     //    // המרת פרמטרים מסוג object ל-double
@@ -95,13 +95,13 @@ internal static class Tools
     //    return (latitude, longitude);
     //}
 
+
     /// <summary>
-    /// Sends an email using an SMTP server.
+    /// Sends an email using an SMTP client.
     /// </summary>
     /// <param name="toEmail">The recipient's email address.</param>
     /// <param name="subject">The subject of the email.</param>
-    /// <param name="body">The body of the email.</param>
-    /// <exception cref="Exception">Thrown when the email cannot be sent.</exception>
+    /// <param name="body">The body content of the email.</param>
     public static void SendEmail(string toEmail, string subject, string body)
     {
         var fromAddress = new MailAddress("wesaveliveseveryday@gmail.com", "We_Save_Lives");
@@ -110,48 +110,20 @@ internal static class Tools
         var smtpClient = new SmtpClient("smtp.gmail.com")
         {
             Port = 587,
-            Credentials = new NetworkCredential("wesaveliveseveryday@gmail.com", "Malka&Batya20"),
+            Credentials = new NetworkCredential("wesaveliveseveryday@gmail.com", "yuul ttyh pvep birb"),
             EnableSsl = true,
         };
 
         using (var message = new MailMessage(fromAddress, toAddress)
         {
             Subject = subject,
-            Body = body,
+            Body = body
         })
         {
             smtpClient.Send(message);
         }
     }
-    //public static void SendEmail(string toEmail, string subject, string body)
-    //{
-    //    var fromAddress = new MailAddress("wesaveliveseveryday@gmail.com", "We_Save_Lives"); // הכניסי כאן את כתובת המייל שלך
-    //    var toAddress = new MailAddress(toEmail);
 
-    //    var smtpClient = new SmtpClient("smtp.elasticemail.com") // שרת ה-SMTP של Elastic Email
-    //    {
-    //        Port = 2525, // אפשר גם 587
-    //        Credentials = new NetworkCredential("wesaveliveseveryday@gmail.com", "4DD5AA38AF5EE3AD13E4974305D18DC6FBF2"),
-    //        EnableSsl = true,
-    //    };
-
-    //    using (var message = new MailMessage(fromAddress, toAddress)
-    //    {
-    //        Subject = subject,
-    //        Body = body,
-    //        IsBodyHtml = false // אם את רוצה לשלוח HTML, שימי true
-    //    })
-    //    {
-    //        smtpClient.Send(message);
-    //    }
-
-    //    Console.WriteLine("Email sent successfully!");
-    //}
-    /// <summary>
-    /// Hashes a password using SHA256.
-    /// </summary>
-    /// <param name="password">The password to hash.</param>
-    /// <returns>A hexadecimal string representing the hashed password.</returns>
     public static string HashPassword(string password)
     {
         using (var sha256 = SHA256.Create())

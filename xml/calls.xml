@@ -6,7 +6,7 @@
     <Description>Flat tire on the road to Jerusalem.</Description>
     <Address>Rothschild Blvd, Tel Aviv</Address>
     <latitude>32.0656</latitude>
-	<longitude>34.777</longitude>
+    <longitude>34.777</longitude>
     <riskRange>PT2H2M2S</riskRange>
     <OpeningTime>2025-03-12T17:46:00</OpeningTime>
     <Status>OPEN</Status>
@@ -767,5 +767,41 @@
     <OpeningTime>2025-12-03T21:11:20</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2026-08-08T12:12:12</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1064</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>so bad</Description>
+    <Address>Shahal 83, Jerusalem, Israel</Address>
+    <latitude>31.7608362</latitude>
+    <longitude>35.1994618</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1065</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>nanana</Description>
+    <Address>Shahal 83, Jerusalem, Israel</Address>
+    <latitude>31.7608362</latitude>
+    <longitude>35.1994618</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1066</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>Banana</Description>
+    <Address>Shahal 30, Jerusalem, Israel</Address>
+    <latitude>31.7614761</latitude>
+    <longitude>35.1969398</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-03-12T21:11:20</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T11:11:11</MaxClosingTime>
   </Call>
 </ArrayOfCall>
