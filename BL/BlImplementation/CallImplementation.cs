@@ -10,6 +10,17 @@ namespace BlImplementation
 {
     internal class CallImplementation : BlApi.ICall
     {
+        #region Stage 5
+        public void AddObserver(Action listObserver) =>
+        CallManager.Observers.AddListObserver(listObserver); //stage 5
+        public void AddObserver(int id, Action observer) =>
+        CallManager.Observers.AddObserver(id, observer); //stage 5
+        public void RemoveObserver(Action listObserver) =>
+        CallManager.Observers.RemoveListObserver(listObserver); //stage 5
+        public void RemoveObserver(int id, Action observer) =>
+        CallManager.Observers.RemoveObserver(id, observer); //stage 5
+        #endregion Stage 5
+
         private readonly DalApi.IDal Call_dal = DalApi.Factory.Get;
         private void ValidateCall(BO.Call boCall)
         {
@@ -72,7 +83,7 @@ namespace BlImplementation
             {
                 VolunteerId = volunteerId,
                 CallId = callId,
-                TreatmentStartTime = ClockManager.Now,
+                TreatmentStartTime = AdminManager.Now,
                 TreatmentEndTime = null,
             };
 
@@ -99,6 +110,8 @@ namespace BlImplementation
             var doCall = new DO.Call(boCall.Id, (DO.TypeOfCall)boCall.TypeOfCall, boCall.Description, boCall.Address, lat, lon, null, boCall.OpeningTime, DO.CallStatus.OPEN, boCall.MaxClosingTime);
             Call_dal.Call.Create(doCall);
             SendEmailWhenCalOpened(boCall);
+            CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
+            CallManager.Observers.NotifyListUpdated();  //stage 5
         }
 
         public void Delete(int id)
@@ -110,6 +123,9 @@ namespace BlImplementation
                 throw new BO.BlDeletionImpossible("לא ניתן למחוק קריאה זו.");
 
             Call_dal.Call.Delete(id);
+            CallManager.Observers.NotifyItemUpdated(id);  //stage 5
+            CallManager.Observers.NotifyListUpdated();  //stage 5
+
         }
 
         public BO.Call GetCallDetails(int id)
@@ -285,7 +301,7 @@ namespace BlImplementation
             var newAssignment = new DO.Assignment
             {
                 Id = assignment.Id,
-                TreatmentEndTime = ClockManager.Now
+                TreatmentEndTime = AdminManager.Now
             };
             Call_dal.Assignment.Update(newAssignment);
         }
@@ -303,7 +319,7 @@ namespace BlImplementation
             Console.WriteLine("Enter the treatment end type(HOSPITAL_ADMISSION=0, STAY_AT_HOME,DEAD=1 , EXPIRED=2, UNMATCHED=3):");
             DO.TypeOfTreatmentEnding typeOfTreatmentEnding = (DO.TypeOfTreatmentEnding)Enum.Parse(typeof(DO.TypeOfTreatmentEnding), Console.ReadLine()!);
 
-            Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, ClockManager.Now, typeOfTreatmentEnding, null));
+            Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, typeOfTreatmentEnding, null));
         }
         //public BO.Call? Read(int id)
         //{
@@ -368,6 +384,8 @@ namespace BlImplementation
             doCall.OpeningTime,
             (DO.CallStatus)boCall.Status,
             doCall.MaxClosingTime));
+            CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
+            CallManager.Observers.NotifyListUpdated();  //stage 5
         }
 
         internal void SendEmailWhenCalOpened(BO.Call call)

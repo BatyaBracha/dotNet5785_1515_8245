@@ -8,13 +8,25 @@ namespace BlImplementation
 {
     internal class AdminImplementation : IAdmin
     {
+
         private readonly DalApi.IDal Admin_dal = DalApi.Factory.Get;
+
+        #region Stage 52
+        public void AddClockObserver(Action clockObserver) =>
+        AdminManager.ClockUpdatedObservers += clockObserver;
+        public void RemoveClockObserver(Action clockObserver) =>
+        AdminManager.ClockUpdatedObservers -= clockObserver;
+        public void AddConfigObserver(Action configObserver) =>
+       AdminManager.ConfigUpdatedObservers += configObserver;
+        public void RemoveConfigObserver(Action configObserver) =>
+        AdminManager.ConfigUpdatedObservers -= configObserver;
+        #endregion Stage 5
 
         // מתודת בקשת שעון
         public DateTime Clock()
         {
             // מחזיר את הזמן הנוכחי מהשעון המערכת
-            return ClockManager.Now;
+            return AdminManager.Now;
         }
 
         // מתודת קידום שעון
@@ -26,19 +38,19 @@ namespace BlImplementation
             switch (timeUnit)
             {
                 case BO.TimeUnit.MINUTE:
-                    ClockManager.UpdateClock(ClockManager.Now.AddMinutes(1));
+                    AdminManager.UpdateClock(AdminManager.Now.AddMinutes(1));
                     break;
                 case BO.TimeUnit.HOUR:
-                    ClockManager.UpdateClock(ClockManager.Now.AddHours(1));
+                    AdminManager.UpdateClock(AdminManager.Now.AddHours(1));
                     break;
                 case BO.TimeUnit.DAY:
-                    ClockManager.UpdateClock(ClockManager.Now.AddDays(1));
+                    AdminManager.UpdateClock(AdminManager.Now.AddDays(1));
                     break;
                 case BO.TimeUnit.MONTH:
-                    ClockManager.UpdateClock(ClockManager.Now.AddMonths(1));
+                    AdminManager.UpdateClock(AdminManager.Now.AddMonths(1));
                     break;
                 case BO.TimeUnit.YEAR:
-                    ClockManager.UpdateClock(ClockManager.Now.AddYears(1));
+                    AdminManager.UpdateClock(AdminManager.Now.AddYears(1));
                     break;
                 default:
                     throw new BlArgumentException("Unknown time unit");
@@ -49,20 +61,20 @@ namespace BlImplementation
         public TimeSpan GetRiskRange()
         {
             // מחזיר את טווח הזמן של הסיכון שנשמר בתצורה
-            return Admin_dal.Config.RiskRange;
+            return AdminManager.RiskRange;
         }
 
         // מתודת הגדרת טווח זמן סיכון
         public void SetRiskRange(TimeSpan riskRange)
         {
             // מעדכן את טווח הזמן של הסיכון בתצורה
-            Admin_dal.Config.RiskRange = riskRange;
+            AdminManager.RiskRange = riskRange;
         }
 
         // מתודת איפוס בסיס נתונים
         public void ResetDB()
         {
-            Admin_dal.Config.Reset();
+            AdminManager.Reset();
             Admin_dal.Volunteer.DeleteAll();
             Admin_dal.Assignment.DeleteAll();
             Admin_dal.Call.DeleteAll();

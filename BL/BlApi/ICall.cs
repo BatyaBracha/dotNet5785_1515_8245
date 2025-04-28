@@ -1,7 +1,8 @@
 ﻿
 namespace BlApi;
 
-public interface ICall
+public interface ICall : IObservable //stage 5 הרחבת ממשק
+
 {
     IEnumerable<int> GetCallsCount();
     IEnumerable<BO.CallInList> ReadAll(Enum? filterBy, object? filter, Enum? sortBy);

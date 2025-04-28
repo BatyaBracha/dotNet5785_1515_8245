@@ -10,7 +10,7 @@ namespace Helpers;
 internal static class CallManager
 {
     private static IDal s_dal = Factory.Get; //stage 4
-
+    internal static ObserverManager Observers = new(); //stage 5 
     private static BO.Status CallStatus(int callId) { return CallManager.CallStatus(callId); }
 
     //private class Coordinates
@@ -92,7 +92,7 @@ internal static class CallManager
     {
         var calls = s_dal.Call.ReadAll();
         var assignments = s_dal.Assignment.ReadAll();
-        DateTime systemTime = ClockManager.Now;
+        DateTime systemTime = AdminManager.Now;
 
         var expiredCalls = calls
             .Where(call => call.MaxClosingTime < systemTime)

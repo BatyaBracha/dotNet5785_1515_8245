@@ -10,8 +10,18 @@ using DalApi;
 namespace BlImplementation;
 
 internal class VolunteerImplementation : BlApi.IVolunteer
-
 {
+    #region Stage 5
+    public void AddObserver(Action listObserver) =>
+    VolunteerManager.Observers.AddListObserver(listObserver); //stage 5
+    public void AddObserver(int id, Action observer) =>
+    VolunteerManager.Observers.AddObserver(id, observer); //stage 5
+    public void RemoveObserver(Action listObserver) =>
+    VolunteerManager.Observers.RemoveListObserver(listObserver); //stage 5
+    public void RemoveObserver(int id, Action observer) =>
+    VolunteerManager.Observers.RemoveObserver(id, observer); //stage 5
+    #endregion Stage 5
+
     private readonly DalApi.IDal Volunteer_dal = DalApi.Factory.Get;
     public BO.Role Login(string username, string password)
     {
@@ -60,6 +70,9 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             };
 
             Volunteer_dal.Volunteer.Create(doVolunteer);
+            VolunteerManager.Observers.NotifyItemUpdated(doVolunteer.Id);  //stage 5
+            VolunteerManager.Observers.NotifyListUpdated();  //stage 5
+
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
@@ -139,6 +152,8 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         {
             throw new BO.BlUnauthorizedOperationException("שגיאה במחיקת נתוני מתנדבים.");
         }
+        VolunteerManager.Observers.NotifyItemUpdated(id);  //stage 5
+        VolunteerManager.Observers.NotifyListUpdated();  //stage 5
     }
 
     public void MatchVolunteerToCall(int volunteerId, int callId)
@@ -155,7 +170,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             {
                 VolunteerId = volunteerId,
                 CallId = callId,
-                TreatmentStartTime = ClockManager.Now
+                TreatmentStartTime = AdminManager.Now
             };
 
             Volunteer_dal.Assignment.Create(newAssignment);
@@ -262,7 +277,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             if (assignment == null)
                 throw new BO.BlDoesNotExistException("לא נמצאה התאמה בין המתנדב לקריאה.");
 
-            Volunteer_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId,assignment.VolunteerId, assignment.TreatmentStartTime,ClockManager.Now, DO.TypeOfTreatmentEnding.UNMATCHED,assignment.AssignmentStatus));
+            Volunteer_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId,assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, DO.TypeOfTreatmentEnding.UNMATCHED,assignment.AssignmentStatus));
             SendEmailToVolunteer( volunteer, assignment);
         }
         catch (DO.DalUnauthorizedOperationException ex)
@@ -325,6 +340,8 @@ internal class VolunteerImplementation : BlApi.IVolunteer
              };
 
              Volunteer_dal.Volunteer.Create(doVolunteer);
+            VolunteerManager.Observers.NotifyItemUpdated(boVolunteer.Id);  //stage 5
+            VolunteerManager.Observers.NotifyListUpdated();  //stage 5
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
