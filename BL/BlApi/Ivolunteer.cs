@@ -1,7 +1,7 @@
 ﻿
 namespace BlApi;
 
-public interface IVolunteer
+public interface IVolunteer : IObservable //stage 5 הרחבת ממשק
 {
     public BO.Role Login(string username, string password);
     void Create(BO.Volunteer boVolunteer);
