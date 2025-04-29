@@ -74,7 +74,7 @@ namespace BlImplementation
         // מתודת איפוס בסיס נתונים
         public void ResetDB()
         {
-            AdminManager.Reset();
+            AdminManager.ResetDB();
             Admin_dal.Volunteer.DeleteAll();
             Admin_dal.Assignment.DeleteAll();
             Admin_dal.Call.DeleteAll();
