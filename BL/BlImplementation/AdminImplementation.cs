@@ -23,7 +23,7 @@ namespace BlImplementation
         #endregion Stage 5
 
         // מתודת בקשת שעון
-        public DateTime Clock()
+        public DateTime GetClock()
         {
             // מחזיר את הזמן הנוכחי מהשעון המערכת
             return AdminManager.Now;

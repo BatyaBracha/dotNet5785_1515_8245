@@ -386,7 +386,7 @@ internal class Program
         string maxClosingTimeInput = Console.ReadLine()!;
         DateTime? maxClosingTime = DateTime.TryParse(maxClosingTimeInput, out DateTime parsedMaxClosingTime) ? parsedMaxClosingTime : (DateTime?)null;
 
-        s_bl.Call!.Create(new BO.Call(0, convertedType, description, address, null, null, s_bl.Admin.Clock(), maxClosingTime, BO.CallStatus.OPEN, null));
+        s_bl.Call!.Create(new BO.Call(0, convertedType, description, address, null, null, s_bl.Admin.GetClock(), maxClosingTime, BO.CallStatus.OPEN, null));
     }
 
     /// <summary>
@@ -750,7 +750,7 @@ internal class Program
 
     private static void getClock()
     {
-        Console.WriteLine(s_bl.Admin.Clock());
+        Console.WriteLine(s_bl.Admin.GetClock());
     }
 
     private static void promotionClock()

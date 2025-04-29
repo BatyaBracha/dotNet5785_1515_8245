@@ -12,8 +12,7 @@ public interface IAdmin
     void AddClockObserver(Action clockObserver);
     void RemoveClockObserver(Action clockObserver);
     #endregion Stage 5
-
-    DateTime Clock();
+    DateTime GetClock();
     void PromotionClock(TimeUnit timeUnit);
     TimeSpan GetRiskRange();
     void SetRiskRange(TimeSpan riskRange);

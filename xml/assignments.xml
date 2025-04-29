@@ -451,12 +451,129 @@
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
+    <Id>1505</Id>
+    <CallId>1057</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2025-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2026-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1506</Id>
+    <CallId>1058</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2025-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2026-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1507</Id>
+    <CallId>1059</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-01-01T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2026-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1508</Id>
+    <CallId>1060</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2025-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2026-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1509</Id>
+    <CallId>1061</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2025-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2026-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1510</Id>
+    <CallId>1054</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-11-11T13:13:13</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1511</Id>
+    <CallId>1055</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-11-11T12:12:12</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1512</Id>
+    <CallId>1056</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1513</Id>
+    <CallId>1062</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-08-08T12:12:12</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1514</Id>
+    <CallId>1063</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-08-08T12:12:12</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1515</Id>
+    <CallId>1064</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1516</Id>
+    <CallId>1065</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
+    <Id>1517</Id>
+    <CallId>1066</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-11-11T11:11:11</TreatmentStartTime>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
+    <AssignmentStatus xsi:nil="true" />
+  </Assignment>
+  <Assignment>
     <Id>1501</Id>
     <CallId>1050</CallId>
     <VolunteerId>328118245</VolunteerId>
     <TreatmentStartTime>2025-03-12T21:11:20</TreatmentStartTime>
-    <TreatmentEndTime xsi:nil="true" />
-    <TypeOfTreatmentEnding>HOSPITAL_ADMISSION</TypeOfTreatmentEnding>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
     <AssignmentStatus xsi:nil="true" />
   </Assignment>
   <Assignment>
@@ -464,8 +581,8 @@
     <CallId>1051</CallId>
     <VolunteerId>328118245</VolunteerId>
     <TreatmentStartTime>2025-03-12T21:11:20</TreatmentStartTime>
-    <TreatmentEndTime xsi:nil="true" />
-    <TypeOfTreatmentEnding>HOSPITAL_ADMISSION</TypeOfTreatmentEnding>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
     <AssignmentStatus xsi:nil="true" />
   </Assignment>
   <Assignment>
@@ -473,8 +590,8 @@
     <CallId>1052</CallId>
     <VolunteerId>328118245</VolunteerId>
     <TreatmentStartTime>2025-03-12T21:11:20</TreatmentStartTime>
-    <TreatmentEndTime xsi:nil="true" />
-    <TypeOfTreatmentEnding>HOSPITAL_ADMISSION</TypeOfTreatmentEnding>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
     <AssignmentStatus xsi:nil="true" />
   </Assignment>
   <Assignment>
@@ -482,8 +599,8 @@
     <CallId>1053</CallId>
     <VolunteerId>328118245</VolunteerId>
     <TreatmentStartTime>2025-03-12T21:11:20</TreatmentStartTime>
-    <TreatmentEndTime xsi:nil="true" />
-    <TypeOfTreatmentEnding>HOSPITAL_ADMISSION</TypeOfTreatmentEnding>
+    <TreatmentEndTime>2027-04-13T21:17:20</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED</TypeOfTreatmentEnding>
     <AssignmentStatus xsi:nil="true" />
   </Assignment>
 </ArrayOfAssignment>

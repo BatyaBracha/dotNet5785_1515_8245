@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <!-- Internal, Upper Grid -->
+        <Grid Grid.Row="0" Margin="0,0,0,167" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <!-- For Label, TextBox, and Button -->
+                <ColumnDefinition Width="*"/>
+                <!-- For Clock and other buttons -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Sub-grid for Label, TextBox, and Button -->
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- For Label -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- For TextBox -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- For Button -->
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Content="Risk range:" FontSize="20"/>
+                <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,63,0,0" TextWrapping="Wrap" Text="{Binding RiskRange}" VerticalAlignment="Top" Height="23"/>
+                <Button Grid.Column="2" Content="Update" HorizontalAlignment="Stretch" Height="23" Margin="10,63,0,0" VerticalAlignment="Top" Click="btnSetRiskRange_Click"/>
+            </Grid>
+
+            <!-- Clock and other buttons -->
+            <Label Grid.Column="1" HorizontalAlignment="Left" Margin="37,54,0,0" VerticalAlignment="Top" Width="313" Content="{Binding CurrentTime}" FontWeight="Bold" FontSize="20"/>
+            <Button Grid.Column="1" Content="Add one minute" HorizontalAlignment="Left" Margin="37,113,0,0" VerticalAlignment="Top" Width="313" Click="btnAddOneMinute_Click"/>
+            <Button Grid.Column="1" Content="Add one hour" HorizontalAlignment="Left" Margin="37,138,0,0" VerticalAlignment="Top" Width="313" Click="btnAddOneHour_Click"/>
+            <Button Grid.Column="1" Content="Add one day" HorizontalAlignment="Left" Margin="37,163,0,0" VerticalAlignment="Top" Width="313" RenderTransformOrigin="0.502,0.253" Click="btnAddOneDay_Click"/>
+            <Button Grid.Column="1" Content="Add one month" HorizontalAlignment="Left" Margin="37,188,0,0" VerticalAlignment="Top" Width="313" Click="btnAddOneMonth_Click"/>
+            <Button Grid.Column="1" Content="Add one year" HorizontalAlignment="Left" Margin="37,213,0,0" VerticalAlignment="Top" Width="313" Click="btnAddOneYear_Click"/>
+        </Grid>
+
+        <!-- Lower Buttons -->
+        <Button Content="Reset DB" HorizontalAlignment="Left" Margin="156,240,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnResetDB_Click"/>
+        <Button Content="Handle volunteers" HorizontalAlignment="Left" Margin="570,328,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Init DB" HorizontalAlignment="Left" Margin="156,328,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnInitializeDB_Click"/>
+        <Button Content="Handle Calls" HorizontalAlignment="Left" Margin="570,235,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
 </Window>
