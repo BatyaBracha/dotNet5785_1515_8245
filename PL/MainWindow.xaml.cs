@@ -1,4 +1,5 @@
 ﻿using BO;
+using PL.Volunteer;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -61,11 +62,51 @@ namespace PL
         }
         private void btnResetDB_Click(object sender, RoutedEventArgs e)
         {
-            s_bl.Admin.ResetDB();
+            if (MessageBox.Show("Are you sure you want to reset the DB?", "Reset DB", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                try
+                {
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window != this)
+                        {
+                            window.Close();
+                        }
+
+                    }
+                    s_bl.Admin.ResetDB();
+                }
+                finally
+                {
+                    Mouse.OverrideCursor = null;
+                }
+                MessageBox.Show("DB reseted successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
         private void btnInitializeDB_Click(object sender, RoutedEventArgs e)
         {
-            s_bl.Admin.InitializeDB();
+            if (MessageBox.Show("Are you sure you want to initialize the DB?", "Initialize DB", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                try
+                {
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window != this)
+                        {
+                            window.Close();
+                        }
+
+                    }
+                    s_bl.Admin.InitializeDB();
+                }
+                finally
+                {
+                    Mouse.OverrideCursor = null;
+                }
+                MessageBox.Show("DB initialized successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
         private void configObserver()
         {
@@ -84,13 +125,16 @@ namespace PL
             RiskRange= s_bl.Admin.GetRiskRange();
             s_bl.Admin.AddClockObserver(clockObserver);
             s_bl.Admin.AddConfigObserver(configObserver);
-            MessageBox.Show("Volunteer Window Loaded Successfully!");
         }
 
         private void OnWindowClosed(object? sender, EventArgs e)
         {
             s_bl.Admin.RemoveClockObserver(clockObserver);
             s_bl.Admin.RemoveConfigObserver(configObserver);
+        }
+        private void btnVolunteerList_Click(object sender, EventArgs e)
+        {
+            new VolunteerListWindow().Show();
         }
 
         public MainWindow()

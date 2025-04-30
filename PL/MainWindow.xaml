@@ -49,9 +49,9 @@
         </Grid>
 
         <!-- Lower Buttons -->
-        <Button Content="Reset DB" HorizontalAlignment="Left" Margin="156,240,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnResetDB_Click"/>
-        <Button Content="Handle volunteers" HorizontalAlignment="Left" Margin="570,328,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Content="Init DB" HorizontalAlignment="Left" Margin="156,328,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnInitializeDB_Click"/>
-        <Button Content="Handle Calls" HorizontalAlignment="Left" Margin="570,235,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Reset DB" HorizontalAlignment="Left" Width="105" Margin="156,240,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnResetDB_Click"/>
+        <Button Content="Handle Volunteers" HorizontalAlignment="Left" Width="105" Margin="570,328,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnVolunteerList_Click"/>
+        <Button Content="Init DB" HorizontalAlignment="Left" Width="105" Margin="156,328,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnInitializeDB_Click"/>
+        <Button Content="Handle Calls" HorizontalAlignment="Left" Width="105" Margin="570,235,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
 </Window>
