@@ -27,7 +27,7 @@ public enum TypeOfCall
 
 public enum Status {WAITING, BEING_HANDELED, BEING_HANDELED_IN_RISK }
 public enum CallStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_IN_RISK, BEING_HANDELED_IN_RISK }
-public enum VolunteerFields { CallInProgress, CallsChosenOutOfdate, CallsDeleted, CallsDone, TypeOfDistance, MaxDistance, Active, Role, 
+public enum VolunteerFields {  CallsChosenOutOfdate, CallsDeleted, CallsDone, TypeOfDistance, MaxDistance, Active, Role, 
      Latitude, CurrentAddress, Password, Email, PhoneNumber, Name, Id }
 public enum Active { TRUE, FALSE }
 public enum AssignmentStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_IN_RISK, BEING_HANDELED_IN_RISK, COMPLETED }
