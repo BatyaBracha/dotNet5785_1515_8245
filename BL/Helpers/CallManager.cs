@@ -12,12 +12,115 @@ internal static class CallManager
     private static IDal s_dal = Factory.Get; //stage 4
     internal static ObserverManager Observers = new(); //stage 5 
     private static BO.Status CallStatus(int callId) { return CallManager.CallStatus(callId); }
+    internal static void ValidateCall(BO.Call boCall)
+    {
+        if (boCall == null)
+            throw new BlNullPropertyException("The call object cannot be null.", null);
 
-    //private class Coordinates
-    //{
-    //    public double lat { get; set; }
-    //    public double lon { get; set; }
-    //}
+        // Check if the ID is valid
+        if (boCall.Id < 0)
+            throw new BlArgumentException("Call ID must be a positive number.");
+
+        // Validate time constraints
+        if (boCall.MaxClosingTime.HasValue && boCall.MaxClosingTime.Value <= boCall.OpeningTime)
+            throw new BlArgumentException("End time must be greater than the start time.");
+
+        // Check if the address is valid
+        if (string.IsNullOrWhiteSpace(boCall.Address))
+            throw new BlArgumentException("Address cannot be null or empty.");
+
+        // Validate the address against a geolocation service
+        (double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address);
+
+        if (lat == null || lon == null)
+            throw new BlArgumentException("Address is invalid or could not be found.");
+
+        // Assign valid coordinates
+        boCall.Latitude = lat;
+        boCall.Longitude = lon;
+
+        // Check for other business logic conditions if needed
+        if (boCall.Status == BO.CallStatus.CLOSED && boCall.OpeningTime > DateTime.Now)
+            throw new BlArgumentException("A closed call cannot have a start time in the future.");
+    }
+
+    internal static bool MatchField(Enum? filterBy, DO.Call call, object? filterValue)
+    {
+        if (filterBy == null)
+            return true;
+
+        // Match by the field defined in the filterBy enum
+        switch (filterBy)
+        {
+            case BO.CallField.STATUS:
+                return (BO.CallStatus)call.Status == (BO.CallStatus)Enum.Parse(typeof(BO.CallStatus), filterValue.ToString());
+
+            //case BO.CallField.STATUS:
+            //    return call.Status.Equals(filterValue);
+            //case BO.CallField.PRIORITY:
+            //    return call.riskRange.Equals(filterValue);
+            case BO.CallField.TYPE:
+                return (BO.TypeOfCall)call.TypeOfCall == (BO.TypeOfCall)Enum.Parse(typeof(BO.TypeOfCall), filterValue.ToString(), true);
+            default:
+                throw new BlNullPropertyException("Unsupported filter field", nameof(filterBy));
+        }
+    }
+    internal static IEnumerable<T> SortByField<T>(Enum? sortBy, IEnumerable<T> items)
+    {
+        if (sortBy == null)
+            return items.OrderBy(c => (c as dynamic).Id); // Default sort by ID
+
+        // Sort by the field defined in the sortBy enum
+        return sortBy switch
+        {
+            BO.CallInListField.TYPEOFCALL => items.OrderBy(c => (c as dynamic).TypeOfCall),
+            BO.CallInListField.STATUS => items.OrderBy(c => (c as dynamic).Status),
+            _ => throw new BlNullPropertyException("Unsupported sort field", nameof(sortBy)),
+        };
+    }
+    internal static BO.CallStatus CalculateCallStatus(IEnumerable<DO.Assignment> assignments, DateTime? maxClosingTime)
+    {
+        // Retrieve the risk range and system time
+        TimeSpan riskRange = AdminManager.RiskRange; // Get the risk range from the configuration
+        DateTime systemTime = AdminManager.Now; // Get the current system time
+
+        // Check if the call has any active assignments
+        var activeAssignment = assignments.FirstOrDefault(a => a.TreatmentEndTime == null);
+
+        // Case 1: Call is currently being handled
+        if (activeAssignment != null)
+        {
+            // Check if the call is in the "risk range"
+            if (maxClosingTime.HasValue && (maxClosingTime.Value - systemTime) <= riskRange)
+            {
+                return BO.CallStatus.BEING_HANDELED_IN_RISK;
+            }
+            return BO.CallStatus.BEING_HANDELED;
+        }
+
+        // Case 2: Call has been closed (handled by a volunteer)
+        var closedAssignment = assignments.FirstOrDefault(a => a.TypeOfTreatmentEnding.HasValue);
+        if (closedAssignment != null)
+        {
+            return BO.CallStatus.CLOSED;
+        }
+
+        // Case 3: Call has expired
+        if (maxClosingTime.HasValue && maxClosingTime.Value < systemTime)
+        {
+            return BO.CallStatus.OUT_OF_DATE;
+        }
+
+        // Case 4: Call is open and in the "risk range"
+        if (maxClosingTime.HasValue && (maxClosingTime.Value - systemTime) <= riskRange)
+        {
+            return BO.CallStatus.OPEN_IN_RISK;
+        }
+
+        // Case 5: Call is open
+        return BO.CallStatus.OPEN;
+    }
+
     public static double GetAerialDistance(string VolunteerAddress, string CallAddress)
     {
         var (volunteerLatitude, volunteerLongitude) = GetCoordinates(VolunteerAddress);
@@ -87,7 +190,6 @@ internal static class CallManager
         return (latitude, longitude);
     }
 
-
     public static void PeriodicCallsUpdates()
     {
         var calls = s_dal.Call.ReadAll();
@@ -126,47 +228,36 @@ internal static class CallManager
             s_dal.Assignment.Update(updatedAssignment);
         });
     }
+    internal static void SendEmailWhenCallOpened(BO.Call call)
+    {
+        var volunteer = s_dal.Volunteer.ReadAll();
+        foreach (var item in volunteer)
+        {
 
-    //private static void SimulateCallAssignment()
-    //{
-    //    // קריאת רשימות מתנדבים והקצאות
-    //    var volunteers = s_dal.Volunteer.ReadAll();
-    //    var assignments = s_dal.Assignment.ReadAll();
-    //    var calls = s_dal.Call.ReadAll();
-    //    DateTime systemTime = ClockManager.Now;
+            if (item.MaxDistance >= CallManager.CalculateDistance(item.latitude!, item.longitude!, call.Latitude, call.Longitude))
+            {
+                string subject = "Openning call";
+                string body = $@"
+                                  Hello {item.Name},
 
-    //    // סינון מתנדבים שאין להם הקצאת קריאה נוכחית
-    //    var availableVolunteers = volunteers
-    //        .Where(volunteer => !assignments.Any(a => a.VolunteerId == volunteer.Id && a.TreatmentEndTime == null))
-    //        .ToList();
+                                  A new call has been opened in your area.
+                                  Call Details:
+                                  - Call ID: {call.Id}
+                                  - Call Type: {call.TypeOfCall}
+                                  - Call Address: {call.Address}
+                                  - Opening Time: {call.OpeningTime}
+                                  - Description: {call.Description}
+                                  - Entry Time for Treatment: {call.MaxClosingTime}
+                                  -call Status:{call.Status}
+ 
+                                  If you wish to handle this call, please log into the system.
+ 
+                                                              Best regards,  
+                                                                      Call Management System";
 
-    //    // ביצוע הלוגיקה: XXX
-    //    foreach (var volunteer in availableVolunteers)
-    //    {
-    //        // כאן תתבצע לוגיקה עתידית לבחירת קריאה למתנדב (תעדכן בשלב 7)
-    //        var suitableCall = calls
-    //            .Where(call => call.MaxClosingTime > systemTime) // קריאות בתוקף
-    //            .OrderBy(call => call.OpeningTime) // לדוגמה: סדר לפי זמן פתיחה
-    //            .FirstOrDefault();
-
-    //        if (suitableCall != null)
-    //        {
-    //            // יצירת הקצאה למתנדב
-    //            var newAssignment = new Assignment
-    //            {
-    //                CallId = suitableCall.Id,
-    //                VolunteerId = volunteer.Id,
-    //                TreatmentStartTime = systemTime,
-    //                TreatmentEndTime = null,
-    //                TypeOfTreatmentEnding = null
-    //            };
-
-    //            // הוספת ההקצאה ל-DAL
-    //            s_dal.Assignment.Create(newAssignment);
-    //        }
-    //    }
-    //}
-
-
+                Tools.SendEmail(item.Email, subject, body);
+            }
+        }
+    }
 
 }

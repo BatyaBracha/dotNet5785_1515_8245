@@ -42,12 +42,21 @@ public class Volunteer
 
     public override string ToString()
     {
-        return $"Id: {Id}, Name: {Name}, PhoneNumber: {PhoneNumber}, Email: {Email}, " +
-               $"CurrentAddress: {CurrentAddress}, Latitude: {Latitude}, Longitude: {Longitude}, " +
-               $"Role: {Role}, Active: {Active}, MaxDistance: {MaxDistance}, " +
-               $"TypeOfDistance: {TypeOfDistance}, CallsDone: {CallsDone}, " +
-               $"CallsDeleted: {CallsCanceled}, CallsChosenOutOfdate: {CallsOutOfdate}, " +
-               $"CallInProgress: {CallInProgress}";
+        return $"Id: {Id},\n" +
+               $"Name: {Name},\n" +
+               $"Phone Number: {PhoneNumber},\n" +
+               $"Email: {Email},\n" +
+               $"Current Address: {CurrentAddress},\n" +
+               $"Latitude: {Latitude},\n" +
+               $"Longitude: {Longitude},\n" +
+               $"Role: {Role},\n" +
+               $"Active: {Active},\n" +
+               $"Max Distance: {MaxDistance},\n" +
+               $"Type of Distance: {TypeOfDistance},\n" +
+               $"Calls Done: {CallsDone},\n" +
+               $"Calls Canceled: {CallsCanceled},\n" +
+               $"Calls Out of Date: {CallsOutOfdate},\n" +
+               $"Call In Progress: {CallInProgress}";
     }
 }
 

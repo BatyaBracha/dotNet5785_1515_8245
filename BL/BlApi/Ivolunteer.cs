@@ -3,11 +3,11 @@ namespace BlApi;
 
 public interface IVolunteer : IObservable //stage 5 הרחבת ממשק
 {
-    public BO.Role Login(string username, string password);
+    public BO.Role Login(int id, string password);
     void Create(BO.Volunteer boVolunteer);
     BO.Volunteer? Read(int id);
     IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? sort = null, BO.VolunteerFields? filter = null, object? value = null);
-    void Update(BO.Volunteer boVolunteer);
+    void Update(int userId,BO.Volunteer boVolunteer);
     void Delete(int id);
 
     void MatchVolunteerToCall(int volunteerId, int callId);

@@ -11,7 +11,7 @@ namespace BlImplementation
 
         private readonly DalApi.IDal Admin_dal = DalApi.Factory.Get;
 
-        #region Stage 52
+        #region Stage 5
         public void AddClockObserver(Action clockObserver) =>
         AdminManager.ClockUpdatedObservers += clockObserver;
         public void RemoveClockObserver(Action clockObserver) =>

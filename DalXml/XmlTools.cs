@@ -71,6 +71,7 @@ static class XMLTools
                 return XElement.Load(xmlFilePath);
             XElement rootElem = new(xmlFileName);
             rootElem.Save(xmlFilePath);
+            Console.WriteLine(rootElem.ToString());
             return rootElem;
         }
         catch (Exception ex)
@@ -105,6 +106,8 @@ static class XMLTools
     public static DateTime GetConfigDateVal(string xmlFileName, string elemName)
     {
         XElement root = XMLTools.LoadListFromXMLElement(xmlFileName);
+        //XElement clockElement = root.Element(elemName)
+        //?? throw new InvalidOperationException($"Element '{elemName}' not found in XML.");
         DateTime dt = root.ToDateTimeNullable(elemName) ?? throw new FormatException($"can't convert:  {xmlFileName}, {elemName}");
         return dt;
     }

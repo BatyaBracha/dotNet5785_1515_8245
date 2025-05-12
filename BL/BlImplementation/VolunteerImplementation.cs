@@ -23,19 +23,19 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     #endregion Stage 5
 
     private readonly DalApi.IDal Volunteer_dal = DalApi.Factory.Get;
-    public BO.Role Login(string username, string password)
+    public BO.Role Login(int id, string password)
     {
         // Retrieve the volunteer by username
-        var volunteer = Volunteer_dal.Volunteer.ReadAll().FirstOrDefault(v => v.Name == username);
+        var volunteer = Volunteer_dal.Volunteer.ReadAll().FirstOrDefault(v => v.Id == id);
         if (volunteer == null)
         {
-            throw new UnauthorizedAccessException("Invalid username or password.");
+            throw new UnauthorizedAccessException("Invalid id or password.");
         }
 
         // Verify the password
         if (!Tools.VerifyPassword(password, volunteer.Password))
         {
-            throw new UnauthorizedAccessException("Invalid username or password.");
+            throw new UnauthorizedAccessException("Invalid id or password.");
         }
 
         // Return the role if the password is correct
@@ -50,16 +50,16 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             var user = Volunteer_dal.Volunteer.ReadAll()
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
             if (user != null)
-                throw new BO.BlArgumentException("username or password are incorrect.");
-            //string hashedPassword = Tools.HashPassword(boVolunteer.Password);
+                throw new BO.BlArgumentException("A volunteer with the same ID already exists. Please use a different ID.");
+            string hashedPassword = Tools.HashPassword(boVolunteer.Password);
             var doVolunteer = new DO.Volunteer
             {
                 Id = boVolunteer.Id,
                 Name = boVolunteer.Name,
                 Phone = boVolunteer.PhoneNumber,
                 Email = boVolunteer.Email,
-                Password = boVolunteer.Password,
-                //Password = hashedPassword,
+                //Password = boVolunteer.Password,
+                Password = hashedPassword,
                 Address = boVolunteer.CurrentAddress,
                 latitude = lat,
                 longitude = lon,
@@ -186,7 +186,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         try
         {
             var doVolunteer = Volunteer_dal.Volunteer.Read(id)
-                ?? throw new BO.BlDoesNotExistException("המתנדב לא נמצא.");
+                ?? throw new BO.BlDoesNotExistException("Volunteer not found.");
 
             var assignment = Volunteer_dal.Assignment.ReadAll()
                 .FirstOrDefault(a => a.VolunteerId == id && a.TreatmentEndTime == null);
@@ -225,7 +225,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.BlUnauthorizedOperationException("שגיאה בגישה לנתוני מתנדבים.");
+            throw new BO.BlUnauthorizedOperationException("Error accessing volunteer details.");
         }
     }
 
@@ -315,13 +315,14 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         Tools.SendEmail(volunteer.Email, subject, body);
     }
 
-    public void Update(BO.Volunteer boVolunteer)
+    public void Update(int userId ,BO.Volunteer boVolunteer)
     {
         try { 
              (double? lat, double? lon) = ValidateVolunteer(boVolunteer);
              var user = Volunteer_dal.Volunteer.ReadAll()
                  .FirstOrDefault(u => u.Id == boVolunteer.Id);
-             if (user != null || user.Password != boVolunteer.Password)
+            //בשלב 5 צריך להוסיף שאם התז הוא לא של המשתמש הנוכחי או של המנהל אז לא ניתן לעדכן את המתנדב
+            if (user == null )
                   throw new BO.BlArgumentException("username or password are incorrect.");
              var doVolunteer = new DO.Volunteer
              {
@@ -329,7 +330,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                  Name = boVolunteer.Name,
                  Phone = boVolunteer.PhoneNumber,
                  Email = boVolunteer.Email,
-                 Password = boVolunteer.Password,
+                 Password = Tools.HashPassword(boVolunteer.Password),
                  Address = boVolunteer.CurrentAddress,
                  latitude = lat,
                  longitude = lon,
@@ -339,7 +340,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                  TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
              };
 
-             Volunteer_dal.Volunteer.Create(doVolunteer);
+             Volunteer_dal.Volunteer.Update(doVolunteer);
             VolunteerManager.Observers.NotifyItemUpdated(boVolunteer.Id);  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();  //stage 5
         }

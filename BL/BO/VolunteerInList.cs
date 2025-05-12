@@ -14,7 +14,7 @@ public class VolunteerInList
     public TypeOfCall TypeOfCall { get; set; }
     public override string ToString()
     {
-        return $"Id: {Id}, Name: {Name}" +
+        return $"Id: {Id}, Name: {Name}, " +
                $"Active: {Active}, " +
                $"Calls Handeled: {CallsDone}, " +
                $"Calls Canceled: {CallsCanceled}, CallsOutOfDate: {CallsOutOfDate}, CallId: {CallId}, " +
