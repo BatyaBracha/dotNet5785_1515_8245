@@ -148,9 +148,8 @@ namespace BlImplementation
             var assignments = Call_dal.Assignment.ReadAll();
             var callList = from c in calls
                            join assignment in assignments on c.Id equals assignment.CallId into callAssignments
-                           let callStatus = CallManager.CalculateCallStatus(callAssignments, c.MaxClosingTime)
                            let lastAssignment = callAssignments.OrderBy(a => a.TreatmentStartTime).LastOrDefault()
-                           let lastVolunteerName = lastAssignment != null && lastAssignment.VolunteerId.HasValue
+                           let lastVolunteerName = lastAssignment != null
                                ? Call_dal.Volunteer.Read(lastAssignment.VolunteerId)?.Name
                                : null
                            select new BO.CallInList
@@ -161,7 +160,7 @@ namespace BlImplementation
                                TimeLeft = c.MaxClosingTime != null ? (c.MaxClosingTime - AdminManager.Now).Value : TimeSpan.Zero,
                                LastVolunteerName = lastVolunteerName,
                                TreatmentDuration = lastAssignment != null ? (lastAssignment.TreatmentEndTime - lastAssignment.TreatmentStartTime) : null,
-                               Status = callStatus, // Use the calculated status
+                               Status = CallManager.CalculateCallStatus(callAssignments, c.MaxClosingTime),
                                AssignmentsSum = callAssignments.Count()
                            };
 
