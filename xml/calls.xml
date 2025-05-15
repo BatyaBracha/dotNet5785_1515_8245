@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
-    <Id>1000</Id>
-    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
-    <Description>Minor mechanical issue near the mall.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-04-29T10:34:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-04-29T13:49:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1001</Id>
     <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
     <Description>Flat tire on the road to Jerusalem.</Description>
@@ -599,5 +587,89 @@
     <OpeningTime>2025-04-29T14:27:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-04-29T16:54:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1050</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>1</Description>
+    <Address>Shahal 83, jerusalem</Address>
+    <latitude>31.7608362</latitude>
+    <longitude>35.1994618</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2026-05-30T17:03:57</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2029-09-09T12:12:12</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1051</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>1</Description>
+    <Address>Shahal 52, Jerusalem</Address>
+    <latitude>31.7637137</latitude>
+    <longitude>35.1955373</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2026-05-30T17:03:57</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2029-09-09T12:12:12</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1052</Id>
+    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
+    <Description>2</Description>
+    <Address>2</Address>
+    <latitude>35.7298752</latitude>
+    <longitude>139.71129548269388</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2026-05-30T17:03:57</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime xsi:nil="true" />
+  </Call>
+  <Call>
+    <Id>1053</Id>
+    <TypeOfCall>CAR_ACCIDENT</TypeOfCall>
+    <Description>2</Description>
+    <Address>2</Address>
+    <latitude>35.7298752</latitude>
+    <longitude>139.71129548269388</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2026-05-30T17:03:57</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime xsi:nil="true" />
+  </Call>
+  <Call>
+    <Id>1000</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>1</Description>
+    <Address>Shahal 78</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-04-29T10:34:00</OpeningTime>
+    <Status>BEING_HANDELED</Status>
+    <MaxClosingTime>2025-04-29T13:49:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1054</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>very bad</Description>
+    <Address>man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2026-05-30T18:04:57</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2029-08-08T12:12:12</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1055</Id>
+    <TypeOfCall>STROKE</TypeOfCall>
+    <Description>gfhj</Description>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2026-05-30T18:04:57</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2029-12-12T12:12:12</MaxClosingTime>
   </Call>
 </ArrayOfCall>

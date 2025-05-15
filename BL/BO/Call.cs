@@ -11,7 +11,7 @@ public class Call
     public DateTime? MaxClosingTime { get; set; }
     public CallStatus Status { get; set; }
     public List<BO.CallAssignInList>? AssignedVolunteers { get; set; }
-    public Call(int id, TypeOfCall typeOfCall, string? description, string? address, double? latitude, double? longitude, DateTime openingTime, DateTime? maxClosingTime, CallStatus status, List<BO.CallAssignInList>? AssignedVolunteers)
+    public Call(int id, TypeOfCall typeOfCall, string? description, string? address, double? latitude, double? longitude, DateTime openingTime, DateTime? maxClosingTime, CallStatus status, List<BO.CallAssignInList>? assignedVolunteers)
     {
         Id = id;
         TypeOfCall = typeOfCall;
@@ -22,7 +22,7 @@ public class Call
         OpeningTime = openingTime;
         MaxClosingTime = maxClosingTime;
         Status = status;
-        AssignedVolunteers = AssignedVolunteers;
+        AssignedVolunteers = assignedVolunteers;
     }
     public override string ToString()
     {

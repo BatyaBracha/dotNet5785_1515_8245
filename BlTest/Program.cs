@@ -190,10 +190,12 @@ internal class Program
         Console.WriteLine("Enter calls chosen out of date");
         if (!int.TryParse(Console.ReadLine(), out int callsChosenOutOfdate))
             throw new BlUnauthorizedOperationException("Invalid input. Please enter a valid integer.");
+        Console.WriteLine("Enter type of distance");
 
         string typeOfDistance = Console.ReadLine()!;
         BO.TypeOfDistance convertedTypeOfDistance = (BO.TypeOfDistance)Enum.Parse(typeof(BO.TypeOfDistance), typeOfDistance);
-        s_bl.Volunteer!.Update(new BO.Volunteer(id, name, phone, email, password, address, null, null, BO.Role.STANDARD, false, maxDistance, convertedTypeOfDistance, callsDone, callsDeleted, callsChosenOutOfdate, null));
+        //בשלב 5 צריך לשנות את זה שזה ישלח את התס של מי שמשתמש במערכת כדי לבדק שזה אדם שמשנה לעצמו את הפרטים או שזה המנהל
+        s_bl.Volunteer!.Update(id,new BO.Volunteer(id, name, phone, email, password, address, null, null, BO.Role.STANDARD, false, maxDistance, convertedTypeOfDistance, callsDone, callsDeleted, callsChosenOutOfdate, null));
     }
 
     /// <summary>
@@ -384,8 +386,10 @@ internal class Program
 
         Console.WriteLine("Enter the maximum closing time (format: yyyy-MM-dd HH:mm:ss)");
         string maxClosingTimeInput = Console.ReadLine()!;
-        DateTime? maxClosingTime = DateTime.TryParse(maxClosingTimeInput, out DateTime parsedMaxClosingTime) ? parsedMaxClosingTime : (DateTime?)null;
-
+        if (!DateTime.TryParse(maxClosingTimeInput, out DateTime maxClosingTime))
+        {
+            throw new BlArgumentException("Invalid input. Please enter a valid date and time in the format yyyy-MM-dd HH:mm:ss.");
+        }
         s_bl.Call!.Create(new BO.Call(0, convertedType, description, address, null, null, s_bl.Admin.GetClock(), maxClosingTime, BO.CallStatus.OPEN, null));
     }
 
@@ -415,7 +419,10 @@ internal class Program
 
         if (filterResponse == "yes")
         {
-            Console.WriteLine("Select a filter field (STATUS, PRIORITY, TYPE):");
+            Console.WriteLine("Select a filter field by entering the corresponding number:");
+            Console.WriteLine("0 for STATUS");
+            //Console.WriteLine("2 for PRIORITY");
+            Console.WriteLine("1 for TYPE");
             string filterFieldInput = Console.ReadLine();
             filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
 
@@ -430,9 +437,9 @@ internal class Program
 
         if (sortResponse == "yes")
         {
-            Console.WriteLine("Select a sort field (ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
+            Console.WriteLine("Select a sort field (Type of call,Status):");
             string sortFieldInput = Console.ReadLine();
-            sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
+            sortBy = Enum.TryParse<BO.CallInListField>(sortFieldInput, out var sortField) ? sortField : null;
         }
 
         IEnumerable<BO.CallInList> callList = s_bl.Call!.ReadAll(filterBy, filterValue, sortBy);
@@ -630,45 +637,139 @@ internal class Program
     /// <summary>
     /// Handles user login for both managers and volunteers.
     /// </summary>
+    //private static void Login()
+    //{
+    //    Console.WriteLine("Enter your ID:");
+    //    if (!int.TryParse(Console.ReadLine(), out int userId))
+    //    {
+    //        Console.WriteLine("Invalid ID. Please enter a valid integer.");
+    //        return;
+    //    }
+
+    //    Console.WriteLine("Enter your password (leave blank if not applicable):");
+    //    string password = Console.ReadLine();
+
+    //    BO.Volunteer user = s_bl.Volunteer.Read(userId);
+    //    BO.Role role = s_bl.Volunteer.Login(user.Id, password);
+    //    if (user == null || (password != null &&user.Password != password))
+    //    {
+    //        Console.WriteLine("Invalid credentials. Please try again.");
+    //        return;
+    //    }
+
+    //    Console.WriteLine("Welcome to the Main Screen! Choose your next step:");
+    //    Console.WriteLine("1. Go to Volunteer Screen");
+    //    Console.WriteLine("2. Go to Call Screen");
+    //    Console.WriteLine("3. Go to Main Management Screen");
+    //    string choice = Console.ReadLine()!;
+    //    if (choice == "1")
+    //    {
+    //        volunteerMenu();
+    //    }
+    //    else if (choice == "2")
+    //    {
+    //        callMenu();
+    //    }
+    //    else if (choice == "3")
+    //    {
+    //        adminMenu();
+    //    }
+    //    else
+    //    {
+    //        Console.WriteLine("Invalid choice. Returning to login.");
+    //    }
+    //}
+    /// <summary>
+    /// Handles user login for both managers and volunteers.
+    /// </summary>
     private static void Login()
     {
-        Console.WriteLine("Enter your ID:");
-        if (!int.TryParse(Console.ReadLine(), out int userId))
+        while (true) // Loop to allow retrying the login process
         {
-            Console.WriteLine("Invalid ID. Please enter a valid integer.");
-            return;
-        }
+            try
+            {
+                Console.WriteLine("Enter your ID (or type 'exit' to quit):");
+                string userIdInput = Console.ReadLine();
+                if (userIdInput?.ToLower() == "exit")
+                {
+                    Console.WriteLine("Exiting the program. Goodbye!");
+                    Environment.Exit(0); // Exit the program
+                }
 
-        Console.WriteLine("Enter your password (leave blank if not applicable):");
-        string password = Console.ReadLine();
+                if (!int.TryParse(userIdInput, out int userId))
+                {
+                    Console.WriteLine("Invalid ID. Please enter a valid integer.");
+                    continue; // Restart the login process
+                }
 
-        BO.Volunteer user = s_bl.Volunteer.Read(userId);
-        if (user == null || (password != null && user.Password != password))
-        {
-            Console.WriteLine("Invalid credentials. Please try again.");
-            return;
-        }
+                Console.WriteLine("Enter your password (leave blank if not applicable):");
+                string password = Console.ReadLine();
 
-        Console.WriteLine("Welcome to the Main Screen! Choose your next step:");
-        Console.WriteLine("1. Go to Volunteer Screen");
-        Console.WriteLine("2. Go to Call Screen");
-        Console.WriteLine("3. Go to Main Management Screen");
-        string choice = Console.ReadLine()!;
-        if (choice == "1")
-        {
-            volunteerMenu();
+                // Attempt to log in
+                BO.Role role = s_bl.Volunteer.Login(userId, password);
+
+                Console.WriteLine("Login successful!");
+                MainMenu(); // Call the main menu after successful login
+                break; // Exit the login loop after successful login
+            }
+            catch (BO.BlUnauthorizedOperationException ex)
+            {
+                Console.WriteLine($"Login failed: {ex.Message}");
+                Console.WriteLine("Would you like to try again? (yes/no)");
+                string retry = Console.ReadLine()?.ToLower();
+                if (retry != "yes")
+                {
+                    Console.WriteLine("Exiting the program. Goodbye!");
+                    Environment.Exit(0); // Exit the program
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+                Console.WriteLine("Would you like to try again? (yes/no)");
+                string retry = Console.ReadLine()?.ToLower();
+                if (retry != "yes")
+                {
+                    Console.WriteLine("Exiting the program. Goodbye!");
+                    Environment.Exit(0); // Exit the program
+                }
+            }
         }
-        else if (choice == "2")
+    }
+
+    /// <summary>
+    /// Displays the main menu and handles user choices after login.
+    /// </summary>
+    private static void MainMenu()
+    {
+        while (true) // Loop to keep the user in the main menu
         {
-            callMenu();
-        }
-        else if (choice == "3")
-        {
-            adminMenu();
-        }
-        else
-        {
-            Console.WriteLine("Invalid choice. Returning to login.");
+            Console.WriteLine("Welcome to the Main Screen! Choose your next step:");
+            Console.WriteLine("1. Go to Volunteer Screen");
+            Console.WriteLine("2. Go to Call Screen");
+            Console.WriteLine("3. Go to Main Management Screen");
+            Console.WriteLine("4. Exit");
+
+            string choice = Console.ReadLine()!;
+            switch (choice)
+            {
+                case "1":
+                    volunteerMenu();
+                    break;
+                case "2":
+                    callMenu();
+                    break;
+                case "3":
+                    adminMenu();
+                    break;
+                case "4":
+                    Console.WriteLine("Exiting the program. Goodbye!");
+                    Environment.Exit(0); // Exit the program
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
         }
     }
 

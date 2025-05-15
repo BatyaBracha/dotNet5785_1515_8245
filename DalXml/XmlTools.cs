@@ -71,6 +71,7 @@ static class XMLTools
                 return XElement.Load(xmlFilePath);
             XElement rootElem = new(xmlFileName);
             rootElem.Save(xmlFilePath);
+            Console.WriteLine(rootElem.ToString());
             return rootElem;
         }
         catch (Exception ex)
@@ -98,13 +99,15 @@ static class XMLTools
     //added
     public static TimeSpan GetConfigTimeSpanVal(string xmlFileName, string elemName)
     {
-    XElement root = XMLTools.LoadListFromXMLElement(xmlFileName);
-    TimeSpan ts = root.ToTimeSpanNullable(elemName) ?? throw new FormatException($"Can't convert: {xmlFileName}, {elemName}");
-    return ts;
+        XElement root = XMLTools.LoadListFromXMLElement(xmlFileName);
+        TimeSpan ts = root.ToTimeSpanNullable(elemName) ?? throw new FormatException($"Can't convert: {xmlFileName}, {elemName}");
+        return ts;
     }
     public static DateTime GetConfigDateVal(string xmlFileName, string elemName)
     {
         XElement root = XMLTools.LoadListFromXMLElement(xmlFileName);
+        //XElement clockElement = root.Element(elemName)
+        //?? throw new InvalidOperationException($"Element '{elemName}' not found in XML.");
         DateTime dt = root.ToDateTimeNullable(elemName) ?? throw new FormatException($"can't convert:  {xmlFileName}, {elemName}");
         return dt;
     }
