@@ -229,15 +229,15 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         }
     }
 
-    public IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? sort = null, BO.VolunteerFields? filter = null, object? value = null)
+    public IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? filter = null, BO.VolunteerFields? sort = null, object? value = null)
     {
         try
         {
             var volunteers = Volunteer_dal.Volunteer.ReadAll();
 
             // סינון לפי סטטוס
-            if (sort.HasValue)
-                volunteers = volunteers.Where(v => v.Active == (sort == BO.Active.TRUE)).ToList();
+            if (filter.HasValue)
+                volunteers = volunteers.Where(v => v.Active == (filter == BO.Active.TRUE)).ToList();
 
             var volunteerList = volunteers.Select(v => new BO.VolunteerInList
             {
@@ -247,12 +247,15 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             });
 
             // מיון לפי שדה ספציפי
-            if (filter.HasValue)
+            if (sort.HasValue&&sort!=BO.VolunteerFields.None)
             {
-                volunteerList = filter switch
+                volunteerList = sort switch
                 {
                     BO.VolunteerFields.Name => volunteerList.OrderBy(v => v.Name),
                     BO.VolunteerFields.Id => volunteerList.OrderBy(v => v.Id),
+                    BO.VolunteerFields.CallsDone => volunteerList.OrderBy(v => v.CallsDone),
+                    BO.VolunteerFields.CallsCanceled => volunteerList.OrderBy(v => v.CallsCanceled),
+                    BO.VolunteerFields.CallsOutOfdate => volunteerList.OrderBy(v => v.CallsOutOfDate),
                     _ => volunteerList.OrderBy(v => v.Id)
                 };
             }
