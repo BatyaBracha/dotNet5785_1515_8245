@@ -190,12 +190,15 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             });
 
             // מיון לפי שדה ספציפי
-            if (filter.HasValue)
+            if (sort.HasValue&&sort!=BO.VolunteerFields.None)
             {
                 volunteerList = sort switch
                 {
                     BO.VolunteerFields.Name => volunteerList.OrderBy(v => v.Name),
                     BO.VolunteerFields.Id => volunteerList.OrderBy(v => v.Id),
+                    BO.VolunteerFields.CallsDone => volunteerList.OrderBy(v => v.CallsDone),
+                    BO.VolunteerFields.CallsCanceled => volunteerList.OrderBy(v => v.CallsCanceled),
+                    BO.VolunteerFields.CallsOutOfdate => volunteerList.OrderBy(v => v.CallsOutOfDate),
                     _ => volunteerList.OrderBy(v => v.Id)
                 };
             }

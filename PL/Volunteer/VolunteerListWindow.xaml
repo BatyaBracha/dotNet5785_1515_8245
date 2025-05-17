@@ -29,8 +29,7 @@
             </Grid.ColumnDefinitions>
 
             <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Volunteer Details" FontSize="20"/>
-            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource VolunteerFieldsCollectionKey}}"
-/>
+            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  SelectedValue="{Binding Path=VolunteerFieldsFilter, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource VolunteerFieldsCollectionKey}}" SelectionChanged="comboBoxVolunteerList_SelectionChanged"/>
         </Grid>
 
         <!-- DataGrid -->
