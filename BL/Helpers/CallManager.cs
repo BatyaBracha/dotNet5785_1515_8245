@@ -44,27 +44,55 @@ internal static class CallManager
             throw new BlArgumentException("A closed call cannot have a start time in the future.");
     }
 
-    internal static bool MatchField(Enum? filterBy, DO.Call call, object? filterValue)
+    //internal static bool MatchField(Enum? filterBy, DO.Call call, object? filterValue)
+    //{
+    //    if (filterBy == null)
+    //        return true;
+
+    //    // Match by the field defined in the filterBy enum
+    //    switch (filterBy)
+    //    {
+    //        case BO.CallField.STATUS:
+    //            return (BO.CallStatus)call.Status == (BO.CallStatus)Enum.Parse(typeof(BO.CallStatus), filterValue.ToString());
+
+    //        //case BO.CallField.STATUS:
+    //        //    return call.Status.Equals(filterValue);
+    //        //case BO.CallField.PRIORITY:
+    //        //    return call.riskRange.Equals(filterValue);
+    //        case BO.CallField.TYPE:
+    //            return (BO.TypeOfCall)call.TypeOfCall == (BO.TypeOfCall)Enum.Parse(typeof(BO.TypeOfCall), filterValue.ToString(), true);
+    //        default:
+    //            throw new BlNullPropertyException("Unsupported filter field", nameof(filterBy));
+    //    }
+    //}
+    public static bool MatchField(Enum filterBy, object item, object filterValue)
     {
-        if (filterBy == null)
-            return true;
+        // Use reflection to get the property specified by the filterBy enum
+        var propertyName = filterBy.ToString();
+        var property = item.GetType().GetProperty(propertyName);
 
-        // Match by the field defined in the filterBy enum
-        switch (filterBy)
+        if (property == null)
+            throw new ArgumentException($"Property '{propertyName}' not found on type '{item.GetType().Name}'.");
+
+        var propertyValue = property.GetValue(item);
+
+        // Handle Enum comparison
+        if (propertyValue is Enum && filterValue is string)
         {
-            case BO.CallField.STATUS:
-                return (BO.CallStatus)call.Status == (BO.CallStatus)Enum.Parse(typeof(BO.CallStatus), filterValue.ToString());
-
-            //case BO.CallField.STATUS:
-            //    return call.Status.Equals(filterValue);
-            //case BO.CallField.PRIORITY:
-            //    return call.riskRange.Equals(filterValue);
-            case BO.CallField.TYPE:
-                return (BO.TypeOfCall)call.TypeOfCall == (BO.TypeOfCall)Enum.Parse(typeof(BO.TypeOfCall), filterValue.ToString(), true);
-            default:
-                throw new BlNullPropertyException("Unsupported filter field", nameof(filterBy));
+            // Convert the string filterValue to the corresponding Enum type
+            var enumType = propertyValue.GetType();
+            if (Enum.TryParse(enumType, filterValue.ToString(), out var parsedEnum))
+            {
+                return propertyValue.Equals(parsedEnum);
+            }
+            return false; // If parsing fails, return false
         }
+
+        // Compare the property value with the filter value
+        return propertyValue != null && propertyValue.Equals(filterValue);
     }
+
+
     internal static IEnumerable<T> SortByField<T>(Enum? sortBy, IEnumerable<T> items)
     {
         if (sortBy == null)
@@ -208,7 +236,7 @@ internal static class CallManager
                 VolunteerId = 0,
                 TreatmentStartTime = call.MaxClosingTime ?? systemTime,
                 TreatmentEndTime = systemTime,
-                TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.EXPIRED
+                TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.EXPIRED_CANCELED
             })
             .ToList();
 
@@ -223,7 +251,7 @@ internal static class CallManager
             var updatedAssignment = assignment with
             {
                 TreatmentEndTime = systemTime,
-                TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.EXPIRED
+                TypeOfTreatmentEnding = DO.TypeOfTreatmentEnding.EXPIRED_CANCELED
             };
             s_dal.Assignment.Update(updatedAssignment);
         });
@@ -258,6 +286,34 @@ internal static class CallManager
                 Tools.SendEmail(item.Email, subject, body);
             }
         }
+    }
+    /// <summary>
+    /// Sends an email notification to the volunteer when their assignment is canceled.
+    /// </summary>
+    /// <param name="volunteer">The volunteer to notify.</param>
+    /// <param name="assignment">The assignment that was canceled.</param>
+    internal static void SendEmailToVolunteerWhenCallUnmatched(DO.Volunteer volunteer, DO.Assignment assignment)
+    {
+        var call = s_dal.Call.Read(assignment.CallId)!;
+
+        string subject = "Assignment Canceled";
+        string body = $@"
+                      Hello {volunteer.Name},
+
+                      Your assignment for handling call {assignment.Id} has been canceled by the administrator.
+
+                      Call Details:
+                      - Call ID: {assignment.CallId}
+                      - Call Type: {call.TypeOfCall}
+                      - Call Address: {call.Address}
+                      - Opening Time: {call.OpeningTime}
+                      - Description: {call.Description}
+                      - Entry Time for Treatment: {assignment.TreatmentStartTime}
+
+                                                                                        Best regards,  
+                                                                                        Call Management System";
+
+        Tools.SendEmail(volunteer.Email, subject, body);
     }
 
 }

@@ -26,10 +26,14 @@ public class Call
     }
     public override string ToString()
     {
+        string assignedVolunteersNames = AssignedVolunteers != null && AssignedVolunteers.Any()
+            ? string.Join(", ", AssignedVolunteers.Select(v => v.Name))
+            : "None";
+
         return $"Id: {Id}, TypeOfCall: {TypeOfCall}, Description: {Description}, " +
                $"Address: {Address}, Latitude: {Latitude}, Longitude: {Longitude}, " +
                $"OpeningTime: {OpeningTime}, MaxClosingTime: {MaxClosingTime}, " +
-               $"Status: {Status}, AssignedVolunteers: {AssignedVolunteers}";
+               $"Status: {Status}, AssignedVolunteers: [{assignedVolunteersNames}]";
     }
 
 }

@@ -46,7 +46,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     {
         try
         {
-            (double lat,double lon)=ValidateVolunteer(boVolunteer);
+            (double lat,double lon)=VolunteerManager.ValidateVolunteer(boVolunteer);
             var user = Volunteer_dal.Volunteer.ReadAll()
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
             if (user != null)
@@ -80,61 +80,6 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         }
     }
 
-    private (double lat, double lon) ValidateVolunteer(BO.Volunteer volunteer)
-    {
-        if (!IsValidIsraeliID(volunteer.Id.ToString()))
-            throw new BO.BlValidationException("ID is invalid.");
-        if (string.IsNullOrWhiteSpace(volunteer.Name))
-            throw new BO.BlValidationException("Username is invalid.");
-        if (!IsValidEmail(volunteer.Email))
-            throw new BO.BlValidationException("Email address is invalid.");
-        if (!IsValidPhone(volunteer.PhoneNumber))
-            throw new BO.BlValidationException("Phone number is invalid.");
-        (double lat, double lon) = isValidAddress(volunteer.CurrentAddress);
-        if (lat==null||lon==null)
-            throw new BO.BlValidationException("The address does not exist");
-        return (lat,lon);
-    }
-
-    private static bool IsValidIsraeliID(string id)
-    {
-        id = id.Replace("-", "").Trim();
-
-        if (id.Length != 9)
-        {
-            return false;
-        }
-
-        int sum = 0;
-
-        for (int i = 0; i < id.Length; i++)
-        {
-            int digit = int.Parse(id[id.Length - 1 - i].ToString());
-
-            if (i % 2 == 1)
-            {
-                digit *= 2;
-                if (digit > 9)
-                {
-                    digit -= 9;
-                }
-            }
-
-            sum += digit;
-        }
-        return sum % 10 == 0;
-    }
-    private (double lat, double lon) isValidAddress(string address)
-    {
-        return CallManager.GetCoordinates(address);
-    }
-
-    private bool IsValidEmail(string email) =>
-        new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(email);
-
-    private bool IsValidPhone(string phone) =>
-        phone.All(char.IsDigit) && phone.Length == 10;
-
     public void Delete(int id)
     {
         try
@@ -156,30 +101,6 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         VolunteerManager.Observers.NotifyListUpdated();  //stage 5
     }
 
-    public void MatchVolunteerToCall(int volunteerId, int callId)
-    {
-        try
-        {
-            var existingAssignment = Volunteer_dal.Assignment.ReadAll()
-                .FirstOrDefault(a => a.VolunteerId == volunteerId && a.TreatmentEndTime == null);
-
-            if (existingAssignment != null)
-                throw new BO.BlInvalidOperationException("לא ניתן להתאים מתנדב שכבר מטפל בקריאה אחרת.");
-
-            var newAssignment = new DO.Assignment
-            {
-                VolunteerId = volunteerId,
-                CallId = callId,
-                TreatmentStartTime = AdminManager.Now
-            };
-
-            Volunteer_dal.Assignment.Create(newAssignment);
-        }
-        catch (DO.DalUnauthorizedOperationException ex)
-        {
-            throw new BO.BlUnauthorizedOperationException("שגיאה בהתאמת מתנדב לקריאה.");
-        }
-    }
 
     public BO.Volunteer? Read(int id)
     {
@@ -188,7 +109,8 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             var doVolunteer = Volunteer_dal.Volunteer.Read(id)
                 ?? throw new BO.BlDoesNotExistException("Volunteer not found.");
 
-            var assignment = Volunteer_dal.Assignment.ReadAll()
+            var assignments = Volunteer_dal.Assignment.ReadAll().Where(a => a.VolunteerId == id).ToList();
+            var assignment = assignments
                 .FirstOrDefault(a => a.VolunteerId == id && a.TreatmentEndTime == null);
 
             BO.CallInProgress? callInProgress = null;
@@ -199,10 +121,19 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                 callInProgress = new BO.CallInProgress
                 {
                     CallId = call.Id,
+                    TypeOfCall = (BO.TypeOfCall)call.TypeOfCall,
+                    Description = call.Description,
                     Address = call.Address,
-                    Description = call.Description
+                    TimeOfOpening = assignment.TreatmentStartTime,
+                    MaxFinishTime = call.MaxClosingTime,
+                    TimeOfEntryToTreatment = assignment.TreatmentStartTime,
+                    CallVolunteerDistance =CallManager.GetAerialDistance(doVolunteer.Address,call.Address),
+                    Status = BO.Status.BEING_HANDELED
                 };
             }
+            int numOfCompletedcalls=assignments.Where(assignment=>(BO.AssignmentStatus)assignment.AssignmentStatus==BO.AssignmentStatus.COMPLETED).Count();
+            int numOfSelfcanceledcalls = assignments.Where(assignment => (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.SELF_CANCELED).Count();
+            int numOfoutOfDatecalls = assignments.Where(assignment => (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.EXPIRED_CANCELED).Count();
 
             return new BO.Volunteer
             (
@@ -218,9 +149,9 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                 doVolunteer.Active,
                 doVolunteer.MaxDistance,
                 (BO.TypeOfDistance)doVolunteer.TypeOfDistance,
-                0,
-                0,
-                0,
+                numOfCompletedcalls,
+                numOfSelfcanceledcalls,
+                numOfoutOfDatecalls,
                callInProgress);
         }
         catch (DO.DalUnauthorizedOperationException ex)
@@ -229,27 +160,39 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         }
     }
 
-    public IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? sort = null, BO.VolunteerFields? filter = null, object? value = null)
+    public IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? filter = null, BO.VolunteerFields? sort = null, object? value = null)
     {
         try
         {
             var volunteers = Volunteer_dal.Volunteer.ReadAll();
+            var assignments = Volunteer_dal.Assignment.ReadAll();
 
             // סינון לפי סטטוס
-            if (sort.HasValue)
-                volunteers = volunteers.Where(v => v.Active == (sort == BO.Active.TRUE)).ToList();
+            if (filter.HasValue)
+                volunteers = volunteers.Where(v => v.Active == (filter == BO.Active.TRUE)).ToList();
 
-            var volunteerList = volunteers.Select(v => new BO.VolunteerInList
+            var volunteerList = volunteers.Select(v =>
             {
-                Id = v.Id,
-                Name = v.Name,
-                Active = v.Active
+                var assignmentForVolunteer = assignments.FirstOrDefault(a => a.VolunteerId == v.Id && a.TreatmentEndTime == null);
+                var callId = assignmentForVolunteer?.CallId;
+
+                return new BO.VolunteerInList
+                {
+                    Id = v.Id,
+                    Name = v.Name,
+                    Active = v.Active,
+                    CallsDone = assignments.Count(assignment => assignment.Id == v.Id && (BO.AssignmentStatus)assignment.AssignmentStatus == BO.AssignmentStatus.COMPLETED),
+                    CallsCanceled = assignments.Count(assignment => assignment.Id == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.SELF_CANCELED),
+                    CallsOutOfDate = assignments.Count(assignment => assignment.Id == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.EXPIRED_CANCELED),
+                    CallId = callId,
+                    TypeOfCall = callId != null ? (BO.TypeOfCall)Volunteer_dal.Call.Read(callId.Value).TypeOfCall : BO.TypeOfCall.NONE,
+                };
             });
 
             // מיון לפי שדה ספציפי
             if (filter.HasValue)
             {
-                volunteerList = filter switch
+                volunteerList = sort switch
                 {
                     BO.VolunteerFields.Name => volunteerList.OrderBy(v => v.Name),
                     BO.VolunteerFields.Id => volunteerList.OrderBy(v => v.Id),
@@ -261,64 +204,15 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
-            throw new BO.BlUnauthorizedOperationException("שגיאה בגישה לנתוני מתנדבים.");
+            throw new BO.BlUnauthorizedOperationException("Error accessing volunteer details.");
         }
     }
 
-    public void UnMatchVolunteerToCall(int volunteerId, int callId)
-    {
-        try
-        {
-            var assignment = Volunteer_dal.Assignment.ReadAll()
-                .FirstOrDefault(a => a.VolunteerId == volunteerId && a.CallId == callId && a.TreatmentEndTime == null);
-
-            var volunteer = Volunteer_dal.Volunteer.Read(volunteerId)!;
-
-            if (assignment == null)
-                throw new BO.BlDoesNotExistException("לא נמצאה התאמה בין המתנדב לקריאה.");
-
-            Volunteer_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId,assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, DO.TypeOfTreatmentEnding.UNMATCHED,assignment.AssignmentStatus));
-            SendEmailToVolunteer( volunteer, assignment);
-        }
-        catch (DO.DalUnauthorizedOperationException ex)
-        {
-            throw new BO.BlUnauthorizedOperationException("שגיאה בביטול התאמת מתנדב לקריאה.");
-        }
-    }
-
-    /// <summary>
-    /// Sends an email notification to the volunteer when their assignment is canceled.
-    /// </summary>
-    /// <param name="volunteer">The volunteer to notify.</param>
-    /// <param name="assignment">The assignment that was canceled.</param>
-    internal void SendEmailToVolunteer(DO.Volunteer volunteer, DO.Assignment assignment)
-    {
-        var call = Volunteer_dal.Call.Read(assignment.CallId)!;
-
-        string subject = "Assignment Canceled";
-        string body = $@"
-                      Hello {volunteer.Name},
-
-                      Your assignment for handling call {assignment.Id} has been canceled by the administrator.
-
-                      Call Details:
-                      - Call ID: {assignment.CallId}
-                      - Call Type: {call.TypeOfCall}
-                      - Call Address: {call.Address}
-                      - Opening Time: {call.OpeningTime}
-                      - Description: {call.Description}
-                      - Entry Time for Treatment: {assignment.TreatmentStartTime}
-
-                                                                                        Best regards,  
-                                                                                        Call Management System";
-
-        Tools.SendEmail(volunteer.Email, subject, body);
-    }
 
     public void Update(int userId ,BO.Volunteer boVolunteer)
     {
         try { 
-             (double? lat, double? lon) = ValidateVolunteer(boVolunteer);
+             (double? lat, double? lon) = VolunteerManager.ValidateVolunteer(boVolunteer);
              var user = Volunteer_dal.Volunteer.ReadAll()
                  .FirstOrDefault(u => u.Id == boVolunteer.Id);
             //בשלב 5 צריך להוסיף שאם התז הוא לא של המשתמש הנוכחי או של המנהל אז לא ניתן לעדכן את המתנדב
