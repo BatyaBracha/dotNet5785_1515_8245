@@ -103,6 +103,7 @@ internal static class CallManager
         {
             BO.CallInListField.TYPEOFCALL => items.OrderBy(c => (c as dynamic).TypeOfCall),
             BO.CallInListField.STATUS => items.OrderBy(c => (c as dynamic).Status),
+
             _ => throw new BlNullPropertyException("Unsupported sort field", nameof(sortBy)),
         };
     }
@@ -127,7 +128,7 @@ internal static class CallManager
         }
 
         // Case 2: Call has been closed (handled by a volunteer)
-        var closedAssignment = assignments.FirstOrDefault(a => a.TypeOfTreatmentEnding.HasValue);
+        var closedAssignment = assignments.FirstOrDefault(a => a.TypeOfTreatmentEnding.HasValue&&((BO.AssignmentStatus)a.AssignmentStatus==BO.AssignmentStatus.CLOSED)|| (BO.AssignmentStatus)a.AssignmentStatus == BO.AssignmentStatus.COMPLETED);
         if (closedAssignment != null)
         {
             return BO.CallStatus.CLOSED;

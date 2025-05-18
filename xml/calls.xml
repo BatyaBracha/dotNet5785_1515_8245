@@ -457,18 +457,6 @@
     <MaxClosingTime>2025-05-18T08:54:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1038</Id>
-    <TypeOfCall>HEAT_STROKE</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>David HaMelech St, Herzliya</Address>
-    <latitude>32.1673</latitude>
-    <longitude>34.836</longitude>
-    <riskRange>PT2H2M5S</riskRange>
-    <OpeningTime>2025-05-18T08:52:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-05-18T11:43:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1039</Id>
     <TypeOfCall>NONE</TypeOfCall>
     <Description>Car battery is dead, needs jump start.</Description>
@@ -599,5 +587,17 @@
     <OpeningTime>2025-05-18T08:19:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-05-18T12:08:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1038</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>hope</Description>
+    <Address>Man 3</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
+    <riskRange>PT2H2M5S</riskRange>
+    <OpeningTime>2025-05-18T08:52:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2029-12-12T12:12:12</MaxClosingTime>
   </Call>
 </ArrayOfCall>

@@ -31,23 +31,23 @@ namespace BlImplementation
             var call = Call_dal.Call.Read(callId)
                 ?? throw new BO.BlDoesNotExistException("call is not found in the system.");
 
-            // Validate call status
-            if (call.Status != DO.CallStatus.OPEN_IN_RISK || call.Status != DO.CallStatus.OPEN)
-                throw new BO.BlDoesNotExistException("this call is not open for treatment.");
 
             // Get all assignments for this call (past and present)
-            List<BO.CallAssignInList>? callAssignments = Call_dal.Assignment
-                .ReadAll()
-                .Where(a => a.CallId == callId&& a.AssignmentStatus !=DO.AssignmentStatus.OPEN&& a.AssignmentStatus != DO.AssignmentStatus.COMPLETED)
-                .Select(a => new BO.CallAssignInList
-                {
-                    VolunteerId = a.VolunteerId,
-                    // Add other necessary properties
-                })
-                .ToList();
+            var callAssignments = Call_dal.Assignment
+                .ReadAll(a => a.CallId == callId).ToList();
+            var callStatus=CallManager.CalculateCallStatus(callAssignments, call.MaxClosingTime);
 
-            // Check if call is already being treated
-            if (callAssignments.Any())
+            // Validate call status
+            if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK && (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
+                throw new BO.BlDoesNotExistException("this call is not open for treatment.");
+
+            bool isBeingTreated = callAssignments.Any(a =>
+                //a.CallId == callId &&
+                a.AssignmentStatus != DO.AssignmentStatus.OPEN &&
+                a.AssignmentStatus != DO.AssignmentStatus.COMPLETED);
+
+            // Check if the call is already being treated
+            if (isBeingTreated)
                 throw new BO.BlDoesNotExistException("this call is already being treated.");
 
             // Create new assignment
@@ -59,28 +59,29 @@ namespace BlImplementation
                 TreatmentStartTime = AdminManager.Now,
                 TreatmentEndTime = null,
             };
-            callAssignments.Add(new BO.CallAssignInList
-            {
-                VolunteerId = volunteerId,
-                Name = Call_dal.Volunteer.Read(volunteerId)?.Name,
-                TimeOfStarting = newAssignment.TreatmentStartTime,
-                TimeOfEnding = null,
-                TypeOfTreatmentEnding = null,
-            });
+            
+            //callAssignments.Add(new BO.CallAssignInList
+            //{
+            //    VolunteerId = volunteerId,
+            //    Name = Call_dal.Volunteer.Read(volunteerId)?.Name,
+            //    TimeOfStarting = newAssignment.TreatmentStartTime,
+            //    TimeOfEnding = null,
+            //    TypeOfTreatmentEnding = null,
+            //});
             // Create the assignment and update call status
             Call_dal.Assignment.Create(newAssignment);
-            Update(new BO.Call(
-                call.Id,
-                (BO.TypeOfCall)call.TypeOfCall,
-                call.Description,
-                call.Address,
-                call.latitude,
-                call.longitude,
-                call.OpeningTime,
-                call.MaxClosingTime,
-                BO.CallStatus.BEING_HANDELED,
-                callAssignments
-            ));
+            //Update(new BO.Call(
+            //    call.Id,
+            //    (BO.TypeOfCall)call.TypeOfCall,
+            //    call.Description,
+            //    call.Address,
+            //    call.latitude,
+            //    call.longitude,
+            //    call.OpeningTime,
+            //    call.MaxClosingTime,
+            //    BO.CallStatus.BEING_HANDELED,
+            //    callAssignments
+            //));
         }
 
         public void Create(BO.Call boCall)
@@ -257,8 +258,19 @@ namespace BlImplementation
             if (Call_dal.Volunteer.Read(volunteerId) is not { Active: true })
                 throw new BO.BlDoesNotExistException("The volunteer is not active in the system.");
 
-            var calls = Call_dal.Call.ReadAll()
-                .Where(c => c.Status == DO.CallStatus.OPEN || c.Status == DO.CallStatus.OPEN_IN_RISK);
+            var calls = Call_dal.Call.ReadAll();
+            var assignments = Call_dal.Assignment.ReadAll();
+            var assignmentsGrouped = assignments.GroupBy(a => a.CallId);
+
+            var openOrRiskyCalls = calls
+                .Select(call =>
+                {
+                    var relatedAssignments = assignmentsGrouped.FirstOrDefault(g => g.Key == call.Id)?.ToList();
+                    CallManager.CalculateCallStatus(relatedAssignments, call.MaxClosingTime);
+                    return call;
+                })
+                .Where(call => call.Status == DO.CallStatus.OPEN || call.Status == DO.CallStatus.OPEN_IN_RISK) // Adjust status properties if needed
+                .ToList();
 
             if (filterBy != null)
             {

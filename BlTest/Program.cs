@@ -528,7 +528,7 @@ internal class Program
 
         if (sortResponse == "yes")
         {
-            Console.WriteLine("Select a sort field (ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
+            Console.WriteLine("Select a sort field (STATUS, TYPEOFCALL):");
             string sortFieldInput = Console.ReadLine();
             sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
         }
