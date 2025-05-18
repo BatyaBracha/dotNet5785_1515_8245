@@ -10,8 +10,8 @@ public interface IVolunteer : IObservable //stage 5 הרחבת ממשק
     void Update(int userId,BO.Volunteer boVolunteer);
     void Delete(int id);
 
-    void MatchVolunteerToCall(int volunteerId, int callId);
-    void UnMatchVolunteerToCall(int volunteerId, int callId);
+    //void MatchVolunteerToCall(int volunteerId, int callId);
+    //void UnMatchVolunteerToCall(int volunteerId, int callId);
 
     //IEnumerable<BO.VolunteerInList> GetAssignedCallsForVolunteer(int volunteerId, BO.Year year = BO.Year.None);
     //IEnumerable<BO.VolunteerInList> GetUnRegisteredCoursesForStudent(int studentId, BO.Year year = BO.Year.None);
