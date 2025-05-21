@@ -26,7 +26,7 @@ internal class VolunteerImplementation : IVolunteer
             longitude = v.ToDoubleNullable("longitude") ?? 0.0,
             //throw new FormatException("can't convert longitude"),
             Role = v.ToEnumNullable<Role>("Role") ?? throw new FormatException("can't convert Role"),
-            Active = (bool?)v.Element("IsActive") ?? false,
+            Active = (bool?)v.Element("Active") ?? false,
             MaxDistance = v.ToDoubleNullable("MaxDistance") ?? throw new FormatException("can't convert MaxDistance"),
             TypeOfDistance = v.ToEnumNullable<TypeOfDistance>("TypeOfDistance") ?? throw new FormatException("can't convert TypeOfDistance")
         };

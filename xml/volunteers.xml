@@ -52,7 +52,7 @@
     <latitude>31.774578</latitude>
     <longitude>35.207031</longitude>
     <Role>STANDARD</Role>
-    <Active>true</Active>
+    <Active>false</Active>
     <MaxDistance>298</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
@@ -123,7 +123,7 @@
     <latitude>31.798189</latitude>
     <longitude>35.206539</longitude>
     <Role>STANDARD</Role>
-    <Active>true</Active>
+    <Active>false</Active>
     <MaxDistance>908</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
@@ -224,5 +224,19 @@
     <Active>true</Active>
     <MaxDistance>575</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>216223669</Id>
+    <Name>Rachel</Name>
+    <Phone>0583251410</Phone>
+    <Email>racheli@gmail.com</Email>
+    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
+    <Address>Man 3 Jerusalem Israel</Address>
+    <latitude>31.761716</latitude>
+    <longitude>35.1984241</longitude>
+    <Role>2</Role>
+    <Active>false</Active>
+    <MaxDistance>1</MaxDistance>
+    <TypeOfDistance>DRIVE</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

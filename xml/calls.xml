@@ -600,4 +600,16 @@
     <Status>OPEN</Status>
     <MaxClosingTime>2029-12-12T12:12:12</MaxClosingTime>
   </Call>
+  <Call>
+    <Id>1050</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>I'm shocked</Description>
+    <Address>Man 3 Jerusalem Israel</Address>
+    <latitude>31.761716</latitude>
+    <longitude>35.1984241</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-05-18T12:32:33</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-11-11T13:13:13</MaxClosingTime>
+  </Call>
 </ArrayOfCall>
