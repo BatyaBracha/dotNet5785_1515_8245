@@ -26,7 +26,7 @@ internal class VolunteerImplementation : IVolunteer
             longitude = v.ToDoubleNullable("longitude") ?? 0.0,
             //throw new FormatException("can't convert longitude"),
             Role = v.ToEnumNullable<Role>("Role") ?? throw new FormatException("can't convert Role"),
-            Active = (bool?)v.Element("Active") ?? false,
+            Active = (bool?)v.Element("IsActive") ?? false,
             MaxDistance = v.ToDoubleNullable("MaxDistance") ?? throw new FormatException("can't convert MaxDistance"),
             TypeOfDistance = v.ToEnumNullable<TypeOfDistance>("TypeOfDistance") ?? throw new FormatException("can't convert TypeOfDistance")
         };
@@ -81,14 +81,19 @@ internal class VolunteerImplementation : IVolunteer
 
     public Volunteer? Read(int id)
     {
-        XElement? volunteerElm =
-    XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml).Elements().FirstOrDefault(st => (int?)st.Element("Id") == id);
+        XElement? volunteerElm = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml)
+            .Elements()
+            .FirstOrDefault(st => (int?)st
+            .Element("Id") == id);
         return volunteerElm is null ? null : GetVolunteer(volunteerElm);
     }
 
     public Volunteer? Read(Func<Volunteer, bool> filter)
     {
-        return XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml).Elements().Select(s => GetVolunteer(s)).FirstOrDefault(filter);
+        return XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml)
+            .Elements()
+            .Select(s => GetVolunteer(s))
+            .FirstOrDefault(filter);
     }
 
     public IEnumerable<Volunteer> ReadAll(Func<Volunteer, bool>? filter = null)

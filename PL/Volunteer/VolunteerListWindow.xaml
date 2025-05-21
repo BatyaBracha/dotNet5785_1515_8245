@@ -33,7 +33,38 @@
         </Grid>
 
         <!-- DataGrid -->
-        <DataGrid Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" ItemsSource="{Binding Path=VolunteerList}"/>
+        <!--<DataGrid Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" ItemsSource="{Binding Path=VolunteerList}"/>-->
+        <DataGrid Grid.Row="1"
+          Margin="0,10,0,0"
+          ItemsSource="{Binding Path=VolunteerList}"
+          AutoGenerateColumns="False"
+          IsReadOnly="True">
+            <DataGrid.Columns>
+                <!-- Id -->
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*" />
+
+                <!-- Name -->
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" />
+
+                <!-- Active (CheckBox) -->
+                <DataGridTemplateColumn Header="Active" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Active}" IsEnabled="False" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- CallsOutOfDate -->
+                <DataGridTextColumn Binding="{Binding CallsOutOfDate}" Header="Out-of-date Calls" Width="*" />
+
+                <!-- CallsCanceled -->
+                <DataGridTextColumn Binding="{Binding CallsCanceled}" Header="Canceled Calls" Width="*" />
+
+                <!-- CallsDone -->
+                <DataGridTextColumn Binding="{Binding CallsDone}" Header="Done Calls" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
 
         <!-- Add Button -->
         <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100"/>

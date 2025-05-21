@@ -66,7 +66,7 @@
     <latitude>31.780125</latitude>
     <longitude>35.207889</longitude>
     <Role>STANDARD</Role>
-    <IsActive>true</IsActive>
+    <IsActive>false</IsActive>
     <MaxDistance>767</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
