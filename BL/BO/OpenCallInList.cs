@@ -17,8 +17,7 @@ public class OpenCallInList
     {
         return $"Id: {Id}, TypeOfCall: {TypeOfCall}, Description: {Description}, " +
                $"Address: {Address}, OpeningTime: {OpeningTime}, " +
-               $"MaxCloseingTime: {MaxCloseingTime}, CallVolunteerDistance: {CallVolunteerDistance}, " +
-               $"CallVolunteerDistance: {CallVolunteerDistance} ";
+               $"MaxCloseingTime: {MaxCloseingTime}, CallVolunteerDistance: {CallVolunteerDistance}";
     }
 
 }

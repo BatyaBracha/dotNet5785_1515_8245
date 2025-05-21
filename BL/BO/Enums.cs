@@ -22,7 +22,8 @@ public enum TypeOfCall
     ELECTRIC_SHOCK,
     HEAD_INJURY,
     BROKEN_BONE,
-    HEAT_STROKE
+    HEAT_STROKE,
+    NONE
 };
 
 public enum Status {WAITING, BEING_HANDELED, BEING_HANDELED_IN_RISK }
@@ -33,7 +34,7 @@ public enum AssignmentStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_I
 public enum CallFieldFilter { Id, TypeOfCall, Description, Address, Latitude, Longitude, Openingtime, MaxClosingtime, StatusAssignedVolunteers }
 public enum TimeUnit { YEAR,MONTH, DAY, HOUR, MINUTE }
 public enum TypeOfTreatmentEnding { HOSPITAL_ADMISSION, STAY_AT_HOME, DEAD, EXPIRED, UNMATCHED };
-public enum CallField { STATUS,TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID }
+public enum CallField { Status,TypeOfCall, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID }
 public enum CallInListField {TYPEOFCALL, STATUS }
 
 public enum Options

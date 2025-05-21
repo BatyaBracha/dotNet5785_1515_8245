@@ -21,10 +21,16 @@ public enum TypeOfCall
     ELECTRIC_SHOCK,
     HEAD_INJURY,
     BROKEN_BONE,
-    HEAT_STROKE
+    HEAT_STROKE,
+    NONE
 };
 
-public enum TypeOfTreatmentEnding {HOSPITAL_ADMISSION, STAY_AT_HOME,DEAD , EXPIRED, UNMATCHED };
+public enum TypeOfTreatmentEnding {
+    HANDLED,
+    SELF_CANCELED,
+    MANAGER_CANCELED,
+    EXPIRED_CANCELED
+};
 
 public enum TypeOfDistance {AIR, WALK, DRIVE };
 

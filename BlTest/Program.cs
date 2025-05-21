@@ -216,72 +216,72 @@ internal class Program
     /// <summary>
     /// Assigns a volunteer to a specific call based on user input.
     /// </summary>
-    private static void AssignVolunteerToCall()
-    {
-        int volunteerId;
-        int callId;
+    //private static void AssignVolunteerToCall()
+    //{
+    //    int volunteerId;
+    //    int callId;
 
-        Console.WriteLine("Please enter the Volunteer ID:");
-        if (!int.TryParse(Console.ReadLine(), out volunteerId))
-        {
-            Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
-            return;
-        }
+    //    Console.WriteLine("Please enter the Volunteer ID:");
+    //    if (!int.TryParse(Console.ReadLine(), out volunteerId))
+    //    {
+    //        Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
+    //        return;
+    //    }
 
-        Console.WriteLine("Please enter the Call ID:");
-        if (!int.TryParse(Console.ReadLine(), out callId))
-        {
-            Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
-            return;
-        }
+    //    Console.WriteLine("Please enter the Call ID:");
+    //    if (!int.TryParse(Console.ReadLine(), out callId))
+    //    {
+    //        Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
+    //        return;
+    //    }
 
-        s_bl.Volunteer!.MatchVolunteerToCall(volunteerId, callId);
-        Console.WriteLine("The volunteer has been successfully assigned to the call.");
-    }
+    //    s_bl.Volunteer!.MatchVolunteerToCall(volunteerId, callId);
+    //    Console.WriteLine("The volunteer has been successfully assigned to the call.");
+    //}
 
     /// <summary>
     /// Unmatches a volunteer from a specific call based on user input.
     /// </summary>
-    private static void UnmatchVolunteerFromCall()
-    {
-        Console.WriteLine("Please enter the Volunteer ID:");
-        string volunteerIdInput = Console.ReadLine();
-        int volunteerId;
+    //private static void UnmatchVolunteerFromCall()
+    //{
+    //    Console.WriteLine("Please enter the Volunteer ID:");
+    //    string volunteerIdInput = Console.ReadLine();
+    //    int volunteerId;
 
-        if (!int.TryParse(volunteerIdInput, out volunteerId))
-        {
-            Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
-            return;
-        }
+    //    if (!int.TryParse(volunteerIdInput, out volunteerId))
+    //    {
+    //        Console.WriteLine("Invalid input. Please enter a numeric value for Volunteer ID.");
+    //        return;
+    //    }
 
-        Console.WriteLine("Please enter the Call ID:");
-        string callIdInput = Console.ReadLine();
-        int callId;
+    //    Console.WriteLine("Please enter the Call ID:");
+    //    string callIdInput = Console.ReadLine();
+    //    int callId;
 
-        if (!int.TryParse(callIdInput, out callId))
-        {
-            Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
-            return;
-        }
+    //    if (!int.TryParse(callIdInput, out callId))
+    //    {
+    //        Console.WriteLine("Invalid input. Please enter a numeric value for Call ID.");
+    //        return;
+    //    }
 
-        try
-        {
-            s_bl.Volunteer!.UnMatchVolunteerToCall(volunteerId, callId);
-            Console.WriteLine("The volunteer has been successfully unmatched from the call.");
-        }
-        catch (BO.BlDoesNotExistException ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
-        catch (BO.BlUnauthorizedOperationException ex)
-        {
-            Console.WriteLine($"Data access error: {ex.Message}");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An unexpected error occurred: {ex.Message}");
-        }
-    }
+    //    try
+    //    {
+    //        s_bl.Volunteer!.UnMatchVolunteerToCall(volunteerId, callId);
+    //        Console.WriteLine("The volunteer has been successfully unmatched from the call.");
+    //    }
+    //    catch (BO.BlDoesNotExistException ex)
+    //    {
+    //        Console.WriteLine($"Error: {ex.Message}");
+    //    }
+    //    catch (BO.BlUnauthorizedOperationException ex)
+    //    {
+    //        Console.WriteLine($"Data access error: {ex.Message}");
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+    //    }
+    //}
 
     /// <summary>
     /// Displays the call menu and handles user choices for call operations.
@@ -426,7 +426,7 @@ internal class Program
             string filterFieldInput = Console.ReadLine();
             filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
 
-            Console.WriteLine("Enter the filter value:");
+            Console.WriteLine("Enter the filter value: (if filtering according to type, these are some options:CARDIAC_ARREST,DIFFICULTY_BREATHING");
             filterValue = Console.ReadLine(); // Adjust parsing based on expected type
         }
 
@@ -437,7 +437,9 @@ internal class Program
 
         if (sortResponse == "yes")
         {
-            Console.WriteLine("Select a sort field (Type of call,Status):");
+            Console.WriteLine("Select a sort field:");
+            Console.WriteLine("0 for Type of call");
+            Console.WriteLine("1 for Status");
             string sortFieldInput = Console.ReadLine();
             sortBy = Enum.TryParse<BO.CallInListField>(sortFieldInput, out var sortField) ? sortField : null;
         }
@@ -526,7 +528,7 @@ internal class Program
 
         if (sortResponse == "yes")
         {
-            Console.WriteLine("Select a sort field (ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
+            Console.WriteLine("Select a sort field (STATUS, TYPEOFCALL):");
             string sortFieldInput = Console.ReadLine();
             sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
         }
