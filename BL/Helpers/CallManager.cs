@@ -10,7 +10,7 @@ namespace Helpers;
 
 internal static class CallManager
 {
-    private static IDal s_dal = Factory.Get; //stage 4
+    private static IDal s_dal = DalApi.Factory.Get; //stage 4
     internal static ObserverManager Observers = new(); //stage 5 
     private static BO.Status CallStatus(int callId) { return CallManager.CallStatus(callId); }
     internal static void ValidateCall(BO.Call boCall)
