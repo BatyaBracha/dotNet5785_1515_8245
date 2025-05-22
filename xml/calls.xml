@@ -609,7 +609,7 @@
     <longitude>35.1984241</longitude>
     <riskRange xsi:nil="true" />
     <OpeningTime>2025-05-18T12:32:33</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>CLOSED</Status>
     <MaxClosingTime>2026-11-11T13:13:13</MaxClosingTime>
   </Call>
 </ArrayOfCall>

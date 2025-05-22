@@ -464,8 +464,8 @@
     <CallId>1050</CallId>
     <VolunteerId>328118245</VolunteerId>
     <TreatmentStartTime>2025-05-18T12:32:33</TreatmentStartTime>
-    <TreatmentEndTime xsi:nil="true" />
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
+    <TreatmentEndTime>2025-05-18T12:32:33</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>CLOSED</AssignmentStatus>
   </Assignment>
 </ArrayOfAssignment>
