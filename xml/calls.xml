@@ -506,7 +506,7 @@
   </Call>
   <Call>
     <Id>1043</Id>
-    <TypeOfCall>NONE</TypeOfCall>
+    <TypeOfCall>SEIZURE</TypeOfCall>
     <Description>Flat tire on the highway.</Description>
     <Address>David HaMelech St, Herzliya</Address>
     <latitude>32.1673</latitude>
@@ -518,7 +518,7 @@
   </Call>
   <Call>
     <Id>1044</Id>
-    <TypeOfCall>NONE</TypeOfCall>
+    <TypeOfCall>SEIZURE</TypeOfCall>
     <Description>Vehicle recovery required from the beach.</Description>
     <Address>Eilat Promenade, Eilat</Address>
     <latitude>29.5581</latitude>

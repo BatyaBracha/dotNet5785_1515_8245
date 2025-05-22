@@ -1,4 +1,5 @@
 ﻿
+using BlApi;
 using BO;
 using DalApi;
 using DO;
@@ -30,7 +31,7 @@ internal static class CallManager
             throw new BlArgumentException("Address cannot be null or empty.");
 
         // Validate the address against a geolocation service
-        (double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address);
+        (double? lat, double? lon) = GetCoordinates(boCall.Address);
 
         if (lat == null || lon == null)
             throw new BlArgumentException("Address is invalid or could not be found.");
@@ -152,6 +153,8 @@ internal static class CallManager
 
     public static double GetAerialDistance(string VolunteerAddress, string CallAddress)
     {
+        if (string.IsNullOrWhiteSpace(CallAddress)|| string.IsNullOrWhiteSpace(VolunteerAddress))
+            throw new BO.BlArgumentException("Address is required for geocoding.");
         var (volunteerLatitude, volunteerLongitude) = GetCoordinates(VolunteerAddress);
         var (callLatitude, callLongitude) = GetCoordinates(CallAddress);
         return CalculateDistance(volunteerLatitude, volunteerLongitude, callLatitude, callLongitude).Value;

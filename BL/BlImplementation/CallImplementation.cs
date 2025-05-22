@@ -266,7 +266,8 @@ namespace BlImplementation
                 .Select(call =>
                 {
                     var relatedAssignments = assignmentsGrouped.FirstOrDefault(g => g.Key == call.Id)?.ToList();
-                    CallManager.CalculateCallStatus(relatedAssignments, call.MaxClosingTime);
+                    CallManager.CalculateCallStatus(relatedAssignments ?? Enumerable.Empty<Assignment>(), call.MaxClosingTime);
+                    //CallManager.CalculateCallStatus(relatedAssignments, call.MaxClosingTime);
                     return call;
                 })
                 .Where(call => call.Status == DO.CallStatus.OPEN || call.Status == DO.CallStatus.OPEN_IN_RISK) // Adjust status properties if needed
