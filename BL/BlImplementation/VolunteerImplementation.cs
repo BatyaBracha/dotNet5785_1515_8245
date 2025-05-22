@@ -181,16 +181,16 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                     Id = v.Id,
                     Name = v.Name,
                     Active = v.Active,
-                    CallsDone = assignments.Count(assignment => assignment.Id == v.Id && (BO.AssignmentStatus)assignment.AssignmentStatus == BO.AssignmentStatus.COMPLETED),
-                    CallsCanceled = assignments.Count(assignment => assignment.Id == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.SELF_CANCELED),
-                    CallsOutOfDate = assignments.Count(assignment => assignment.Id == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.EXPIRED_CANCELED),
+                    CallsDone = assignments.Count(assignment => assignment.VolunteerId == v.Id && (BO.AssignmentStatus)assignment.AssignmentStatus == BO.AssignmentStatus.COMPLETED),
+                    CallsCanceled = assignments.Count(assignment => assignment.VolunteerId == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.SELF_CANCELED),
+                    CallsOutOfDate = assignments.Count(assignment => assignment.VolunteerId == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.EXPIRED_CANCELED),
                     CallId = callId,
                     TypeOfCall = callId != null ? (BO.TypeOfCall)Volunteer_dal.Call.Read(callId.Value).TypeOfCall : BO.TypeOfCall.NONE,
                 };
             });
 
             // מיון לפי שדה ספציפי
-            if (sort.HasValue&&sort!=BO.VolunteerFields.None)
+            if (sort.HasValue && sort!=BO.VolunteerFields.None)
             {
                 volunteerList = sort switch
                 {
@@ -199,6 +199,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                     BO.VolunteerFields.CallsDone => volunteerList.OrderBy(v => v.CallsDone),
                     BO.VolunteerFields.CallsCanceled => volunteerList.OrderBy(v => v.CallsCanceled),
                     BO.VolunteerFields.CallsOutOfdate => volunteerList.OrderBy(v => v.CallsOutOfDate),
+                    BO.VolunteerFields.Active => volunteerList.OrderByDescending(v => v.Active),
                     _ => volunteerList.OrderBy(v => v.Id)
                 };
             }
