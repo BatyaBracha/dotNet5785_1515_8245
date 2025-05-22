@@ -455,8 +455,17 @@
     <CallId>1008</CallId>
     <VolunteerId>328118245</VolunteerId>
     <TreatmentStartTime>2025-05-18T12:32:33</TreatmentStartTime>
-	<TreatmentEndTime>2025-05-18T12:07:00</TreatmentEndTime>
-	<TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-	<AssignmentStatus>OPEN</AssignmentStatus>
+    <TreatmentEndTime>2025-05-18T12:07:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>1762</Id>
+    <CallId>1050</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-05-18T12:32:33</TreatmentStartTime>
+    <TreatmentEndTime xsi:nil="true" />
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
 </ArrayOfAssignment>

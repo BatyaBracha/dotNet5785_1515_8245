@@ -4,13 +4,14 @@ using BO;
 using DalApi;
 using DO;
 using System.Net;
+using System.Net.Mail;
 using System.Text.Json;
 
 namespace Helpers;
 
 internal static class CallManager
 {
-    private static IDal s_dal = Factory.Get; //stage 4
+    private static IDal s_dal = DalApi.Factory.Get; //stage 4
     internal static ObserverManager Observers = new(); //stage 5 
     private static BO.Status CallStatus(int callId) { return CallManager.CallStatus(callId); }
     internal static void ValidateCall(BO.Call boCall)
@@ -153,8 +154,8 @@ internal static class CallManager
 
     public static double GetAerialDistance(string VolunteerAddress, string CallAddress)
     {
-        if (string.IsNullOrWhiteSpace(CallAddress)|| string.IsNullOrWhiteSpace(VolunteerAddress))
-            throw new BO.BlArgumentException("Address is required for geocoding.");
+        //if (string.IsNullOrWhiteSpace(CallAddress)|| string.IsNullOrWhiteSpace(VolunteerAddress))
+        //    throw new BO.BlArgumentException("Address is required for geocoding.");
         var (volunteerLatitude, volunteerLongitude) = GetCoordinates(VolunteerAddress);
         var (callLatitude, callLongitude) = GetCoordinates(CallAddress);
         return CalculateDistance(volunteerLatitude, volunteerLongitude, callLatitude, callLongitude).Value;
@@ -200,6 +201,9 @@ internal static class CallManager
     }
     public static (double latitude, double longitude) GetCoordinates(string address)
     {
+        if (string.IsNullOrWhiteSpace(address))
+            throw new BO.BlArgumentException("Address is required for geocoding.");
+
         string apiKey = "PK.83B935C225DF7E2F9B1ee90A6B46AD86";
         using var client = new HttpClient();
         string url = $"https://us1.locationiq.com/v1/search.php?key={apiKey}&q={Uri.EscapeDataString(address)}&format=json";
