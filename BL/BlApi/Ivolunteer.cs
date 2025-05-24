@@ -6,7 +6,7 @@ public interface IVolunteer : IObservable //stage 5 הרחבת ממשק
     public BO.Role Login(int id, string password);
     void Create(BO.Volunteer boVolunteer);
     BO.Volunteer? Read(int id);
-    IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? sort = null, BO.VolunteerFields? filter = null, object? value = null);
+    IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? filter = null, BO.VolunteerFields? sort = null, object? value = null);
     void Update(int userId,BO.Volunteer boVolunteer);
     void Delete(int id);
 
