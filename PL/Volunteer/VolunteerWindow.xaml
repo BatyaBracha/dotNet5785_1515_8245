@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Volunteer"
         mc:Ignorable="d"
-        Title="VolunteerWindow" Height="450" Width="800">
+        Title="VolunteerWindow" Height="842" Width="2030">
+    <Window.Resources>
+        <!-- Style for all Labels in the Grid -->
+        <Style x:Key="GridLabelStyle" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <!-- Style for all TextBoxes in the Grid -->
+        <Style x:Key="GridTextBoxStyle" TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- First row -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Name:" Style="{StaticResource GridLabelStyle}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}"/>
+
+        <!-- Second row -->
+        <Label Grid.Row="1" Grid.Column="0" Content="Email:" Style="{StaticResource GridLabelStyle}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}"/>
     </Grid>
 </Window>
