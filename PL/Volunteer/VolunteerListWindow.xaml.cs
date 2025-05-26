@@ -43,14 +43,14 @@ namespace PL.Volunteer
                                       s_bl?.Volunteer.ReadAll()! : s_bl?.Volunteer.ReadAll(null, VolunteerFieldsFilter)!;
 
 
-        private void courseListObserver()
+        private void volunteerListObserver()
                       => queryVolunteerList();
  
         private void Window_Loaded(object sender, RoutedEventArgs e)
-                      => s_bl.Volunteer.AddObserver(courseListObserver);
+                      => s_bl.Volunteer.AddObserver(volunteerListObserver);
 
         private void Window_Closed(object sender, EventArgs e)
-                      => s_bl.Volunteer.RemoveObserver(courseListObserver);
+                      => s_bl.Volunteer.RemoveObserver(volunteerListObserver);
 
         public VolunteerListWindow()
         {
