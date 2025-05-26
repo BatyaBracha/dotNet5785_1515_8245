@@ -72,7 +72,30 @@ namespace PL.Volunteer
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        public VolunteerWindow(int Id=0)
+
+        private void queryVolunteerDetails()
+        {
+            int id = CurrentVolunteer!.Id;
+            CurrentVolunteer = null;
+            CurrentVolunteer = s_bl.Volunteer.Read(id);
+        }
+
+
+
+        private void VolunteerObserver()
+                      => queryVolunteerDetails();
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (CurrentVolunteer!.Id != 0)
+                s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
+        }
+
+
+        private void Window_Closed(object sender, EventArgs e)
+                      => s_bl.Volunteer.RemoveObserver(CurrentVolunteer!.Id, VolunteerObserver);
+
+            public VolunteerWindow(int Id=0)
         {
             ButtonText = Id == 0 ? "Add" : "Update";
 

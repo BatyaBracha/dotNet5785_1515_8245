@@ -38,11 +38,12 @@
           Margin="0,10,0,0"
           ItemsSource="{Binding Path=VolunteerList}"
           AutoGenerateColumns="False"
-          IsReadOnly="True">
+          IsReadOnly="True"
+          SelectedItem="{Binding SelectedVolunteer}"
+          MouseDoubleClick="lsvVolunteersList_MouseDoubleClick">
             <DataGrid.Columns>
                 <!-- Id -->
-                <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*" />
-
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*"/>
                 <!-- Name -->
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" />
 
@@ -63,10 +64,18 @@
 
                 <!-- CallsDone -->
                 <DataGridTextColumn Binding="{Binding CallsDone}" Header="Done Calls" Width="*" />
+                <!-- Delete button -->
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="DeleteButton_Click" Tag="{Binding Id}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
         <!-- Add Button -->
-        <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100"/>
+        <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100" Click="AddButton_Click"/>
     </Grid>
 </Window>
