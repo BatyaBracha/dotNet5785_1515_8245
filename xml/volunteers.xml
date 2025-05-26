@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVolunteer>
   <Volunteer>
-    <Id>862562578</Id>
-    <Name>Yehudit</Name>
-    <Phone>0527614423</Phone>
-    <Email>Yehudit0527614423@gmail.com</Email>
-    <Password>xaCVl@@YVk</Password>
-    <Address>Hashofar 3</Address>
-    <latitude>31.774578</latitude>
-    <longitude>35.207031</longitude>
-    <Role>STANDARD</Role>
-    <Active>false</Active>
-    <MaxDistance>298</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
     <Id>276965970</Id>
     <Name>Shira</Name>
     <Phone>0527614424</Phone>
@@ -216,7 +202,7 @@
     <Name>Batya Oren</Name>
     <Phone>0583278625</Phone>
     <Email>batyabracha2005@gmail.com</Email>
-    <Password>C9D3DA531D5F49F7570AE4A5B3C2633AED75A0E55A7803B0CB1D4FB86EA4734E</Password>
+    <Password>7D1434741A2A67D93465DDBB3F8A889CC3270B0525C5ECF7FC8F126631BECA9B</Password>
     <Address>Ha'ayalot 25</Address>
     <latitude>31.869553</latitude>
     <longitude>35.140127</longitude>

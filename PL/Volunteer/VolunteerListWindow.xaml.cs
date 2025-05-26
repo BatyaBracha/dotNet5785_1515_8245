@@ -88,6 +88,8 @@ namespace PL.Volunteer
 
                         // If successful, the observer mechanism will automatically update the list
                         MessageBox.Show("Volunteer deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        VolunteerList = (VolunteerFieldsFilter == BO.VolunteerFields.None) ?
+                                      s_bl?.Volunteer.ReadAll()! : s_bl?.Volunteer.ReadAll(null, VolunteerFieldsFilter)!;
                     }
                     catch (Exception ex)
                     {

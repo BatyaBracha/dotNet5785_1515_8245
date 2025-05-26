@@ -64,6 +64,7 @@ namespace PL.Volunteer
                 {
                     s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer!);
                     MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer!.Id);
                 }
                 this.Close();
             }
@@ -76,11 +77,8 @@ namespace PL.Volunteer
         private void queryVolunteerDetails()
         {
             int id = CurrentVolunteer!.Id;
-            CurrentVolunteer = null;
             CurrentVolunteer = s_bl.Volunteer.Read(id);
         }
-
-
 
         private void VolunteerObserver()
                       => queryVolunteerDetails();
@@ -91,11 +89,10 @@ namespace PL.Volunteer
                 s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
         }
 
-
         private void Window_Closed(object sender, EventArgs e)
                       => s_bl.Volunteer.RemoveObserver(CurrentVolunteer!.Id, VolunteerObserver);
 
-            public VolunteerWindow(int Id=0)
+        public VolunteerWindow(int Id=0)
         {
             ButtonText = Id == 0 ? "Add" : "Update";
 
