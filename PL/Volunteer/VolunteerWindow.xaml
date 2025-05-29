@@ -97,74 +97,85 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1564*"/>
+            <ColumnDefinition Width="225*"/>
+            <ColumnDefinition Width="109*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Id (readonly) -->
-        <Label Grid.Row="0" Grid.Column="0" Content="Id:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Id}" IsReadOnly="True"/>
+        <Label Grid.Column="0" Content="Id:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="105,0,0,0" Height="25" Width="22"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Id}" IsReadOnly="True" Margin="5,5,0,5" Width="220"/>
 
         <!-- Name -->
-        <Label Grid.Row="1" Grid.Column="0" Content="Name:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Name}"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Name:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="76,0,0,0" Height="25" Width="51"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Name}" Margin="5,5,0,5" Width="220"/>
 
         <!-- PhoneNumber -->
-        <Label Grid.Row="2" Grid.Column="0" Content="Phone number:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.PhoneNumber}"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Phone number:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="11,0,0,0" Height="25" Width="116"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.PhoneNumber}" Margin="5,5,0,5" Width="220"/>
 
         <!-- Email -->
-        <Label Grid.Row="3" Grid.Column="0" Content="Email:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Email}"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Email:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="80,0,0,0" Height="25" Width="47"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Email}" Margin="5,5,0,5" Width="220"/>
 
         <!-- Password -->
-        <Label Grid.Row="4" Grid.Column="0" Content="Password:" Style="{StaticResource GridLabelStyle}"/>
-        <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Password:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="51,0,0,0" Height="25" Width="76"/>
+        <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" Margin="5,5,0,5" Width="220"/>
 
         <!-- CurrentAddress -->
-        <Label Grid.Row="5" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CurrentAddress}"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="61,0,0,0" Height="25" Width="66"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CurrentAddress}" Margin="5,5,0,5" Width="220"/>
 
         <!-- Latitude -->
-        <Label Grid.Row="6" Grid.Column="0" Content="Latitude:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Latitude}"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="Latitude:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="60,0,0,0" Height="25" Width="67"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Latitude}" Margin="5,5,0,5" Width="220"/>
 
         <!-- Longitude -->
-        <Label Grid.Row="7" Grid.Column="0" Content="Longitude:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Longitude}"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="Longitude:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="45,0,0,0" Height="26" Width="82"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Longitude}" Margin="5,5,0,5" Width="220"/>
 
         <!-- Role (enum) -->
-        <Label Grid.Row="8" Grid.Column="0" Content="Role:" Style="{StaticResource GridLabelStyle}"/>
-        <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=Role, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource RoleCollectionKey}}" SelectionChanged="comboBoxRole_SelectionChanged"/>
+        <Label Grid.Row="8" Grid.Column="0" Content="Role:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="87,0,0,0" Height="25" Width="40"/>
+        <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=Role, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource RoleCollectionKey}}" SelectionChanged="comboBoxRole_SelectionChanged" Margin="5,5,0,5" Width="220"/>
 
         <!-- Active (bool) -->
-        <Label Grid.Row="9" Grid.Column="0" Content="Active:" Style="{StaticResource GridLabelStyle}"/>
-        <CheckBox Grid.Row="9" Grid.Column="1" Style="{StaticResource GridCheckBoxStyle}" IsChecked="{Binding CurrentVolunteer.Active}"/>
+        <Label Grid.Row="9" Grid.Column="0" Content="Active:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="74,0,0,0" Height="25" Width="53"/>
+        <CheckBox Grid.Row="9" Grid.Column="1" Style="{StaticResource GridCheckBoxStyle}" IsChecked="{Binding CurrentVolunteer.Active}" Margin="5,0,0,0" Height="15" Width="16"/>
 
         <!-- MaxDistance -->
-        <Label Grid.Row="10" Grid.Column="0" Content="MaxDistance:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.MaxDistance}"/>
+        <Label Grid.Row="10" Grid.Column="0" Content="MaxDistance:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="26,0,0,0" Height="25" Width="101"/>
+        <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.MaxDistance}" Margin="5,5,0,5" Width="220"/>
 
         <!-- TypeOfDistance (enum) -->
-        <Label Grid.Row="11" Grid.Column="0" Content="TypeOfDistance:" Style="{StaticResource GridLabelStyle}"/>
-        <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=TypeOfDistance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TypeOfDistanceCollectionKey}}" SelectionChanged="comboBoxTypeOfDistance_SelectionChanged"/>
+        <Label Grid.Row="11" Content="TypeOfDistance:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Center" Height="25" Width="122"/>
+        <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=TypeOfDistance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TypeOfDistanceCollectionKey}}" SelectionChanged="comboBoxTypeOfDistance_SelectionChanged" Margin="5,5,0,5" Width="220"/>
 
         <!-- CallsDone (readonly) -->
-        <Label Grid.Row="12" Grid.Column="0" Content="CallsDone:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="12" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsDone}" IsReadOnly="True"/>
+        <Label Grid.Row="12" Grid.Column="0" Content="CallsDone:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="47,0,0,0" Height="25" Width="80"/>
+        <TextBox Grid.Row="12" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsDone}" IsReadOnly="True" Margin="5,5,0,5" Width="220"/>
 
         <!-- CallsCanceled (readonly) -->
-        <Label Grid.Row="13" Grid.Column="0" Content="CallsCanceled:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="13" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsCanceled}" IsReadOnly="True"/>
+        <Label Grid.Row="13" Grid.Column="0" Content="CallsCanceled:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="19,0,0,0" Height="25" Width="107"/>
+        <TextBox Grid.Row="13" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsCanceled}" IsReadOnly="True" Margin="5,5,0,5" Width="220"/>
 
         <!-- CallsOutOfdate (readonly) -->
-        <Label Grid.Row="14" Grid.Column="0" Content="CallsOutOfdate:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBox Grid.Row="14" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsOutOfdate}" IsReadOnly="True"/>
+        <Label Grid.Row="14" Content="CallsOutOfdate:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Center" Height="25" Width="118"/>
+        <TextBox Grid.Row="14" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsOutOfdate}" IsReadOnly="True" Margin="5,5,0,5" Width="220"/>
 
         <!-- CallInProgress (custom, as text) -->
-        <Label Grid.Row="15" Grid.Column="0" Content="CallInProgress:" Style="{StaticResource GridLabelStyle}"/>
-        <TextBlock Grid.Row="15" Grid.Column="1" Style="{StaticResource GridTextBlockStyle}" Text="{Binding CurrentVolunteer.CallInProgress}"/>
-        
-        <Button Grid.Row="15" Grid.Column="2" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" Margin="5"/>
+        <Label Grid.Row="15" Grid.Column="0" Content="CallInProgress:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="16,0,0,0" Height="25" Width="111"/>
+        <TextBox Grid.Row="15" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,0,0,5" Width="220"/>
+
+        <Button Grid.Row="16" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" Margin="0,66,1339,-92" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
 
     </Grid>
 </Window>

@@ -184,20 +184,6 @@
     <TypeOfDistance>DRIVE</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>133460139</Id>
-    <Name>Tzipy</Name>
-    <Phone>0527614421</Phone>
-    <Email>Tzip14421@gmail.com</Email>
-    <Password>19C53224324B76743F4D2D15783AECE6C48FA0210E718B1228EEF2C200FCD92B</Password>
-    <Address>Malchei Israel 12</Address>
-    <latitude>31.7887821</latitude>
-    <longitude>35.2172776</longitude>
-    <Role>STANDARD</Role>
-    <Active>true</Active>
-    <MaxDistance>219</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
     <Id>328118245</Id>
     <Name>Batya Oren</Name>
     <Phone>0583278625</Phone>
