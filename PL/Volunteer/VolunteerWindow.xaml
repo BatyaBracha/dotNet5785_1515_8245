@@ -148,7 +148,7 @@
 
         <!-- TypeOfDistance (enum) -->
         <Label Grid.Row="11" Content="TypeOfDistance:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Center" Height="25" Width="122"/>
-        <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=TypeOfDistance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TypeOfDistanceCollectionKey}}" SelectionChanged="comboBoxTypeOfDistance_SelectionChanged" Margin="5,5,0,5" Width="220"/>
+        <ComboBox Grid.Row="11" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=TypeOfDistance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TypeOfDistanceCollectionKey}}" SelectionChanged="comboBoxTypeOfDistance_SelectionChanged" Margin="5,5,0,5" Width="220"/>
 
         <!-- CallsDone (readonly) -->
         <Label Grid.Row="12" Grid.Column="0" Content="CallsDone:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="47,0,0,0" Height="25" Width="80"/>
@@ -160,13 +160,13 @@
 
         <!-- CallsOutOfdate (readonly) -->
         <Label Grid.Row="14" Content="CallsOutOfdate:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Center" Height="25" Width="118"/>
-        <TextBox Grid.Row="14" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsOutOfdate}" IsReadOnly="True" Margin="5,5,0,5" Width="220"/>
+        <TextBox Grid.Row="14" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsOutOfdate}" IsReadOnly="True" Margin="5,3,0,7" Width="220"/>
 
         <!-- CallInProgress (custom, as text) -->
         <Label Grid.Row="15" Grid.Column="0" Content="CallInProgress:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="16,0,0,0" Height="25" Width="111"/>
-        <TextBox Grid.Row="15" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,0,0,5" Width="220"/>
+        <TextBox Grid.Row="15" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,4,0,1" Width="220"/>
 
-        <Button Grid.Row="16" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" Margin="0,66,1339,-92" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+        <Button Grid.Row="15" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" Margin="0,42,1339,-42" RenderTransformOrigin="0.5,0.5" Grid.Column="1" HorizontalAlignment="Right" Width="220">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
