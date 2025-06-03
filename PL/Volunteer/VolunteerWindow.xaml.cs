@@ -44,8 +44,6 @@ namespace PL.Volunteer
             set { SetValue(ButtonTextProperty, value); }
         }
         public BO.Role Role { get; set; } = BO.Role.STANDARD;
-        public void comboBoxRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
-              => CurrentVolunteer.Role = sender is ComboBox comboBox ? (BO.Role)comboBox.SelectedItem : BO.Role.STANDARD;
 
         public BO.TypeOfDistance TypeOfDistance { get; set; } = BO.TypeOfDistance.WALK;
         public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -95,10 +93,13 @@ namespace PL.Volunteer
         public VolunteerWindow(int Id=0)
         {
             ButtonText = Id == 0 ? "Add" : "Update";
+            CurrentVolunteer = (Id != 0) ? s_bl.Volunteer.Read(Id)!
+           : new BO.Volunteer(0, "", "", "", "", null, null, null, BO.Role.STANDARD, true, null, BO.TypeOfDistance.WALK, 0, 0, 0, null);
 
             InitializeComponent();
-            CurrentVolunteer = (Id != 0) ? s_bl.Volunteer.Read(Id)! 
-            :new BO.Volunteer(0, "", "", "", "", null, null, null, BO.Role.STANDARD, true, null, BO.TypeOfDistance.WALK, 0, 0, 0, null);
         }
+        public void comboBoxRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
+      => CurrentVolunteer.Role = sender is ComboBox comboBox ? (BO.Role)comboBox.SelectedItem : BO.Role.STANDARD;
+
     }
 }

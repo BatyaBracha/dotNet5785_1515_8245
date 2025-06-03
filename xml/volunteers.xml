@@ -170,31 +170,31 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>216223669</Id>
-    <Name>Rachel</Name>
-    <Phone>0583251410</Phone>
-    <Email>racheli@gmail.com</Email>
-    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
-    <Address>Man 3 Jerusalem Israel</Address>
-    <latitude>31.761716</latitude>
-    <longitude>35.1984241</longitude>
-    <Role>2</Role>
-    <Active>false</Active>
-    <MaxDistance>1</MaxDistance>
-    <TypeOfDistance>DRIVE</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
     <Id>328118245</Id>
     <Name>Batya Oren</Name>
     <Phone>0583278625</Phone>
-    <Email>batyabracha2005@gmail.com</Email>
-    <Password>DE3A63953EA1F5D22DADC3FD28EBB73756BAA30BE613C78ACB01745537DEFA9A</Password>
+    <Email>batyabrcha2005@gmail.com</Email>
+    <Password>3CADFAADE4A290AACF7153443635C5C03FE818CC6CCD14D80A7253E897FA0C13</Password>
     <Address>Ha'ayalot 25</Address>
     <latitude>31.869553</latitude>
     <longitude>35.140127</longitude>
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
     <MaxDistance>250</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>216223669</Id>
+    <Name>Rachel</Name>
+    <Phone>0583251410</Phone>
+    <Email>racheli@gmail.com</Email>
+    <Password>DE3A63953EA1F5D22DADC3FD28EBB73756BAA30BE613C78ACB01745537DEFA9A</Password>
+    <Address>Man 3 Jerusalem Israel</Address>
+    <latitude>31.761716</latitude>
+    <longitude>35.1984241</longitude>
+    <Role>ADMINISTRATOR</Role>
+    <Active>false</Active>
+    <MaxDistance>1</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

@@ -8,8 +8,7 @@
         Title="VolunteerWindow" Height="842" Width="2030"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Window.Resources>
-        <local:VolunteerListWindow x:Key="RoleCollectionKey"/>
-        <local:VolunteerListWindow x:Key="TypeOfDistanceCollectionKey"/>
+        
 
         <!-- Beautiful Label Style -->
         <Style x:Key="GridLabelStyle" TargetType="Label">
@@ -170,17 +169,19 @@
         <Label Grid.Row="15" Grid.Column="0" Content="CallInProgress:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="16,0,0,0" Height="25" Width="111"/>
         <TextBox Grid.Row="15" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,0,0,5" Width="220"/>
 
-        <Button Grid.Row="16" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" Margin="0,66,1339,-92" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+            <Button Grid.Row="16" Grid.Column="1" 
+        Content="{Binding ButtonText}" 
+        Click="btnAddUpdate_Click" 
+        Margin="10,20,0,20" 
+        Width="150"
+        Height="40"
+        FontSize="14"
+        FontWeight="SemiBold"
+        Background="#6C63FF"
+        Foreground="White"
+        BorderThickness="0"
+        Cursor="Hand"/>
 
-    </Grid>
+        </Grid>
     </ScrollViewer>
 </Window>
