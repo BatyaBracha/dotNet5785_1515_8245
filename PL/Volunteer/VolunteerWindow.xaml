@@ -163,11 +163,11 @@
 
         <!-- CallsOutOfdate (readonly) -->
         <Label Grid.Row="14" Content="CallsOutOfdate:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Center" Height="25" Width="118"/>
-        <TextBox Grid.Row="14" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsOutOfdate}" IsReadOnly="True" Margin="5,5,0,5" Width="220"/>
+        <TextBox Grid.Row="14" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsOutOfdate}" IsReadOnly="True" Margin="5,3,0,7" Width="220"/>
 
         <!-- CallInProgress (custom, as text) -->
         <Label Grid.Row="15" Grid.Column="0" Content="CallInProgress:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="16,0,0,0" Height="25" Width="111"/>
-        <TextBox Grid.Row="15" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,0,0,5" Width="220"/>
+        <TextBox Grid.Row="15" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,4,0,1" Width="220"/>
 
             <Button Grid.Row="16" Grid.Column="1" 
         Content="{Binding ButtonText}" 
