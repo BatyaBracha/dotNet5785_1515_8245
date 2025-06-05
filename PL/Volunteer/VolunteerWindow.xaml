@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Volunteer"
         mc:Ignorable="d"
-        Title="VolunteerWindow" Height="842" Width="2030"
+        Title="VolunteerWindow" Height="670" Width="415"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Window.Resources>
         
@@ -172,7 +172,7 @@
             <Button Grid.Row="16" Grid.Column="1" 
         Content="{Binding ButtonText}" 
         Click="btnAddUpdate_Click" 
-        Margin="40,30,1374,10" 
+        Margin="40,21,35,19" 
         Width="150"
         Height="40"
         FontSize="14"
