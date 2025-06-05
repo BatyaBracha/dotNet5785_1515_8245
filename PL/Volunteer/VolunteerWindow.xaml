@@ -172,7 +172,7 @@
             <Button Grid.Row="16" Grid.Column="1" 
         Content="{Binding ButtonText}" 
         Click="btnAddUpdate_Click" 
-        Margin="10,20,0,20" 
+        Margin="40,30,1374,10" 
         Width="150"
         Height="40"
         FontSize="14"
