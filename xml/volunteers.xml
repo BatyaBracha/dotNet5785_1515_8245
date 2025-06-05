@@ -188,11 +188,11 @@
     <Name>Batya Oren</Name>
     <Phone>0583278625</Phone>
     <Email>batyabrcha2005@gmail.com</Email>
-    <Password>78113488EBD1442676ABD73076B7FC9FD63A09793FF10BC8A9F57B0C87355F36</Password>
+    <Password>980D23A08ABD4120AD713969E00E00225FCA77A138A58A24B09D77DA53A7B37C</Password>
     <Address>Ha'ayalot 25</Address>
     <latitude>31.869553</latitude>
     <longitude>35.140127</longitude>
-    <Role>STANDARD</Role>
+    <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
     <MaxDistance>250</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
