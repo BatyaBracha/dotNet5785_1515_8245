@@ -1,4 +1,4 @@
-﻿<Window x:Class="PL.Volunteer.VolunteerListWindow"
+﻿<!--<Window x:Class="PL.Volunteer.VolunteerListWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,29 +8,45 @@
         Title="VolunteerListWindow" Height="530" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
 
-    <!--External Grid-->
+    -->
+<!--External Grid-->
+<!--
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
-            <!-- For the Internal, Upper Grid -->
+            -->
+<!-- For the Internal, Upper Grid -->
+<!--
             <RowDefinition Height="500*"/>
-            <!-- For the DataGrid -->
+            -->
+<!-- For the DataGrid -->
+<!--
             <RowDefinition Height="Auto"/>
-            <!-- For the Add Button -->
+            -->
+<!-- For the Add Button -->
+<!--
         </Grid.RowDefinitions>
 
-        <!-- Internal, Upper Grid -->
+        -->
+<!-- Internal, Upper Grid -->
+<!--
         <Grid Grid.Row="0" VerticalAlignment="Top" Height="74" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <!-- For the Label -->
+                -->
+<!-- For the Label -->
+<!--
                 <ColumnDefinition Width="*"/>
-                <!-- For the ComboBox -->
+                -->
+<!-- For the ComboBox -->
+<!--
             </Grid.ColumnDefinitions>
 
             <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Volunteer Details" FontSize="20"/>
             <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-                <!-- Sorting ComboBox -->
+                -->
+<!-- Sorting ComboBox -->
+<!--
                 <ComboBox SelectedValue="{Binding Path=VolunteerFieldsFilter, Mode=TwoWay}" 
               ItemsSource="{Binding Source={StaticResource VolunteerFieldsCollectionKey}}" 
               SelectionChanged="comboBoxVolunteerList_SelectionChanged" 
@@ -40,12 +56,16 @@
               SelectionChanged="comboBoxTypeOfCallFilter_SelectionChanged" 
               Width="150"/>
 
-                <!-- Filtering ComboBox -->
+                -->
+<!-- Filtering ComboBox -->
+<!--
             </StackPanel>
         </Grid>
 
-        <!-- DataGrid -->
-        <!--<DataGrid Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" ItemsSource="{Binding Path=VolunteerList}"/>-->
+        -->
+<!-- DataGrid -->
+<!--<DataGrid Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" ItemsSource="{Binding Path=VolunteerList}"/>-->
+<!--
         <DataGrid Grid.Row="1"
           Margin="0,40,0,0"
           ItemsSource="{Binding Path=VolunteerList}"
@@ -53,6 +73,123 @@
           IsReadOnly="True"
           SelectedItem="{Binding SelectedVolunteer}"
           MouseDoubleClick="lsvVolunteersList_MouseDoubleClick">
+            <DataGrid.Columns>
+                -->
+<!-- Id -->
+<!--
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*"/>
+                -->
+<!-- Name -->
+<!--
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" />
+
+                -->
+<!-- Active (CheckBox) -->
+<!--
+                <DataGridTemplateColumn Header="Active" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Active}" IsEnabled="False" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                -->
+<!-- CallsOutOfDate -->
+<!--
+                <DataGridTextColumn Binding="{Binding CallsOutOfDate}" Header="Out-of-date Calls" Width="*" />
+
+                -->
+<!-- CallsCanceled -->
+<!--
+                <DataGridTextColumn Binding="{Binding CallsCanceled}" Header="Canceled Calls" Width="*" />
+
+                -->
+<!-- CallsDone -->
+<!--
+                <DataGridTextColumn Binding="{Binding CallsDone}" Header="Done Calls" Width="*" />
+                -->
+<!-- Delete button -->
+<!--
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="DeleteButton_Click" Tag="{Binding Id}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        -->
+<!-- Add Button -->
+<!--
+        <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100" Click="AddButton_Click"/>
+    </Grid>
+</Window>-->
+
+<Window x:Class="PL.Volunteer.VolunteerListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.Volunteer"
+        mc:Ignorable="d"
+        Title="VolunteerListWindow" Height="530" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+        Background="#F9F9F9" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <!-- For the Internal, Upper Grid -->
+            <RowDefinition Height="500*"/>
+            <!-- For the DataGrid -->
+        </Grid.RowDefinitions>
+
+        <!-- Internal, Upper Grid -->
+        <Grid Grid.Row="0" VerticalAlignment="Top" Height="72" RenderTransformOrigin="0.499,0.764" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <!-- For the Label -->
+                <ColumnDefinition Width="*"/>
+                <!-- For the ComboBox -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- For the Add Button -->
+            </Grid.ColumnDefinitions>
+
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Volunteers Details" 
+             FontSize="24" FontWeight="Bold" Foreground="#333333" Margin="0,17,0,0"/>
+            <!--<StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">-->
+            <!-- Sorting ComboBox -->
+            <ComboBox SelectedValue="{Binding Path=VolunteerFieldsFilter, Mode=TwoWay}" 
+                  ItemsSource="{Binding Source={StaticResource VolunteerFieldsCollectionKey}}" 
+                  SelectionChanged="comboBoxVolunteerList_SelectionChanged" 
+                  Width="150" Margin="194,2,46,40" Background="White" BorderBrush="#CCCCCC" Height="30" Grid.Column="1" RenderTransformOrigin="0.747,0.351"/>
+            <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" 
+                  ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}" 
+                  SelectionChanged="comboBoxTypeOfCallFilter_SelectionChanged" 
+                  Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Grid.Column="1" Margin="194,40,46,2"/>
+            <!--</StackPanel>-->
+
+            <!-- Add Button with Icon -->
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="50" 
+            Click="AddButton_Click" Background="#4CAF50" BorderBrush="#388E3C" BorderThickness="1"  Content="➕" Margin="18,0,0,0"/>
+        </Grid>
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="1"
+           Margin="0,10,10,0"
+           ItemsSource="{Binding Path=VolunteerList}"
+           AutoGenerateColumns="False"
+           IsReadOnly="True"
+           SelectedItem="{Binding SelectedVolunteer}"
+           MouseDoubleClick="lsvVolunteersList_MouseDoubleClick"
+           Background="White" 
+           BorderBrush="#CCCCCC" 
+           BorderThickness="1"
+           RowBackground="White" 
+           AlternatingRowBackground="#F5F5F5"
+           HorizontalGridLinesBrush="#E0E0E0"
+           VerticalGridLinesBrush="#E0E0E0">
             <DataGrid.Columns>
                 <!-- Id -->
                 <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="*"/>
@@ -76,18 +213,18 @@
 
                 <!-- CallsDone -->
                 <DataGridTextColumn Binding="{Binding CallsDone}" Header="Done Calls" Width="*" />
-                <!-- Delete button -->
+
+                <!-- Delete button with Icon -->
                 <DataGridTemplateColumn Header="Actions">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Delete" Click="DeleteButton_Click" Tag="{Binding Id}" />
+                            <Button Click="DeleteButton_Click" Tag="{Binding Id}" Content="❌"
+                        Background="#F44336" BorderBrush="#D32F2F" BorderThickness="1" Width="30" Height="30">
+                            </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
-        <!-- Add Button -->
-        <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100" Click="AddButton_Click"/>
     </Grid>
 </Window>
