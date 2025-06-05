@@ -160,7 +160,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         }
     }
 
-    public IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? filter = null, BO.VolunteerFields? sort = null, object? value = null)
+    public IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? filter = null, BO.VolunteerFields? sort = null, BO.TypeOfCall? typeOfCallFilter = null)
     {
         try
         {
@@ -188,6 +188,8 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                     TypeOfCall = callId != null ? (BO.TypeOfCall)Volunteer_dal.Call.Read(callId.Value).TypeOfCall : BO.TypeOfCall.NONE,
                 };
             });
+            if (typeOfCallFilter.HasValue)
+                volunteerList = volunteerList.Where(v => v.TypeOfCall == typeOfCallFilter).ToList();
 
             // מיון לפי שדה ספציפי
             if (sort.HasValue && sort!=BO.VolunteerFields.None)
