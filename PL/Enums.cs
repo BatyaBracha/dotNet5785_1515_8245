@@ -13,6 +13,13 @@ internal class VolunteerFieldsCollection : IEnumerable
 
     public IEnumerator GetEnumerator() => s_enums.GetEnumerator();
 }
+public class TypeOfCallCollection : IEnumerable
+{
+    static readonly IEnumerable<BO.TypeOfCall> s_enums =
+                  (Enum.GetValues(typeof(BO.TypeOfCall)) as IEnumerable<BO.TypeOfCall>)!;
+
+    public IEnumerator GetEnumerator() => s_enums.GetEnumerator();
+}
 
 public class Role : IEnumerable
 {

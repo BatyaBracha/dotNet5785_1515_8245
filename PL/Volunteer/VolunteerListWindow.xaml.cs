@@ -34,10 +34,15 @@ namespace PL.Volunteer
             DependencyProperty.Register("VolunteerList", typeof(IEnumerable<BO.VolunteerInList>), typeof(VolunteerListWindow), new PropertyMetadata(null));
 
         public BO.VolunteerFields VolunteerFieldsFilter { get; set; } =BO.VolunteerFields.None;
+        public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; }
 
         public void comboBoxVolunteerList_SelectionChanged(object sender, SelectionChangedEventArgs e) 
                       => VolunteerList = (VolunteerFieldsFilter == BO.VolunteerFields.None) ?
                                       s_bl?.Volunteer.ReadAll()! : s_bl?.Volunteer.ReadAll(null, VolunteerFieldsFilter)!;
+        public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    => VolunteerList = (SelectedTypeOfCallFilter == null)
+        ? s_bl?.Volunteer.ReadAll()!
+        : s_bl?.Volunteer.ReadAll(null, null, SelectedTypeOfCallFilter)!;
 
         private void queryVolunteerList()
                       => VolunteerList = (VolunteerFieldsFilter == BO.VolunteerFields.None) ?

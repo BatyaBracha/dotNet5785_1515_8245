@@ -29,7 +29,19 @@
             </Grid.ColumnDefinitions>
 
             <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Volunteer Details" FontSize="20"/>
-            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  SelectedValue="{Binding Path=VolunteerFieldsFilter, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource VolunteerFieldsCollectionKey}}" SelectionChanged="comboBoxVolunteerList_SelectionChanged"/>
+            <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                <!-- Sorting ComboBox -->
+                <ComboBox SelectedValue="{Binding Path=VolunteerFieldsFilter, Mode=TwoWay}" 
+              ItemsSource="{Binding Source={StaticResource VolunteerFieldsCollectionKey}}" 
+              SelectionChanged="comboBoxVolunteerList_SelectionChanged" 
+              Width="150" Margin="5"/>
+
+                <!-- Filtering ComboBox -->
+                <ComboBox SelectedValue="{Binding Path=SelectedTypeOfCallFilter, Mode=TwoWay}" 
+              ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}" 
+              SelectionChanged="comboBoxTypeOfCallFilter_SelectionChanged" 
+              Width="150" Margin="5"/>
+            </StackPanel>
         </Grid>
 
         <!-- DataGrid -->
