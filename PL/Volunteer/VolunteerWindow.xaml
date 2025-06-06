@@ -8,7 +8,8 @@
         Title="VolunteerWindow" Height="650" Width="430"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Window.Resources>
-
+        <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
+        <local:ConvertUpdateToVisible x:Key="ConvertUpdateToVisibleKey"/>
 
         <!-- Beautiful Label Style -->
         <Style x:Key="GridLabelStyle" TargetType="Label">
@@ -131,7 +132,7 @@
 
             <!-- Id (readonly) -->
             <Label Grid.Column="0" Content="Id:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Id}" IsReadOnly="True" Margin="5,5,0,5"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Id}" IsReadOnly="{Binding ButtonText, Converter={StaticResource ConvertUpdateToTrueKey}}"/>
 
             <!-- Name -->
             <Label Grid.Row="1" Grid.Column="0" Content="Name:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
