@@ -107,8 +107,9 @@
             <Setter Property="BorderThickness" Value="0.5"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="90"/>
             <!--<Setter Property="Margin" Value="5"/>-->
-            <Setter Property="Padding" Value="4,2"/>
+            <!--<Setter Property="Padding" Value="4,2"/>-->
         </Style>
 
         <!-- Button Style -->
@@ -118,12 +119,12 @@
             <Setter Property="Background" Value="DarkGreen"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="10,5"/>
+            <!--<Setter Property="Padding" Value="10,5"/>-->
             <!--<Setter Property="Margin" Value="5"/>-->
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Width" Value="120"/>
+            <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -156,37 +157,38 @@
         <!-- Internal, Upper Grid -->
         <Grid Grid.Row="0" Margin="0,0,0,10" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="73*"/>
+                <ColumnDefinition Width="67*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Sub-grid for Label, TextBox, and Button -->
-            <Grid Grid.Column="0" Margin="14,111,336,135" Grid.ColumnSpan="2">
+            <Grid Grid.Column="0" Margin="14,95,330,132" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" MinWidth="109"/>
-                    <ColumnDefinition Width="91*"/>
-                    <ColumnDefinition Width="150*"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.2*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Margin="4,65,0,0" VerticalAlignment="Top" Content="Risk range:" FontSize="20" Style="{StaticResource GridLabelStyle}" Height="37" Width="109" Grid.ColumnSpan="2"/>
-                <TextBox Grid.Column="1" Margin="8,67,10,0" TextWrapping="Wrap" Text="{Binding RiskRange}" VerticalAlignment="Top" Height="35" Style="{StaticResource GridTextBoxStyle}"/>
-                <Button Grid.Column="2" Content="Update" HorizontalAlignment="Stretch" Height="37" Margin="12,65,18,0" VerticalAlignment="Top" Click="btnSetRiskRange_Click" Style="{StaticResource PrimaryButtonStyle}"/>
+                <Label Margin="0,59,0,0" VerticalAlignment="Top" Content="Risk range:" FontSize="20" Style="{StaticResource GridLabelStyle}" Height="37" Width="108" Grid.ColumnSpan="2"/>
+                <TextBox Margin="110,59,12,0" TextWrapping="Wrap" Text="{Binding RiskRange}" VerticalAlignment="Top" Style="{StaticResource GridTextBoxStyle}" Grid.ColumnSpan="2"/>
+                <Button Grid.Column="2" Content="Update" HorizontalAlignment="Stretch" Height="40"  Click="btnSetRiskRange_Click" Style="{StaticResource PrimaryButtonStyle}" VerticalAlignment="Top" Width="110" Margin="0,59,8,0"/>
             </Grid>
 
             <!-- Clock and other buttons -->
-            <Label Margin="26,85,0,0" VerticalAlignment="Top" Width="314" Content="{Binding CurrentTime}" FontWeight="Bold" FontSize="20" Style="{StaticResource GridLabelStyle}"/>
-            <Button Grid.Column="1" Content="Add one minute" Margin="0,85,0,0" VerticalAlignment="Top" Width="312" Click="btnAddOneMinute_Click" Style="{StaticResource PrimaryButtonStyle}"/>
-            <Button Grid.Column="1" Content="Add one hour" Width="312" Click="btnAddOneHour_Click" Style="{StaticResource PrimaryButtonStyle}" Margin="0,136,0,0" VerticalAlignment="Top"/>
-            <Button Grid.Column="1" Content="Add one day" Width="312" RenderTransformOrigin="0.502,0.253" Click="btnAddOneDay_Click" Style="{StaticResource PrimaryButtonStyle}" Margin="0,186,0,0" VerticalAlignment="Top"/>
-            <Button Grid.Column="1" Content="Add one month" Margin="0,238,0,0" VerticalAlignment="Top" Width="312" Click="btnAddOneMonth_Click" Style="{StaticResource PrimaryButtonStyle}"/>
-            <Button Grid.Column="1" Content="Add one year" Margin="0,289,0,0" VerticalAlignment="Top" Width="312" Click="btnAddOneYear_Click" Style="{StaticResource PrimaryButtonStyle}"/>
+            <Label Margin="0,40,0,0" VerticalAlignment="Top" Width="232" Content="{Binding CurrentTime}" FontWeight="Bold" FontSize="20" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Center" Grid.Column="1" Height="40"/>
+            <Button Grid.Column="1" Content="Add one minute" Margin="0,85,0,0" VerticalAlignment="Top" Width="312" Click="btnAddOneMinute_Click" Style="{StaticResource PrimaryButtonStyle}" Height="40"/>
+            <Button Grid.Column="1" Content="Add one hour" Width="312" Click="btnAddOneHour_Click" Style="{StaticResource PrimaryButtonStyle}" Margin="0,136,0,0" VerticalAlignment="Top" Height="40"/>
+            <Button Grid.Column="1" Content="Add one day" Width="312" RenderTransformOrigin="0.502,0.253" Click="btnAddOneDay_Click" Style="{StaticResource PrimaryButtonStyle}" Margin="0,186,0,0" VerticalAlignment="Top" Height="40"/>
+            <Button Grid.Column="1" Content="Add one month" Margin="0,238,0,0" VerticalAlignment="Top" Width="312" Click="btnAddOneMonth_Click" Style="{StaticResource PrimaryButtonStyle}" Height="40"/>
+            <Button Grid.Column="1" Content="Add one year" Margin="0,289,0,0" VerticalAlignment="Top" Width="312" Click="btnAddOneYear_Click" Style="{StaticResource PrimaryButtonStyle}" Height="40"/>
+            <TextBlock HorizontalAlignment="Left" Margin="89,51,0,0" TextWrapping="Wrap" Text="welcome" VerticalAlignment="Top" Height="65" Width="206" FontSize="50"/>
+            <!--<Image HorizontalAlignment="Left" Height="100" Margin="20,48,0,0" VerticalAlignment="Top" Width="332" Source="./Images/welcome.png"/>-->
         </Grid>
 
         <!-- Lower Buttons -->
         <Button Content="Reset DB" Width="158" Margin="21,211,0,0" Grid.Row="1" Click="btnResetDB_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
-        <Button Content="Handle Volunteers" Width="158" Margin="192,211,0,0" Grid.Row="1" Click="btnVolunteerList_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
+        <Button Content="Handle Volunteers" Width="158" Margin="196,211,0,0" Grid.Row="1" Click="btnVolunteerList_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
         <Button Content="Init DB" Width="158" Margin="21,262,0,0" Grid.Row="1" Click="btnInitializeDB_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
-        <Button Content="Handle Calls" Width="158" Margin="192,262,0,0" Grid.Row="1" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
+        <Button Content="Handle Calls" Width="158" Margin="196,262,0,0" Grid.Row="1" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
     </Grid>
 </Window>
