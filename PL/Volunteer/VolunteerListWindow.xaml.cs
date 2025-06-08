@@ -34,7 +34,7 @@ namespace PL.Volunteer
             DependencyProperty.Register("VolunteerList", typeof(IEnumerable<BO.VolunteerInList>), typeof(VolunteerListWindow), new PropertyMetadata(null));
 
         public BO.VolunteerFields VolunteerFieldsFilter { get; set; } =BO.VolunteerFields.None;
-        public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; }
+        public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; }=BO.TypeOfCall.NONE;
 
         public void comboBoxVolunteerList_SelectionChanged(object sender, SelectionChangedEventArgs e) 
                       => VolunteerList = (VolunteerFieldsFilter == BO.VolunteerFields.None) ?
