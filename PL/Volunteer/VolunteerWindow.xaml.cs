@@ -58,7 +58,7 @@ namespace PL.Volunteer
                     s_bl.Volunteer.Create(CurrentVolunteer!);
                     MessageBox.Show("Volunteer added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                else
+                else if (ButtonText == "Update")
                 {
                     s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer!);
                     MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -71,6 +71,20 @@ namespace PL.Volunteer
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        //private void btnAddUpdate_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (ButtonText == "Add")
+        //    {
+        //        s_bl.Volunteer.Create(CurrentVolunteer);
+        //        MessageBox.Show("Volunteer added successfully!");
+        //    }
+        //    else if (ButtonText == "Update")
+        //    {
+        //        s_bl.Volunteer.Update(CurrentVolunteer.Id,CurrentVolunteer);
+        //        MessageBox.Show("Volunteer updated successfully!");
+        //    }
+        //}
 
         private void queryVolunteerDetails()
         {
