@@ -78,6 +78,7 @@
                 <!-- Name -->
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" />
 
+                
                 <!-- Active (CheckBox) -->
                 <DataGridTemplateColumn Header="Active" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
