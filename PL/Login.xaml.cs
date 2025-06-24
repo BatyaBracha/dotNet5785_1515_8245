@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,21 +18,64 @@ namespace PL
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Login : Window, INotifyPropertyChanged
     {
         public Login()
         {
             InitializeComponent();
         }
-        private void TextBoxPassword_TextChanged(object sender, TextChangedEventArgs e)
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+        static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
+
+        public int Id
         {
-            if (sender is TextBox textBox)
+            get { return (int)GetValue(IdProperty); }
+            set { SetValue(IdProperty, value); }
+        }
+
+        public static readonly DependencyProperty IdProperty =
+            DependencyProperty.Register("Id", typeof(int), typeof(Login));
+
+        private string _password;
+        public string Password
+        {
+            get => _password;
+            set
             {
-                // Hide the password characters
-                textBox.Text = new string('*', textBox.Text.Length);
-                textBox.CaretIndex = textBox.Text.Length; // Move caret to the end
+                if (_password != value)
+                {
+                    _password = value;
+                    OnPropertyChanged(nameof(Password)); // אם את משתמשת ב־INotifyPropertyChanged
+                }
             }
         }
+
+
+        //public string Password
+        //{
+        //    get { return (string)GetValue(PasswordProperty); }
+        //    set { SetValue(PasswordProperty, value); }
+        //}
+
+        //public static readonly DependencyProperty PasswordProperty =
+        //    DependencyProperty.Register("PasswordProperty", typeof(string), typeof(Login));
+
+
+        //private void TextBoxPassword_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    if (sender is TextBox textBox)
+        //    {
+        //        // Hide the password characters
+        //        textBox.Text = new string('*', textBox.Text.Length);
+        //        textBox.CaretIndex = textBox.Text.Length; // Move caret to the end
+        //    }
+        //}
 
         private void TextBoxId_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -40,14 +84,33 @@ namespace PL
 
         private void ButtonLoginAsAdmin_Click(object sender, RoutedEventArgs e)
         {
-            // Handle login logic here
-            MessageBox.Show("Login button clicked!");
+            if (s_bl.Volunteer.Login(Id, Password) == BO.Role.ADMINISTRATOR)
+            {
+                // Navigate to Admin window
+                MainWindow adminWindow = new MainWindow();
+                adminWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Login failed. Please check your credentials.");
+            }
         }
 
         private void ButtonLoginAsVolunteer_Click(object sender, RoutedEventArgs e)
         {
-            // Handle login logic here
-            MessageBox.Show("Login button clicked!");
+
+            if (s_bl.Volunteer.Login(Id, Password) == BO.Role.STANDARD || s_bl.Volunteer.Login(Id, Password) == BO.Role.ADMINISTRATOR)
+            {
+                // Navigate to Volunteer window
+                Volunteer.VolunteerMainWindow volunteerWindow = new Volunteer.VolunteerMainWindow(Id);
+                volunteerWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Login failed. Please check your credentials.");
+            }
         }
     }
 }

@@ -211,4 +211,18 @@
     <MaxDistance>234</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
+  <Volunteer>
+    <Id>123456782</Id>
+    <Name>Admin</Name>
+    <Phone>0548571410</Phone>
+    <Email>wesaveliveseveryday@gmail.com</Email>
+    <Password>E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855</Password>
+    <Address>Man 3 Jerusalem</Address>
+    <latitude>31.761716</latitude>
+    <longitude>35.1984241</longitude>
+    <Role>ADMINISTRATOR</Role>
+    <Active>true</Active>
+    <MaxDistance>97</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
 </ArrayOfVolunteer>
