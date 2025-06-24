@@ -189,6 +189,6 @@
         <Button Content="Reset DB" Width="158" Margin="21,211,0,0" Grid.Row="1" Click="btnResetDB_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
         <Button Content="Handle Volunteers" Width="158" Margin="196,211,0,0" Grid.Row="1" Click="btnVolunteerList_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
         <Button Content="Init DB" Width="158" Margin="21,262,0,0" Grid.Row="1" Click="btnInitializeDB_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
-        <Button Content="Handle Calls" Width="158" Margin="196,262,0,0" Grid.Row="1" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
+        <Button Content="Handle Calls" Width="158" Margin="196,262,0,0" Grid.Row="1" Click="btnCallList_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40"/>
     </Grid>
 </Window>

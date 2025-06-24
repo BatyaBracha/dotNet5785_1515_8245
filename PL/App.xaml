@@ -5,6 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <local:VolunteerFieldsCollection x:Key="VolunteerFieldsCollectionKey"/>
+        <local:CallFieldsCollection x:Key="CallFieldsCollectionKey"/>
         <local:TypeOfCallCollection x:Key="TypeOfCallCollectionKey"/>
         <local:Role x:Key="RoleCollectionKey"/>
         <local:TypeOfDistance x:Key="TypeOfDistanceCollectionKey"/>

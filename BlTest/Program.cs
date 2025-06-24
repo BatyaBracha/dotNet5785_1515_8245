@@ -424,7 +424,7 @@ internal class Program
             //Console.WriteLine("2 for PRIORITY");
             Console.WriteLine("1 for TYPE");
             string filterFieldInput = Console.ReadLine();
-            filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
+            filterBy = Enum.TryParse<BO.CallInListField>(filterFieldInput, out var filterField) ? filterField : null;
 
             Console.WriteLine("Enter the filter value: (if filtering according to type, these are some options:CARDIAC_ARREST,DIFFICULTY_BREATHING");
             filterValue = Console.ReadLine(); // Adjust parsing based on expected type
@@ -515,7 +515,7 @@ internal class Program
         {
             Console.WriteLine("Select a filter field (STATUS, PRIORITY, TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
             string filterFieldInput = Console.ReadLine();
-            filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
+            filterBy = Enum.TryParse<BO.CallInListField>(filterFieldInput, out var filterField) ? filterField : null;
 
             Console.WriteLine("Enter the filter value:");
             filterValue = Console.ReadLine(); // Adjust parsing based on expected type
@@ -530,7 +530,7 @@ internal class Program
         {
             Console.WriteLine("Select a sort field (STATUS, TYPEOFCALL):");
             string sortFieldInput = Console.ReadLine();
-            sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
+            sortBy = Enum.TryParse<BO.CallInListField>(sortFieldInput, out var sortField) ? sortField : null;
         }
 
         var closedCalls = s_bl.Call.GetClosedCallsHandledByTheVolunteer(volunteerId, filterBy, filterValue, sortBy);
@@ -560,7 +560,7 @@ internal class Program
         {
             Console.WriteLine("Select a filter field (STATUS, PRIORITY, TYPE, ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
             string filterFieldInput = Console.ReadLine();
-            filterBy = Enum.TryParse<BO.CallField>(filterFieldInput, out var filterField) ? filterField : null;
+            filterBy = Enum.TryParse<BO.CallInListField>(filterFieldInput, out var filterField) ? filterField : null;
 
             Console.WriteLine("Enter the filter value:");
             filterValue = Console.ReadLine(); // Adjust parsing based on expected type
@@ -575,7 +575,7 @@ internal class Program
         {
             Console.WriteLine("Select a sort field (ADDRESS, CALL_VOLUNTEER_DISTANCE, ID):");
             string sortFieldInput = Console.ReadLine();
-            sortBy = Enum.TryParse<BO.CallField>(sortFieldInput, out var sortField) ? sortField : null;
+            sortBy = Enum.TryParse<BO.CallInListField>(sortFieldInput, out var sortField) ? sortField : null;
         }
 
         IEnumerable<BO.OpenCallInList> openCalls = s_bl.Call!.GetOpenCallsCanBeSelectedByAVolunteer(volunteerId, filterBy, sortBy);

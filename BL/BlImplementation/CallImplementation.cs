@@ -181,6 +181,8 @@ namespace BlImplementation
             return callList;
         }
 
+
+
         //public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
         //{
         //    var calls = Call_dal.Assignment.ReadAll()

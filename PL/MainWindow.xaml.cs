@@ -1,5 +1,6 @@
 ﻿using BO;
 using PL.Volunteer;
+using PL.Call;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -135,6 +136,11 @@ namespace PL
         private void btnVolunteerList_Click(object sender, EventArgs e)
         {
             new VolunteerListWindow().Show();
+        }
+
+        private void btnCallList_Click(object sender, EventArgs e)
+        {
+            new CallListWindow().Show();
         }
 
         public MainWindow()

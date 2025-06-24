@@ -99,13 +99,16 @@ internal static class CallManager
     {
         if (sortBy == null)
             return items.OrderBy(c => (c as dynamic).Id); // Default sort by ID
-
+        // Status,TypeOfCall, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID ,None
         // Sort by the field defined in the sortBy enum
         return sortBy switch
         {
-            BO.CallInListField.TYPEOFCALL => items.OrderBy(c => (c as dynamic).TypeOfCall),
-            BO.CallInListField.STATUS => items.OrderBy(c => (c as dynamic).Status),
-
+            BO.CallInListField.TypeOfCall => items.OrderBy(c => (c as dynamic).TypeOfCall),
+            BO.CallInListField.Status => items.OrderBy(c => (c as dynamic).Status),
+            BO.CallInListField.ADDRESS => items.OrderBy(c => (c as dynamic).ADDRESS),
+            BO.CallInListField.CALL_VOLUNTEER_DISTANCE => items.OrderBy(c => (c as dynamic).CALL_VOLUNTEER_DISTANCE),
+            BO.CallInListField.ID => items.OrderBy(c => (c as dynamic).ID),
+            BO.CallInListField.None => items.OrderBy(c => (c as dynamic).Id), // Default sort by ID
             _ => throw new BlNullPropertyException("Unsupported sort field", nameof(sortBy)),
         };
     }
