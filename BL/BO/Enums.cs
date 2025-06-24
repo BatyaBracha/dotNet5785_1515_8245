@@ -34,7 +34,7 @@ public enum AssignmentStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_I
 public enum CallFieldFilter { Id, TypeOfCall, Description, Address, Latitude, Longitude, Openingtime, MaxClosingtime, StatusAssignedVolunteers }
 public enum TimeUnit { YEAR,MONTH, DAY, HOUR, MINUTE }
 public enum TypeOfTreatmentEnding { HOSPITAL_ADMISSION, STAY_AT_HOME, DEAD, EXPIRED, UNMATCHED };
-public enum CallInListField { Status,TypeOfCall, ADDRESS, CALL_VOLUNTEER_DISTANCE,ID ,None}
+public enum CallInListField { Status,TypeOfCall ,None}
 //public enum CallInListField {TYPEOFCALL, STATUS }
 
 public enum Options

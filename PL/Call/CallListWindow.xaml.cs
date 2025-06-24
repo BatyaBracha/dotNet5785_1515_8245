@@ -42,16 +42,14 @@ namespace PL.Call
         public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; } = BO.TypeOfCall.NONE;
 
         public void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-                      => CallList = (CallFieldsFilter == BO.CallInListField.None) ?
-                                      s_bl?.Call.ReadAll(null, null, null)! : s_bl?.Call.ReadAll(null, CallFieldsFilter,null)!;
-        public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    => CallList = (SelectedTypeOfCallFilter == null)
-        ? s_bl?.Call.ReadAll(null , null, null)!
-        : s_bl?.Call.ReadAll(null, null, SelectedTypeOfCallFilter)!;
+                      => CallList =SelectedTypeOfCallFilter==BO.TypeOfCall.NONE? s_bl?.Call.ReadAll(null, null, CallFieldsFilter)!:s_bl?.Call.ReadAll(BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
+    //    public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    //=> CallList = (SelectedTypeOfCallFilter == null)
+    //    ? s_bl?.Call.ReadAll(null , null, null)!
+    //    : s_bl?.Call.ReadAll(SelectedTypeOfCallFilter, null, CallFieldsFilter)!;
 
         private void queryCallList()
-                      => CallList = (CallFieldsFilter == BO.CallInListField.None) ?
-                                      s_bl?.Call.ReadAll(null, null, null)! : s_bl?.Call.ReadAll(null, CallFieldsFilter,null)!;
+                      => CallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.ReadAll(null, null, CallFieldsFilter)! : s_bl?.Call.ReadAll(BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
 
 
         private void callListObserver()

@@ -49,7 +49,7 @@
 
             <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" 
                   ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}" 
-                  SelectionChanged="comboBoxTypeOfCallFilter_SelectionChanged" 
+                  SelectionChanged="comboBoxCallList_SelectionChanged" 
                   Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Grid.Column="1" Margin="194,40,46,2"/>
             <!--</StackPanel>-->
 
