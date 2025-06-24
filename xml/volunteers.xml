@@ -197,4 +197,18 @@
     <MaxDistance>250</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
+  <Volunteer>
+    <Id>341395549</Id>
+    <Name>Malka</Name>
+    <Phone>0989878876</Phone>
+    <Email>tyu@gmail.com</Email>
+    <Password>E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855</Password>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <Role>STANDARD</Role>
+    <Active>true</Active>
+    <MaxDistance>234</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
 </ArrayOfVolunteer>
