@@ -56,27 +56,6 @@ namespace PL
             }
         }
 
-
-        //public string Password
-        //{
-        //    get { return (string)GetValue(PasswordProperty); }
-        //    set { SetValue(PasswordProperty, value); }
-        //}
-
-        //public static readonly DependencyProperty PasswordProperty =
-        //    DependencyProperty.Register("PasswordProperty", typeof(string), typeof(Login));
-
-
-        //private void TextBoxPassword_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    if (sender is TextBox textBox)
-        //    {
-        //        // Hide the password characters
-        //        textBox.Text = new string('*', textBox.Text.Length);
-        //        textBox.CaretIndex = textBox.Text.Length; // Move caret to the end
-        //    }
-        //}
-
         private void TextBoxId_TextChanged(object sender, TextChangedEventArgs e)
         {
 
