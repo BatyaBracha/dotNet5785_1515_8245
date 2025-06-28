@@ -84,33 +84,47 @@ namespace PL
 
         private void ButtonLoginAsAdmin_Click(object sender, RoutedEventArgs e)
         {
-            if (s_bl.Volunteer.Login(Id, Password) == BO.Role.ADMINISTRATOR)
+            try
             {
-                // Navigate to Admin window
-                MainWindow adminWindow = new MainWindow();
-                adminWindow.Show();
-                this.Close();
+                if (s_bl.Volunteer.Login(Id, Password) == BO.Role.ADMINISTRATOR)
+                {
+                    // Navigate to Admin window
+                    MainWindow adminWindow = new MainWindow();
+                    adminWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Login failed. Please check your credentials.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Login failed. Please check your credentials.");
+                MessageBox.Show("Login failed. Please check your credentials.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void ButtonLoginAsVolunteer_Click(object sender, RoutedEventArgs e)
         {
-
-            if (s_bl.Volunteer.Login(Id, Password) == BO.Role.STANDARD || s_bl.Volunteer.Login(Id, Password) == BO.Role.ADMINISTRATOR)
+            try
             {
-                // Navigate to Volunteer window
-                Volunteer.VolunteerMainWindow volunteerWindow = new Volunteer.VolunteerMainWindow(Id);
-                volunteerWindow.Show();
-                this.Close();
+                BO.Role role = s_bl.Volunteer.Login(Id, Password);
+                if (role == BO.Role.STANDARD || role == BO.Role.ADMINISTRATOR)
+                {
+                    // Navigate to Volunteer window
+                    Volunteer.VolunteerMainWindow volunteerWindow = new Volunteer.VolunteerMainWindow(Id);
+                    volunteerWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Login failed. Please check your password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Login failed. Please check your credentials.");
+                MessageBox.Show("Login failed. Please check your password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            
         }
-    }
 }
