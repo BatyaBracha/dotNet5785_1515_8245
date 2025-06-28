@@ -46,7 +46,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     {
         try
         {
-            (double lat,double lon)=VolunteerManager.ValidateVolunteer(boVolunteer);
+            (double lat, double lon) = VolunteerManager.ValidateVolunteer(boVolunteer);
             var user = Volunteer_dal.Volunteer.ReadAll()
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
             if (user != null)
@@ -127,11 +127,11 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                     TimeOfOpening = assignment.TreatmentStartTime,
                     MaxFinishTime = call.MaxClosingTime,
                     TimeOfEntryToTreatment = assignment.TreatmentStartTime,
-                    CallVolunteerDistance =CallManager.GetAerialDistance(doVolunteer.Address,call.Address),
+                    CallVolunteerDistance = CallManager.GetAerialDistance(doVolunteer.Address, call.Address),
                     Status = BO.Status.BEING_HANDELED
                 };
             }
-            int numOfCompletedcalls=assignments.Where(assignment=>(BO.AssignmentStatus)assignment.AssignmentStatus==BO.AssignmentStatus.COMPLETED).Count();
+            int numOfCompletedcalls = assignments.Where(assignment => (BO.AssignmentStatus)assignment.AssignmentStatus == BO.AssignmentStatus.COMPLETED).Count();
             int numOfSelfcanceledcalls = assignments.Where(assignment => (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.SELF_CANCELED).Count();
             int numOfoutOfDatecalls = assignments.Where(assignment => (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.EXPIRED_CANCELED).Count();
 
@@ -192,7 +192,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                 volunteerList = volunteerList.Where(v => v.TypeOfCall == typeOfCallFilter).ToList();
 
             // מיון לפי שדה ספציפי
-            if (sort.HasValue && sort!=BO.VolunteerFields.None)
+            if (sort.HasValue && sort != BO.VolunteerFields.None)
             {
                 volunteerList = sort switch
                 {
@@ -215,32 +215,33 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     }
 
 
-    public void Update(int userId ,BO.Volunteer boVolunteer)
+    public void Update(int userId, BO.Volunteer boVolunteer)
     {
-        try { 
-             (double? lat, double? lon) = VolunteerManager.ValidateVolunteer(boVolunteer);
-             var user = Volunteer_dal.Volunteer.ReadAll()
-                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
+        try
+        {
+            (double? lat, double? lon) = VolunteerManager.ValidateVolunteer(boVolunteer);
+            var user = Volunteer_dal.Volunteer.ReadAll()
+                .FirstOrDefault(u => u.Id == boVolunteer.Id);
             //בשלב 5 צריך להוסיף שאם התז הוא לא של המשתמש הנוכחי או של המנהל אז לא ניתן לעדכן את המתנדב
-            if (user == null )
-                  throw new BO.BlArgumentException("username or password are incorrect.");
-             var doVolunteer = new DO.Volunteer
-             {
-                 Id = boVolunteer.Id,
-                 Name = boVolunteer.Name,
-                 Phone = boVolunteer.PhoneNumber,
-                 Email = boVolunteer.Email,
-                 Password = Tools.HashPassword(boVolunteer.Password),
-                 Address = boVolunteer.CurrentAddress,
-                 latitude = lat,
-                 longitude = lon,
-                 Role = (DO.Role)boVolunteer.Role,
-                 Active = boVolunteer.Active,
-                 MaxDistance = boVolunteer.MaxDistance,
-                 TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
-             };
+            if (user == null)
+                throw new BO.BlArgumentException("username or password are incorrect.");
+            var doVolunteer = new DO.Volunteer
+            {
+                Id = boVolunteer.Id,
+                Name = boVolunteer.Name,
+                Phone = boVolunteer.PhoneNumber,
+                Email = boVolunteer.Email,
+                Password = Tools.HashPassword(boVolunteer.Password),
+                Address = boVolunteer.CurrentAddress,
+                latitude = lat,
+                longitude = lon,
+                Role = (DO.Role)boVolunteer.Role,
+                Active = boVolunteer.Active,
+                MaxDistance = boVolunteer.MaxDistance,
+                TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
+            };
 
-             Volunteer_dal.Volunteer.Update(doVolunteer);
+            Volunteer_dal.Volunteer.Update(doVolunteer);
             VolunteerManager.Observers.NotifyItemUpdated(boVolunteer.Id);  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();  //stage 5
         }
