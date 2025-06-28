@@ -48,6 +48,13 @@ namespace PL.Volunteer
         public BO.TypeOfDistance TypeOfDistance { get; set; } = BO.TypeOfDistance.WALK;
         public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
               => CurrentVolunteer.TypeOfDistance = sender is ComboBox comboBox ? (BO.TypeOfDistance)comboBox.SelectedItem : BO.TypeOfDistance.WALK;
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender is PasswordBox passwordBox)
+            {
+                CurrentVolunteer.Password = passwordBox.Password; // Update the CurrentVolunteer.Password property
+            }
+        }
 
         private void btnAddUpdate_Click(object sender, RoutedEventArgs e)
         {

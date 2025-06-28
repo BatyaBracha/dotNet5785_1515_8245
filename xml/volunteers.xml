@@ -188,7 +188,7 @@
     <Name>Batya Oren</Name>
     <Phone>0583278625</Phone>
     <Email>batyabrcha2005@gmail.com</Email>
-    <Password>980D23A08ABD4120AD713969E00E00225FCA77A138A58A24B09D77DA53A7B37C</Password>
+    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
     <Address>Ha'ayalot 25</Address>
     <latitude>31.869553</latitude>
     <longitude>35.140127</longitude>
@@ -212,17 +212,31 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
+    <Id>328263249</Id>
+    <Name>batsheva</Name>
+    <Phone>0545454545</Phone>
+    <Email>b7malka@gmail.com</Email>
+    <Password>EA71C25A7A602246B4C39824B855678894A96F43BB9B71319C39700A1E045222</Password>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <Role>STANDARD</Role>
+    <Active>false</Active>
+    <MaxDistance>1</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
     <Id>123456782</Id>
-    <Name>Admin</Name>
-    <Phone>0548571410</Phone>
-    <Email>wesaveliveseveryday@gmail.com</Email>
-    <Password>E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855</Password>
-    <Address>Man 3 Jerusalem</Address>
-    <latitude>31.761716</latitude>
-    <longitude>35.1984241</longitude>
-    <Role>ADMINISTRATOR</Role>
+    <Name>Meni</Name>
+    <Phone>0989898989</Phone>
+    <Email>meni@gmail.com</Email>
+    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <Role>STANDARD</Role>
     <Active>true</Active>
-    <MaxDistance>97</MaxDistance>
+    <MaxDistance>20</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

@@ -25,7 +25,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     private readonly DalApi.IDal Volunteer_dal = DalApi.Factory.Get;
     public BO.Role Login(int id, string password)
     {
-        // Retrieve the volunteer by username
+        // Retrieve the volunteer by id
         var volunteer = Volunteer_dal.Volunteer.ReadAll().FirstOrDefault(v => v.Id == id);
         if (volunteer == null)
         {

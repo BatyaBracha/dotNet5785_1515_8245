@@ -50,6 +50,7 @@ internal static class Tools
 
     public static string HashPassword(string password)
     {
+        password = password.Trim();
         using (var sha256 = SHA256.Create())
         {
             var bytes = Encoding.UTF8.GetBytes(password);

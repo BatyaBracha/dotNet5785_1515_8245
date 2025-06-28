@@ -147,8 +147,11 @@
             <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Email}" Margin="5,5,0,5"/>
 
             <!-- Password -->
+            <!--<Label Grid.Row="4" Grid.Column="0" Content="Password:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
+            <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" Password="{Binding Path=CurrentVolunteer.Password" Margin="5,5,0,5"/>-->
             <Label Grid.Row="4" Grid.Column="0" Content="Password:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
-            <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" Margin="5,5,0,5"/>
+            <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" Margin="5,5,0,5" PasswordChanged="PasswordBox_PasswordChanged"/>
+
 
             <!-- CurrentAddress -->
             <Label Grid.Row="5" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
