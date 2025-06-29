@@ -8,8 +8,8 @@
         Title="CallWindow" Height="550" Width="430"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Window.Resources>
-        <!--<local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
-        <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>-->
+        <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
+        <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
 
         <Style x:Key="GridLabelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="#2E3A59"/>
