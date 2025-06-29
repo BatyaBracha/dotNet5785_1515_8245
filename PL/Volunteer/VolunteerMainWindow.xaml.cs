@@ -100,6 +100,12 @@ namespace PL.Volunteer
             openCallsListWindow.Show();
         }
 
+        private void btnClosedCallsView_Click(object sender, RoutedEventArgs e)
+        {
+            PL.Call.ClosedCallsList closedCallsListWindow = new PL.Call.ClosedCallsList(CurrentVolunteer!.Id);
+            closedCallsListWindow.Show();
+        }
+
 
         //  public void comboBoxRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //=> CurrentVolunteer.Role = sender is ComboBox comboBox ? (BO.Role)comboBox.SelectedItem : BO.Role.STANDARD;

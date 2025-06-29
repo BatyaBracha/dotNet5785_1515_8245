@@ -205,6 +205,7 @@
             <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Margin="62,0,0,0" TextWrapping="Wrap" Text="{Binding CurrentVolunteer.CallInProgress}" VerticalAlignment="Center" Height="32" Width="200"/>
             <Button Grid.Column="2" Grid.Row="2" Content="Update Call Completion" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center" Height="32" Width="200" IsEnabled="{Binding IsCallInProgress}" Click="btnUpdateCallCompletion_Click" />
             <Button Grid.Column="2" Content="Choose Call For Treatment -->" HorizontalAlignment="Left" Margin="62,4,0,0" Grid.Row="4" VerticalAlignment="Top" Height="32" Width="200" IsEnabled="{Binding IsNotCallInProgress}" Click="btnChooseCallForTreatment_Click"/>
+            <Button Grid.Column="2" Content="Closed Calls History View" HorizontalAlignment="Left" Margin="62,0,0,0" Grid.Row="6" VerticalAlignment="Center" Width="200" Height="34" Click="btnClosedCallsView_Click"/>
 
         </Grid>
     </ScrollViewer>

@@ -9,10 +9,32 @@
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
+
         <Label Grid.Row="0" Height="32" Content="Closed Calls History View" Margin="10,10,344,6"/>
+
+        <Label Content="Sort by Field:" 
+            HorizontalAlignment="Center" VerticalAlignment="Top" 
+            Margin="0,12,0,0" Foreground="#333333" Width="118"/>
+
+        <!-- Sorting ComboBox -->
+        <ComboBox SelectedValue="{Binding Path=CallFieldsFilter, Mode=TwoWay}" 
+            ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}}" 
+            SelectionChanged="comboBoxCallList_SelectionChanged" 
+            Width="150" Margin="336,9,14,48" Background="White" BorderBrush="#CCCCCC" Height="30" RenderTransformOrigin="0.747,0.351"/>
+
+        <!-- Label for Type of Call ComboBox -->
+        <Label Content="Filter by Call Type:" 
+            HorizontalAlignment="Center" VerticalAlignment="Top" 
+            Margin="0,50,0,0" Foreground="#333333" Width="114"/>
+
+        <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" 
+                  ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}" 
+                  SelectionChanged="comboBoxCallList_SelectionChanged" 
+                  Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Margin="336,47,14,10"/>
+
         <DataGrid Grid.Row="1"
         Margin="5,10,5,0"
         ItemsSource="{Binding Path=ClosedCallList}"

@@ -50,6 +50,7 @@ namespace PL.Call
         public BO.CallInListField CallFieldsFilter { get; set; } = BO.CallInListField.None;
         public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; } = BO.TypeOfCall.NONE;
 
+
         public void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
                       => openCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,null, null, CallFieldsFilter)! : s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer( Id,BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
         //    public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
