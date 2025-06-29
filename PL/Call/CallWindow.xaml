@@ -12,7 +12,7 @@
         <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
         <local:ConvertUpdateToVisible x:Key="ConvertUpdateToVisibleKey"/>
         <enum:CallStatusCollection x:Key="CallStatusCollectionKey"/>
-        
+
         <Style x:Key="GridLabelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="#2E3A59"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -57,8 +57,9 @@
         </Style>
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid>
+        <Grid RenderTransformOrigin="0.877,-0.411">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -76,7 +77,7 @@
 
             <!-- Id -->
             <Label Grid.Row="0" Grid.Column="0" Content="Id:" Style="{StaticResource GridLabelStyle}" />
-            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentCall.Id}" IsReadOnly="{Binding ButtonText, Converter={StaticResource ConvertUpdateToTrueKey}}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentCall.Id}" IsReadOnly="True"/>
 
             <!-- TypeOfCall -->
             <Label Grid.Row="1" Grid.Column="0" Content="Type of Call:" Style="{StaticResource GridLabelStyle}" />
@@ -100,14 +101,15 @@
 
             <!-- Status -->
             <Label Grid.Row="8" Grid.Column="0" Content="Status:" Style="{StaticResource GridLabelStyle}" />
-            <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding CurrentCall.Status}" ItemsSource="{Binding Source={StaticResource CallStatusCollectionKey}}"/>
+            <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding CurrentCall.Status}" ItemsSource="{Binding Source={StaticResource CallStatusCollectionKey}}" IsReadOnly="True"/>
 
-            <Button Grid.Row="9" Grid.Column="1" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" />
 
             <Label Grid.Row="9" Grid.Column="0" Content="Assigned Volunteers:" Style="{StaticResource GridLabelStyle}" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
             <ListBox Grid.Row="9" Grid.Column="1" Style="{StaticResource GridListBoxStyle}"
             ItemsSource="{Binding CurrentCall.AssignedVolunteers}"
-            DisplayMemberPath="Name" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}" />
+            DisplayMemberPath="Name" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}" Margin="12,7,0,6" />
+
+            <Button Grid.Row="10" Grid.Column="1" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" Margin="40,51,131,-52" />
 
 
         </Grid>
