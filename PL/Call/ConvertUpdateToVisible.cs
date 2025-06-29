@@ -23,7 +23,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace PL.Volunteer
+namespace PL.Call
 {
     public class ConvertUpdateToVisible : IValueConverter
     {

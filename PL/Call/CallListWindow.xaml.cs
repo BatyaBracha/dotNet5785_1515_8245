@@ -78,7 +78,7 @@ namespace PL.Call
             //int nonNullableIntId = SelectedCall. ?? 0; // Default to 0 if null
             //SomeFunction(nonNullableInt);
             // Get the clicked volunteer's ID
-            if (SelectedCall != null) 
+            if (SelectedCall != null)
                 new CallWindow(SelectedCall.CallId).Show();
         }
 

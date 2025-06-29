@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Call"
         mc:Ignorable="d"
-        Title="ClosedCallsList" Height="450" Width="800"
+        Title="ClosedCallsList" Height="450" Width="500"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Height="32" Width="103" Content="Your Closed Calls:" Margin="41,21,656,381" Grid.RowSpan="2"/>
+        <Label Grid.Row="0" Height="32" Content="Closed Calls History View" Margin="10,10,344,6"/>
         <DataGrid Grid.Row="1"
-        Margin="0,10,10,0"
+        Margin="5,10,5,0"
         ItemsSource="{Binding Path=ClosedCallList}"
         IsReadOnly="True"
         Background="White" 
@@ -24,7 +24,7 @@
         AlternatingRowBackground="#F5F5F5"
         HorizontalGridLinesBrush="#E0E0E0"
         VerticalGridLinesBrush="#E0E0E0">
-            
+
             <DataGrid.Columns>
                 <!-- Name -->
                 <DataGridTextColumn Binding="{Binding TypeOfCall}" Header="Type Of Call" Width="*" />
@@ -38,7 +38,6 @@
                 <!-- CallsDone -->
                 <DataGridTextColumn Binding="{Binding ActualTreatmentEndTime}" Header="Treatment End Time" Width="*" />
 
-                <!-- Delete button with Icon -->
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

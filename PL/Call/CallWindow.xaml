@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:local="clr-namespace:PL.Call"
+        xmlns:enum="clr-namespace:PL"
         Title="CallWindow" Height="550" Width="430"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Window.Resources>
         <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
-        <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
-
+        <local:ConvertUpdateToVisible x:Key="ConvertUpdateToVisibleKey"/>
+        <enum:CallStatusCollection x:Key="CallStatusCollectionKey"/>
+        
         <Style x:Key="GridLabelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="#2E3A59"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -103,8 +105,8 @@
             <Button Grid.Row="9" Grid.Column="1" Content="{Binding ButtonText}" Click="btnAddUpdate_Click" />
 
             <Label Grid.Row="9" Grid.Column="0" Content="Assigned Volunteers:" Style="{StaticResource GridLabelStyle}" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
-            <ListBox Grid.Row="9" Grid.Column="1" Style="{StaticResource GridListBoxStyle}" 
-            ItemsSource="{Binding CurrentCall.AssignedVolunteers}" 
+            <ListBox Grid.Row="9" Grid.Column="1" Style="{StaticResource GridListBoxStyle}"
+            ItemsSource="{Binding CurrentCall.AssignedVolunteers}"
             DisplayMemberPath="Name" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}" />
 
 

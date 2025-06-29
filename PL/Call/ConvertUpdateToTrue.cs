@@ -21,7 +21,7 @@ using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace PL.Volunteer
+namespace PL.Call
 {
     public class ConvertUpdateToTrue : IValueConverter
     {
