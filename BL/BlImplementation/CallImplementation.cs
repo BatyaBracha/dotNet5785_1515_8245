@@ -255,7 +255,7 @@ namespace BlImplementation
             return closedCalls.ToList();
         }
 
-        public IEnumerable<BO.OpenCallInList> GetOpenCallsCanBeSelectedByAVolunteer(int volunteerId, Enum? filterBy, Enum? sortBy)
+        public IEnumerable<BO.OpenCallInList> GetOpenCallsCanBeSelectedByAVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
         {
             if (Call_dal.Volunteer.Read(volunteerId) is not { Active: true })
                 throw new BO.BlDoesNotExistException("The volunteer is not active in the system.");
@@ -277,7 +277,7 @@ namespace BlImplementation
 
             if (filterBy != null)
             {
-                calls = calls.Where(c => CallManager.MatchField(filterBy, c, null));
+                calls = calls.Where(c => CallManager.MatchField(filterBy, c, filterValue));
             }
 
             var openCalls = calls.Select(c => new BO.OpenCallInList

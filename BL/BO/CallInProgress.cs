@@ -8,7 +8,6 @@ public class CallInProgress
     public int CallId { get; init; }
     public TypeOfCall TypeOfCall { get; set; }
     public string? Description { get; set; }
-
     public string Address { get; set; }
     public DateTime TimeOfOpening { get; init; }
     public DateTime? MaxFinishTime { get; set; }

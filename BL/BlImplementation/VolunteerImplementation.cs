@@ -120,6 +120,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                 var call = Volunteer_dal.Call.Read(assignment.CallId);
                 callInProgress = new BO.CallInProgress
                 {
+                    Id=assignment.Id,
                     CallId = call.Id,
                     TypeOfCall = (BO.TypeOfCall)call.TypeOfCall,
                     Description = call.Description,
