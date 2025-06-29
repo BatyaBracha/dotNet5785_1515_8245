@@ -12,20 +12,19 @@
     <Status>OPEN</Status>
     <MaxClosingTime>2025-05-18T13:01:00</MaxClosingTime>
   </Call>
-	<Call>
-		<Id>1002</Id>
-		<TypeOfCall>HEAT_STROKE</TypeOfCall>
-		<Description>Minor mechanical issue near the mall.</Description>
-		<Address>David HaMelech St, Herzliya</Address>
-		<latitude>32.1673</latitude>
-		<longitude>34.836</longitude>
-		<riskRange>PT2H2M5S</riskRange>
-		<OpeningTime>2025-05-18T07:39:00</OpeningTime>
-		<Status>OPEN</Status>
-		<MaxClosingTime>2025-05-18T10:01:00</MaxClosingTime>
-	</Call>
-
-	<Call>
+  <Call>
+    <Id>1002</Id>
+    <TypeOfCall>HEAT_STROKE</TypeOfCall>
+    <Description>Minor mechanical issue near the mall.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
+    <riskRange>PT2H2M5S</riskRange>
+    <OpeningTime>2025-05-18T07:39:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-05-18T10:01:00</MaxClosingTime>
+  </Call>
+  <Call>
     <Id>1001</Id>
     <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
     <Description>Car battery is dead, needs jump start.</Description>
@@ -276,18 +275,6 @@
     <OpeningTime>2025-05-18T05:07:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-05-18T09:17:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1023</Id>
-    <TypeOfCall>CHOKING</TypeOfCall>
-    <Description>Locked keys inside the vehicle.</Description>
-    <Address>Shderot Ben Gurion, Netanya</Address>
-    <latitude>32.332</latitude>
-    <longitude>34.8599</longitude>
-    <riskRange>PT2H2M5S</riskRange>
-    <OpeningTime>2025-05-18T11:25:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-05-18T15:54:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1024</Id>
@@ -612,5 +599,17 @@
     <OpeningTime>2025-05-18T12:32:33</OpeningTime>
     <Status>CLOSED</Status>
     <MaxClosingTime>2026-11-11T13:13:13</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1023</Id>
+    <TypeOfCall>CHOKING</TypeOfCall>
+    <Description>Locked keys inside the vehicle.</Description>
+    <Address>Shderot Ben Gurion, Netanya</Address>
+    <latitude>32.332</latitude>
+    <longitude>34.8599</longitude>
+    <riskRange>PT2H2M5S</riskRange>
+    <OpeningTime>2025-05-18T11:25:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2025-05-18T15:54:00</MaxClosingTime>
   </Call>
 </ArrayOfCall>

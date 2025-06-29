@@ -578,7 +578,7 @@ internal class Program
             sortBy = Enum.TryParse<BO.CallInListField>(sortFieldInput, out var sortField) ? sortField : null;
         }
 
-        IEnumerable<BO.OpenCallInList> openCalls = s_bl.Call!.GetOpenCallsCanBeSelectedByAVolunteer(volunteerId, filterBy, sortBy);
+        IEnumerable<BO.OpenCallInList> openCalls = s_bl.Call!.GetOpenCallsCanBeSelectedByAVolunteer(volunteerId, filterBy,null, sortBy);
         foreach (var call in openCalls)
         {
             Console.WriteLine(call);

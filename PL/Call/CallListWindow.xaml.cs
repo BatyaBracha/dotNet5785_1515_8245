@@ -77,7 +77,7 @@ namespace PL.Call
         {
             // Get the clicked volunteer's ID
             if (SelectedCall != null)
-                new CallWindow(SelectedCall.Id).Show();
+                new CallWindow(SelectedCall.CallId).Show();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

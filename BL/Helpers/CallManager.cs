@@ -202,55 +202,21 @@ internal static class CallManager
     {
         return degrees * Math.PI / 180.0;
     }
-    //public static (double latitude, double longitude) GetCoordinates(string address)
-    //{
-    //    if (string.IsNullOrWhiteSpace(address))
-    //        throw new BO.BlArgumentException("Address is required for geocoding.");
-
-    //    string apiKey = "PK.83B935C225DF7E2F9B1ee90A6B46AD86";
-    //    using var client = new HttpClient();
-    //    string url = $"https://us1.locationiq.com/v1/search.php?key={apiKey}&q={Uri.EscapeDataString(address)}&format=json";
-
-    //    var response = client.GetAsync(url).GetAwaiter().GetResult();
-    //    // Log the response status code and content
-    //    string responseContent = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-    //    Console.WriteLine($"Response Status Code: {response.StatusCode}");
-    //    Console.WriteLine($"Response Content: {responseContent}");
-
-    //    if (!response.IsSuccessStatusCode)
-    //        throw new BlArgumentException("Invalid address or API error.");
-
-    //    var json = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-    //    using var doc = JsonDocument.Parse(json);
-
-    //    if (doc.RootElement.ValueKind != JsonValueKind.Array || doc.RootElement.GetArrayLength() == 0)
-    //        throw new BlArgumentException("Address not found.");
-
-    //    var root = doc.RootElement[0];
-
-    //    double latitude = double.Parse(root.GetProperty("lat").GetString());
-    //    double longitude = double.Parse(root.GetProperty("lon").GetString());
-
-    //    return (latitude, longitude);
-    //}
     public static (double latitude, double longitude) GetCoordinates(string address)
     {
         if (string.IsNullOrWhiteSpace(address))
             throw new BO.BlArgumentException("Address is required for geocoding.");
 
-        // Use MemoryCache to check if the coordinates are already cached
-        var cache = MemoryCache.Default;
-        if (cache[address] is (double latitude, double longitude) cachedCoordinates)
-        {
-            return cachedCoordinates;
-        }
-
-        // Proceed with the API call if not cached
         string apiKey = "PK.83B935C225DF7E2F9B1ee90A6B46AD86";
         using var client = new HttpClient();
         string url = $"https://us1.locationiq.com/v1/search.php?key={apiKey}&q={Uri.EscapeDataString(address)}&format=json";
 
         var response = client.GetAsync(url).GetAwaiter().GetResult();
+        // Log the response status code and content
+        string responseContent = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+        Console.WriteLine($"Response Status Code: {response.StatusCode}");
+        Console.WriteLine($"Response Content: {responseContent}");
+
         if (!response.IsSuccessStatusCode)
             throw new BlArgumentException("Invalid address or API error.");
 
@@ -261,14 +227,48 @@ internal static class CallManager
             throw new BlArgumentException("Address not found.");
 
         var root = doc.RootElement[0];
-        latitude = double.Parse(root.GetProperty("lat").GetString());
-        longitude = double.Parse(root.GetProperty("lon").GetString());
 
-        // Cache the result for future use
-        cache.Set(address, (latitude, longitude), DateTimeOffset.Now.AddHours(1)); // Cache for 1 hour
+        double latitude = double.Parse(root.GetProperty("lat").GetString());
+        double longitude = double.Parse(root.GetProperty("lon").GetString());
 
         return (latitude, longitude);
     }
+    //public static (double latitude, double longitude) GetCoordinates(string address)
+    //{
+    //    if (string.IsNullOrWhiteSpace(address))
+    //        throw new BO.BlArgumentException("Address is required for geocoding.");
+
+    //    // Use MemoryCache to check if the coordinates are already cached
+    //    var cache = MemoryCache.Default;
+    //    if (cache[address] is (double latitude, double longitude) cachedCoordinates)
+    //    {
+    //        return cachedCoordinates;
+    //    }
+
+    //    // Proceed with the API call if not cached
+    //    string apiKey = "PK.83B935C225DF7E2F9B1ee90A6B46AD86";
+    //    using var client = new HttpClient();
+    //    string url = $"https://us1.locationiq.com/v1/search.php?key={apiKey}&q={Uri.EscapeDataString(address)}&format=json";
+
+    //    var response = client.GetAsync(url).GetAwaiter().GetResult();
+    //    if (!response.IsSuccessStatusCode)
+    //        throw new BlArgumentException("Invalid address or API error.");
+
+    //    var json = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+    //    using var doc = JsonDocument.Parse(json);
+
+    //    if (doc.RootElement.ValueKind != JsonValueKind.Array || doc.RootElement.GetArrayLength() == 0)
+    //        throw new BlArgumentException("Address not found.");
+
+    //    var root = doc.RootElement[0];
+    //    latitude = double.Parse(root.GetProperty("lat").GetString());
+    //    longitude = double.Parse(root.GetProperty("lon").GetString());
+
+    //    // Cache the result for future use
+    //    cache.Set(address, (latitude, longitude), DateTimeOffset.Now.AddHours(1)); // Cache for 1 hour
+
+    //    return (latitude, longitude);
+    //}
 
 
     public static void PeriodicCallsUpdates()
