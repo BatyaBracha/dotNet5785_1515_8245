@@ -87,8 +87,8 @@ namespace BlImplementation
         public void Create(BO.Call boCall)
         {
             CallManager.ValidateCall(boCall);
-            (double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address);
-            var doCall = new DO.Call(boCall.Id, (DO.TypeOfCall)boCall.TypeOfCall, boCall.Description, boCall.Address, lat, lon, null, boCall.OpeningTime, DO.CallStatus.OPEN, boCall.MaxClosingTime);
+            (double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address!);
+            var doCall = new DO.Call(boCall.Id, (DO.TypeOfCall)boCall.TypeOfCall, boCall.Description, boCall.Address!, lat, lon, null, boCall.OpeningTime, DO.CallStatus.OPEN, boCall.MaxClosingTime);
             Call_dal.Call.Create(doCall);
             CallManager.SendEmailWhenCallOpened(boCall);
             CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
@@ -122,7 +122,7 @@ namespace BlImplementation
                     Name = Call_dal.Volunteer.Read(a.VolunteerId)?.Name,
                     TimeOfStarting = a.TreatmentStartTime,
                     TimeOfEnding = a.TreatmentEndTime,
-                    TypeOfTreatmentEnding = (BO.TypeOfTreatmentEnding)a.TypeOfTreatmentEnding,
+                    TypeOfTreatmentEnding = (BO.TypeOfTreatmentEnding)a.TypeOfTreatmentEnding!,
                 }).ToList();
             BO.CallStatus status = CallManager.CalculateCallStatus(assignments, doCall.MaxClosingTime);
             return new BO.Call(doCall.Id, (BO.TypeOfCall)doCall.TypeOfCall, doCall.Description, doCall.Address, doCall.latitude, doCall.longitude, doCall.OpeningTime, doCall.MaxClosingTime, status, assignmentsList);
@@ -232,13 +232,13 @@ namespace BlImplementation
             // Step 3: Apply filtering
             if (filterBy != null && filterValue != null)
             {
-                calls = calls.Where(x => CallManager.MatchField(filterBy, x.Call, filterValue));
+                calls = calls.Where(x => CallManager.MatchField(filterBy, x.Call!, filterValue));
             }
 
             // Step 4: Map to BO.ClosedCallInList
             var closedCalls = calls.Select(x => new BO.ClosedCallInList
             {
-                Id = x.Call.Id, // Call ID
+                Id = x.Call!.Id, // Call ID
                 TypeOfCall = (BO.TypeOfCall)x.Call.TypeOfCall,
                 Address = x.Call.Address,
                 OpeningTime = x.Call.OpeningTime,
@@ -326,7 +326,7 @@ namespace BlImplementation
             var call = GetCallDetails(assignment.CallId)
                 ?? throw new BO.BlDoesNotExistException("Call not found in the system.");
            var status = CallManager.CalculateCallStatus(Call_dal.Assignment.ReadAll(), call.MaxClosingTime);
-            call.AssignedVolunteers.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == assignment.VolunteerId));
+            call.AssignedVolunteers!.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == assignment.VolunteerId));
            Update(new BO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.Latitude, call.Longitude, call.OpeningTime, call.MaxClosingTime, status,call.AssignedVolunteers));
 
         }
@@ -344,7 +344,7 @@ namespace BlImplementation
             Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, DO.TypeOfTreatmentEnding.HANDLED, DO.AssignmentStatus.COMPLETED));
             var call = GetCallDetails(assignment.CallId)
                 ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
-            call.AssignedVolunteers.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == volunteerId));
+            call.AssignedVolunteers!.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == volunteerId));
             Update(new BO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.Latitude, call.Longitude, call.OpeningTime, call.MaxClosingTime, BO.CallStatus.CLOSED, call.AssignedVolunteers));
         }
 
@@ -356,7 +356,7 @@ namespace BlImplementation
             Call_dal.Call.Update(new DO.Call(boCall.Id,
             (DO.TypeOfCall)boCall.TypeOfCall,
             boCall.Description,
-            boCall.Address,
+            boCall.Address!,
             doCall.latitude,
             doCall.longitude,
             doCall.riskRange,
