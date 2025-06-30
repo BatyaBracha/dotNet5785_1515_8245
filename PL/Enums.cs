@@ -51,4 +51,3 @@ public class TypeOfDistance : IEnumerable
                   (Enum.GetValues(typeof(BO.TypeOfDistance)) as IEnumerable<BO.TypeOfDistance>)!;
     public IEnumerator GetEnumerator() => s_enums.GetEnumerator();
 }
-

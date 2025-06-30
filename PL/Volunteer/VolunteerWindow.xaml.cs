@@ -111,7 +111,7 @@ namespace PL.Volunteer
         private void Window_Closed(object sender, EventArgs e)
                       => s_bl.Volunteer.RemoveObserver(CurrentVolunteer!.Id, VolunteerObserver);
 
-        public VolunteerWindow(int Id=0)
+        public VolunteerWindow(int Id = 0)
         {
             ButtonText = Id == 0 ? "Add" : "Update";
             CurrentVolunteer = (Id != 0) ? s_bl.Volunteer.Read(Id)!

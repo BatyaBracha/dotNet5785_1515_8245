@@ -75,6 +75,8 @@ namespace PL.Call
         }
         private void lsvCallList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            //int nonNullableIntId = SelectedCall. ?? 0; // Default to 0 if null
+            //SomeFunction(nonNullableInt);
             // Get the clicked volunteer's ID
             if (SelectedCall != null)
                 new CallWindow(SelectedCall.CallId).Show();
