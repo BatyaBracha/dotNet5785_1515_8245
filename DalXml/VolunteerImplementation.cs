@@ -5,10 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 
 internal class VolunteerImplementation : IVolunteer
 {
+    [MethodImpl(MethodImplOptions.Synchronized)]
     static Volunteer GetVolunteer(XElement v)
     {
         //string r = (string?)v.Element("Role") ?? ""; // Your string value
@@ -31,7 +33,7 @@ internal class VolunteerImplementation : IVolunteer
             TypeOfDistance = v.ToEnumNullable<TypeOfDistance>("TypeOfDistance") ?? throw new FormatException("can't convert TypeOfDistance")
         };
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public int Create(Volunteer item)//AI
     {
         XElement volunteersRoot = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
@@ -61,7 +63,7 @@ internal class VolunteerImplementation : IVolunteer
         XMLTools.SaveListToXMLElement(volunteersRoot, Config.s_volunteers_xml);
         return item.Id;
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public void Delete(int id)
     {
         XElement volunteersRootElem = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
@@ -72,13 +74,13 @@ internal class VolunteerImplementation : IVolunteer
         volunteerToDelete.Remove();
         XMLTools.SaveListToXMLElement(volunteersRootElem, Config.s_volunteers_xml);
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public void DeleteAll()
     {
         XElement emptyRoot = new XElement("ArrayOfVolunteer");
         XMLTools.SaveListToXMLElement(emptyRoot, Config.s_volunteers_xml);
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public Volunteer? Read(int id)
     {
         XElement? volunteerElm = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml)
@@ -87,7 +89,7 @@ internal class VolunteerImplementation : IVolunteer
             .Element("Id") == id);
         return volunteerElm is null ? null : GetVolunteer(volunteerElm);
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public Volunteer? Read(Func<Volunteer, bool> filter)
     {
         return XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml)
@@ -95,7 +97,7 @@ internal class VolunteerImplementation : IVolunteer
             .Select(s => GetVolunteer(s))
             .FirstOrDefault(filter);
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public IEnumerable<Volunteer> ReadAll(Func<Volunteer, bool>? filter = null)
     {
         IEnumerable<Volunteer> Volunteers = XMLTools
@@ -104,20 +106,7 @@ internal class VolunteerImplementation : IVolunteer
             .Select(v => GetVolunteer(v));
         return filter == null ? Volunteers : Volunteers.Where(filter);
     }
-
-    //public void Update(Volunteer item)
-    //{
-    //    XElement volunteersRootElem = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
-
-    //    (volunteersRootElem.Elements().FirstOrDefault(st => (int?)st.Element("Id") == item.Id)
-    //    ?? throw new DO.DalDoesNotExistException($"Volunteer with ID={item.Id} does Not exist"))
-    //            .Remove();
-
-    //    volunteersRootElem.Add(new XElement("Volunteer", Create(item)));
-
-    //    XMLTools.SaveListToXMLElement(volunteersRootElem, Config.s_volunteers_xml);
-    //}
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public void Update(Volunteer item)
     {
         XElement volunteersRootElem = XMLTools.LoadListFromXMLElement(Config.s_volunteers_xml);
