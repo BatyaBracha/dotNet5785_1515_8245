@@ -1,4 +1,6 @@
-﻿namespace Helpers;
+﻿using System;
+
+namespace Helpers;
 
 /// <summary>
 /// This class is a helper class allowing to manage observers for different logical entities
@@ -49,6 +51,15 @@ class ObserverManager //stage 5
             _specificObservers[id] = observer; // create hash table entry for the ID with the given observer
     }
 
+    public void NotifyItemUpdated(int id)
+    {
+        if (_specificObservers.ContainsKey(id))
+        {
+            _specificObservers[id]?.Invoke(); // Direct invocation of the delegate
+        }
+    }
+
+
     /// <summary>
     /// Remove an observer on change in an instance of entity that may effect the entity instance presentation
     /// </summary>
@@ -76,10 +87,5 @@ class ObserverManager //stage 5
     /// Notify observers of an e specific entity  that there was some change in the entity
     /// </summary>
     /// <param name="id">a specific entity ID</param>
-    internal void NotifyItemUpdated(int id)
-    {
-        if (_specificObservers.ContainsKey(id))
-            _specificObservers[id]?.Invoke();
-    }
 
 }

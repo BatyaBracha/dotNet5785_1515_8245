@@ -104,7 +104,7 @@ namespace PL.Volunteer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (CurrentVolunteer!.Id != 0)
+            //if (CurrentVolunteer!.Id != 0)
                 s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
         }
 

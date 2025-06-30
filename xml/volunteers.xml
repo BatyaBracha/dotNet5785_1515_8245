@@ -184,20 +184,6 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>328118245</Id>
-    <Name>Batya Oren</Name>
-    <Phone>0583278625</Phone>
-    <Email>batyabracha2005@gmail.com</Email>
-    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
-    <Address>Ha'ayalot 25</Address>
-    <latitude>31.869553</latitude>
-    <longitude>35.140127</longitude>
-    <Role>ADMINISTRATOR</Role>
-    <Active>true</Active>
-    <MaxDistance>250</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
     <Id>341395549</Id>
     <Name>Malka</Name>
     <Phone>0989878876</Phone>
@@ -237,6 +223,20 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>20</MaxDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>328118245</Id>
+    <Name>Batya Oren</Name>
+    <Phone>0583278625</Phone>
+    <Email>riv.yak.36@gmail.com</Email>
+    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
+    <Address>Ha'ayalot 25</Address>
+    <latitude>31.869553</latitude>
+    <longitude>35.140127</longitude>
+    <Role>ADMINISTRATOR</Role>
+    <Active>true</Active>
+    <MaxDistance>250</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>
