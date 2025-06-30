@@ -4,9 +4,11 @@ namespace Dal;
 using DO;
 using DalApi;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 internal class AssignmentImplementation :IAssignment
 {
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public int Create(Assignment item)
     {
         int newId = Dal.Config.NextAssignmentId;
@@ -14,7 +16,7 @@ internal class AssignmentImplementation :IAssignment
         DataSource.Assignments.Add(copy);
         return newId;
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public void Delete(int id)
     {
         Assignment a = DataSource.Assignments.Find(element => element.Id == id);
@@ -22,12 +24,12 @@ internal class AssignmentImplementation :IAssignment
             throw new DalDoesNotExistException($"An object of type Volunteer with this Id {id} does not exist");
         DataSource.Assignments.Remove(a);
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public void DeleteAll()
     {
         DataSource.Assignments.Clear();
     }
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public Assignment? Read(int id)
     {
         Assignment a = DataSource.Assignments.FirstOrDefault(item => item.Id == id)!;
@@ -36,21 +38,13 @@ internal class AssignmentImplementation :IAssignment
         return null;
     }
 
-    //public List<Assignment> ReadAll()
-    //{
-        //return new List<Assignment>(DataSource.Assignments);
-    
-    // ... 
-    public IEnumerable<Assignment> ReadAll(Func<Assignment, bool>? filter = null) //stage 2
+    [MethodImpl(MethodImplOptions.Synchronized)]
+    public IEnumerable<Assignment> ReadAll(Func<Assignment, bool>? filter = null) 
         => filter == null
             ? DataSource.Assignments.Select(item => item)
             : DataSource.Assignments.Where(filter);
-  //…
 
-
-
-//}
-
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public void Update(Assignment item)
     {
         Assignment a = DataSource.Assignments.Find(element => element.Id == item.Id);
@@ -60,6 +54,7 @@ internal class AssignmentImplementation :IAssignment
         DataSource.Assignments.Add(item);
     }
 
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public Assignment? Read(Func<Assignment, bool> filter)
     {
         if (filter == null)
