@@ -163,6 +163,14 @@ internal static class CallManager
         var (callLatitude, callLongitude) = GetCoordinates(CallAddress);
         return CalculateDistance(volunteerLatitude, volunteerLongitude, callLatitude, callLongitude).Value;
     }
+
+    public static double GetAerialDistanceByCoordinates(double? volunteerLatitude,double? volunteerLongitude,double? callLatitude, double? callLongitude)
+    {
+        //if (string.IsNullOrWhiteSpace(CallAddress)|| string.IsNullOrWhiteSpace(VolunteerAddress))
+        //    throw new BO.BlArgumentException("Address is required for geocoding.");
+        return CalculateDistance(volunteerLatitude, volunteerLongitude, callLatitude, callLongitude).Value;
+    }
+
     public static double? CalculateDistance(object latitude1, object longitude1, double? latitude2, double? longitude2)
     {
         // המרת פרמטרים מסוג object ל-double
@@ -206,17 +214,15 @@ internal static class CallManager
     {
         if (string.IsNullOrWhiteSpace(address))
             throw new BO.BlArgumentException("Address is required for geocoding.");
-
+        //string apiKey = "AIzaSyBW85eFbcSZizuOdBkW8ymPZlKhxaq_EFs";
         string apiKey = "PK.83B935C225DF7E2F9B1ee90A6B46AD86";
         using var client = new HttpClient();
+        //string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(address)}&key={apiKey}";
         string url = $"https://us1.locationiq.com/v1/search.php?key={apiKey}&q={Uri.EscapeDataString(address)}&format=json";
 
         var response = client.GetAsync(url).GetAwaiter().GetResult();
         // Log the response status code and content
         string responseContent = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-        Console.WriteLine($"Response Status Code: {response.StatusCode}");
-        Console.WriteLine($"Response Content: {responseContent}");
-
         if (!response.IsSuccessStatusCode)
             throw new BlArgumentException("Invalid address or API error.");
 
@@ -232,6 +238,23 @@ internal static class CallManager
         double longitude = double.Parse(root.GetProperty("lon").GetString());
 
         return (latitude, longitude);
+
+        //using var doc = JsonDocument.Parse(responseContent);
+        //var root = doc.RootElement;
+
+        //var status = root.GetProperty("status").GetString();
+        //if (status != "OK")
+        //    throw new Exception($"Google Maps returned error: {status}");
+
+        //var location = root
+        //    .GetProperty("results")[0]
+        //    .GetProperty("geometry")
+        //    .GetProperty("location");
+
+        //double lat = location.GetProperty("lat").GetDouble();
+        //double lng = location.GetProperty("lng").GetDouble();
+
+        //return (lat, lng);
     }
     //public static (double latitude, double longitude) GetCoordinates(string address)
     //{

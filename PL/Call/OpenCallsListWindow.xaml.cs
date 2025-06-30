@@ -37,29 +37,29 @@ namespace PL.Call
         public static readonly DependencyProperty IdProperty =
         DependencyProperty.Register("Id", typeof(int), typeof(OpenCallsListWindow), new PropertyMetadata(null));
 
-        public IEnumerable<BO.OpenCallInList> openCallList
+        public IEnumerable<BO.OpenCallInList> OpenCallList
         {
-            get { return (IEnumerable<BO.OpenCallInList>)GetValue(openCallListProperty); }
-            set { SetValue(openCallListProperty, value); }
+            get { return (IEnumerable<BO.OpenCallInList>)GetValue(OpenCallListProperty); }
+            set { SetValue(OpenCallListProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for opencalllist.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty openCallListProperty =
-            DependencyProperty.Register("openCallList", typeof(IEnumerable<BO.OpenCallInList>), typeof(OpenCallsListWindow), new PropertyMetadata(null));
+        public static readonly DependencyProperty OpenCallListProperty =
+            DependencyProperty.Register("OpenCallList", typeof(IEnumerable<BO.OpenCallInList>), typeof(OpenCallsListWindow), new PropertyMetadata(null));
 
         public BO.CallInListField CallFieldsFilter { get; set; } = BO.CallInListField.None;
         public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; } = BO.TypeOfCall.NONE;
 
 
         public void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-                      => openCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,null, null, CallFieldsFilter)! : s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer( Id,BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
+                      => OpenCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,null, null, CallFieldsFilter)! : s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer( Id,BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
         //    public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //=> CallList = (SelectedTypeOfCallFilter == null)
         //    ? s_bl?.Call.ReadAll(null , null, null)!
         //    : s_bl?.Call.ReadAll(SelectedTypeOfCallFilter, null, CallFieldsFilter)!;
 
         private void queryCallList()
-                      => openCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,null, null, CallFieldsFilter)! : s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
+                      => OpenCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,null, null, CallFieldsFilter)! : s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
 
 
         private void callListObserver()

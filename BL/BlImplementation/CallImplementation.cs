@@ -279,7 +279,7 @@ namespace BlImplementation
             {
                 calls = calls.Where(c => CallManager.MatchField(filterBy, c, filterValue));
             }
-
+            var v = Call_dal.Volunteer.Read(volunteerId);
             var openCalls = calls.Select(c => new BO.OpenCallInList
             {
                 Id = c.Id,
@@ -288,7 +288,7 @@ namespace BlImplementation
                 Address = c.Address,
                 OpeningTime = c.OpeningTime,
                 MaxCloseingTime = c.MaxClosingTime,
-                CallVolunteerDistance = CallManager.GetAerialDistance(Call_dal.Volunteer.Read(volunteerId).Address, c.Address)
+                CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(v.latitude, v.longitude, c.latitude, c.longitude)
             });
 
             if (sortBy != null)
