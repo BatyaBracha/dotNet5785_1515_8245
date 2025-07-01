@@ -459,4 +459,13 @@
     <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>COMPLETED</AssignmentStatus>
   </Assignment>
+  <Assignment>
+    <Id>1815</Id>
+    <CallId>1055</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2025-07-01T15:41:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-01T16:39:18</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
 </ArrayOfAssignment>

@@ -23,7 +23,7 @@ namespace PL.Call
         {
             InitializeComponent();
         }
-    
+
 
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 
@@ -42,18 +42,30 @@ namespace PL.Call
         public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; } = BO.TypeOfCall.NONE;
 
         public void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-                      => CallList =SelectedTypeOfCallFilter==BO.TypeOfCall.NONE? s_bl?.Call.ReadAll(null, null, CallFieldsFilter)!:s_bl?.Call.ReadAll(BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
-    //    public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    //=> CallList = (SelectedTypeOfCallFilter == null)
-    //    ? s_bl?.Call.ReadAll(null , null, null)!
-    //    : s_bl?.Call.ReadAll(SelectedTypeOfCallFilter, null, CallFieldsFilter)!;
+                      => CallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.ReadAll(null, null, CallFieldsFilter)! : s_bl?.Call.ReadAll(BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
+        //    public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //=> CallList = (SelectedTypeOfCallFilter == null)
+        //    ? s_bl?.Call.ReadAll(null , null, null)!
+        //    : s_bl?.Call.ReadAll(SelectedTypeOfCallFilter, null, CallFieldsFilter)!;
 
         private void queryCallList()
                       => CallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.ReadAll(null, null, CallFieldsFilter)! : s_bl?.Call.ReadAll(BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
 
+        private volatile bool _observerWorking = false; //stage 7
 
         private void callListObserver()
-                      => queryCallList();
+        {
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    queryCallList();
+                    _observerWorking = false;
+                });
+            }
+
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
                       => s_bl.Call.AddObserver(callListObserver);

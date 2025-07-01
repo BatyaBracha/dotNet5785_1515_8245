@@ -40,8 +40,21 @@ namespace PL.Call
         private void queryCallDetails()
               => CurrentCall = s_bl.Call.GetCallDetails(CurrentCall!.Id);
 
-        private void CallObserver()
-                      => queryCallDetails();
+        private volatile bool _observerWorking = false; //stage 7
+
+        private void CallObserver() 
+        { 
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    queryCallDetails();
+                    _observerWorking = false;
+                });
+            }
+        }
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
                       => s_bl.Call.AddObserver(CallObserver);
