@@ -52,12 +52,12 @@ public static class Initialization
         // בדיקה ששעון המערכת מאותחל
         if (s_dal.Config.Clock == default)
             throw new Exception("Clock value is not initialized in configuration.");
-
+        int hour = s_dal.Config.Clock.Hour >= 7 ? s_dal.Config.Clock.Hour - 7 : 0;
         DateTime start = new DateTime(
             s_dal.Config.Clock.Year,
             s_dal.Config.Clock.Month,
             s_dal.Config.Clock.Day,
-            s_dal.Config.Clock.Hour - 7, 0, 0);
+            hour, 0, 0);
 
         int range = (int)(s_dal.Config.Clock - start).TotalMinutes;
         if (range <= 0)

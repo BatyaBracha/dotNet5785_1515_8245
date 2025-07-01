@@ -81,40 +81,42 @@ namespace PL
         // Using a DependencyProperty as the backing store for RiskRange.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SimulatorButtonTextProperty =
             DependencyProperty.Register("SimulatorButtonText", typeof(string), typeof(MainWindow), new PropertyMetadata("Start"));
-        private bool IsSimulatorRunning = false;
-        private bool IsButtonsEnabled = true;
+        
+        //private bool IsSimulatorRunning = false;
+        public bool IsSimulatorRunning
+        {
+            get { return (bool)GetValue(IsSimulatorRunningProperty); }
+            set { SetValue(IsSimulatorRunningProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsSimulatorRunningProperty =
+            DependencyProperty.Register("IsSimulatorRunning", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
+
+
+        public bool IsButtonsEnabled
+        {
+            get { return (bool)GetValue(IsButtonsEnabledProperty); }
+            set { SetValue(IsButtonsEnabledProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsButtonsEnabledProperty =
+            DependencyProperty.Register("IsButtonsEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(true));
 
         private void btnSimulator_Click(object sender, RoutedEventArgs e)
         {
             if (!IsSimulatorRunning)
             {
-                Mouse.OverrideCursor = Cursors.Wait;
-                try
-                {
                     s_bl.Admin.StartSimulator(Interval);
                     SimulatorButtonText= "Stop"; // Update button text to "Stop" after starting the simulator
                     IsSimulatorRunning = true;
                     IsButtonsEnabled = false;
-                }
-                finally
-                {
-                    Mouse.OverrideCursor = null;
-                }
             }
             else
             {
-                Mouse.OverrideCursor = Cursors.Wait;
-                try
-                {
                     s_bl.Admin.StopSimulator();
                     SimulatorButtonText = "Start";
                     IsSimulatorRunning = false; // Update button text to "Start" after stopping the simulator
                     IsButtonsEnabled = true; // Enable buttons again
-                }
-                finally
-                {
-                    Mouse.OverrideCursor = null;
-                }
             }
         }
         private void btnResetDB_Click(object sender, RoutedEventArgs e)

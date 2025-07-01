@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace Helpers;
 
@@ -103,11 +103,17 @@ internal static class AdminManager //stage 4
     private static volatile bool s_stop = false;
 
 
-    [MethodImpl(MethodImplOptions.Synchronized)] //stage 7                                                 
+    //[MethodImpl(MethodImplOptions.Synchronized)] //stage 7                                                 
+    //public static void ThrowOnSimulatorIsRunning()
+    //{
+    //    if (s_thread is not null)
+    //        throw new BO.BlInvalidOperationException("Cannot perform the operation since Simulator is running");
+    //}
+    [MethodImpl(MethodImplOptions.Synchronized)]
     public static void ThrowOnSimulatorIsRunning()
     {
-        if (s_thread is not null)
-            throw new BO.BlInvalidOperationException("Cannot perform the operation since Simulator is running");
+        if (s_thread is not null && Thread.CurrentThread != s_thread)
+            throw new BO.BlInvalidOperationException($"Simulator thread: {s_thread.ManagedThreadId}, Current thread: {Thread.CurrentThread.ManagedThreadId} Cannot perform the operation since Simulator is running");
     }
 
     [MethodImpl(MethodImplOptions.Synchronized)] //stage 7                                                 
@@ -136,19 +142,35 @@ internal static class AdminManager //stage 4
 
     private static Task? _simulateTask = null;
 
+    //private static void clockRunner()
+    //{
+    //    while (!s_stop)
+    //    {
+    //        UpdateClock(Now.AddMinutes(s_interval));
+
+    //        //TO_DO:
+    //        //Add calls here to any logic simulation that was required in stage 7
+    //        //for example: course registration simulation
+    //        if (_simulateTask is null || _simulateTask.IsCompleted)//stage 7
+    //            _simulateTask = Task.Run(() => VolunteerManager.VolunteerActivitySimulation());
+
+    //        //etc...
+
+    //        try
+    //        {
+    //            Thread.Sleep(1000); // 1 second
+    //        }
+    //        catch (ThreadInterruptedException) { }
+    //    }
+    //}
     private static void clockRunner()
     {
         while (!s_stop)
         {
             UpdateClock(Now.AddMinutes(s_interval));
 
-            //TO_DO:
-            //Add calls here to any logic simulation that was required in stage 7
-            //for example: course registration simulation
-            if (_simulateTask is null || _simulateTask.IsCompleted)//stage 7
-                _simulateTask = Task.Run(() => VolunteerManager.VolunteerActivitySimulation());
-
-            //etc...
+            // Run VolunteerActivitySimulation directly in simulator thread ✅
+            VolunteerManager.VolunteerActivitySimulation();
 
             try
             {
@@ -157,5 +179,6 @@ internal static class AdminManager //stage 4
             catch (ThreadInterruptedException) { }
         }
     }
+
     #endregion Stage 7 base
 }
