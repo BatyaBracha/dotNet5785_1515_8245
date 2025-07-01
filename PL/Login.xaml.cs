@@ -91,7 +91,7 @@ namespace PL
                 if (role == BO.Role.STANDARD || role == BO.Role.ADMINISTRATOR)
                 {
                     // Navigate to Volunteer window
-                    Volunteer.VolunteerMainWindow volunteerWindow = new Volunteer.VolunteerMainWindow(Id);
+                    Volunteer.VolunteerMainWindow volunteerWindow = new Volunteer.VolunteerMainWindow(Id,Password);
                     volunteerWindow.Show();
                     //this.Close();
                 }

@@ -21,10 +21,11 @@ namespace PL.Volunteer
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 
-        public VolunteerMainWindow(int id)
+        public VolunteerMainWindow(int id ,string pass)
         {
             CurrentVolunteer = s_bl.Volunteer.Read(id);
             Id = id;
+            Password = pass;
             InitializeComponent();
         }
 
@@ -45,16 +46,26 @@ namespace PL.Volunteer
         public static readonly DependencyProperty CurrentVolunteerProperty =
         DependencyProperty.Register("CurrentVolunteer", typeof(BO.Volunteer), typeof(VolunteerMainWindow), new PropertyMetadata(null));
 
+        public string Password
+        {
+            get { return (string)GetValue(PasswordProperty); }
+            set { SetValue(PasswordProperty, value); }
+        }
+        public static readonly DependencyProperty PasswordProperty =
+            DependencyProperty.Register("Password", typeof(string), typeof(VolunteerWindow), new PropertyMetadata(""));
+
+
         public bool IsCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() != null;
         public bool IsNotCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() == null;
         //public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //      => CurrentVolunteer.TypeOfDistance = sender is ComboBox comboBox ? (BO.TypeOfDistance)comboBox.SelectedItem : BO.TypeOfDistance.WALK;
-        
+        private bool IsPassChanged = false;
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (sender is PasswordBox passwordBox)
             {
-                CurrentVolunteer.Password = passwordBox.Password; // Update the CurrentVolunteer.Password property
+                CurrentVolunteer.Password = passwordBox.Password;
+                IsPassChanged = true;// Update the CurrentVolunteer.Password property
             }
         }
 
@@ -62,6 +73,7 @@ namespace PL.Volunteer
         {
             try
             {
+                CurrentVolunteer.Password= !IsPassChanged ?Password: CurrentVolunteer.Password; // Ensure the password is updated before saving
                 s_bl.Volunteer.Update(CurrentVolunteer!.Id, CurrentVolunteer!);
                 MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 //CurrentVolunteer = s_bl.Volunteer.Read(Id);
