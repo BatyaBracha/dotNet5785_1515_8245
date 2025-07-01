@@ -37,6 +37,18 @@ namespace PL.Call
 
             InitializeComponent();
         }
+        private void queryCallDetails()
+              => CurrentCall = s_bl.Call.GetCallDetails(CurrentCall!.Id);
+
+        private void CallObserver()
+                      => queryCallDetails();
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+                      => s_bl.Call.AddObserver(CallObserver);
+
+        private void Window_Closed(object sender, EventArgs e)
+                      => s_bl.Volunteer.RemoveObserver(CallObserver);
+
 
         private void btnAddUpdate_Click(object sender, RoutedEventArgs e)
         {

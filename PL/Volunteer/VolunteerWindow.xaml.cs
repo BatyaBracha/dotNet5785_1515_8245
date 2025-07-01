@@ -25,8 +25,6 @@ namespace PL.Volunteer
         public static readonly DependencyProperty ButtonTextProperty =
        DependencyProperty.Register("ButtonText", typeof(string), typeof(VolunteerWindow), new PropertyMetadata("Add"));
 
-
-
         public BO.Volunteer? CurrentVolunteer
         {
             get { return (BO.Volunteer)GetValue(CurrentVolunteerProperty); }
@@ -37,39 +35,91 @@ namespace PL.Volunteer
         public static readonly DependencyProperty CurrentVolunteerProperty =
             DependencyProperty.Register("CurrentVolunteer", typeof(BO.Volunteer), typeof(VolunteerWindow), new PropertyMetadata(null));
 
-
         public string ButtonText
         {
             get { return (string)GetValue(ButtonTextProperty); }
             set { SetValue(ButtonTextProperty, value); }
         }
-        public BO.Role Role { get; set; } = BO.Role.STANDARD;
+        //public BO.Role Role { get; set; } = BO.Role.STANDARD;
 
-        public BO.TypeOfDistance TypeOfDistance { get; set; } = BO.TypeOfDistance.WALK;
-        public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
-              => CurrentVolunteer.TypeOfDistance = sender is ComboBox comboBox ? (BO.TypeOfDistance)comboBox.SelectedItem : BO.TypeOfDistance.WALK;
+        //public BO.TypeOfDistance TypeOfDistance { get; set; } = BO.TypeOfDistance.WALK;
+        //public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //      => CurrentVolunteer.TypeOfDistance = sender is ComboBox comboBox ? (BO.TypeOfDistance)comboBox.SelectedItem : BO.TypeOfDistance.WALK;
+
+        //public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (CurrentVolunteer != null && sender is ComboBox comboBox)
+        //    {
+        //        CurrentVolunteer.TypeOfDistance = (BO.TypeOfDistance)comboBox.SelectedItem;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("CurrentVolunteer is not initialized.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
+        //private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        //{
+        //    if (sender is PasswordBox passwordBox)
+        //    {
+        //        CurrentVolunteer.Password = passwordBox.Password; // Update the CurrentVolunteer.Password property
+        //    }
+        //}
+
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (sender is PasswordBox passwordBox)
+            if (CurrentVolunteer != null && sender is PasswordBox passwordBox)
             {
-                CurrentVolunteer.Password = passwordBox.Password; // Update the CurrentVolunteer.Password property
+                CurrentVolunteer.Password = passwordBox.Password;
+            }
+            else
+            {
+                MessageBox.Show("CurrentVolunteer is not initialized.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        //private void btnAddUpdate_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (ButtonText == "Add")
+        //        {
+        //            s_bl.Volunteer.Create(CurrentVolunteer!);
+        //            MessageBox.Show("Volunteer added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+        //        }
+        //        else if (ButtonText == "Update")
+        //        {
+        //            s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer!);
+        //            MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+        //            CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer!.Id);
+        //        }
+        //        this.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
 
         private void btnAddUpdate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                if (CurrentVolunteer == null)
+                {
+                    MessageBox.Show("CurrentVolunteer is not initialized.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 if (ButtonText == "Add")
                 {
-                    s_bl.Volunteer.Create(CurrentVolunteer!);
+                    s_bl.Volunteer.Create(CurrentVolunteer);
                     MessageBox.Show("Volunteer added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else if (ButtonText == "Update")
                 {
-                    s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer!);
+                    s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer);
                     MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer!.Id);
+                    CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer.Id);
                 }
                 this.Close();
             }
@@ -78,6 +128,7 @@ namespace PL.Volunteer
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         //private void btnAddUpdate_Click(object sender, RoutedEventArgs e)
         //{
@@ -97,6 +148,7 @@ namespace PL.Volunteer
         private void queryVolunteerDetails()
         {
             int id = CurrentVolunteer!.Id;
+            CurrentVolunteer = null;
             CurrentVolunteer = s_bl.Volunteer.Read(id);
         }
 
@@ -130,8 +182,19 @@ namespace PL.Volunteer
             DataContext = CurrentVolunteer;
             InitializeComponent();
         }
-        public void comboBoxRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
-      => CurrentVolunteer.Role = sender is ComboBox comboBox ? (BO.Role)comboBox.SelectedItem : BO.Role.STANDARD;
+        //public void comboBoxRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (CurrentVolunteer != null && sender is ComboBox comboBox)
+        //    {
+        //        CurrentVolunteer.Role = (BO.Role)comboBox.SelectedItem;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("CurrentVolunteer is not initialized.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
+
+        //=> CurrentVolunteer.Role = sender is ComboBox comboBox ? (BO.Role)comboBox.SelectedItem : BO.Role.STANDARD;
 
     }
 }

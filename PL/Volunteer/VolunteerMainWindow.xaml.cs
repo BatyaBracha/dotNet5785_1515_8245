@@ -21,11 +21,20 @@ namespace PL.Volunteer
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 
-        public VolunteerMainWindow(int Id)
+        public VolunteerMainWindow(int id)
         {
-            CurrentVolunteer = s_bl.Volunteer.Read(Id);
+            CurrentVolunteer = s_bl.Volunteer.Read(id);
+            Id = id;
             InitializeComponent();
         }
+
+        public int Id
+        {
+            get { return (int)GetValue(IdProperty); }
+            set { SetValue(IdProperty, value); }
+        }
+        public static readonly DependencyProperty IdProperty =
+            DependencyProperty.Register("Id", typeof(int), typeof(VolunteerMainWindow), new PropertyMetadata(0));
 
         public BO.Volunteer? CurrentVolunteer
         {
@@ -38,10 +47,9 @@ namespace PL.Volunteer
 
         public bool IsCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() != null;
         public bool IsNotCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() == null;
-
-        public BO.TypeOfDistance TypeOfDistance { get; set; } = BO.TypeOfDistance.WALK;
-        public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
-              => CurrentVolunteer.TypeOfDistance = sender is ComboBox comboBox ? (BO.TypeOfDistance)comboBox.SelectedItem : BO.TypeOfDistance.WALK;
+        //public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //      => CurrentVolunteer.TypeOfDistance = sender is ComboBox comboBox ? (BO.TypeOfDistance)comboBox.SelectedItem : BO.TypeOfDistance.WALK;
+        
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (sender is PasswordBox passwordBox)
@@ -54,9 +62,9 @@ namespace PL.Volunteer
         {
             try
             {
-                s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer!);
+                s_bl.Volunteer.Update(CurrentVolunteer!.Id, CurrentVolunteer!);
                 MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer!.Id);
+                CurrentVolunteer = s_bl.Volunteer.Read(Id);
             }
             catch (Exception ex)
             {
@@ -68,8 +76,9 @@ namespace PL.Volunteer
 
         private void queryVolunteerDetails()
         {
-            int id = CurrentVolunteer!.Id;
-            CurrentVolunteer = s_bl.Volunteer.Read(id);
+            Id = CurrentVolunteer.Id;
+            CurrentVolunteer = null;
+            CurrentVolunteer = s_bl.Volunteer.Read(Id);
         }
 
         private void VolunteerObserver()

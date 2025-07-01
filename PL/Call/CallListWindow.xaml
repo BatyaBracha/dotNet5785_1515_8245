@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Call"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
         Title="CallListWindow" Height="530" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
         Background="#F9F9F9" WindowStartupLocation="CenterScreen">
@@ -85,7 +87,7 @@
 
             <DataGrid.Columns>
                 <!-- Id -->
-                <!--<DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="0.3*"/>-->
+                <DataGridTextColumn Binding="{Binding CallId}" Header="ID" Width="0.3*"/>
                 <!-- Name -->
                 <DataGridTextColumn Binding="{Binding TypeOfCall}" Header="Type Of Call" Width="0.8*" />
 

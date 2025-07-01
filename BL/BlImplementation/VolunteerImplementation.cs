@@ -129,7 +129,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
 
             BO.CallInProgress? callInProgress = null;
 
-            if (assignment != null)
+             if (assignment != null)
             {
                 DO.Call call;
                 lock (AdminManager.BlMutex)

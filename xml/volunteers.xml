@@ -1,7 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVolunteer>
   <Volunteer>
-    <Id>276965970</Id>
+    <Id>694714846</Id>
+    <Name>Tzipy</Name>
+    <Phone>0527614421</Phone>
+    <Email>Tzipy051@gmail.com</Email>
+    <Password>0ZRhtg@fX8</Password>
+    <Address>Malchei Israel 12</Address>
+    <latitude>31.771959</latitude>
+    <longitude>35.217018</longitude>
+    <Role>STANDARD</Role>
+    <Active>true</Active>
+    <MaxDistance>219</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>346517533</Id>
+    <Name>Chani</Name>
+    <Phone>0527614422</Phone>
+    <Email>Chani0527614422@gmail.com</Email>
+    <Password>Yyxk%zHBBv</Password>
+    <Address>Minchat Itzchak 23</Address>
+    <latitude>31.775469</latitude>
+    <longitude>35.229568</longitude>
+    <Role>STANDARD</Role>
+    <Active>true</Active>
+    <MaxDistance>748</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>338930378</Id>
+    <Name>Yehudit</Name>
+    <Phone>0527614423</Phone>
+    <Email>Yehudit0527614423@gmail.com</Email>
+    <Password>xaCVl@@YVk</Password>
+    <Address>Hashofar 3</Address>
+    <latitude>31.774578</latitude>
+    <longitude>35.207031</longitude>
+    <Role>STANDARD</Role>
+    <Active>true</Active>
+    <MaxDistance>298</MaxDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>662943160</Id>
     <Name>Shira</Name>
     <Phone>0527614424</Phone>
     <Email>Shira0527614424@gmail.com</Email>
@@ -11,12 +53,11 @@
     <longitude>35.207889</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
-    <IsActive>false</IsActive>
     <MaxDistance>767</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>922719727</Id>
+    <Id>171963215</Id>
     <Name>Moishy</Name>
     <Phone>0527614425</Phone>
     <Email>Moishy0527614425@gmail.com</Email>
@@ -27,10 +68,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>893</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>898967391</Id>
+    <Id>690654714</Id>
     <Name>Efraim</Name>
     <Phone>0527614426</Phone>
     <Email>Efraim0527614426@gmail.com</Email>
@@ -44,7 +85,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>581241777</Id>
+    <Id>358662363</Id>
     <Name>Shloimy</Name>
     <Phone>0527614427</Phone>
     <Email>Shloimy0527614427@gmail.com</Email>
@@ -58,7 +99,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>993657750</Id>
+    <Id>132735190</Id>
     <Name>Yosi</Name>
     <Phone>0527614428</Phone>
     <Email>Yosi0527614428@gmail.com</Email>
@@ -67,12 +108,12 @@
     <latitude>31.798189</latitude>
     <longitude>35.206539</longitude>
     <Role>STANDARD</Role>
-    <Active>false</Active>
+    <Active>true</Active>
     <MaxDistance>908</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>742905539</Id>
+    <Id>857506754</Id>
     <Name>Yoni</Name>
     <Phone>0527614429</Phone>
     <Email>Yoni0527614429@gmail.com</Email>
@@ -86,7 +127,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>613939541</Id>
+    <Id>870314478</Id>
     <Name>Avi</Name>
     <Phone>0527614430</Phone>
     <Email>Avi0527614430@gmail.com</Email>
@@ -97,10 +138,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>450</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>690509679</Id>
+    <Id>102707798</Id>
     <Name>Chaim</Name>
     <Phone>0527614431</Phone>
     <Email>Chaim0527614431@gmail.com</Email>
@@ -114,7 +155,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>849304831</Id>
+    <Id>586191025</Id>
     <Name>Ester</Name>
     <Phone>0527614432</Phone>
     <Email>Ester0527614432@gmail.com</Email>
@@ -125,10 +166,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>978</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>639848300</Id>
+    <Id>592251351</Id>
     <Name>Rachel</Name>
     <Phone>0527614433</Phone>
     <Email>Rachel0527614433@gmail.com</Email>
@@ -139,10 +180,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>595</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>740906101</Id>
+    <Id>530780018</Id>
     <Name>Shani</Name>
     <Phone>0527614434</Phone>
     <Email>Shani0527614434@gmail.com</Email>
@@ -156,7 +197,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>556274315</Id>
+    <Id>560110505</Id>
     <Name>Michali</Name>
     <Phone>0527614435</Phone>
     <Email>Michali0527614435@gmail.com</Email>
@@ -167,76 +208,20 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>575</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
-    <Id>216223669</Id>
-    <Name>Rachel</Name>
-    <Phone>0583251410</Phone>
-    <Email>racheli@gmail.com</Email>
-    <Password>DE3A63953EA1F5D22DADC3FD28EBB73756BAA30BE613C78ACB01745537DEFA9A</Password>
-    <Address>Man 3 Jerusalem Israel</Address>
-    <latitude>31.761716</latitude>
-    <longitude>35.1984241</longitude>
-    <Role>ADMINISTRATOR</Role>
-    <Active>false</Active>
-    <MaxDistance>1</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
-    <Id>341395549</Id>
-    <Name>Malka</Name>
-    <Phone>0989878876</Phone>
-    <Email>tyu@gmail.com</Email>
-    <Password>E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855</Password>
-    <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
-    <Role>STANDARD</Role>
-    <Active>true</Active>
-    <MaxDistance>234</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
-    <Id>328263249</Id>
-    <Name>batsheva</Name>
-    <Phone>0545454545</Phone>
-    <Email>b7malka@gmail.com</Email>
-    <Password>EA71C25A7A602246B4C39824B855678894A96F43BB9B71319C39700A1E045222</Password>
-    <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
-    <Role>STANDARD</Role>
-    <Active>false</Active>
-    <MaxDistance>1</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
-    <Id>123456782</Id>
-    <Name>Meni</Name>
-    <Phone>0989898989</Phone>
-    <Email>meni@gmail.com</Email>
-    <Password>C9D3DA531D5F49F7570AE4A5B3C2633AED75A0E55A7803B0CB1D4FB86EA4734E</Password>
-    <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
-    <Role>STANDARD</Role>
-    <Active>true</Active>
-    <MaxDistance>20</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>328118245</Id>
-    <Name>Batya Oren</Name>
+    <Name>Mali Horowitz</Name>
     <Phone>0583278625</Phone>
-    <Email>riv.yak.36@gmail.com</Email>
-    <Password>C9D3DA531D5F49F7570AE4A5B3C2633AED75A0E55A7803B0CB1D4FB86EA4734E</Password>
-    <Address>Man 3, Jerusalem</Address>
-    <latitude>31.761716</latitude>
-    <longitude>35.1984241</longitude>
+    <Email>mh0583@gmail.com</Email>
+    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
+    <Address>Ha'ayalot 25</Address>
+    <latitude>31.869553</latitude>
+    <longitude>35.140127</longitude>
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
-    <MaxDistance>250</MaxDistance>
+    <MaxDistance>1000</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>
