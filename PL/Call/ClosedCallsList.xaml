@@ -110,14 +110,22 @@
         </Grid.RowDefinitions>
 
         <Label Content="Sort by Field:" Margin="164,8,215,46"/>
-        <ComboBox Width="150" Height="30" Margin="290,4,60,53"
+        <!--<ComboBox Width="150" Height="30" Margin="290,4,60,53"
                   ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}}"
-                  SelectedValue="{Binding CallFieldsFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                  SelectedValue="{Binding CallFieldsFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
+        <ComboBox SelectedValue="{Binding Path=CallFieldsFilter, Mode=TwoWay}" 
+            ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}}" 
+            SelectionChanged="comboBoxCallList_SelectionChanged" 
+            Width="150" Margin="194,2,46,40" Background="White" BorderBrush="#CCCCCC" Height="30" Grid.Column="1" RenderTransformOrigin="0.747,0.351"/>
 
         <Label Content="Filter by Call Type:" Margin="164,46,215,347" Grid.RowSpan="2"/>
-        <ComboBox Width="150" Height="30" Margin="290,53,60,4"
+        <!--<ComboBox Width="150" Height="30" Margin="290,53,60,4"
                   ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}"
-                  SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                  SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" />-->
+        <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" 
+                  ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}" 
+                  SelectionChanged="comboBoxCallList_SelectionChanged" 
+                  Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Grid.Column="1" Margin="194,40,46,2"/>
 
         <DataGrid Grid.Row="1" Margin="5,10,5,0"
                   ItemsSource="{Binding Path=ClosedCallList, Mode=TwoWay}"

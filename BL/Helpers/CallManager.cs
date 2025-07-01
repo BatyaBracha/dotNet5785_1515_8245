@@ -101,6 +101,7 @@ internal static class CallManager
     {
         var propertyName = filterBy.ToString();
         var property = item.GetType().GetProperty(propertyName);
+
         if (property == null)
             throw new ArgumentException($"Property '{propertyName}' not found on type '{item.GetType().Name}'.");
 
@@ -109,36 +110,36 @@ internal static class CallManager
             return false;
 
         // אם שני הערכים הם Enum – נשווה ישירות
-        if (propertyValue is Enum && filterValue is Enum)
-            return propertyValue.Equals(filterValue);
+        //if (propertyValue is Enum && filterValue is Enum)
+        //    return propertyValue.Equals(filterValue);
 
         // אם טיפוסים שונים – ננסה להשוות כ־string
-        return propertyValue.ToString() == filterValue.ToString();
+        return propertyValue != null && propertyValue.ToString() == filterValue.ToString();
     }
 
-    public static bool MatchFieldExtended(Enum filterBy, DO.Call call, DO.Assignment assignment, object filterValue)
-    {
-        var propertyName = filterBy.ToString();
+    //public static bool MatchFieldExtended(Enum filterBy, DO.Call call, DO.Assignment assignment, object filterValue)
+    //{
+    //    var propertyName = filterBy.ToString();
 
-        // ננסה קודם ב־Call
-        var property = call.GetType().GetProperty(propertyName);
-        object? value = null;
+    //    // ננסה קודם ב־Call
+    //    var property = call.GetType().GetProperty(propertyName);
+    //    object? propertyValue = null;
 
-        if (property != null)
-            value = property.GetValue(call);
-        else
-        {
-            // ננסה ב־Assignment
-            property = assignment.GetType().GetProperty(propertyName);
-            if (property != null)
-                value = property.GetValue(assignment);
-            else
-                throw new ArgumentException($"Property '{propertyName}' not found on Call or Assignment.");
-        }
+    //    if (property != null)
+    //        propertyValue = property.GetValue(call);
+    //    else
+    //    {
+    //        // ננסה ב־Assignment
+    //        property = assignment.GetType().GetProperty(propertyName);
+    //        if (property != null)
+    //            propertyValue = property.GetValue(assignment);
+    //        else
+    //            throw new ArgumentException($"Property '{propertyName}' not found on Call or Assignment.");
+    //    }
 
         // Compare the property value with the filter value
-        return propertyValue != null && propertyValue.ToString()==filterValue.ToString();
-    }
+    //    return propertyValue != null && propertyValue.ToString()==filterValue.ToString();
+    //}
 
     internal static IEnumerable<T> SortByField<T>(Enum? sortBy, IEnumerable<T> items)
     {

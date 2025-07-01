@@ -605,7 +605,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-01T10:29:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>CLOSED</Status>
     <MaxClosingTime>2025-07-01T15:41:00</MaxClosingTime>
   </Call>
   <Call>

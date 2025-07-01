@@ -444,10 +444,10 @@
   <Assignment>
     <Id>1814</Id>
     <CallId>1049</CallId>
-    <VolunteerId>662943160</VolunteerId>
+    <VolunteerId>328118245</VolunteerId>
     <TreatmentStartTime>2025-07-01T12:00:00</TreatmentStartTime>
     <TreatmentEndTime>2025-07-01T14:00:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>EXPIRED_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
+    <AssignmentStatus>CLOSED</AssignmentStatus>
   </Assignment>
 </ArrayOfAssignment>

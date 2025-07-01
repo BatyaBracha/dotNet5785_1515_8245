@@ -26,12 +26,11 @@ namespace PL.Call
         public ClosedCallsList(int id)
         {
             Id = id;
+            Loaded += Window_Loaded;
+            Closed += Window_Closed;
             InitializeComponent();
-            QueryCallList();
+            DataContext = this;
         }
-
-        public static readonly DependencyProperty ClosedCallListProperty =
-            DependencyProperty.Register("ClosedCallList", typeof(IEnumerable<BO.ClosedCallInList>), typeof(ClosedCallsList), new PropertyMetadata(null));
 
         public int Id
         {
@@ -66,15 +65,32 @@ namespace PL.Call
             }
         }
 
-        public BO.TypeOfCall? SelectedTypeOfCallFilter
-        {
-            get => (BO.TypeOfCall?)GetValue(SelectedTypeOfCallFilterProperty);
-            set => SetValue(SelectedTypeOfCallFilterProperty, value);
-        }
+        //public BO.TypeOfCall? SelectedTypeOfCallFilter
+        //{
+        //    get => (BO.TypeOfCall?)GetValue(SelectedTypeOfCallFilterProperty);
+        //    set => SetValue(SelectedTypeOfCallFilterProperty, value);
+        //}
 
-        public static readonly DependencyProperty SelectedTypeOfCallFilterProperty =
-            DependencyProperty.Register(nameof(SelectedTypeOfCallFilter), typeof(BO.TypeOfCall?), typeof(ClosedCallsList),
-                new PropertyMetadata(BO.TypeOfCall.NONE, OnFilterChanged));
+        //public static readonly DependencyProperty SelectedTypeOfCallFilterProperty =
+        //    DependencyProperty.Register(nameof(SelectedTypeOfCallFilter), typeof(BO.TypeOfCall?), typeof(ClosedCallsList),
+        //        new PropertyMetadata(BO.TypeOfCall.NONE, OnFilterChanged));
+
+        //public BO.CallInListField CallFieldsFilter
+        //{
+        //    get => (BO.CallInListField)GetValue(CallFieldsFilterProperty);
+        //    set => SetValue(CallFieldsFilterProperty, value);
+        //}
+
+
+        //public static readonly DependencyProperty CallFieldsFilterProperty =
+        //    DependencyProperty.Register(nameof(CallFieldsFilter), typeof(BO.CallInListField), typeof(ClosedCallsList),
+        //        new PropertyMetadata(BO.CallInListField.None, OnFilterChanged));
+        public BO.CallInListField CallFieldsFilter { get; set; } = BO.CallInListField.None;
+        public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; } = BO.TypeOfCall.NONE;
+
+
+        public void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+                      => ClosedCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, null, null, CallFieldsFilter)! : s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
 
         private static void OnFilterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -83,18 +99,14 @@ namespace PL.Call
         }
 
         private void QueryCallList()
-        {
-            Id = id;
-            Loaded+=Window_Loaded;
-            Closed += Window_Closed;
-            InitializeComponent();
-        }
-
+            => ClosedCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE
+                ? s_bl.Call.GetClosedCallsHandledByTheVolunteer(Id, null, null, CallFieldsFilter)
+                : s_bl.Call.GetClosedCallsHandledByTheVolunteer(Id, BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter);
         private void Window_Loaded(object sender, RoutedEventArgs e)
-            => s_bl.Call.AddObserver(QueryCallList);
+            => s_bl.Call.AddObserver(CallListObserver);
 
         private void Window_Closed(object sender, EventArgs e)
-            => s_bl.Call.RemoveObserver(QueryCallList);
+            => s_bl.Call.RemoveObserver(CallListObserver);
     }
 
 }
