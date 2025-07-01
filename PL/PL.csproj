@@ -21,11 +21,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="PasswordBoxHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25104.5739" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj" />
   </ItemGroup>
+
 
 </Project>

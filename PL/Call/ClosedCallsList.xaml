@@ -9,7 +9,7 @@
         Closed="Window_Closed"
         Title="ClosedCallsList" Height="450" Width="500"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="8*"/>
@@ -17,21 +17,22 @@
 
         <Label Grid.Row="0" Height="32" Content="Closed Calls History View" Margin="10,10,344,6"/>
 
-        <!--<Label Content="Sort by Field:" 
+        -->
+    <!--<Label Content="Sort by Field:" 
             HorizontalAlignment="Center" VerticalAlignment="Top" 
             Margin="0,12,0,0" Foreground="#333333" Width="118"/>
 
         -->
-        <!-- Sorting ComboBox -->
-        <!--
+    <!-- Sorting ComboBox -->
+    <!--
         <ComboBox SelectedValue="{Binding CallFieldsFilter, Mode=TwoWay}" 
             ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}, Path=CallFieldsFilter, Mode=TwoWay}" 
             SelectionChanged="comboBoxCallList_SelectionChanged" 
             Width="150" Margin="336,9,14,48" Background="White" BorderBrush="#CCCCCC" Height="30" RenderTransformOrigin="0.747,0.351"/>
 
         -->
-        <!-- Label for Type of Call ComboBox -->
-        <!--
+    <!-- Label for Type of Call ComboBox -->
+    <!--
         <Label Content="Filter by Call Type:" 
             HorizontalAlignment="Center" VerticalAlignment="Top" 
             Margin="0,50,0,0" Foreground="#333333" Width="114"/>
@@ -40,24 +41,27 @@
                   ItemsSource="{Binding  Source={StaticResource TypeOfCallCollectionKey}}" 
                   SelectionChanged="comboBoxCallList_SelectionChanged" 
                   Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Margin="336,47,14,10"/>-->
+    <!--
         <Label Content="Sort by Field:" 
             HorizontalAlignment="Left" VerticalAlignment="Top" 
             Margin="164,8,0,0" Foreground="#333333" Width="117"/>
 
-        <!-- Sorting ComboBox -->
-        <ComboBox SelectedValue="{Binding Path=CallFieldsFilter, Mode=TwoWay}" 
+        -->
+    <!-- Sorting ComboBox -->
+    <!--
+        <ComboBox SelectedValue="{Binding Path=CallFieldsFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
             ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}}" 
-            SelectionChanged="comboBoxCallList_SelectionChanged" 
             Width="150" Margin="339,11,11,46" Background="White" BorderBrush="#CCCCCC" Height="30" RenderTransformOrigin="0.747,0.351"/>
 
-        <!-- Label for Type of Call ComboBox -->
+        -->
+    <!-- Label for Type of Call ComboBox -->
+    <!--
         <Label Content="Filter by Call Type:" 
             HorizontalAlignment="Left" VerticalAlignment="Top" 
             Margin="164,46,0,0" Foreground="#333333" Width="115"/>
 
-        <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" 
+        <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                   ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}" 
-                  SelectionChanged="comboBoxCallList_SelectionChanged" 
                   Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Margin="339,49,11,8"/>
 
 
@@ -65,7 +69,7 @@
         Grid.Row="1"
         Margin="5,10,5,0"
         AutoGenerateColumns="False"
-        ItemsSource="{Binding Path=ClosedCallList}"
+        ItemsSource="{Binding Path=ClosedCallList, Mode=TwoWay}"
         IsReadOnly="True"
         Background="White" 
         BorderBrush="#CCCCCC" 
@@ -76,18 +80,53 @@
         VerticalGridLinesBrush="#E0E0E0">
 
             <DataGrid.Columns>
-                <!-- Name -->
+                -->
+    <!-- Name -->
+    <!--
                 <DataGridTextColumn Binding="{Binding TypeOfCall}" Header="Type Of Call" Width="*" />
 
-                <!-- CallsOutOfDate -->
+                -->
+    <!-- CallsOutOfDate -->
+    <!--
                 <DataGridTextColumn Binding="{Binding Address}" Header="Address" Width="*" />
 
-                <!-- CallsCanceled -->
+                -->
+    <!-- CallsCanceled -->
+    <!--
                 <DataGridTextColumn Binding="{Binding OpeningTime}" Header="Opening Time" Width="*" />
 
-                <!-- CallsDone -->
+                -->
+    <!-- CallsDone -->
+    <!--
                 <DataGridTextColumn Binding="{Binding ActualTreatmentEndTime}" Header="Treatment End Time" Width="*" />
 
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Sort by Field:" Margin="164,8,215,46"/>
+        <ComboBox Width="150" Height="30" Margin="290,4,60,53"
+                  ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}}"
+                  SelectedValue="{Binding CallFieldsFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Filter by Call Type:" Margin="164,46,215,347" Grid.RowSpan="2"/>
+        <ComboBox Width="150" Height="30" Margin="290,53,60,4"
+                  ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}"
+                  SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <DataGrid Grid.Row="1" Margin="5,10,5,0"
+                  ItemsSource="{Binding Path=ClosedCallList, Mode=TwoWay}"
+                  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding TypeOfCall}" Header="Type Of Call" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Address}" Header="Address" Width="*"/>
+                <DataGridTextColumn Binding="{Binding OpeningTime}" Header="Opening Time" Width="*"/>
+                <DataGridTextColumn Binding="{Binding ActualTreatmentEndTime}" Header="Treatment End Time" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

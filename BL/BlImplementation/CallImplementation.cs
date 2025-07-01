@@ -3,6 +3,7 @@ using BO;
 using DalApi;
 using DO;
 using Helpers;
+using System;
 using System.Collections;
 using System.Net;
 
@@ -214,41 +215,99 @@ namespace BlImplementation
         //    return closedCalls.ToList();
         //}
 
+        //public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
+        //{
+        //    // Step 1: Retrieve all assignments for the volunteer with CLOSED status
+        //    var assignments = Call_dal.Assignment.ReadAll()
+        //        .Where(a => a.VolunteerId == volunteerId && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
+        //    if (assignments == null)  return new List<BO.ClosedCallInList>();
+        //    // Step 2: Retrieve the corresponding calls
+        //    var calls = assignments
+        //        .Select(a => new
+        //        {
+        //            Assignment = a,
+        //            Call = Call_dal.Call.Read(a.CallId)
+        //        })
+        //        .Where(x => x.Call != null && x.Call.Status == DO.CallStatus.CLOSED);
+        //    // Add null check and status filter
+        //    if (calls == null) return new List<BO.ClosedCallInList>();
+
+        //    // Step 3: Apply filtering
+        //    if (filterBy != null && filterValue != null)
+        //    {
+        //        calls = calls.Where(x => CallManager.MatchField(filterBy, x.Call!, filterValue));
+        //    }
+
+        //    // Step 4: Map to BO.ClosedCallInList
+        //    var closedCalls = calls.Select(x => new BO.ClosedCallInList
+        //    {
+        //        Id = x.Call!.Id, // Call ID
+        //        TypeOfCall = (BO.TypeOfCall)x.Call.TypeOfCall,
+        //        Address = x.Call.Address,
+        //        OpeningTime = x.Call.OpeningTime,
+        //        ActualTreatmentEndTime = x.Assignment.TreatmentEndTime, // From the assignment
+        //        TypeOfTreatmentEnding = (BO.TypeOfTreatmentEnding?)x.Assignment.TypeOfTreatmentEnding // From the assignment
+        //    });
+
+        //    // Step 5: Apply sorting
+        //    if (sortBy != null)
+        //    {
+        //        closedCalls = CallManager.SortByField(sortBy, closedCalls);
+        //    }
+
+        //    return closedCalls.ToList();
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
         {
-            // Step 1: Retrieve all assignments for the volunteer with CLOSED status
             var assignments = Call_dal.Assignment.ReadAll()
                 .Where(a => a.VolunteerId == volunteerId && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
-            if (assignments == null)  return new List<BO.ClosedCallInList>();
-            // Step 2: Retrieve the corresponding calls
-            var calls = assignments
+
+            if (!assignments.Any())
+                return new List<BO.ClosedCallInList>();
+
+            var callsWithAssignments = assignments
                 .Select(a => new
                 {
                     Assignment = a,
                     Call = Call_dal.Call.Read(a.CallId)
                 })
                 .Where(x => x.Call != null && x.Call.Status == DO.CallStatus.CLOSED);
-            // Add null check and status filter
-            if (calls == null) return new List<BO.ClosedCallInList>();
 
-            // Step 3: Apply filtering
+            // פילטר לפי filterBy
             if (filterBy != null && filterValue != null)
             {
-                calls = calls.Where(x => CallManager.MatchField(filterBy, x.Call!, filterValue));
+                callsWithAssignments = callsWithAssignments
+                    .Where(x => CallManager.MatchFieldExtended(filterBy, x.Call!, x.Assignment, filterValue));
             }
 
-            // Step 4: Map to BO.ClosedCallInList
-            var closedCalls = calls.Select(x => new BO.ClosedCallInList
+            var closedCalls = callsWithAssignments.Select(x => new BO.ClosedCallInList
             {
-                Id = x.Call!.Id, // Call ID
+                Id = x.Call!.Id,
                 TypeOfCall = (BO.TypeOfCall)x.Call.TypeOfCall,
                 Address = x.Call.Address,
                 OpeningTime = x.Call.OpeningTime,
-                ActualTreatmentEndTime = x.Assignment.TreatmentEndTime, // From the assignment
-                TypeOfTreatmentEnding = (BO.TypeOfTreatmentEnding?)x.Assignment.TypeOfTreatmentEnding // From the assignment
+                ActualTreatmentEndTime = x.Assignment.TreatmentEndTime,
+                TypeOfTreatmentEnding = (BO.TypeOfTreatmentEnding?)x.Assignment.TypeOfTreatmentEnding
             });
 
-            // Step 5: Apply sorting
             if (sortBy != null)
             {
                 closedCalls = CallManager.SortByField(sortBy, closedCalls);
@@ -256,6 +315,7 @@ namespace BlImplementation
 
             return closedCalls.ToList();
         }
+
 
         public IEnumerable<BO.OpenCallInList> GetOpenCallsCanBeSelectedByAVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
         {
