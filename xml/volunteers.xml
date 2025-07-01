@@ -1,10 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVolunteer>
   <Volunteer>
-    <Id>694714846</Id>
+    <Id>455070640</Id>
+    <Name>Mali Horowitz</Name>
+    <Phone>0583278625</Phone>
+    <Email>mh0583278625@gmail.com</Email>
+    <Password>password</Password>
+    <Address>Ha'ayalot 25</Address>
+    <latitude>31.8</latitude>
+    <longitude>35.1</longitude>
+    <Role>ADMINISTRATOR</Role>
+    <Active>true</Active>
+    <MaxDistance>250</MaxDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>331667267</Id>
     <Name>Tzipy</Name>
     <Phone>0527614421</Phone>
-    <Email>Tzipy051@gmail.com</Email>
+    <Email>Tzipy0527614421@gmail.com</Email>
     <Password>0ZRhtg@fX8</Password>
     <Address>Malchei Israel 12</Address>
     <latitude>31.771959</latitude>
@@ -12,10 +26,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>219</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>346517533</Id>
+    <Id>284349225</Id>
     <Name>Chani</Name>
     <Phone>0527614422</Phone>
     <Email>Chani0527614422@gmail.com</Email>
@@ -29,7 +43,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>338930378</Id>
+    <Id>598210840</Id>
     <Name>Yehudit</Name>
     <Phone>0527614423</Phone>
     <Email>Yehudit0527614423@gmail.com</Email>
@@ -43,7 +57,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>662943160</Id>
+    <Id>644126531</Id>
     <Name>Shira</Name>
     <Phone>0527614424</Phone>
     <Email>Shira0527614424@gmail.com</Email>
@@ -54,10 +68,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>767</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>171963215</Id>
+    <Id>396350392</Id>
     <Name>Moishy</Name>
     <Phone>0527614425</Phone>
     <Email>Moishy0527614425@gmail.com</Email>
@@ -68,10 +82,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>893</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>690654714</Id>
+    <Id>738680981</Id>
     <Name>Efraim</Name>
     <Phone>0527614426</Phone>
     <Email>Efraim0527614426@gmail.com</Email>
@@ -85,7 +99,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>358662363</Id>
+    <Id>580428008</Id>
     <Name>Shloimy</Name>
     <Phone>0527614427</Phone>
     <Email>Shloimy0527614427@gmail.com</Email>
@@ -96,10 +110,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>974</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>132735190</Id>
+    <Id>414571276</Id>
     <Name>Yosi</Name>
     <Phone>0527614428</Phone>
     <Email>Yosi0527614428@gmail.com</Email>
@@ -113,7 +127,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>857506754</Id>
+    <Id>102369407</Id>
     <Name>Yoni</Name>
     <Phone>0527614429</Phone>
     <Email>Yoni0527614429@gmail.com</Email>
@@ -127,7 +141,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>870314478</Id>
+    <Id>736140510</Id>
     <Name>Avi</Name>
     <Phone>0527614430</Phone>
     <Email>Avi0527614430@gmail.com</Email>
@@ -138,10 +152,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>450</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>102707798</Id>
+    <Id>776870835</Id>
     <Name>Chaim</Name>
     <Phone>0527614431</Phone>
     <Email>Chaim0527614431@gmail.com</Email>
@@ -152,10 +166,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>166</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>586191025</Id>
+    <Id>554149089</Id>
     <Name>Ester</Name>
     <Phone>0527614432</Phone>
     <Email>Ester0527614432@gmail.com</Email>
@@ -166,10 +180,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>978</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>592251351</Id>
+    <Id>305725373</Id>
     <Name>Rachel</Name>
     <Phone>0527614433</Phone>
     <Email>Rachel0527614433@gmail.com</Email>
@@ -183,7 +197,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>530780018</Id>
+    <Id>527695844</Id>
     <Name>Shani</Name>
     <Phone>0527614434</Phone>
     <Email>Shani0527614434@gmail.com</Email>
@@ -194,10 +208,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>250</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>560110505</Id>
+    <Id>287332649</Id>
     <Name>Michali</Name>
     <Phone>0527614435</Phone>
     <Email>Michali0527614435@gmail.com</Email>
@@ -208,20 +222,20 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>575</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>328118245</Id>
-    <Name>Mali Horowitz</Name>
-    <Phone>0583278625</Phone>
-    <Email>mh0583@gmail.com</Email>
+    <Name>Batya</Name>
+    <Phone>0548571410</Phone>
+    <Email>riv.yak.36@gmail.com</Email>
     <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
-    <Address>Ha'ayalot 25</Address>
-    <latitude>31.869553</latitude>
-    <longitude>35.140127</longitude>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
-    <MaxDistance>1000</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <MaxDistance>300</MaxDistance>
+    <TypeOfDistance>DRIVE</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

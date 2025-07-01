@@ -42,7 +42,7 @@ namespace BlImplementation
             }
             var callStatus = CallManager.CalculateCallStatus(callAssignments, call.MaxClosingTime);
             // Validate call status
-            if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK && (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
+            if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK || (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
                 throw new BO.BlDoesNotExistException("this call is not open for treatment.");
 
             bool isBeingTreated = callAssignments.Any(a =>
