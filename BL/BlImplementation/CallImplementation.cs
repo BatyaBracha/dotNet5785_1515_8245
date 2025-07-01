@@ -228,35 +228,47 @@ namespace BlImplementation
             var openOrRiskyCalls = calls
                 .Select(call =>
                 {
-                    var relatedAssignments = assignmentsGrouped.FirstOrDefault(g => g.Key == call.Id)?.ToList();
-                    CallManager.CalculateCallStatus(relatedAssignments ?? Enumerable.Empty<Assignment>(), call.MaxClosingTime);
+                    var callAssignments = assignments.Where(a => a.CallId == call.Id).ToList();
+
+                    //var relatedAssignments = assignmentsGrouped.FirstOrDefault(g => g.Key == call.Id)?.ToList();
+                  var status=CallManager.CalculateCallStatus(callAssignments ?? Enumerable.Empty<Assignment>(), call.MaxClosingTime);
                     //CallManager.CalculateCallStatus(relatedAssignments, call.MaxClosingTime);
-                    return call;
+                    lock (AdminManager.BlMutex)
+                         Call_dal.Call.Update(new DO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.latitude, call.longitude, call.riskRange, call.OpeningTime, (DO.CallStatus)status, call.MaxClosingTime));
+                    return new BO.Call(call.Id,(BO.TypeOfCall)call.TypeOfCall,call.Description ,call.Address,call.longitude,call.latitude,call.OpeningTime,call.MaxClosingTime,status,null);
                 })
-                .Where(call => call.Status == DO.CallStatus.OPEN || call.Status == DO.CallStatus.OPEN_IN_RISK) // Adjust status properties if needed
+                .Where(call => call.Status == BO.CallStatus.OPEN || call.Status == BO.CallStatus.OPEN_IN_RISK) // Adjust status properties if needed
                 .ToList();
 
-            if (filterBy != null)
-            {
-                calls = calls.Where(c => CallManager.MatchField(filterBy, c, filterValue)).ToList();
-            }
+            //if (filterBy != null)
+            //{
+            //    calls = calls.Where(c => CallManager.MatchField(filterBy, c, filterValue)).ToList();
+            //}
             DO.Volunteer v;
             lock (AdminManager.BlMutex)
                 v = Call_dal.Volunteer.Read(volunteerId);
-            var openCalls = calls.Select(c => new BO.OpenCallInList
+            IEnumerable<BO.OpenCallInList> openCalls = null;
+            if (openOrRiskyCalls.Any()) // Check if the list is not empty
             {
-                Id = c.Id,
-                TypeOfCall = (BO.TypeOfCall)c.TypeOfCall,
-                Description = c.Description,
-                Address = c.Address,
-                OpeningTime = c.OpeningTime,
-                MaxCloseingTime = c.MaxClosingTime,
-                CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(v.latitude, v.longitude, c.latitude, c.longitude)
-            });
+                 openCalls = openOrRiskyCalls.Select(c => new BO.OpenCallInList
+                {
+                    Id = c.Id,
+                    TypeOfCall = (BO.TypeOfCall)c.TypeOfCall,
+                    Description = c.Description,
+                    Address = c.Address,
+                    OpeningTime = c.OpeningTime,
+                    MaxCloseingTime = c.MaxClosingTime,
+                    CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(v.latitude, v.longitude, v.latitude, v.longitude)
+                });
+                if (filterBy != null)
+                {
+                    openCalls = openCalls.Where(c => CallManager.MatchField(filterBy, c, filterValue)).ToList();
+                }
 
-            if (sortBy != null)
-            {
-                openCalls = CallManager.SortByField(sortBy, openCalls);
+                if (sortBy != null)
+                {
+                    openCalls = CallManager.SortByField(sortBy, openCalls);
+                }
             }
 
             return openCalls;
