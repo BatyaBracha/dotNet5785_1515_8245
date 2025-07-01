@@ -244,10 +244,9 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         {
             AdminManager.ThrowOnSimulatorIsRunning();
             VolunteerManager.ValidateVolunteer(boVolunteer);
-               DO.Volunteer? user;
+             DO.Volunteer? user;
             lock (AdminManager.BlMutex) { 
-                 user = Volunteer_dal.Volunteer.ReadAll()
-                .FirstOrDefault(u => u.Id == boVolunteer.Id);
+                 user = Volunteer_dal.Volunteer.Read(userId);
             }
             //בשלב 5 צריך להוסיף שאם התז הוא לא של המשתמש הנוכחי או של המנהל אז לא ניתן לעדכן את המתנדב
             if (user == null)
@@ -258,7 +257,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                 Name = boVolunteer.Name,
                 Phone = boVolunteer.PhoneNumber,
                 Email = boVolunteer.Email,
-                Password = Tools.HashPassword(boVolunteer.Password),
+                Password = boVolunteer.Password.Length==64? boVolunteer.Password:Tools.HashPassword(boVolunteer.Password),
                 Address = boVolunteer.CurrentAddress,
                 latitude = null,
                 longitude = null,

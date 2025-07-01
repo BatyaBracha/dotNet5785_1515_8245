@@ -57,8 +57,7 @@ namespace PL.Volunteer
 
         public bool IsCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() != null;
         public bool IsNotCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() == null;
-        //public void comboBoxTypeOfDistance_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //      => CurrentVolunteer.TypeOfDistance = sender is ComboBox comboBox ? (BO.TypeOfDistance)comboBox.SelectedItem : BO.TypeOfDistance.WALK;
+
         private bool IsPassChanged = false;
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
