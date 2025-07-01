@@ -65,6 +65,8 @@ namespace PL.Volunteer
             }
         }
 
+        private volatile bool _observerWorking = false; //stage 7
+
         private void queryVolunteerDetails()
         {
             int id = CurrentVolunteer!.Id;
@@ -72,7 +74,17 @@ namespace PL.Volunteer
         }
 
         private void VolunteerObserver()
-                      => queryVolunteerDetails();
+        {
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    queryVolunteerDetails();
+                    _observerWorking = false;
+                });
+            }
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
                       => s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);

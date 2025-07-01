@@ -48,10 +48,22 @@ namespace PL.Volunteer
                       => VolunteerList = (VolunteerFieldsFilter == BO.VolunteerFields.None) ?
                                       s_bl?.Volunteer.ReadAll()! : s_bl?.Volunteer.ReadAll(null, VolunteerFieldsFilter)!;
 
+        private volatile bool _observerWorking = false; //stage 7
 
         private void volunteerListObserver()
-                      => queryVolunteerList();
- 
+        {
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    queryVolunteerList();
+                    _observerWorking = false;
+                });
+            }
+
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
                       => s_bl.Volunteer.AddObserver(volunteerListObserver);
 

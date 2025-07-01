@@ -52,9 +52,20 @@ namespace PL.Call
         private void QueryCallList()
               => ClosedCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, null, null, CallFieldsFilter)! : s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
 
+        private volatile bool _observerWorking = false; //stage 7
 
         private void CallListObserver()
-                      => QueryCallList();
+        {
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    QueryCallList();
+                    _observerWorking = false;
+                });
+            }
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
                       => s_bl.Call.AddObserver(CallListObserver);

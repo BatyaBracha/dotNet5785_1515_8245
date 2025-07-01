@@ -600,4 +600,16 @@
     <Status>OPEN</Status>
     <MaxClosingTime>2026-06-29T20:35:38</MaxClosingTime>
   </Call>
+  <Call>
+    <Id>1056</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>testing async</Description>
+    <Address>Man 3</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-01T12:50:22.8496959+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-01T12:50:22</MaxClosingTime>
+  </Call>
 </ArrayOfCall>

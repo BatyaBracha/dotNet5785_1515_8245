@@ -32,6 +32,7 @@ namespace BlImplementation
         // מתודת קידום שעון
         public void PromotionClock(BO.TimeUnit timeUnit)
         {
+            AdminManager.ThrowOnSimulatorIsRunning();
             DateTime newTime;
 
             // קידום השעון בהתאם ליחידת הזמן
@@ -67,26 +68,49 @@ namespace BlImplementation
         // מתודת הגדרת טווח זמן סיכון
         public void SetRiskRange(TimeSpan riskRange)
         {
+            AdminManager.ThrowOnSimulatorIsRunning();
             // מעדכן את טווח הזמן של הסיכון בתצורה
             AdminManager.RiskRange = riskRange;
         }
 
         // מתודת איפוס בסיס נתונים
-        public void ResetDB()
+        //public void ResetDB()
+        //{
+        //    AdminManager.ResetDB();
+        //    Admin_dal.Volunteer.DeleteAll();
+        //    Admin_dal.Assignment.DeleteAll();
+        //    Admin_dal.Call.DeleteAll();
+        //}
+        public void ResetDB() //stage 4
         {
-            AdminManager.ResetDB();
-            Admin_dal.Volunteer.DeleteAll();
-            Admin_dal.Assignment.DeleteAll();
-            Admin_dal.Call.DeleteAll();
+            AdminManager.ThrowOnSimulatorIsRunning();  //stage 7
+            AdminManager.ResetDB(); //stage 7
         }
 
         // מתודת אתחול בסיס נתונים
-        public void InitializeDB()
+        //public void InitializeDB()
+        //{
+        //    // אתחול של בסיס הנתונים: איפוס וטעינה מחדש של הנתונים
+        //    ResetDB();
+        //    // אתחול הישויות עם ערכים התחלתיים
+        //    Initialization.Do();
+        //}
+        public void InitializeDB() //stage 4
         {
-            // אתחול של בסיס הנתונים: איפוס וטעינה מחדש של הנתונים
-            ResetDB();
-            // אתחול הישויות עם ערכים התחלתיים
-            Initialization.Do();
+            AdminManager.ThrowOnSimulatorIsRunning();  //stage 7
+            AdminManager.InitializeDB(); //stage 7
         }
+
+
+        public void StartSimulator(int interval)  //stage 7
+        {
+            AdminManager.ThrowOnSimulatorIsRunning();  //stage 7
+            AdminManager.Start(interval); //stage 7
+        }
+        public void StopSimulator()
+            => AdminManager.Stop(); //stage 7
+
     }
+
+
 }

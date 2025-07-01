@@ -26,7 +26,9 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     public BO.Role Login(int id, string password)
     {
         // Retrieve the volunteer by id
-        var volunteer = Volunteer_dal.Volunteer.ReadAll().FirstOrDefault(v => v.Id == id);
+        DO.Volunteer? volunteer;
+        lock (AdminManager.BlMutex)
+             volunteer = Volunteer_dal.Volunteer.ReadAll().FirstOrDefault(v => v.Id == id);
         if (volunteer == null)
         {
             throw new UnauthorizedAccessException("Invalid id or password.");
@@ -46,8 +48,11 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     {
         try
         {
-            (double lat, double lon) = VolunteerManager.ValidateVolunteer(boVolunteer);
-            var user = Volunteer_dal.Volunteer.ReadAll()
+            AdminManager.ThrowOnSimulatorIsRunning();
+            VolunteerManager.ValidateVolunteer(boVolunteer);
+            DO.Volunteer? user;
+            lock (AdminManager.BlMutex)
+                 user = Volunteer_dal.Volunteer.ReadAll()
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
             if (user != null)
                 throw new BO.BlArgumentException("A volunteer with the same ID already exists. Please use a different ID.");
@@ -61,18 +66,18 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                 //Password = boVolunteer.Password,
                 Password = hashedPassword,
                 Address = boVolunteer.CurrentAddress,
-                latitude = lat,
-                longitude = lon,
+                latitude = null,
+                longitude = null,
                 Role = (DO.Role)boVolunteer.Role,
                 Active = boVolunteer.Active,
                 MaxDistance = boVolunteer.MaxDistance,
                 TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
             };
-
-            Volunteer_dal.Volunteer.Create(doVolunteer);
+            lock (AdminManager.BlMutex)
+                Volunteer_dal.Volunteer.Create(doVolunteer);
             VolunteerManager.Observers.NotifyItemUpdated(doVolunteer.Id);  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();  //stage 5
-
+            _=CallManager.UpdateCoordinatesForVolunteerAsync(doVolunteer);
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
@@ -84,14 +89,18 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     {
         try
         {
-            var activeAssignments = Volunteer_dal.Assignment.ReadAll()
+            AdminManager.ThrowOnSimulatorIsRunning();
+            lock (AdminManager.BlMutex)
+            {
+                var activeAssignments = Volunteer_dal.Assignment.ReadAll()
                 .Where(a => a.VolunteerId == id && a.TreatmentEndTime == null)
                 .ToList();
 
-            if (activeAssignments.Any())
-                throw new BO.BlInvalidOperationException("לא ניתן למחוק מתנדב שמטפל כרגע בקריאה.");
+                if (activeAssignments.Any())
+                    throw new BO.BlInvalidOperationException("לא ניתן למחוק מתנדב שמטפל כרגע בקריאה.");
 
-            Volunteer_dal.Volunteer.Delete(id);
+                Volunteer_dal.Volunteer.Delete(id);
+            }
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {
@@ -106,10 +115,15 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     {
         try
         {
-            var doVolunteer = Volunteer_dal.Volunteer.Read(id)
+            IEnumerable<DO.Assignment> assignments;
+            DO.Volunteer? doVolunteer;
+            lock (AdminManager.BlMutex)
+            {
+                 doVolunteer = Volunteer_dal.Volunteer.Read(id)
                 ?? throw new BO.BlDoesNotExistException("Volunteer not found.");
 
-            var assignments = Volunteer_dal.Assignment.ReadAll().Where(a => a.VolunteerId == id).ToList();
+                 assignments = Volunteer_dal.Assignment.ReadAll().Where(a => a.VolunteerId == id).ToList();
+            }
             var assignment = assignments
                 .FirstOrDefault(a => a.VolunteerId == id && a.TreatmentEndTime == null);
 
@@ -117,7 +131,9 @@ internal class VolunteerImplementation : BlApi.IVolunteer
 
             if (assignment != null)
             {
-                var call = Volunteer_dal.Call.Read(assignment.CallId);
+                DO.Call call;
+                lock (AdminManager.BlMutex)
+                     call = Volunteer_dal.Call.Read(assignment.CallId);
                 callInProgress = new BO.CallInProgress
                 {
                     Id=assignment.Id,
@@ -128,7 +144,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                     TimeOfOpening = assignment.TreatmentStartTime,
                     MaxFinishTime = call.MaxClosingTime,
                     TimeOfEntryToTreatment = assignment.TreatmentStartTime,
-                    CallVolunteerDistance = CallManager.GetAerialDistance(doVolunteer.Address, call.Address),
+                    CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(doVolunteer.latitude,doVolunteer.longitude, call.latitude,call.longitude),
                     Status = BO.Status.BEING_HANDELED
                 };
             }
@@ -165,9 +181,13 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     {
         try
         {
-            var volunteers = Volunteer_dal.Volunteer.ReadAll();
-            var assignments = Volunteer_dal.Assignment.ReadAll();
-
+            IEnumerable<DO.Volunteer> volunteers;
+            IEnumerable<DO.Assignment> assignments;
+            lock (AdminManager.BlMutex)
+            {
+                 volunteers = Volunteer_dal.Volunteer.ReadAll();
+                 assignments = Volunteer_dal.Assignment.ReadAll();
+            }
             // סינון לפי סטטוס
             if (filter.HasValue)
                 volunteers = volunteers.Where(v => v.Active == (filter == BO.Active.TRUE)).ToList();
@@ -176,18 +196,20 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             {
                 var assignmentForVolunteer = assignments.FirstOrDefault(a => a.VolunteerId == v.Id && a.TreatmentEndTime == null);
                 var callId = assignmentForVolunteer?.CallId;
-
-                return new BO.VolunteerInList
+                lock (AdminManager.BlMutex)
                 {
-                    Id = v.Id,
-                    Name = v.Name,
-                    Active = v.Active,
-                    CallsDone = assignments.Count(assignment => assignment.VolunteerId == v.Id && (BO.AssignmentStatus)assignment.AssignmentStatus == BO.AssignmentStatus.COMPLETED),
-                    CallsCanceled = assignments.Count(assignment => assignment.VolunteerId == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.SELF_CANCELED),
-                    CallsOutOfDate = assignments.Count(assignment => assignment.VolunteerId == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.EXPIRED_CANCELED),
-                    CallId = callId,
-                    TypeOfCall = callId != null ? (BO.TypeOfCall)Volunteer_dal.Call.Read(callId.Value).TypeOfCall : BO.TypeOfCall.NONE,
-                };
+                    return new BO.VolunteerInList
+                    {
+                        Id = v.Id,
+                        Name = v.Name,
+                        Active = v.Active,
+                        CallsDone = assignments.Count(assignment => assignment.VolunteerId == v.Id && (BO.AssignmentStatus)assignment.AssignmentStatus == BO.AssignmentStatus.COMPLETED),
+                        CallsCanceled = assignments.Count(assignment => assignment.VolunteerId == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.SELF_CANCELED),
+                        CallsOutOfDate = assignments.Count(assignment => assignment.VolunteerId == v.Id && (DO.TypeOfTreatmentEnding)assignment.TypeOfTreatmentEnding == DO.TypeOfTreatmentEnding.EXPIRED_CANCELED),
+                        CallId = callId,
+                        TypeOfCall = callId != null ? (BO.TypeOfCall)Volunteer_dal.Call.Read(callId.Value).TypeOfCall : BO.TypeOfCall.NONE,
+                    };
+                }
             });
             if (typeOfCallFilter.HasValue)
                 volunteerList = volunteerList.Where(v => v.TypeOfCall == typeOfCallFilter).ToList();
@@ -220,9 +242,13 @@ internal class VolunteerImplementation : BlApi.IVolunteer
     {
         try
         {
-            (double? lat, double? lon) = VolunteerManager.ValidateVolunteer(boVolunteer);
-            var user = Volunteer_dal.Volunteer.ReadAll()
+            AdminManager.ThrowOnSimulatorIsRunning();
+            VolunteerManager.ValidateVolunteer(boVolunteer);
+               DO.Volunteer? user;
+            lock (AdminManager.BlMutex) { 
+                 user = Volunteer_dal.Volunteer.ReadAll()
                 .FirstOrDefault(u => u.Id == boVolunteer.Id);
+            }
             //בשלב 5 צריך להוסיף שאם התז הוא לא של המשתמש הנוכחי או של המנהל אז לא ניתן לעדכן את המתנדב
             if (user == null)
                 throw new BO.BlArgumentException("username or password are incorrect.");
@@ -234,17 +260,18 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                 Email = boVolunteer.Email,
                 Password = Tools.HashPassword(boVolunteer.Password),
                 Address = boVolunteer.CurrentAddress,
-                latitude = lat,
-                longitude = lon,
+                latitude = null,
+                longitude = null,
                 Role = (DO.Role)boVolunteer.Role,
                 Active = boVolunteer.Active,
                 MaxDistance = boVolunteer.MaxDistance,
                 TypeOfDistance = (DO.TypeOfDistance)boVolunteer.TypeOfDistance
             };
-
-            Volunteer_dal.Volunteer.Update(doVolunteer);
+            lock (AdminManager.BlMutex)
+                Volunteer_dal.Volunteer.Update(doVolunteer);
             VolunteerManager.Observers.NotifyItemUpdated(boVolunteer.Id);  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();  //stage 5
+            _= CallManager.UpdateCoordinatesForVolunteerAsync(doVolunteer);
         }
         catch (DO.DalUnauthorizedOperationException ex)
         {

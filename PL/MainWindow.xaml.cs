@@ -109,13 +109,33 @@ namespace PL
                 MessageBox.Show("DB initialized successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        private volatile bool _observerWorking = false; //stage 7
+
         private void configObserver()
         {
-            RiskRange = s_bl.Admin.GetRiskRange();       
+
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    RiskRange = s_bl.Admin.GetRiskRange();
+                    _observerWorking = false;
+                });
+            }
         }
         private void clockObserver()
         {
-            CurrentTime = s_bl.Admin.GetClock();
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    CurrentTime = s_bl.Admin.GetClock();
+                    _observerWorking = false;
+                });
+            }
         }
         /// <summary>
         /// Handles the Loaded event of the window.
@@ -148,8 +168,6 @@ namespace PL
             InitializeComponent();
             this.Loaded += OnWindowLoaded; // Register the Loaded event
             this.Closed += OnWindowClosed; // Register the Loaded event
-
-
         }
     }
 }
