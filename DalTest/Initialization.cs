@@ -22,7 +22,7 @@ public static class Initialization
   (31.781869,  35.236349 ),(  31.799467,  35.240458 ), (  31.788469,  35.235679 )};
         string[] passwords = { "0ZRhtg@fX8", "Yyxk%zHBBv", "xaCVl@@YVk", "op*pix&iZ&", "(zdMnv9K26", "A7bR#ZX^^2", "pnK6U31HCR", "2tvFx(*92!", "C0pjk1NzwI", "aAmrbepq#3", "%1IlDaLWn%", "chNF08*vWn", "qBf$@2HDyS", "ca*)&UrEgJ", "p!L2z#7h@m}" };
         int[] maxDistances = { 219, 748, 298, 767, 893, 419, 974, 908, 959, 450, 166, 978, 595, 250, 575 };
-        s_dal!.Volunteer.Create(new(s_rand.Next(MIN_ID, MAX_ID), "Mali Horowitz", "0583278625", "mh0583278625@gmail.com", "password", "Ha'ayalot 25", 31.8, 35.1, Role.ADMINISTRATOR, true, 250, (TypeOfDistance)s_rand.Next(0, 2)));
+        s_dal!.Volunteer.Create(new(s_rand.Next(MIN_ID, MAX_ID), "Mali Horowitz", "0583278625", "mh078625@gmail.com", "password", "Ha'ayalot 25", 31.8, 35.1, Role.ADMINISTRATOR, true, 250, (TypeOfDistance)s_rand.Next(0, 2)));
 
         for (int i = 0; i < 15; i++)
         {

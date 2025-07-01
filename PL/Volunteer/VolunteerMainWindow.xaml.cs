@@ -64,7 +64,7 @@ namespace PL.Volunteer
             {
                 s_bl.Volunteer.Update(CurrentVolunteer!.Id, CurrentVolunteer!);
                 MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                CurrentVolunteer = s_bl.Volunteer.Read(Id);
+                //CurrentVolunteer = s_bl.Volunteer.Read(Id);
             }
             catch (Exception ex)
             {
@@ -79,6 +79,7 @@ namespace PL.Volunteer
             Id = CurrentVolunteer.Id;
             CurrentVolunteer = null;
             CurrentVolunteer = s_bl.Volunteer.Read(Id);
+
         }
 
         private void VolunteerObserver()
@@ -95,8 +96,10 @@ namespace PL.Volunteer
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-                      => s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
-        
+        { 
+         s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
+            //IsCallInProgress=
+        }
 
         private void Window_Closed(object sender, EventArgs e)
                       => s_bl.Volunteer.RemoveObserver(CurrentVolunteer!.Id, VolunteerObserver);

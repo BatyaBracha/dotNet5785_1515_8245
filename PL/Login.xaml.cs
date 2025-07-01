@@ -70,7 +70,7 @@ namespace PL
                     // Navigate to Admin window
                     MainWindow adminWindow = new MainWindow();
                     adminWindow.Show();
-                    this.Close();
+                    //this.Close();
                 }
                 else
                 {
@@ -93,7 +93,7 @@ namespace PL
                     // Navigate to Volunteer window
                     Volunteer.VolunteerMainWindow volunteerWindow = new Volunteer.VolunteerMainWindow(Id);
                     volunteerWindow.Show();
-                    this.Close();
+                    //this.Close();
                 }
                 else
                 {

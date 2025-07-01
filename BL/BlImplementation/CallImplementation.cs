@@ -87,6 +87,10 @@ namespace BlImplementation
             //    BO.CallStatus.BEING_HANDELED,
             //    callAssignments
             //));
+            CallManager.Observers.NotifyItemUpdated(callId);  //stage 5
+            CallManager.Observers.NotifyListUpdated();  //stage 5
+            VolunteerManager.Observers.NotifyListUpdated();
+            VolunteerManager.Observers.NotifyItemUpdated(volunteerId);
         }
 
         public void Create(BO.Call boCall)
@@ -410,6 +414,11 @@ namespace BlImplementation
                 call.AssignedVolunteers!.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == assignment.VolunteerId));
                 Update(new BO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.Latitude, call.Longitude, call.OpeningTime, call.MaxClosingTime, status, call.AssignedVolunteers));
             }
+            CallManager.Observers.NotifyItemUpdated(assignment.CallId);  //stage 5
+            CallManager.Observers.NotifyListUpdated();  //stage 5
+            VolunteerManager.Observers.NotifyListUpdated();
+            VolunteerManager.Observers.NotifyItemUpdated(volunteerId);
+
         }
 
         public void TreatmentCompletionUpdate(int volunteerId, int assignmentId)
@@ -433,6 +442,11 @@ namespace BlImplementation
             call.AssignedVolunteers!.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == volunteerId));
             Update(new BO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.Latitude, call.Longitude, call.OpeningTime, AdminManager.Now, BO.CallStatus.CLOSED, call.AssignedVolunteers));
         }
+            CallManager.Observers.NotifyItemUpdated(assignment.CallId);  //stage 5
+            CallManager.Observers.NotifyListUpdated();  //stage 5
+            VolunteerManager.Observers.NotifyListUpdated();
+            VolunteerManager.Observers.NotifyItemUpdated(volunteerId);
+
         }
 
         public void Update(BO.Call boCall)
