@@ -115,7 +115,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
 
             BO.CallInProgress? callInProgress = null;
 
-            if (assignment != null)
+             if (assignment != null)
             {
                 var call = Volunteer_dal.Call.Read(assignment.CallId);
                 callInProgress = new BO.CallInProgress
@@ -128,7 +128,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
                     TimeOfOpening = assignment.TreatmentStartTime,
                     MaxFinishTime = call.MaxClosingTime,
                     TimeOfEntryToTreatment = assignment.TreatmentStartTime,
-                    CallVolunteerDistance = CallManager.GetAerialDistance(doVolunteer.Address, call.Address),
+                    CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(doVolunteer.latitude,doVolunteer.longitude, call.latitude,call.longitude),
                     Status = BO.Status.BEING_HANDELED
                 };
             }

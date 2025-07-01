@@ -44,13 +44,17 @@ namespace PL.Call
         public BO.CallInListField CallFieldsFilter { get; set; } = BO.CallInListField.None;
         public BO.TypeOfCall? SelectedTypeOfCallFilter { get; set; } = BO.TypeOfCall.NONE;
 
-        private void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            QueryCallList();
-        }
+        public void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+              => ClosedCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, null, null, CallFieldsFilter)!
+                 : s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
+
+        //private void comboBoxCallList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //      => QueryCallList();
+
 
         private void QueryCallList()
-              => ClosedCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, null, null, CallFieldsFilter)! : s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
+              => ClosedCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, null, null, CallFieldsFilter)!
+                 : s_bl?.Call.GetClosedCallsHandledByTheVolunteer(Id, BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
 
 
         private void CallListObserver()

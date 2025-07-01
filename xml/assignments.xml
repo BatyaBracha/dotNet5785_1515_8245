@@ -468,4 +468,22 @@
     <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>CLOSED</AssignmentStatus>
   </Assignment>
+  <Assignment>
+    <Id>1763</Id>
+    <CallId>1054</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-06-29T20:09:23</TreatmentStartTime>
+    <TreatmentEndTime>2027-08-01T13:59:33</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED_CANCELED</TypeOfTreatmentEnding>
+	  <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>1764</Id>
+    <CallId>1055</CallId>
+    <VolunteerId>0</VolunteerId>
+    <TreatmentStartTime>2026-06-29T20:35:38</TreatmentStartTime>
+    <TreatmentEndTime>2027-08-01T13:59:33</TreatmentEndTime>
+    <TypeOfTreatmentEnding>EXPIRED_CANCELED</TypeOfTreatmentEnding>
+	  <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
 </ArrayOfAssignment>

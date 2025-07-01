@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Call"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
         Title="ClosedCallsList" Height="450" Width="500"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Grid>
@@ -15,28 +17,54 @@
 
         <Label Grid.Row="0" Height="32" Content="Closed Calls History View" Margin="10,10,344,6"/>
 
-        <Label Content="Sort by Field:" 
+        <!--<Label Content="Sort by Field:" 
             HorizontalAlignment="Center" VerticalAlignment="Top" 
             Margin="0,12,0,0" Foreground="#333333" Width="118"/>
 
+        -->
         <!-- Sorting ComboBox -->
-        <ComboBox SelectedValue="{Binding Path=CallFieldsFilter, Mode=TwoWay}" 
-            ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}}" 
+        <!--
+        <ComboBox SelectedValue="{Binding CallFieldsFilter, Mode=TwoWay}" 
+            ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}, Path=CallFieldsFilter, Mode=TwoWay}" 
             SelectionChanged="comboBoxCallList_SelectionChanged" 
             Width="150" Margin="336,9,14,48" Background="White" BorderBrush="#CCCCCC" Height="30" RenderTransformOrigin="0.747,0.351"/>
 
+        -->
         <!-- Label for Type of Call ComboBox -->
+        <!--
         <Label Content="Filter by Call Type:" 
             HorizontalAlignment="Center" VerticalAlignment="Top" 
             Margin="0,50,0,0" Foreground="#333333" Width="114"/>
 
         <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" 
+                  ItemsSource="{Binding  Source={StaticResource TypeOfCallCollectionKey}}" 
+                  SelectionChanged="comboBoxCallList_SelectionChanged" 
+                  Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Margin="336,47,14,10"/>-->
+        <Label Content="Sort by Field:" 
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Margin="164,8,0,0" Foreground="#333333" Width="117"/>
+
+        <!-- Sorting ComboBox -->
+        <ComboBox SelectedValue="{Binding Path=CallFieldsFilter, Mode=TwoWay}" 
+            ItemsSource="{Binding Source={StaticResource CallFieldsCollectionKey}}" 
+            SelectionChanged="comboBoxCallList_SelectionChanged" 
+            Width="150" Margin="339,11,11,46" Background="White" BorderBrush="#CCCCCC" Height="30" RenderTransformOrigin="0.747,0.351"/>
+
+        <!-- Label for Type of Call ComboBox -->
+        <Label Content="Filter by Call Type:" 
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Margin="164,46,0,0" Foreground="#333333" Width="115"/>
+
+        <ComboBox SelectedValue="{Binding SelectedTypeOfCallFilter, Mode=TwoWay}" 
                   ItemsSource="{Binding Source={StaticResource TypeOfCallCollectionKey}}" 
                   SelectionChanged="comboBoxCallList_SelectionChanged" 
-                  Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Margin="336,47,14,10"/>
+                  Width="150" Background="White" BorderBrush="#CCCCCC" Height="30" Margin="339,49,11,8"/>
 
-        <DataGrid Grid.Row="1"
+
+        <DataGrid 
+        Grid.Row="1"
         Margin="5,10,5,0"
+        AutoGenerateColumns="False"
         ItemsSource="{Binding Path=ClosedCallList}"
         IsReadOnly="True"
         Background="White" 

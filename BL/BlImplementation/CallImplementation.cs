@@ -219,7 +219,7 @@ namespace BlImplementation
             // Step 1: Retrieve all assignments for the volunteer with CLOSED status
             var assignments = Call_dal.Assignment.ReadAll()
                 .Where(a => a.VolunteerId == volunteerId && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
-
+            if (assignments == null)  return new List<BO.ClosedCallInList>();
             // Step 2: Retrieve the corresponding calls
             var calls = assignments
                 .Select(a => new
@@ -227,7 +227,9 @@ namespace BlImplementation
                     Assignment = a,
                     Call = Call_dal.Call.Read(a.CallId)
                 })
-                .Where(x => x.Call != null && x.Call.Status == DO.CallStatus.CLOSED); // Add null check and status filter
+                .Where(x => x.Call != null && x.Call.Status == DO.CallStatus.CLOSED);
+            // Add null check and status filter
+            if (calls == null) return new List<BO.ClosedCallInList>();
 
             // Step 3: Apply filtering
             if (filterBy != null && filterValue != null)

@@ -553,18 +553,6 @@
     <MaxClosingTime>2025-05-18T15:54:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1054</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>description</Description>
-    <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
-    <riskRange xsi:nil="true" />
-    <OpeningTime>2025-06-29T20:09:23.3179817+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-06-29T20:09:23</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1025</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
     <Description>Minor mechanical issue near the mall.</Description>
@@ -589,15 +577,27 @@
     <MaxClosingTime>2025-05-18T15:13:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1055</Id>
+    <Id>1054</Id>
     <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>lets see</Description>
+    <Description>description test observers...</Description>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-06-29T20:09:23.3179817+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2026-06-29T20:09:23</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1055</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>lets see if it works</Description>
     <Address>Man 3</Address>
     <latitude>18.2280315</latitude>
     <longitude>-65.76072630634643</longitude>
     <riskRange xsi:nil="true" />
     <OpeningTime>2025-06-29T20:35:38.3497496+03:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>CLOSED</Status>
     <MaxClosingTime>2026-06-29T20:35:38</MaxClosingTime>
   </Call>
 </ArrayOfCall>
