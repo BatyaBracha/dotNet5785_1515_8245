@@ -40,7 +40,7 @@ namespace PL.Volunteer
                       => VolunteerList = (VolunteerFieldsFilter == BO.VolunteerFields.None) ?
                                       s_bl?.Volunteer.ReadAll()! : s_bl?.Volunteer.ReadAll(null, VolunteerFieldsFilter)!;
         public void comboBoxTypeOfCallFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    => VolunteerList = (SelectedTypeOfCallFilter == null)
+                      => VolunteerList = (SelectedTypeOfCallFilter == null)
         ? s_bl?.Volunteer.ReadAll()!
         : s_bl?.Volunteer.ReadAll(null, null, SelectedTypeOfCallFilter)!;
 

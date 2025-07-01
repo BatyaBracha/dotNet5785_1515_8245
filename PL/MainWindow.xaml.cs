@@ -61,6 +61,62 @@ namespace PL
         {
             s_bl.Admin.SetRiskRange(RiskRange);
         }
+
+        public int Interval
+        {
+            get { return (int)GetValue(IntervalProperty); }
+            set { SetValue(IntervalProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RiskRange.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IntervalProperty =
+            DependencyProperty.Register("Interval", typeof(int), typeof(MainWindow), new PropertyMetadata(0));
+
+        public string SimulatorButtonText
+        {
+            get { return (string)GetValue(SimulatorButtonTextProperty); }
+            set { SetValue(SimulatorButtonTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RiskRange.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SimulatorButtonTextProperty =
+            DependencyProperty.Register("SimulatorButtonText", typeof(string), typeof(MainWindow), new PropertyMetadata("Start"));
+        private bool IsSimulatorRunning = false;
+        private bool IsButtonsEnabled = true;
+
+        private void btnSimulator_Click(object sender, RoutedEventArgs e)
+        {
+            if (!IsSimulatorRunning)
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                try
+                {
+                    s_bl.Admin.StartSimulator(Interval);
+                    SimulatorButtonText= "Stop"; // Update button text to "Stop" after starting the simulator
+                    IsSimulatorRunning = true;
+                    IsButtonsEnabled = false;
+                }
+                finally
+                {
+                    Mouse.OverrideCursor = null;
+                }
+            }
+            else
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                try
+                {
+                    s_bl.Admin.StopSimulator();
+                    SimulatorButtonText = "Start";
+                    IsSimulatorRunning = false; // Update button text to "Start" after stopping the simulator
+                    IsButtonsEnabled = true; // Enable buttons again
+                }
+                finally
+                {
+                    Mouse.OverrideCursor = null;
+                }
+            }
+        }
         private void btnResetDB_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to reset the DB?", "Reset DB", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
