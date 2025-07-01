@@ -57,7 +57,6 @@ namespace PL.Volunteer
                 s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer!);
                 MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer!.Id);
-                this.Close();
             }
             catch (Exception ex)
             {
