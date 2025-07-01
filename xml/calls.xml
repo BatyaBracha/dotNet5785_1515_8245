@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
+    <Id>1045</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T00:37:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T04:12:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1046</Id>
+    <TypeOfCall>BURN_INJURY</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>Herzl St, Tel Aviv</Address>
+    <latitude>32.0853</latitude>
+    <longitude>34.7818</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T01:38:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T06:03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1047</Id>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>Jump start required at the parking lot.</Description>
+    <Address>Dizengoff St, Tel Aviv</Address>
+    <latitude>32.0755</latitude>
+    <longitude>34.7756</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T01:28:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T05:00:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1048</Id>
+    <TypeOfCall>HEAD_INJURY</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T00:33:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T02:22:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1049</Id>
+    <TypeOfCall>DIABETIC_EMERGENCY</TypeOfCall>
+    <Description>Flat tire on the highway.</Description>
+    <Address>Ben Gurion Blvd, Haifa</Address>
+    <latitude>32.794</latitude>
+    <longitude>34.9896</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T01:04:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T02:31:00</MaxClosingTime>
+  </Call>
+  <Call>
     <Id>1000</Id>
     <TypeOfCall>HEAD_INJURY</TypeOfCall>
     <Description>Flat tire on the road to Jerusalem.</Description>
@@ -539,65 +599,5 @@
     <OpeningTime>2025-07-02T00:57:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-07-02T05:53:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1045</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-07-02T00:37:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-02T04:12:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1046</Id>
-    <TypeOfCall>BURN_INJURY</TypeOfCall>
-    <Description>Medical emergency near the park.</Description>
-    <Address>Herzl St, Tel Aviv</Address>
-    <latitude>32.0853</latitude>
-    <longitude>34.7818</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-07-02T01:38:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-02T06:03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1047</Id>
-    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
-    <Description>Jump start required at the parking lot.</Description>
-    <Address>Dizengoff St, Tel Aviv</Address>
-    <latitude>32.0755</latitude>
-    <longitude>34.7756</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-07-02T01:28:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-02T05:00:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1048</Id>
-    <TypeOfCall>HEAD_INJURY</TypeOfCall>
-    <Description>Medical emergency near the park.</Description>
-    <Address>Rothschild Blvd, Tel Aviv</Address>
-    <latitude>32.0656</latitude>
-    <longitude>34.777</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-07-02T00:33:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-02T02:22:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1049</Id>
-    <TypeOfCall>DIABETIC_EMERGENCY</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>Ben Gurion Blvd, Haifa</Address>
-    <latitude>32.794</latitude>
-    <longitude>34.9896</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-07-02T01:04:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-02T02:31:00</MaxClosingTime>
   </Call>
 </ArrayOfCall>

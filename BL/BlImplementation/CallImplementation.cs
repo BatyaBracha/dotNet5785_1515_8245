@@ -247,10 +247,11 @@ namespace BlImplementation
             DO.Volunteer v;
             lock (AdminManager.BlMutex)
                 v = Call_dal.Volunteer.Read(volunteerId);
-            IEnumerable<BO.OpenCallInList> openCalls = null;
+            IEnumerable<BO.OpenCallInList> openCallsAllDistances = null;
+            IEnumerable<BO.OpenCallInList> openCalls = Enumerable.Empty<BO.OpenCallInList>();
             if (openOrRiskyCalls.Any()) // Check if the list is not empty
             {
-                 openCalls = openOrRiskyCalls.Select(c => new BO.OpenCallInList
+                 openCallsAllDistances = openOrRiskyCalls.Select(c => new BO.OpenCallInList
                 {
                     Id = c.Id,
                     TypeOfCall = (BO.TypeOfCall)c.TypeOfCall,
@@ -258,8 +259,9 @@ namespace BlImplementation
                     Address = c.Address,
                     OpeningTime = c.OpeningTime,
                     MaxCloseingTime = c.MaxClosingTime,
-                    CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(v.latitude, v.longitude, v.latitude, v.longitude)
+                    CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(v.latitude, v.longitude, c.Latitude, c.Longitude)
                 });
+                 openCalls=openCallsAllDistances.Where(c => c.CallVolunteerDistance <= v.MaxDistance );
                 if (filterBy != null)
                 {
                     openCalls = openCalls.Where(c => CallManager.MatchField(filterBy, c, filterValue)).ToList();

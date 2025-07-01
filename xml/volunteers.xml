@@ -230,12 +230,12 @@
     <Phone>0548571410</Phone>
     <Email>riv.yak.36@gmail.com</Email>
     <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
-    <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0837754</latitude>
+    <longitude>34.771816</longitude>
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
-    <MaxDistance>300</MaxDistance>
+    <MaxDistance>500</MaxDistance>
     <TypeOfDistance>DRIVE</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>
