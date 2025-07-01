@@ -143,6 +143,7 @@ namespace PL.Volunteer
         //        MessageBox.Show("Volunteer updated successfully!");
         //    }
         //}
+        private volatile bool _observerWorking = false; //stage 7
 
         private void queryVolunteerDetails()
         {
@@ -152,11 +153,21 @@ namespace PL.Volunteer
         }
 
         private void VolunteerObserver()
-                      => queryVolunteerDetails();
+        {
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    queryVolunteerDetails();
+                    _observerWorking = false;
+                });
+            }
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (CurrentVolunteer!.Id != 0)
+            //if (CurrentVolunteer!.Id != 0)
                 s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
         }
 
@@ -168,7 +179,7 @@ namespace PL.Volunteer
             ButtonText = Id == 0 ? "Add" : "Update";
             CurrentVolunteer = (Id != 0) ? s_bl.Volunteer.Read(Id)!
            : new BO.Volunteer(0, "", "", "", "", null, null, null, BO.Role.STANDARD, true, null, BO.TypeOfDistance.WALK, 0, 0, 0, null);
-
+            DataContext = CurrentVolunteer;
             InitializeComponent();
         }
         //public void comboBoxRole_SelectionChanged(object sender, SelectionChangedEventArgs e)

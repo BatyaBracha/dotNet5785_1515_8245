@@ -26,7 +26,7 @@ internal static class Tools
     /// <param name="toEmail">The recipient's email address.</param>
     /// <param name="subject">The subject of the email.</param>
     /// <param name="body">The body content of the email.</param>
-    public static void SendEmail(string toEmail, string subject, string body)
+    public static async Task SendEmail(string toEmail, string subject, string body)
     {
         var fromAddress = new MailAddress("wesaveliveseveryday@gmail.com", "We_Save_Lives");
         var toAddress = new MailAddress(toEmail);

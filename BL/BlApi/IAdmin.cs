@@ -18,4 +18,6 @@ public interface IAdmin
     void SetRiskRange(TimeSpan riskRange);
     void ResetDB();
     void InitializeDB();
+    void StartSimulator(int interval); //stage 7
+    void StopSimulator(); //stage 7
 }

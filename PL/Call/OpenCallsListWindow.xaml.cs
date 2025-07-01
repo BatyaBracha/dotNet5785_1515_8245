@@ -23,9 +23,15 @@ namespace PL.Call
         public OpenCallsListWindow(int id)
         {
             Id = id;
+            Loaded +=Window_Loaded;
+            Closed += Window_Closed;
             InitializeComponent();
         }
 
+        private void OpenCallsListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 
@@ -61,9 +67,20 @@ namespace PL.Call
         private void queryCallList()
                       => OpenCallList = SelectedTypeOfCallFilter == BO.TypeOfCall.NONE ? s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,null, null, CallFieldsFilter)! : s_bl?.Call.GetOpenCallsCanBeSelectedByAVolunteer(Id,BO.CallFieldFilter.TypeOfCall, SelectedTypeOfCallFilter, CallFieldsFilter)!;
 
+        private volatile bool _observerWorking = false; //stage 7
 
         private void callListObserver()
-                      => queryCallList();
+        {
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    queryCallList();
+                    _observerWorking = false;
+                });
+            }
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
                       => s_bl.Call.AddObserver(callListObserver);

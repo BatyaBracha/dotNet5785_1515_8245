@@ -104,7 +104,21 @@
 
             <!-- Address -->
             <Label Grid.Row="3" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}" />
-            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentCall.Address}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentCall.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <!-- DataTrigger to check if Latitude or Longitude is null -->
+                            <DataTrigger Binding="{Binding CurrentCall.Latitude}" Value="{x:Null}">
+                                <Setter Property="Background" Value="Red" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentCall.Longitude}" Value="{x:Null}">
+                                <Setter Property="Background" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <!-- OpeningTime -->
             <Label Grid.Row="6" Grid.Column="0" Content="Opening Time:" Style="{StaticResource GridLabelStyle}" />

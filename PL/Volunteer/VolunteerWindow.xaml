@@ -9,11 +9,11 @@
         Closed="Window_Closed"
         Title="VolunteerWindow" Height="550" Width="430"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+        <!-- Beautiful Label Style -->
     <Window.Resources>
         <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
         <local:ConvertUpdateToVisible x:Key="ConvertUpdateToVisibleKey"/>
 
-        <!-- Beautiful Label Style -->
         <Style x:Key="GridLabelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="#2E3A59"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -157,7 +157,21 @@
 
             <!-- CurrentAddress -->
             <Label Grid.Row="5" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
-            <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CurrentAddress}" Margin="5,5,0,5"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CurrentVolunteer.CurrentAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <!-- DataTrigger to check if Latitude or Longitude is null -->
+                            <DataTrigger Binding="{Binding CurrentVolunteer.Latitude}" Value="{x:Null}">
+                                <Setter Property="Background" Value="Red" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentVolunteer.Longitude}" Value="{x:Null}">
+                                <Setter Property="Background" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <!-- Role (enum) -->
             <Label Grid.Row="8" Grid.Column="0" Content="Role:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
