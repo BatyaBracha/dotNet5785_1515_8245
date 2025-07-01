@@ -69,7 +69,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:51:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>BEING_HANDELED</Status>
     <MaxClosingTime>2025-07-02T04:39:00</MaxClosingTime>
   </Call>
   <Call>
@@ -105,7 +105,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:18:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>BEING_HANDELED</Status>
     <MaxClosingTime>2025-07-02T03:34:00</MaxClosingTime>
   </Call>
   <Call>

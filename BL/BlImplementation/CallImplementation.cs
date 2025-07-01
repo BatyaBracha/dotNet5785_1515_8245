@@ -42,7 +42,7 @@ namespace BlImplementation
             }
             var callStatus = CallManager.CalculateCallStatus(callAssignments, call.MaxClosingTime);
             // Validate call status
-            if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK || (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
+            if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK && (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
                 throw new BO.BlDoesNotExistException("this call is not open for treatment.");
 
             bool isBeingTreated = callAssignments.Any(a =>
@@ -449,13 +449,15 @@ namespace BlImplementation
 
             if (assignment.VolunteerId != volunteerId)
                 throw new BO.BlUnauthorizedOperationException("רק המתנדב שהוקצה יכול לעדכן סיום טיפול.");
-            lock (AdminManager.BlMutex) { 
-                Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, DO.TypeOfTreatmentEnding.HANDLED, DO.AssignmentStatus.COMPLETED));
             var call = GetCallDetails(assignment.CallId)
                 ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
             call.AssignedVolunteers!.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == volunteerId));
             Update(new BO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.Latitude, call.Longitude, call.OpeningTime, AdminManager.Now, BO.CallStatus.CLOSED, call.AssignedVolunteers));
-        }
+
+            lock (AdminManager.BlMutex)
+            {
+                Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, DO.TypeOfTreatmentEnding.HANDLED, DO.AssignmentStatus.COMPLETED));
+            }
             CallManager.Observers.NotifyItemUpdated(assignment.CallId);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();

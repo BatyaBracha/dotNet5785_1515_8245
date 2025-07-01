@@ -450,4 +450,22 @@
     <TypeOfTreatmentEnding>EXPIRED_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
+  <Assignment>
+    <Id>1867</Id>
+    <CallId>1003</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-02-07T16:45:28</TreatmentStartTime>
+    <TreatmentEndTime xsi:nil="true" />
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>1866</Id>
+    <CallId>1000</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-02-07T16:45:28</TreatmentStartTime>
+    <TreatmentEndTime>2025-02-07T16:45:28</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>COMPLETED</AssignmentStatus>
+  </Assignment>
 </ArrayOfAssignment>
