@@ -30,7 +30,7 @@ namespace PL.Call
         }
 
         public static readonly DependencyProperty ClosedCallListProperty =
-            DependencyProperty.Register("ClosedCallList", typeof(IEnumerable<BO.ClosedCallInList>), typeof(VolunteerListWindow), new PropertyMetadata(null));
+            DependencyProperty.Register("ClosedCallList", typeof(IEnumerable<BO.ClosedCallInList>), typeof(ClosedCallsList), new PropertyMetadata(null));
 
         public int Id
         {
@@ -77,6 +77,8 @@ namespace PL.Call
         public ClosedCallsList(int id)
         {
             Id = id;
+            Loaded+=Window_Loaded;
+            Closed += Window_Closed;
             InitializeComponent();
         }
 

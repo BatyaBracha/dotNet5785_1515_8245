@@ -95,7 +95,7 @@ internal static class CallManager
         }
 
         // Compare the property value with the filter value
-        return propertyValue != null && propertyValue.Equals(filterValue);
+        return propertyValue != null && propertyValue.ToString()==filterValue.ToString();
     }
 
     internal static IEnumerable<T> SortByField<T>(Enum? sortBy, IEnumerable<T> items)
@@ -171,10 +171,10 @@ internal static class CallManager
     {
         //if (string.IsNullOrWhiteSpace(CallAddress)|| string.IsNullOrWhiteSpace(VolunteerAddress))
         //    throw new BO.BlArgumentException("Address is required for geocoding.");
-        return CalculateDistance(volunteerLatitude, volunteerLongitude, callLatitude, callLongitude).Value;
+        return CalculateDistance(volunteerLatitude, volunteerLongitude, callLatitude, callLongitude);
     }
 
-    public static double? CalculateDistance(object latitude1, object longitude1, double? latitude2, double? longitude2)
+    public static double CalculateDistance(object latitude1, object longitude1, double? latitude2, double? longitude2)
     {
         // המרת פרמטרים מסוג object ל-double
         if (!double.TryParse(latitude1?.ToString(), out double lat1) ||
@@ -183,8 +183,7 @@ internal static class CallManager
             throw new ArgumentException("Invalid latitude or longitude values.");
         }
         if (!latitude2.HasValue || !longitude2.HasValue)
-
-            return null;
+            throw new BlNullPropertyException("latitude or longitude doesnt exist","");
 
         const double EarthRadiusKm = 6371; // רדיוס כדור הארץ בקילומטרים
 

@@ -233,7 +233,7 @@ namespace BlImplementation
 
             if (filterBy != null)
             {
-                calls = calls.Where(c => CallManager.MatchField(filterBy, c, filterValue));
+                calls = calls.Where(c => CallManager.MatchField(filterBy, c, filterValue)).ToList();
             }
             DO.Volunteer v;
             lock (AdminManager.BlMutex)
@@ -254,7 +254,7 @@ namespace BlImplementation
                 openCalls = CallManager.SortByField(sortBy, openCalls);
             }
 
-            return openCalls.ToList();
+            return openCalls;
         }
 
         public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)

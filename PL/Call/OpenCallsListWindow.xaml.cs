@@ -23,9 +23,15 @@ namespace PL.Call
         public OpenCallsListWindow(int id)
         {
             Id = id;
+            Loaded +=Window_Loaded;
+            Closed += Window_Closed;
             InitializeComponent();
         }
 
+        private void OpenCallsListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 

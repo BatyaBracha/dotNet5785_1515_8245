@@ -521,9 +521,9 @@
     <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
     <Description>hope</Description>
     <Address>Man 3</Address>
-    <latitude>32.1673</latitude>
-    <longitude>34.836</longitude>
-    <riskRange>PT2H2M5S</riskRange>
+	  <latitude>31.761716</latitude>
+	  <longitude>35.1984241</longitude>
+	  <riskRange>PT2H2M5S</riskRange>
     <OpeningTime>2025-05-18T08:52:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2029-12-12T12:12:12</MaxClosingTime>
@@ -557,10 +557,10 @@
     <TypeOfCall>CHILDBIRTH</TypeOfCall>
     <Description>description</Description>
     <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
-    <riskRange xsi:nil="true" />
-    <OpeningTime>2025-06-29T20:09:23.3179817+03:00</OpeningTime>
+	  <latitude>31.761716</latitude>
+	  <longitude>35.1984241</longitude>
+	  <riskRange>PT2H2M5S</riskRange>
+	  <OpeningTime>2025-06-29T20:09:23.3179817+03:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2026-06-29T20:09:23</MaxClosingTime>
   </Call>
@@ -593,10 +593,10 @@
     <TypeOfCall>CHILDBIRTH</TypeOfCall>
     <Description>lets see</Description>
     <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
-    <riskRange xsi:nil="true" />
-    <OpeningTime>2025-06-29T20:35:38.3497496+03:00</OpeningTime>
+	  <latitude>31.761716</latitude>
+	  <longitude>35.1984241</longitude>
+	  <riskRange>PT2H2M5S</riskRange>
+	  <OpeningTime>2025-06-29T20:35:38.3497496+03:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2026-06-29T20:35:38</MaxClosingTime>
   </Call>
@@ -605,9 +605,9 @@
     <TypeOfCall>CHILDBIRTH</TypeOfCall>
     <Description>testing async</Description>
     <Address>Man 3</Address>
-    <latitude xsi:nil="true" />
-    <longitude xsi:nil="true" />
-    <riskRange>PT2H2M6S</riskRange>
+	  <latitude>31.761716</latitude>
+	  <longitude>35.1984241</longitude>
+	  <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-01T12:50:22.8496959+03:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2026-07-01T12:50:22</MaxClosingTime>
