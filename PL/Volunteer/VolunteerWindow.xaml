@@ -163,10 +163,10 @@
                     <Style TargetType="TextBox">
                         <Style.Triggers>
                             <!-- DataTrigger to check if Latitude or Longitude is null -->
-                            <DataTrigger Binding="{Binding CurrentVolunteer.Latitude}" Value="{x:Null}">
+                            <DataTrigger Binding="{Binding CurrentVolunteer.latitude}" Value="{x:Null}">
                                 <Setter Property="Background" Value="Red" />
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding CurrentVolunteer.Longitude}" Value="{x:Null}">
+                            <DataTrigger Binding="{Binding CurrentVolunteer.longitude}" Value="{x:Null}">
                                 <Setter Property="Background" Value="Red" />
                             </DataTrigger>
                         </Style.Triggers>

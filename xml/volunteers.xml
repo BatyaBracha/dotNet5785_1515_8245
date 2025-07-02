@@ -1,39 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVolunteer>
   <Volunteer>
-    <Id>234567893</Id>
+    <Id>328118245</Id>
+    <Name>Malka</Name>
+    <Phone>0583278625</Phone>
+    <Email>b7malka@gmail.com</Email>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
+    <Address>Man 3</Address>
+    <latitude>31.8</latitude>
+    <longitude>35.1</longitude>
+    <Role>ADMINISTRATOR</Role>
+    <Active>true</Active>
+    <MaxDistance>250</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>123456782</Id>
+    <Name>Tzipy</Name>
+    <Phone>0527614421</Phone>
+    <Email>Tzipy0527614421@gmail.com</Email>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
+    <Address>Malchei Israel 12</Address>
+    <latitude>31.771959</latitude>
+    <longitude>35.217018</longitude>
+    <Role>STANDARD</Role>
+    <Active>true</Active>
+    <MaxDistance>219</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>204589326</Id>
     <Name>Chani</Name>
     <Phone>0527614422</Phone>
     <Email>Chani0527614422@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Minchat Itzchak 23</Address>
     <latitude>31.775469</latitude>
     <longitude>35.229568</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>748</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>345678904</Id>
+    <Id>315869241</Id>
     <Name>Yehudit</Name>
     <Phone>0527614423</Phone>
     <Email>Yehudit0527614423@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hashofar 3</Address>
     <latitude>31.774578</latitude>
     <longitude>35.207031</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>298</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>456789015</Id>
+    <Id>428193657</Id>
     <Name>Shira</Name>
     <Phone>0527614424</Phone>
     <Email>Shira0527614424@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hare'em 14</Address>
     <latitude>31.780125</latitude>
     <longitude>35.207889</longitude>
@@ -43,67 +71,53 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>567890126</Id>
-    <Name>Moishy</Name>
-    <Phone>0527614425</Phone>
-    <Email>Moishy0527614425@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
-    <Address>Eben Ezra 6</Address>
-    <latitude>31.792178</latitude>
-    <longitude>35.205321</longitude>
-    <Role>STANDARD</Role>
-    <Active>true</Active>
-    <MaxDistance>893</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
-    <Id>678901237</Id>
+    <Id>648291375</Id>
     <Name>Efraim</Name>
     <Phone>0527614426</Phone>
     <Email>Efraim0527614426@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>HaTzvi 4</Address>
     <latitude>31.784222</latitude>
     <longitude>35.213127</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>419</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>789012348</Id>
+    <Id>759183624</Id>
     <Name>Shloimy</Name>
     <Phone>0527614427</Phone>
     <Email>Shloimy0527614427@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hakfir 5</Address>
     <latitude>31.797433</latitude>
     <longitude>35.214278</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>974</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>890123459</Id>
+    <Id>860195372</Id>
     <Name>Yosi</Name>
     <Phone>0527614428</Phone>
     <Email>Yosi0527614428@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hadishon 6</Address>
     <latitude>31.798189</latitude>
     <longitude>35.206539</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>908</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>901234560</Id>
+    <Id>972843165</Id>
     <Name>Yoni</Name>
     <Phone>0527614429</Phone>
     <Email>Yoni0527614429@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Ha'ari 13</Address>
     <latitude>31.794056</latitude>
     <longitude>35.221325</longitude>
@@ -113,39 +127,39 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>102345671</Id>
+    <Id>183726495</Id>
     <Name>Avi</Name>
     <Phone>0527614430</Phone>
     <Email>Avi0527614430@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hatan 17</Address>
     <latitude>31.798832</latitude>
     <longitude>35.214994</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>450</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>213456782</Id>
+    <Id>294817536</Id>
     <Name>Chaim</Name>
     <Phone>0527614431</Phone>
     <Email>Chaim0527614431@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Tchelet Mordechei 18</Address>
     <latitude>31.799845</latitude>
     <longitude>35.227146</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>166</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>324567893</Id>
+    <Id>305918742</Id>
     <Name>Ester</Name>
     <Phone>0527614432</Phone>
     <Email>Ester0527614432@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hamarkalim 4</Address>
     <latitude>31.780829</latitude>
     <longitude>35.229744</longitude>
@@ -155,25 +169,25 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>435678904</Id>
+    <Id>416293857</Id>
     <Name>Rachel</Name>
     <Phone>0527614433</Phone>
     <Email>Rachel0527614433@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Rabi Akiva 15</Address>
     <latitude>31.781869</latitude>
     <longitude>35.236349</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>595</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>546789015</Id>
+    <Id>527384961</Id>
     <Name>Shani</Name>
     <Phone>0527614434</Phone>
     <Email>Shani0527614434@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hazon Ish 53</Address>
     <latitude>31.799467</latitude>
     <longitude>35.240458</longitude>
@@ -183,45 +197,17 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>657890126</Id>
+    <Id>638475120</Id>
     <Name>Michali</Name>
     <Phone>0527614435</Phone>
     <Email>Michali0527614435@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Harav Shach 3</Address>
     <latitude>31.788469</latitude>
     <longitude>35.235679</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>575</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
-    <Id>123456782</Id>
-    <Name>Tzipy</Name>
-    <Phone>0527614421</Phone>
-    <Email>Tzipy0527614421@gmail.com</Email>
-    <Password>698D952A34269B6142ECB24A6326239A176BE13D84D580C6D7D466028E2A15F3</Password>
-    <Address>Malchei Israel 12</Address>
-    <latitude>31.7887821</latitude>
-    <longitude>35.2172776</longitude>
-    <Role>STANDARD</Role>
-    <Active>true</Active>
-    <MaxDistance>219</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
-    <Id>328118245</Id>
-    <Name>Mali Horowitz</Name>
-    <Phone>0583278625</Phone>
-    <Email>mh078625@gmail.com</Email>
-    <Password>D2F06799AC1E886213F2A9BF56E422EEAECF31CAD25CBAC698547914738E9E06</Password>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0837754</latitude>
-    <longitude>34.771816</longitude>
-    <Role>ADMINISTRATOR</Role>
-    <Active>true</Active>
-    <MaxDistance>25000</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>
