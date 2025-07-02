@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
+    <Id>1049</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>General Car Troubleshooting</Description>
+    <Address>Hashmonai St 6, Jerusalem</Address>
+    <latitude>31.77676</latitude>
+    <longitude>35.230342</longitude>
+    <riskRange xsi:nil="true" />
+    <OpeningTime>2025-07-02T08:32:47.0937957+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-02T08:32:47.0937957+03:00</MaxClosingTime>
+  </Call>
+  <Call>
     <Id>1000</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
     <Description>Medical Emergency</Description>
@@ -583,18 +595,6 @@
     <Address>Herzl St 3, Jerusalem</Address>
     <latitude>31.74948</latitude>
     <longitude>34.9880954</longitude>
-    <riskRange xsi:nil="true" />
-    <OpeningTime>2025-07-02T08:32:47.0937957+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-02T08:32:47.0937957+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1049</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>General Car Troubleshooting</Description>
-    <Address>Hashmonai St 6, Jerusalem</Address>
-    <latitude>31.77676</latitude>
-    <longitude>35.230342</longitude>
     <riskRange xsi:nil="true" />
     <OpeningTime>2025-07-02T08:32:47.0937957+03:00</OpeningTime>
     <Status>OPEN</Status>
