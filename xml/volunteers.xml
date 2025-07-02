@@ -2,24 +2,24 @@
 <ArrayOfVolunteer>
   <Volunteer>
     <Id>328118245</Id>
-    <Name>Batya</Name>
+    <Name>Malka</Name>
     <Phone>0583278625</Phone>
-    <Email>mh078625@gmail.com</Email>
-    <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
+    <Email>b7malka@gmail.com</Email>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Man 3</Address>
     <latitude>31.8</latitude>
     <longitude>35.1</longitude>
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
     <MaxDistance>250</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>123456782</Id>
     <Name>Tzipy</Name>
     <Phone>0527614421</Phone>
     <Email>Tzipy0527614421@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Malchei Israel 12</Address>
     <latitude>31.771959</latitude>
     <longitude>35.217018</longitude>
@@ -33,7 +33,7 @@
     <Name>Chani</Name>
     <Phone>0527614422</Phone>
     <Email>Chani0527614422@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Minchat Itzchak 23</Address>
     <latitude>31.775469</latitude>
     <longitude>35.229568</longitude>
@@ -47,7 +47,7 @@
     <Name>Yehudit</Name>
     <Phone>0527614423</Phone>
     <Email>Yehudit0527614423@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hashofar 3</Address>
     <latitude>31.774578</latitude>
     <longitude>35.207031</longitude>
@@ -61,7 +61,7 @@
     <Name>Shira</Name>
     <Phone>0527614424</Phone>
     <Email>Shira0527614424@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hare'em 14</Address>
     <latitude>31.780125</latitude>
     <longitude>35.207889</longitude>
@@ -75,21 +75,21 @@
     <Name>Moishy</Name>
     <Phone>0527614425</Phone>
     <Email>Moishy0527614425@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Eben Ezra 6</Address>
     <latitude>31.792178</latitude>
     <longitude>35.205321</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>893</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>648291375</Id>
     <Name>Efraim</Name>
     <Phone>0527614426</Phone>
     <Email>Efraim0527614426@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>HaTzvi 4</Address>
     <latitude>31.784222</latitude>
     <longitude>35.213127</longitude>
@@ -103,7 +103,7 @@
     <Name>Shloimy</Name>
     <Phone>0527614427</Phone>
     <Email>Shloimy0527614427@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hakfir 5</Address>
     <latitude>31.797433</latitude>
     <longitude>35.214278</longitude>
@@ -117,35 +117,35 @@
     <Name>Yosi</Name>
     <Phone>0527614428</Phone>
     <Email>Yosi0527614428@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hadishon 6</Address>
     <latitude>31.798189</latitude>
     <longitude>35.206539</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>908</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>972843165</Id>
     <Name>Yoni</Name>
     <Phone>0527614429</Phone>
     <Email>Yoni0527614429@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Ha'ari 13</Address>
     <latitude>31.794056</latitude>
     <longitude>35.221325</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>959</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>183726495</Id>
     <Name>Avi</Name>
     <Phone>0527614430</Phone>
     <Email>Avi0527614430@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hatan 17</Address>
     <latitude>31.798832</latitude>
     <longitude>35.214994</longitude>
@@ -159,35 +159,35 @@
     <Name>Chaim</Name>
     <Phone>0527614431</Phone>
     <Email>Chaim0527614431@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Tchelet Mordechei 18</Address>
     <latitude>31.799845</latitude>
     <longitude>35.227146</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>166</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>305918742</Id>
     <Name>Ester</Name>
     <Phone>0527614432</Phone>
     <Email>Ester0527614432@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hamarkalim 4</Address>
     <latitude>31.780829</latitude>
     <longitude>35.229744</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>978</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>416293857</Id>
     <Name>Rachel</Name>
     <Phone>0527614433</Phone>
     <Email>Rachel0527614433@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Rabi Akiva 15</Address>
     <latitude>31.781869</latitude>
     <longitude>35.236349</longitude>
@@ -201,7 +201,7 @@
     <Name>Shani</Name>
     <Phone>0527614434</Phone>
     <Email>Shani0527614434@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Hazon Ish 53</Address>
     <latitude>31.799467</latitude>
     <longitude>35.240458</longitude>
@@ -215,13 +215,13 @@
     <Name>Michali</Name>
     <Phone>0527614435</Phone>
     <Email>Michali0527614435@gmail.com</Email>
-    <Password>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</Password>
+    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Harav Shach 3</Address>
     <latitude>31.788469</latitude>
     <longitude>35.235679</longitude>
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>575</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>
