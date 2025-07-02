@@ -122,8 +122,8 @@
   </Call>
   <Call>
     <Id>1024</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Vehicle recovery required from the beach.</Description>
+    <TypeOfCall>HEAT_STROKE</TypeOfCall>
+    <Description>Flat tire on the highway.</Description>
     <Address>Ben Yehuda St, Tel Aviv</Address>
     <latitude>32.0838</latitude>
     <longitude>34.7698</longitude>

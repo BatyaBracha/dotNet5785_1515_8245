@@ -70,7 +70,7 @@ namespace PL
 
         // Using a DependencyProperty as the backing store for RiskRange.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IntervalProperty =
-            DependencyProperty.Register("Interval", typeof(int), typeof(MainWindow), new PropertyMetadata(0));
+            DependencyProperty.Register("Interval", typeof(int), typeof(MainWindow), new PropertyMetadata(180));
 
         public string SimulatorButtonText
         {
