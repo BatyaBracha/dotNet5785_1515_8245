@@ -26,7 +26,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>219</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>204589326</Id>
@@ -40,7 +40,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>748</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>315869241</Id>
@@ -54,7 +54,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>298</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>428193657</Id>
@@ -71,20 +71,6 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>537921483</Id>
-    <Name>Moishy</Name>
-    <Phone>0527614425</Phone>
-    <Email>Moishy0527614425@gmail.com</Email>
-    <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
-    <Address>Eben Ezra 6</Address>
-    <latitude>31.792178</latitude>
-    <longitude>35.205321</longitude>
-    <Role>STANDARD</Role>
-    <Active>true</Active>
-    <MaxDistance>893</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
     <Id>648291375</Id>
     <Name>Efraim</Name>
     <Phone>0527614426</Phone>
@@ -96,7 +82,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>419</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>759183624</Id>
@@ -110,7 +96,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>974</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>860195372</Id>
@@ -194,7 +180,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>595</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>527384961</Id>

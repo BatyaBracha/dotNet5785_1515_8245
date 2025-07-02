@@ -155,8 +155,22 @@
 
             <!-- CurrentAddress -->
             <Label Grid.Row="5" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
-            <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CurrentAddress}" Margin="5,5,0,5"/>
-
+            <!--<TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CurrentAddress}" Margin="5,5,0,5"/>-->
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CurrentVolunteer.CurrentAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <!-- DataTrigger to check if Latitude or Longitude is null -->
+                            <DataTrigger Binding="{Binding CurrentVolunteer.Latitude}" Value="{x:Null}">
+                                <Setter Property="Background" Value="Red" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentVolunteer.Longitude}" Value="{x:Null}">
+                                <Setter Property="Background" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
             <!-- Role (enum) -->
             <!--<Label Grid.Row="6" Grid.Column="0" Content="Role:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=CurrentVolunteer.Role, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource RoleCollectionKey}}" SelectionChanged="comboBoxRole_SelectionChanged" Margin="5,5,0,5"/>-->
@@ -205,7 +219,7 @@
                 </Button.RenderTransform>
             </Button>
             <Label Grid.Column="2" Grid.Row="0" Content="Call In Progress:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="200" Margin="62,3,0,0"/>
-            <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Margin="65,23,0,0" TextWrapping="Wrap" Text="{Binding CurrentVolunteer.CallInProgress}" VerticalAlignment="Top" Height="13" Width="207" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="12,41,0,0" TextWrapping="Wrap" Text="{Binding CurrentVolunteer.CallInProgress}" VerticalAlignment="Top" Height="37" Width="346" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2"/>
 
             <Button Grid.Column="2" Grid.Row="2" Content="Update Call Completion" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center" Height="32" Width="200" IsEnabled="{Binding IsCallInProgress}" Click="btnUpdateCallCompletion_Click" />
             <Button Grid.Column="2" Content="Choose Call For Treatment -->" HorizontalAlignment="Left" Margin="62,4,0,0" Grid.Row="4" VerticalAlignment="Top" Height="32" Width="200" IsEnabled="{Binding IsNotCallInProgress}" Click="btnChooseCallForTreatment_Click"/>

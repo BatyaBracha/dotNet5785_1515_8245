@@ -24,8 +24,8 @@ internal static class CallManager
             throw new BlArgumentException("Call ID must be a positive number.");
 
         // Validate time constraints
-        if (boCall.MaxClosingTime.HasValue && boCall.MaxClosingTime.Value <= boCall.OpeningTime)
-            throw new BlArgumentException("End time must be greater than the start time.");
+        //if (boCall.MaxClosingTime.HasValue && boCall.MaxClosingTime.Value <= boCall.OpeningTime)
+        //    throw new BlArgumentException("End time must be greater than the start time.");
 
         // Check if the address is valid
         if (string.IsNullOrWhiteSpace(boCall.Address))

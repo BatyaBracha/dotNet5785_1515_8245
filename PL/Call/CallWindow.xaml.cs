@@ -77,7 +77,7 @@ namespace PL.Call
                 {
                     s_bl.Call.Update(CurrentCall!);
                     MessageBox.Show("Call updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    CurrentCall = s_bl.Call.GetCallDetails(CurrentCall!.Id);
+                    //CurrentCall = s_bl.Call.GetCallDetails(CurrentCall!.Id);
                 }
                 this.Close();
             }

@@ -64,7 +64,7 @@ namespace BlImplementation
                 TreatmentStartTime = AdminManager.Now,
                 TreatmentEndTime = null,
             };
-
+            
             //callAssignments.Add(new BO.CallAssignInList
             //{
             //    VolunteerId = volunteerId,
@@ -151,9 +151,8 @@ namespace BlImplementation
             {
                  doCall = Call_dal.Call.Read(id)
                 ?? throw new BO.BlDoesNotExistException("Call not found in the system.");
-                 assignments = Call_dal.Assignment.ReadAll();
+                 assignments = Call_dal.Assignment.ReadAll().Where(a => a.CallId == id);
                  assignmentsList = assignments
-                    .Where(a => a.CallId == id)
                     .Select(a => new BO.CallAssignInList
                     {
                         VolunteerId = a.VolunteerId,
@@ -348,21 +347,6 @@ namespace BlImplementation
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
         //{
         //    // Step 1: Retrieve all assignments for the volunteer with CLOSED status
@@ -419,11 +403,13 @@ namespace BlImplementation
             if (assignment.AssignmentStatus == DO.AssignmentStatus.COMPLETED|| assignment.AssignmentStatus == DO.AssignmentStatus.OUT_OF_DATE)
                 throw new BO.BlUnauthorizedOperationException("It is not possible to cancle an assignment that is completed or out of date.");
             DO.TypeOfTreatmentEnding TypeOfTreatmentEnding;
+            DO.Volunteer volunteer;
             lock (AdminManager.BlMutex)
             {
+                volunteer = Call_dal.Volunteer.Read(volunteerId);
                  TypeOfTreatmentEnding = assignment.VolunteerId == volunteerId ?
                 DO.TypeOfTreatmentEnding.SELF_CANCELED :
-                Call_dal.Volunteer.Read(volunteerId) == null ? throw new BO.BlDoesNotExistException("Only administrator or oawner of assignment can cancle it.") :
+                 volunteer == null ? throw new BO.BlDoesNotExistException("Only administrator or oawner of assignment can cancle it.") :
                  DO.TypeOfTreatmentEnding.MANAGER_CANCELED;
             }
 
@@ -450,7 +436,7 @@ namespace BlImplementation
             CallManager.Observers.NotifyListUpdated();  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();
             VolunteerManager.Observers.NotifyItemUpdated(volunteerId);
-
+            CallManager.SendEmailToVolunteerWhenCallUnmatched(volunteer, assignment);
         }
 
         public void TreatmentCompletionUpdate(int volunteerId, int assignmentId)
