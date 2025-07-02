@@ -381,7 +381,7 @@ internal static class CallManager
     //        s_dal.Assignment.Update(updatedAssignment);
     //    });
     //}
-    internal static async Task UpdateCoordinatesForCallAsync(DO.Call doCall)
+    internal static async Task UpdateCoordinatesForCallAsync(DO.Call doCall,bool create)
     {
         if (!string.IsNullOrWhiteSpace(doCall.Address))
         {
@@ -397,7 +397,11 @@ internal static class CallManager
                 {
                     s_dal.Call.Update(doCall); // Update the call in the DAL
                 }
-
+                if(create) {
+                    // If this is a new call, send an email notification
+                    BO.Call TypeOfCall = new BO.Call(doCall.Id, (BO.TypeOfCall)doCall.TypeOfCall, doCall.Description, doCall.Address, doCall.latitude, doCall.longitude, doCall.OpeningTime, doCall.MaxClosingTime, BO.CallStatus.OPEN,null);
+                    SendEmailWhenCallOpened(TypeOfCall);
+                    }
                 // Notify observers about the update
                 Observers.NotifyItemUpdated(doCall.Id);
                 Observers.NotifyListUpdated();

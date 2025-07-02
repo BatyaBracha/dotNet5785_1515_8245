@@ -31,10 +31,11 @@ namespace PL.Call
 
         public CallWindow(int? Id = 0)
         {
+            InitializeComponent();
+
             ButtonText = Id == 0 ? "Add" : "Update";
             CurrentCall = (Id != 0) ? s_bl.Call.GetCallDetails(Id!.Value)!
                 : new BO.Call(0, BO.TypeOfCall.NONE, "No description", "No address", null, null, DateTime.Now, null, BO.CallStatus.OPEN, new List<BO.CallAssignInList>());
-
             InitializeComponent();
         }
         private void queryCallDetails()

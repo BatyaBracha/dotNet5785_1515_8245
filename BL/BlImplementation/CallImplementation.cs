@@ -98,13 +98,29 @@ namespace BlImplementation
             AdminManager.ThrowOnSimulatorIsRunning();
             CallManager.ValidateCall(boCall);
             //(double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address!);
-            var doCall = new DO.Call(boCall.Id, (DO.TypeOfCall)boCall.TypeOfCall, boCall.Description, boCall.Address!, null, null, AdminManager.RiskRange, boCall.OpeningTime, DO.CallStatus.OPEN, boCall.MaxClosingTime);
+            //var doCall = new DO.Call { TypeOfCall=(DO.TypeOfCall)boCall.TypeOfCall,Description= boCall.Description,Address= boCall.Address!,riskRange= AdminManager.RiskRange,OpeningTime= boCall.OpeningTime,Status= DO.CallStatus.OPEN,MaxClosingTime= boCall.MaxClosingTime };
+            var doCall = new DO.Call
+            {
+                TypeOfCall = (DO.TypeOfCall)boCall.TypeOfCall,
+                Description = boCall.Description,
+                Address = boCall.Address!,
+                latitude = boCall.Latitude,
+                longitude = boCall.Longitude,
+                riskRange = AdminManager.RiskRange,
+                OpeningTime = boCall.OpeningTime,
+                Status = DO.CallStatus.OPEN,
+                MaxClosingTime = boCall.MaxClosingTime
+            };
+            int id;
             lock (AdminManager.BlMutex)
-                Call_dal.Call.Create(doCall);
-            CallManager.SendEmailWhenCallOpened(boCall);
-            CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
+            {
+                 id = Call_dal.Call.Create(doCall);
+               
+            }
+            //CallManager.SendEmailWhenCallOpened(boCall);
+            CallManager.Observers.NotifyItemUpdated(id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall);
+            _ = CallManager.UpdateCoordinatesForCallAsync(doCall with { Id=id},true);
         }
 
         public void Delete(int id)
@@ -487,7 +503,7 @@ namespace BlImplementation
             }
             CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall);
+            _ = CallManager.UpdateCoordinatesForCallAsync(doCall,false);
         }
     }
 }
