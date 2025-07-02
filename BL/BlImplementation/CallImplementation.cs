@@ -46,14 +46,14 @@ namespace BlImplementation
             if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK && (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
                 throw new BO.BlDoesNotExistException("this call is not open for treatment.");
 
-            bool isBeingTreated = callAssignments.Any(a =>
-                //a.CallId == callId &&
-                a.AssignmentStatus != DO.AssignmentStatus.OPEN &&
-                a.AssignmentStatus != DO.AssignmentStatus.COMPLETED);
+            //bool isBeingTreated = callAssignments.Any(a =>
+            //    //a.CallId == callId &&
+            //    a.AssignmentStatus != DO.AssignmentStatus.OPEN &&
+            //    a.AssignmentStatus != DO.AssignmentStatus.COMPLETED);
 
             // Check if the call is already being treated
-            if (isBeingTreated)
-                throw new BO.BlDoesNotExistException("this call is already being treated.");
+            //if (isBeingTreated)
+            //    throw new BO.BlDoesNotExistException("this call is already being treated.");
 
             // Create new assignment
             var newAssignment = new DO.Assignment

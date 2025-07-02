@@ -110,7 +110,7 @@ namespace PL.Call
                 {
                     s_bl?.Call.ChoosingACallForTreatment(Id, SelectedCall.Id);
                     MessageBox.Show("Call selected successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                    this.Close();
                 }
                 catch (Exception)
                 {
