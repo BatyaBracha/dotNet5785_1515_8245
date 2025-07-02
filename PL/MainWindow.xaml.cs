@@ -224,8 +224,8 @@ namespace PL
         public MainWindow()
         {
             InitializeComponent();
-            this.Loaded += OnWindowLoaded; // Register the Loaded event
-            this.Closed += OnWindowClosed; // Register the Loaded event
+            this.Loaded += OnWindowLoaded; 
+            this.Closed += OnWindowClosed; 
         }
     }
 }
