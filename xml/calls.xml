@@ -9,7 +9,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:51:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T04:39:00</MaxClosingTime>
   </Call>
   <Call>
@@ -21,7 +21,7 @@
     <longitude>34.7818</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:21:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:51:00</MaxClosingTime>
   </Call>
   <Call>
@@ -33,7 +33,7 @@
     <longitude>34.7818</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:19:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T01:08:00</MaxClosingTime>
   </Call>
   <Call>
@@ -45,7 +45,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:18:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T03:34:00</MaxClosingTime>
   </Call>
   <Call>
@@ -57,7 +57,7 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:53:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:01:00</MaxClosingTime>
   </Call>
   <Call>
@@ -69,7 +69,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:13:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:29:00</MaxClosingTime>
   </Call>
   <Call>
@@ -81,7 +81,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:10:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:43:00</MaxClosingTime>
   </Call>
   <Call>
@@ -93,7 +93,7 @@
     <longitude>34.7818</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:12:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T06:08:00</MaxClosingTime>
   </Call>
   <Call>
@@ -105,7 +105,7 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:08:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:31:00</MaxClosingTime>
   </Call>
   <Call>
@@ -117,7 +117,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:12:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T06:23:00</MaxClosingTime>
   </Call>
   <Call>
@@ -129,7 +129,7 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:51:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T06:03:00</MaxClosingTime>
   </Call>
   <Call>
@@ -141,7 +141,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:34:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:31:00</MaxClosingTime>
   </Call>
   <Call>
@@ -153,7 +153,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:44:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T06:18:00</MaxClosingTime>
   </Call>
   <Call>
@@ -165,7 +165,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:22:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:21:00</MaxClosingTime>
   </Call>
   <Call>
@@ -177,7 +177,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:48:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T03:39:00</MaxClosingTime>
   </Call>
   <Call>
@@ -189,7 +189,7 @@
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:17:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T04:02:00</MaxClosingTime>
   </Call>
   <Call>
@@ -201,7 +201,7 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:54:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T04:30:00</MaxClosingTime>
   </Call>
   <Call>
@@ -213,7 +213,7 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:36:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T01:12:00</MaxClosingTime>
   </Call>
   <Call>
@@ -225,7 +225,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:40:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T04:07:00</MaxClosingTime>
   </Call>
   <Call>
@@ -237,7 +237,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:29:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T01:34:00</MaxClosingTime>
   </Call>
   <Call>
@@ -249,7 +249,7 @@
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:05:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T00:37:00</MaxClosingTime>
   </Call>
   <Call>
@@ -261,7 +261,7 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:15:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:58:00</MaxClosingTime>
   </Call>
   <Call>
@@ -273,7 +273,7 @@
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:40:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:44:00</MaxClosingTime>
   </Call>
   <Call>
@@ -285,7 +285,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:44:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T06:52:00</MaxClosingTime>
   </Call>
   <Call>
@@ -297,7 +297,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:55:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T03:36:00</MaxClosingTime>
   </Call>
   <Call>
@@ -309,7 +309,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:20:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:15:00</MaxClosingTime>
   </Call>
   <Call>
@@ -321,7 +321,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:14:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:44:00</MaxClosingTime>
   </Call>
   <Call>
@@ -333,7 +333,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:36:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:45:00</MaxClosingTime>
   </Call>
   <Call>
@@ -345,7 +345,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:26:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:25:00</MaxClosingTime>
   </Call>
   <Call>
@@ -357,7 +357,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:04:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T03:48:00</MaxClosingTime>
   </Call>
   <Call>
@@ -369,7 +369,7 @@
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:37:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T04:18:00</MaxClosingTime>
   </Call>
   <Call>
@@ -381,7 +381,7 @@
     <longitude>34.836</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:28:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T04:23:00</MaxClosingTime>
   </Call>
   <Call>
@@ -393,7 +393,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:40:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:31:00</MaxClosingTime>
   </Call>
   <Call>
@@ -405,7 +405,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:19:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:53:00</MaxClosingTime>
   </Call>
   <Call>
@@ -417,7 +417,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:54:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T03:20:00</MaxClosingTime>
   </Call>
   <Call>
@@ -429,7 +429,7 @@
     <longitude>34.836</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:32:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:03:00</MaxClosingTime>
   </Call>
   <Call>
@@ -441,7 +441,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:55:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:35:00</MaxClosingTime>
   </Call>
   <Call>
@@ -453,7 +453,7 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:44:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:27:00</MaxClosingTime>
   </Call>
   <Call>
@@ -465,7 +465,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:52:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T06:21:00</MaxClosingTime>
   </Call>
   <Call>
@@ -477,7 +477,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:38:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:00:00</MaxClosingTime>
   </Call>
   <Call>
@@ -489,7 +489,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:07:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T01:54:00</MaxClosingTime>
   </Call>
   <Call>
@@ -501,7 +501,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:38:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T03:44:00</MaxClosingTime>
   </Call>
   <Call>
@@ -513,7 +513,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:10:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T03:50:00</MaxClosingTime>
   </Call>
   <Call>
@@ -525,7 +525,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:18:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T01:49:00</MaxClosingTime>
   </Call>
   <Call>
@@ -537,7 +537,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:57:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:53:00</MaxClosingTime>
   </Call>
   <Call>
@@ -549,7 +549,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:37:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T04:12:00</MaxClosingTime>
   </Call>
   <Call>
@@ -561,7 +561,7 @@
     <longitude>34.7818</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:38:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T06:03:00</MaxClosingTime>
   </Call>
   <Call>
@@ -573,7 +573,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:28:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T05:00:00</MaxClosingTime>
   </Call>
   <Call>
@@ -585,7 +585,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T00:33:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:22:00</MaxClosingTime>
   </Call>
   <Call>
@@ -597,7 +597,91 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-07-02T01:04:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-07-02T02:31:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1052</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>testing</Description>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T03:12:07.7962661+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T08:12:07</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1054</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>test</Description>
+    <Address>Shahal 83</Address>
+    <latitude>31.7616763</latitude>
+    <longitude>35.1994426</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T03:14:57.449886+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T08:14:57</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1056</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Man 3 Jerusalem</Address>
+    <latitude>31.761716</latitude>
+    <longitude>35.1984241</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T03:20:57.5158627+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T07:20:57</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1057</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Shahal 83</Address>
+    <latitude>31.7616763</latitude>
+    <longitude>35.1994426</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T03:24:44.1292281+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T08:20:57</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1058</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T03:32:21.1902739+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T08:20:57</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1059</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T03:33:52.9112614+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T09:14:57</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1060</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Man</Address>
+    <latitude>21.0000287</latitude>
+    <longitude>57.0036901</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T03:38:09.4671331+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-02T09:20:57</MaxClosingTime>
   </Call>
 </ArrayOfCall>
