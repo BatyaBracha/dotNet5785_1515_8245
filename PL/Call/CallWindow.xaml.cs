@@ -39,7 +39,7 @@ namespace PL.Call
             InitializeComponent();
         }
         private void queryCallDetails()
-              => CurrentCall = s_bl.Call.GetCallDetails(CurrentCall!.Id);
+              => CurrentCall = CurrentCall.Id!=0?s_bl.Call.GetCallDetails(CurrentCall!.Id):CurrentCall;
 
         private volatile bool _observerWorking = false; //stage 7
 

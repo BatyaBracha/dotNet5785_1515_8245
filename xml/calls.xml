@@ -720,4 +720,76 @@
     <Status>OPEN</Status>
     <MaxClosingTime xsi:nil="true" />
   </Call>
+  <Call>
+    <Id>1060</Id>
+    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T05:02:01.7142279+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-02T05:02:01</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1061</Id>
+    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
+    <Description>tyuhki</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T05:11:32.178544+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-02T05:11:32</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1062</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>5:16</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T05:15:47.8524148+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-02T05:15:47</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1063</Id>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0837754</latitude>
+    <longitude>34.771816</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T05:20:08.8118446+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-02T05:15:47</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1064</Id>
+    <TypeOfCall>BROKEN_BONE</TypeOfCall>
+    <Description>yay!!!!!!!!</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0837754</latitude>
+    <longitude>34.771816</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T05:22:50.426898+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-02T05:22:50</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1065</Id>
+    <TypeOfCall>BROKEN_BONE</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0837754</latitude>
+    <longitude>34.771816</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T05:28:21.2241814+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-02T05:22:50</MaxClosingTime>
+  </Call>
 </ArrayOfCall>

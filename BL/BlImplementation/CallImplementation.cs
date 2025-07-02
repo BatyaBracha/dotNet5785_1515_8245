@@ -6,6 +6,7 @@ using Helpers;
 using System;
 using System.Collections;
 using System.Net;
+using System.Transactions;
 
 namespace BlImplementation
 {
@@ -115,10 +116,11 @@ namespace BlImplementation
             lock (AdminManager.BlMutex)
             {
                  id = Call_dal.Call.Create(doCall);
-               
+              
             }
+           
             //CallManager.SendEmailWhenCallOpened(boCall);
-            CallManager.Observers.NotifyItemUpdated(id);  //stage 5
+            //CallManager.Observers.NotifyItemUpdated(id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
             _ = CallManager.UpdateCoordinatesForCallAsync(doCall with { Id=id},true);
         }
