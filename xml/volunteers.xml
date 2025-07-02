@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVolunteer>
   <Volunteer>
-    <Id>455070640</Id>
+    <Id>442727712</Id>
     <Name>Mali Horowitz</Name>
     <Phone>0583278625</Phone>
-    <Email>mh0583278625@gmail.com</Email>
+    <Email>mh078625@gmail.com</Email>
     <Password>password</Password>
     <Address>Ha'ayalot 25</Address>
     <latitude>31.8</latitude>
@@ -15,7 +15,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>331667267</Id>
+    <Id>581811967</Id>
     <Name>Tzipy</Name>
     <Phone>0527614421</Phone>
     <Email>Tzipy0527614421@gmail.com</Email>
@@ -26,10 +26,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>219</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>284349225</Id>
+    <Id>646937285</Id>
     <Name>Chani</Name>
     <Phone>0527614422</Phone>
     <Email>Chani0527614422@gmail.com</Email>
@@ -43,7 +43,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>598210840</Id>
+    <Id>123404542</Id>
     <Name>Yehudit</Name>
     <Phone>0527614423</Phone>
     <Email>Yehudit0527614423@gmail.com</Email>
@@ -57,7 +57,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>644126531</Id>
+    <Id>538375787</Id>
     <Name>Shira</Name>
     <Phone>0527614424</Phone>
     <Email>Shira0527614424@gmail.com</Email>
@@ -71,7 +71,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>396350392</Id>
+    <Id>772502598</Id>
     <Name>Moishy</Name>
     <Phone>0527614425</Phone>
     <Email>Moishy0527614425@gmail.com</Email>
@@ -82,10 +82,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>893</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>738680981</Id>
+    <Id>719380826</Id>
     <Name>Efraim</Name>
     <Phone>0527614426</Phone>
     <Email>Efraim0527614426@gmail.com</Email>
@@ -96,10 +96,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>419</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>580428008</Id>
+    <Id>161334439</Id>
     <Name>Shloimy</Name>
     <Phone>0527614427</Phone>
     <Email>Shloimy0527614427@gmail.com</Email>
@@ -113,7 +113,7 @@
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>414571276</Id>
+    <Id>477751386</Id>
     <Name>Yosi</Name>
     <Phone>0527614428</Phone>
     <Email>Yosi0527614428@gmail.com</Email>
@@ -124,10 +124,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>908</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>102369407</Id>
+    <Id>473162100</Id>
     <Name>Yoni</Name>
     <Phone>0527614429</Phone>
     <Email>Yoni0527614429@gmail.com</Email>
@@ -141,7 +141,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>736140510</Id>
+    <Id>937933310</Id>
     <Name>Avi</Name>
     <Phone>0527614430</Phone>
     <Email>Avi0527614430@gmail.com</Email>
@@ -152,10 +152,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>450</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>776870835</Id>
+    <Id>518544975</Id>
     <Name>Chaim</Name>
     <Phone>0527614431</Phone>
     <Email>Chaim0527614431@gmail.com</Email>
@@ -166,10 +166,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>166</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>554149089</Id>
+    <Id>193128717</Id>
     <Name>Ester</Name>
     <Phone>0527614432</Phone>
     <Email>Ester0527614432@gmail.com</Email>
@@ -183,7 +183,7 @@
     <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>305725373</Id>
+    <Id>631556068</Id>
     <Name>Rachel</Name>
     <Phone>0527614433</Phone>
     <Email>Rachel0527614433@gmail.com</Email>
@@ -194,10 +194,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>595</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>527695844</Id>
+    <Id>517454427</Id>
     <Name>Shani</Name>
     <Phone>0527614434</Phone>
     <Email>Shani0527614434@gmail.com</Email>
@@ -208,10 +208,10 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>250</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>287332649</Id>
+    <Id>610002795</Id>
     <Name>Michali</Name>
     <Phone>0527614435</Phone>
     <Email>Michali0527614435@gmail.com</Email>
@@ -222,20 +222,20 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>575</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
-    <Id>328118245</Id>
-    <Name>Batya</Name>
-    <Phone>0548571410</Phone>
-    <Email>riv.yak.36@gmail.com</Email>
+    <Id>341395549</Id>
+    <Name>malka</Name>
+    <Phone>0989898898</Phone>
+    <Email>b7malka@gmail.com</Email>
     <Password>5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8</Password>
-    <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0837754</latitude>
+    <longitude>34.771816</longitude>
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
-    <MaxDistance>300</MaxDistance>
-    <TypeOfDistance>DRIVE</TypeOfDistance>
+    <MaxDistance>2000</MaxDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

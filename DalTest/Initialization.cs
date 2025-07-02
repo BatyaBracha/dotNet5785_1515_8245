@@ -54,8 +54,8 @@ public static class Initialization
         int hour = s_dal.Config.Clock.Hour >= 7 ? s_dal.Config.Clock.Hour - 7 : 0;
         DateTime start = new DateTime(
             s_dal.Config.Clock.Year,
-            s_dal.Config.Clock.Month,
             s_dal.Config.Clock.Day,
+            s_dal.Config.Clock.Month,
             hour, 0, 0);
 
         int range = (int)(s_dal.Config.Clock - start).TotalMinutes;

@@ -6,6 +6,7 @@ using Helpers;
 using System;
 using System.Collections;
 using System.Net;
+using System.Transactions;
 
 namespace BlImplementation
 {
@@ -42,7 +43,7 @@ namespace BlImplementation
             }
             var callStatus = CallManager.CalculateCallStatus(callAssignments, call.MaxClosingTime);
             // Validate call status
-            if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK || (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
+            if ((DO.CallStatus)callStatus != DO.CallStatus.OPEN_IN_RISK && (DO.CallStatus)callStatus != DO.CallStatus.OPEN)
                 throw new BO.BlDoesNotExistException("this call is not open for treatment.");
 
             bool isBeingTreated = callAssignments.Any(a =>
@@ -98,13 +99,30 @@ namespace BlImplementation
             AdminManager.ThrowOnSimulatorIsRunning();
             CallManager.ValidateCall(boCall);
             //(double? lat, double? lon) = CallManager.GetCoordinates(boCall.Address!);
-            var doCall = new DO.Call(boCall.Id, (DO.TypeOfCall)boCall.TypeOfCall, boCall.Description, boCall.Address!, null, null, AdminManager.RiskRange, boCall.OpeningTime, DO.CallStatus.OPEN, boCall.MaxClosingTime);
+            //var doCall = new DO.Call { TypeOfCall=(DO.TypeOfCall)boCall.TypeOfCall,Description= boCall.Description,Address= boCall.Address!,riskRange= AdminManager.RiskRange,OpeningTime= boCall.OpeningTime,Status= DO.CallStatus.OPEN,MaxClosingTime= boCall.MaxClosingTime };
+            var doCall = new DO.Call
+            {
+                TypeOfCall = (DO.TypeOfCall)boCall.TypeOfCall,
+                Description = boCall.Description,
+                Address = boCall.Address!,
+                latitude = boCall.Latitude,
+                longitude = boCall.Longitude,
+                riskRange = AdminManager.RiskRange,
+                OpeningTime = boCall.OpeningTime,
+                Status = DO.CallStatus.OPEN,
+                MaxClosingTime = boCall.MaxClosingTime
+            };
+            int id;
             lock (AdminManager.BlMutex)
-                Call_dal.Call.Create(doCall);
-            CallManager.SendEmailWhenCallOpened(boCall);
-            CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
+            {
+                 id = Call_dal.Call.Create(doCall);
+              
+            }
+           
+            //CallManager.SendEmailWhenCallOpened(boCall);
+            //CallManager.Observers.NotifyItemUpdated(id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall);
+            _ = CallManager.UpdateCoordinatesForCallAsync(doCall with { Id=id},true);
         }
 
         public void Delete(int id)
@@ -247,10 +265,11 @@ namespace BlImplementation
             DO.Volunteer v;
             lock (AdminManager.BlMutex)
                 v = Call_dal.Volunteer.Read(volunteerId);
-            IEnumerable<BO.OpenCallInList> openCalls = null;
+            IEnumerable<BO.OpenCallInList> openCallsAllDistances = null;
+            IEnumerable<BO.OpenCallInList> openCalls = Enumerable.Empty<BO.OpenCallInList>();
             if (openOrRiskyCalls.Any()) // Check if the list is not empty
             {
-                 openCalls = openOrRiskyCalls.Select(c => new BO.OpenCallInList
+                 openCallsAllDistances = openOrRiskyCalls.Select(c => new BO.OpenCallInList
                 {
                     Id = c.Id,
                     TypeOfCall = (BO.TypeOfCall)c.TypeOfCall,
@@ -258,8 +277,9 @@ namespace BlImplementation
                     Address = c.Address,
                     OpeningTime = c.OpeningTime,
                     MaxCloseingTime = c.MaxClosingTime,
-                    CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(v.latitude, v.longitude, v.latitude, v.longitude)
+                    CallVolunteerDistance = CallManager.GetAerialDistanceByCoordinates(v.latitude, v.longitude, c.Latitude, c.Longitude)
                 });
+                 openCalls=openCallsAllDistances.Where(c => c.CallVolunteerDistance <= v.MaxDistance );
                 if (filterBy != null)
                 {
                     openCalls = openCalls.Where(c => CallManager.MatchField(filterBy, c, filterValue)).ToList();
@@ -447,13 +467,15 @@ namespace BlImplementation
 
             if (assignment.VolunteerId != volunteerId)
                 throw new BO.BlUnauthorizedOperationException("רק המתנדב שהוקצה יכול לעדכן סיום טיפול.");
-            lock (AdminManager.BlMutex) { 
-                Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, DO.TypeOfTreatmentEnding.HANDLED, DO.AssignmentStatus.COMPLETED));
             var call = GetCallDetails(assignment.CallId)
                 ?? throw new BO.BlDoesNotExistException("קריאה לא נמצאה במערכת.");
             call.AssignedVolunteers!.Remove(call.AssignedVolunteers.FirstOrDefault(a => a.VolunteerId == volunteerId));
             Update(new BO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.Latitude, call.Longitude, call.OpeningTime, AdminManager.Now, BO.CallStatus.CLOSED, call.AssignedVolunteers));
-        }
+
+            lock (AdminManager.BlMutex)
+            {
+                Call_dal.Assignment.Update(new DO.Assignment(assignment.Id, assignment.CallId, assignment.VolunteerId, assignment.TreatmentStartTime, AdminManager.Now, DO.TypeOfTreatmentEnding.HANDLED, DO.AssignmentStatus.COMPLETED));
+            }
             CallManager.Observers.NotifyItemUpdated(assignment.CallId);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();
@@ -483,7 +505,7 @@ namespace BlImplementation
             }
             CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall);
+            _ = CallManager.UpdateCoordinatesForCallAsync(doCall,false);
         }
     }
 }
