@@ -19,10 +19,37 @@ internal static class VolunteerManager
             throw new BO.BlValidationException("Email address is invalid.");
         if (!IsValidPhone(volunteer.PhoneNumber))
             throw new BO.BlValidationException("Phone number is invalid.");
+        if (!IsValidPassword(volunteer.Password))
+            throw new BO.BlValidationException("Password is invalid.");
         //(double lat, double lon) = isValidAddress(volunteer.CurrentAddress);
         //if (lat == null || lon == null)
         //    throw new BO.BlValidationException("The address does not exist");
         //return (lat, lon);
+    }
+    public static bool IsValidPassword(string password)
+    {
+        if (password.Length == 64)
+            return true;
+
+        if (string.IsNullOrWhiteSpace(password))
+            return false;
+
+        if (password.Length < 8)
+            return false;
+
+        if (!password.Any(char.IsUpper))
+            return false;
+
+        if (!password.Any(char.IsLower))
+            return false;
+
+        if (!password.Any(char.IsDigit))
+            return false;
+
+        if (!password.Any(ch => "!@#$%^&*()-_=+[]{};:'\",.<>?/\\|`~".Contains(ch)))
+            return false;
+
+        return true;
     }
     internal static bool IsValidIsraeliID(string id)
     {
