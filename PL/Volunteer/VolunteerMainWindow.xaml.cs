@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,8 @@ namespace PL.Volunteer
             CurrentVolunteer = s_bl.Volunteer.Read(id);
             Id = id;
             Password = pass;
+            IsCallInProgress = CurrentVolunteer.CallInProgress != null;
+            IsNotCallInProgress = CurrentVolunteer.CallInProgress == null;
             InitializeComponent();
         }
 
@@ -52,11 +55,25 @@ namespace PL.Volunteer
             set { SetValue(PasswordProperty, value); }
         }
         public static readonly DependencyProperty PasswordProperty =
-            DependencyProperty.Register("Password", typeof(string), typeof(VolunteerWindow), new PropertyMetadata(""));
+            DependencyProperty.Register("Password", typeof(string), typeof(VolunteerMainWindow), new PropertyMetadata(""));
 
+        public bool IsCallInProgress
+        {
+            get { return (bool)GetValue(IsCallInProgressProperty); }
+            set { SetValue(IsCallInProgressProperty, value); }
+        }
+        public static readonly DependencyProperty IsCallInProgressProperty =
+            DependencyProperty.Register("IsCallInProgress", typeof(bool), typeof(VolunteerMainWindow), new PropertyMetadata(false));
+        public bool IsNotCallInProgress
+        {
+            get { return (bool)GetValue(IsNotCallInProgressProperty); }
+            set { SetValue(IsNotCallInProgressProperty, value); }
+        }
+        public static readonly DependencyProperty IsNotCallInProgressProperty =
+            DependencyProperty.Register("IsNotCallInProgress", typeof(bool), typeof(VolunteerMainWindow), new PropertyMetadata(true));
 
-        public bool IsCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() != null;
-        public bool IsNotCallInProgress => CurrentVolunteer?.CallInProgress?.ToString() == null;
+        //public bool IsCallInProgress => CurrentVolunteer?.CallInProgress != null;
+        //public bool IsNotCallInProgress => CurrentVolunteer?.CallInProgress == null;
 
         private bool IsPassChanged = false;
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -90,7 +107,8 @@ namespace PL.Volunteer
             Id = CurrentVolunteer.Id;
             CurrentVolunteer = null;
             CurrentVolunteer = s_bl.Volunteer.Read(Id);
-
+            IsNotCallInProgress = CurrentVolunteer.CallInProgress == null;
+            IsCallInProgress = CurrentVolunteer.CallInProgress != null;
         }
 
         private void VolunteerObserver()
