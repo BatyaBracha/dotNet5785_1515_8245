@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVolunteer>
   <Volunteer>
-    <Id>328118245</Id>
-    <Name>Mali Horowitz</Name>
-    <Phone>0583278625</Phone>
-    <Email>mh078625@gmail.com</Email>
-    <Password>password</Password>
-    <Address>Ha'ayalot 25</Address>
-    <latitude>31.8</latitude>
-    <longitude>35.1</longitude>
-    <Role>ADMINISTRATOR</Role>
-    <Active>true</Active>
-    <MaxDistance>250</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
-  </Volunteer>
-  <Volunteer>
     <Id>234567893</Id>
     <Name>Chani</Name>
     <Phone>0527614422</Phone>
@@ -223,5 +209,19 @@
     <Active>true</Active>
     <MaxDistance>219</MaxDistance>
     <TypeOfDistance>WALK</TypeOfDistance>
+  </Volunteer>
+  <Volunteer>
+    <Id>328118245</Id>
+    <Name>Mali Horowitz</Name>
+    <Phone>0583278625</Phone>
+    <Email>mh078625@gmail.com</Email>
+    <Password>D2F06799AC1E886213F2A9BF56E422EEAECF31CAD25CBAC698547914738E9E06</Password>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0837754</latitude>
+    <longitude>34.771816</longitude>
+    <Role>ADMINISTRATOR</Role>
+    <Active>true</Active>
+    <MaxDistance>25000</MaxDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

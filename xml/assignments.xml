@@ -450,4 +450,13 @@
     <TypeOfTreatmentEnding>EXPIRED_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
+  <Assignment>
+    <Id>2170</Id>
+    <CallId>1050</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-07-02T06:20:21</TreatmentStartTime>
+    <TreatmentEndTime xsi:nil="true" />
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
 </ArrayOfAssignment>

@@ -1,174 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
-    <Id>1000</Id>
-    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
-    <Description>Minor mechanical issue near the mall.</Description>
-    <Address>Rothschild Blvd, Tel Aviv</Address>
-    <latitude>32.0656</latitude>
-    <longitude>34.777</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-06-12T23:07:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-06-13T04:03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1001</Id>
-    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
-    <Description>Flat tire on the road to Jerusalem.</Description>
-    <Address>David HaMelech St, Herzliya</Address>
-    <latitude>32.1673</latitude>
-    <longitude>34.836</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-05-25T17:04:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-05-25T19:26:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1002</Id>
-    <TypeOfCall>DROWNING</TypeOfCall>
-    <Description>Medical emergency near the park.</Description>
-    <Address>Jaffa St, Jerusalem</Address>
-    <latitude>31.7683</latitude>
-    <longitude>35.2137</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-06-17T13:19:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-06-17T14:18:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1003</Id>
-    <TypeOfCall>NONE</TypeOfCall>
-    <Description>Flat tire on the highway.</Description>
-    <Address>Rothschild Blvd, Tel Aviv</Address>
-    <latitude>32.0656</latitude>
-    <longitude>34.777</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-03-19T04:02:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-03-19T09:21:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1004</Id>
-    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
-    <Description>Car battery is dead, needs jump start.</Description>
-    <Address>Jaffa St, Jerusalem</Address>
-    <latitude>31.7683</latitude>
-    <longitude>35.2137</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-04-18T07:54:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-04-18T13:33:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1005</Id>
-    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
-    <Description>Medical emergency near the park.</Description>
-    <Address>Jaffa St, Jerusalem</Address>
-    <latitude>31.7683</latitude>
-    <longitude>35.2137</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-06-09T06:55:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-06-09T08:25:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1006</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Minor mechanical issue near the mall.</Description>
-    <Address>Main St, Beersheba</Address>
-    <latitude>31.2518</latitude>
-    <longitude>34.7913</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-04-17T06:42:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-04-17T08:23:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1007</Id>
-    <TypeOfCall>STROKE</TypeOfCall>
-    <Description>Car battery is dead, needs jump start.</Description>
-    <Address>Shderot Ben Gurion, Netanya</Address>
-    <latitude>32.332</latitude>
-    <longitude>34.8599</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-02-08T09:47:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-02-08T13:21:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1008</Id>
-    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
-    <Description>Vehicle recovery required from the beach.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-05-19T09:18:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-05-19T10:12:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1009</Id>
-    <TypeOfCall>STROKE</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-02-18T10:00:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-02-18T11:04:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1010</Id>
-    <TypeOfCall>HEAD_INJURY</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Shderot Ben Gurion, Netanya</Address>
-    <latitude>32.332</latitude>
-    <longitude>34.8599</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-03-19T19:59:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-03-19T21:20:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1011</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Ben Yehuda St, Tel Aviv</Address>
-    <latitude>32.0838</latitude>
-    <longitude>34.7698</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-04-14T07:02:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-04-14T11:15:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1012</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Ran out of fuel near the city center.</Description>
-    <Address>Eilat Promenade, Eilat</Address>
-    <latitude>29.5581</latitude>
-    <longitude>34.9482</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-06-13T12:03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-06-13T13:17:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1013</Id>
-    <TypeOfCall>BROKEN_BONE</TypeOfCall>
-    <Description>Car stuck in the sand, needs assistance.</Description>
-    <Address>Eilat Promenade, Eilat</Address>
-    <latitude>29.5581</latitude>
-    <longitude>34.9482</longitude>
-    <riskRange>PT2H2M6S</riskRange>
-    <OpeningTime>2025-04-12T10:12:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-04-12T14:51:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1014</Id>
     <TypeOfCall>SEIZURE</TypeOfCall>
     <Description>Flat tire on the highway.</Description>
@@ -177,7 +9,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-02-15T11:49:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-02-15T14:56:00</MaxClosingTime>
   </Call>
   <Call>
@@ -189,7 +21,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-06T05:56:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-06T08:46:00</MaxClosingTime>
   </Call>
   <Call>
@@ -201,7 +33,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-15T07:26:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-15T10:56:00</MaxClosingTime>
   </Call>
   <Call>
@@ -213,7 +45,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-03-31T03:26:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-03-31T05:01:00</MaxClosingTime>
   </Call>
   <Call>
@@ -225,7 +57,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-30T21:15:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-30T23:01:00</MaxClosingTime>
   </Call>
   <Call>
@@ -237,7 +69,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-02-18T08:44:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-02-18T09:34:00</MaxClosingTime>
   </Call>
   <Call>
@@ -249,7 +81,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-03-09T02:45:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-03-09T04:29:00</MaxClosingTime>
   </Call>
   <Call>
@@ -261,7 +93,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-20T07:40:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-20T12:38:00</MaxClosingTime>
   </Call>
   <Call>
@@ -273,7 +105,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-03-24T14:59:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-03-24T19:22:00</MaxClosingTime>
   </Call>
   <Call>
@@ -285,7 +117,7 @@
     <longitude>34.7818</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-20T14:12:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-20T15:36:00</MaxClosingTime>
   </Call>
   <Call>
@@ -297,7 +129,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-03-15T06:18:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-03-15T08:54:00</MaxClosingTime>
   </Call>
   <Call>
@@ -309,7 +141,7 @@
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-09T15:51:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-09T21:12:00</MaxClosingTime>
   </Call>
   <Call>
@@ -321,7 +153,7 @@
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-02-13T00:49:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-02-13T01:35:00</MaxClosingTime>
   </Call>
   <Call>
@@ -333,7 +165,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-05-04T21:07:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-05-04T22:00:00</MaxClosingTime>
   </Call>
   <Call>
@@ -345,7 +177,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-02-18T19:58:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-02-18T22:35:00</MaxClosingTime>
   </Call>
   <Call>
@@ -357,7 +189,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-03-16T17:40:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-03-16T22:29:00</MaxClosingTime>
   </Call>
   <Call>
@@ -369,7 +201,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-01T08:23:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-01T11:50:00</MaxClosingTime>
   </Call>
   <Call>
@@ -381,7 +213,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-05-16T05:11:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-05-16T08:27:00</MaxClosingTime>
   </Call>
   <Call>
@@ -393,7 +225,7 @@
     <longitude>34.777</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-02-07T07:05:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-02-07T08:58:00</MaxClosingTime>
   </Call>
   <Call>
@@ -405,7 +237,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-05-06T09:57:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-05-06T14:00:00</MaxClosingTime>
   </Call>
   <Call>
@@ -417,7 +249,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-15T16:54:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-15T19:57:00</MaxClosingTime>
   </Call>
   <Call>
@@ -429,7 +261,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-05-14T18:27:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-05-14T22:11:00</MaxClosingTime>
   </Call>
   <Call>
@@ -441,7 +273,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-20T07:36:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-20T12:32:00</MaxClosingTime>
   </Call>
   <Call>
@@ -453,7 +285,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-03-23T01:24:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-03-23T04:21:00</MaxClosingTime>
   </Call>
   <Call>
@@ -465,7 +297,7 @@
     <longitude>34.7756</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-15T01:06:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-15T06:10:00</MaxClosingTime>
   </Call>
   <Call>
@@ -477,7 +309,7 @@
     <longitude>34.7913</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-03T19:23:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-04T00:44:00</MaxClosingTime>
   </Call>
   <Call>
@@ -489,7 +321,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-20T19:32:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-20T23:53:00</MaxClosingTime>
   </Call>
   <Call>
@@ -501,7 +333,7 @@
     <longitude>35.2137</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-14T12:10:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-14T16:18:00</MaxClosingTime>
   </Call>
   <Call>
@@ -513,7 +345,7 @@
     <longitude>34.836</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-02-20T12:45:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-02-20T15:49:00</MaxClosingTime>
   </Call>
   <Call>
@@ -525,7 +357,7 @@
     <longitude>34.9482</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-27T22:39:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-28T00:23:00</MaxClosingTime>
   </Call>
   <Call>
@@ -537,7 +369,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-21T18:24:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-22T00:01:00</MaxClosingTime>
   </Call>
   <Call>
@@ -549,7 +381,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-17T05:54:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-17T07:50:00</MaxClosingTime>
   </Call>
   <Call>
@@ -561,7 +393,7 @@
     <longitude>34.8599</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-03-18T15:32:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-03-18T17:52:00</MaxClosingTime>
   </Call>
   <Call>
@@ -573,7 +405,7 @@
     <longitude>34.7698</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-05-20T17:35:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-05-20T18:37:00</MaxClosingTime>
   </Call>
   <Call>
@@ -585,7 +417,7 @@
     <longitude>34.7818</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-04-15T11:24:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-04-15T13:23:00</MaxClosingTime>
   </Call>
   <Call>
@@ -597,7 +429,199 @@
     <longitude>34.9896</longitude>
     <riskRange>PT2H2M6S</riskRange>
     <OpeningTime>2025-06-16T20:21:00</OpeningTime>
-    <Status>OPEN</Status>
+    <Status>OUT_OF_DATE</Status>
     <MaxClosingTime>2025-06-16T23:59:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1000</Id>
+    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
+    <Description>Minor mechanical issue near the mall.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-06-12T23:07:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-06-13T04:03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1001</Id>
+    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
+    <Description>Flat tire on the road to Jerusalem.</Description>
+    <Address>David HaMelech St, Herzliya</Address>
+    <latitude>32.1673</latitude>
+    <longitude>34.836</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-05-25T17:04:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-05-25T19:26:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1002</Id>
+    <TypeOfCall>DROWNING</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>Jaffa St, Jerusalem</Address>
+    <latitude>31.7683</latitude>
+    <longitude>35.2137</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-06-17T13:19:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-06-17T14:18:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1003</Id>
+    <TypeOfCall>NONE</TypeOfCall>
+    <Description>Flat tire on the highway.</Description>
+    <Address>Rothschild Blvd, Tel Aviv</Address>
+    <latitude>32.0656</latitude>
+    <longitude>34.777</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-03-19T04:02:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-03-19T09:21:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1004</Id>
+    <TypeOfCall>DIFFICULTY_BREATHING</TypeOfCall>
+    <Description>Car battery is dead, needs jump start.</Description>
+    <Address>Jaffa St, Jerusalem</Address>
+    <latitude>31.7683</latitude>
+    <longitude>35.2137</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-04-18T07:54:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-04-18T13:33:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1005</Id>
+    <TypeOfCall>FALL_FROM_HEIGHT</TypeOfCall>
+    <Description>Medical emergency near the park.</Description>
+    <Address>Jaffa St, Jerusalem</Address>
+    <latitude>31.7683</latitude>
+    <longitude>35.2137</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-06-09T06:55:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-06-09T08:25:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1006</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Minor mechanical issue near the mall.</Description>
+    <Address>Main St, Beersheba</Address>
+    <latitude>31.2518</latitude>
+    <longitude>34.7913</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-04-17T06:42:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-04-17T08:23:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1007</Id>
+    <TypeOfCall>STROKE</TypeOfCall>
+    <Description>Car battery is dead, needs jump start.</Description>
+    <Address>Shderot Ben Gurion, Netanya</Address>
+    <latitude>32.332</latitude>
+    <longitude>34.8599</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-02-08T09:47:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-02-08T13:21:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1008</Id>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>Vehicle recovery required from the beach.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-05-19T09:18:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-05-19T10:12:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1009</Id>
+    <TypeOfCall>STROKE</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-02-18T10:00:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-02-18T11:04:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1010</Id>
+    <TypeOfCall>HEAD_INJURY</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Shderot Ben Gurion, Netanya</Address>
+    <latitude>32.332</latitude>
+    <longitude>34.8599</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-03-19T19:59:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-03-19T21:20:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1011</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0838</latitude>
+    <longitude>34.7698</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-04-14T07:02:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-04-14T11:15:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1012</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Ran out of fuel near the city center.</Description>
+    <Address>Eilat Promenade, Eilat</Address>
+    <latitude>29.5581</latitude>
+    <longitude>34.9482</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-06-13T12:03:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-06-13T13:17:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1013</Id>
+    <TypeOfCall>BROKEN_BONE</TypeOfCall>
+    <Description>Car stuck in the sand, needs assistance.</Description>
+    <Address>Eilat Promenade, Eilat</Address>
+    <latitude>29.5581</latitude>
+    <longitude>34.9482</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-04-12T10:12:00</OpeningTime>
+    <Status>OUT_OF_DATE</Status>
+    <MaxClosingTime>2025-04-12T14:51:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1050</Id>
+    <TypeOfCall>ELECTRIC_SHOCK</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude>32.0837754</latitude>
+    <longitude>34.771816</longitude>
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T06:34:04.0166444+03:00</OpeningTime>
+    <Status>BEING_HANDELED</Status>
+    <MaxClosingTime>2026-07-02T06:34:04</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1051</Id>
+    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
+    <Description>check address??</Description>
+    <Address>Ben Yehuda St, Tel Aviv</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>PT2H2M6S</riskRange>
+    <OpeningTime>2025-07-02T06:45:31.3487279+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-02T06:45:31</MaxClosingTime>
   </Call>
 </ArrayOfCall>

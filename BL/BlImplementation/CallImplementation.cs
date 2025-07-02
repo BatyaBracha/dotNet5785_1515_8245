@@ -348,21 +348,6 @@ namespace BlImplementation
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
         //{
         //    // Step 1: Retrieve all assignments for the volunteer with CLOSED status
