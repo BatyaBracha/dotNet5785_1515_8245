@@ -332,6 +332,7 @@ public static class Initialization
                 longitude = MyLongitude,
                 OpeningTime = MyStartTime,
                 MaxClosingTime = MyExpiredTime,
+                riskRange = s_dal.Config.RiskRange,
                 TypeOfCall = MyCallType,
             };
 
