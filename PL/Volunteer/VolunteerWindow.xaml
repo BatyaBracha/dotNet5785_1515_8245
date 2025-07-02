@@ -8,6 +8,7 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed"
         Title="VolunteerWindow" Height="550" Width="430"
+        Icon="../icon.ico"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
         <!-- Beautiful Label Style -->
     <Window.Resources>

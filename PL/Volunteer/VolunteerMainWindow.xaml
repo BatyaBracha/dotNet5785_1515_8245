@@ -8,6 +8,7 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed"
         Title="VolunteerWindow" Height="600" Width="800"
+        Icon="../icon.ico"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Window.Resources>
         <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>

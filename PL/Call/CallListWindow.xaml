@@ -8,6 +8,7 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed"
         Title="CallListWindow" Height="530" Width="800"
+        Icon="../icon.ico"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
         Background="#F9F9F9" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
