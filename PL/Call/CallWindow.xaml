@@ -10,6 +10,7 @@
         xmlns:enum="clr-namespace:PL"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="CallWindow" Height="550" Width="430"
+        Icon="../icon.ico"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Window.Resources>
         <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>

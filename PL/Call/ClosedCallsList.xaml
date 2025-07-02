@@ -8,6 +8,7 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed"
         Title="ClosedCallsList" Height="450" Width="500"
+        Icon="../icon.ico"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <!--<Grid>
         <Grid.RowDefinitions>

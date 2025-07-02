@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
+        Icon="icon.ico"
         Title="MainWindow" Height="390" Width="700"
         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
 
