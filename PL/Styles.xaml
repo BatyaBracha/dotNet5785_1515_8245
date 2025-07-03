@@ -1,19 +1,19 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- צבעים כלליים -->
+   
     <Color x:Key="PrimaryRed">#E53935</Color>
     <Color x:Key="DarkGray">#2E3A59</Color>
     <Color x:Key="LightGray">#F7F9FC</Color>
     <Color x:Key="AccentBlack">#111111</Color>
 
-    <!-- מברשות -->
+    
     <SolidColorBrush x:Key="PrimaryRedBrush" Color="{StaticResource PrimaryRed}" />
     <SolidColorBrush x:Key="DarkGrayBrush" Color="{StaticResource DarkGray}" />
     <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGray}" />
     <SolidColorBrush x:Key="AccentBlackBrush" Color="{StaticResource AccentBlack}" />
 
-    <!-- סגנון כפתור עיקרי -->
+   
     <Style x:Key="PrimaryButtonStyle" TargetType="Button">
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontWeight" Value="Bold"/>
@@ -47,7 +47,7 @@
         </Style.Triggers>
     </Style>
 
-    <!-- סגנונות ל־Label/TextBox וכו’ (כמו קודם, בעיצוב חלק ונעים) -->
+   
     <Style x:Key="FormLabelStyle" TargetType="Label">
         <Setter Property="Foreground" Value="{StaticResource DarkGrayBrush}"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
