@@ -323,7 +323,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Left Column - Control Panel -->
-            <Border Grid.Column="0" Style="{StaticResource CardStyle}">
+            <Border Grid.Column="0" Style="{StaticResource CardStyle}" Margin="10,10,10,10">
                 <StackPanel>
                     <TextBlock Text="Control Panel" FontSize="18" FontWeight="Bold" Foreground="#495057" Margin="0,0,0,20"/>
 
@@ -378,7 +378,7 @@
             </Border>
 
             <!-- Right Column - Time Controls -->
-            <Border Grid.Column="1" Style="{StaticResource CardStyle}">
+            <Border Grid.Column="1" Style="{StaticResource CardStyle}" Margin="10,10,10,10">
                 <StackPanel>
                     <TextBlock Text="Time Management" FontSize="18" FontWeight="Bold" Foreground="#495057" Margin="0,0,0,20"/>
 
