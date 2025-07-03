@@ -26,7 +26,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>748</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>315869241</Id>
@@ -82,7 +82,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>419</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>759183624</Id>
@@ -96,7 +96,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>974</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>860195372</Id>
@@ -110,7 +110,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>908</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>972843165</Id>
@@ -138,7 +138,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>450</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>294817536</Id>
@@ -152,7 +152,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>166</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>305918742</Id>
@@ -217,11 +217,11 @@
     <Email>b7malka@gmail.com</Email>
     <Password>E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259</Password>
     <Address>Man 3</Address>
-    <latitude>18.2280315</latitude>
-    <longitude>-65.76072630634643</longitude>
+    <latitude />
+    <longitude />
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
-    <MaxDistance>25</MaxDistance>
+    <MaxDistance>2509999999999</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>
