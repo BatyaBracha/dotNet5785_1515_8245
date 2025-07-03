@@ -22,7 +22,9 @@ namespace PL.Call
     {
         public OpenCallsListWindow(int id)
         {
+
             Id = id;
+            queryCallList();
             Loaded +=Window_Loaded;
             Closed += Window_Closed;
             InitializeComponent();
