@@ -381,14 +381,19 @@ internal static class CallManager
     //        s_dal.Assignment.Update(updatedAssignment);
     //    });
     //}
-    internal static async Task UpdateCoordinatesForCallAsync(DO.Call doCall,bool create)
+    internal static async Task UpdateCoordinatesForCallAsync(int id,bool create)
     {
-        if (!string.IsNullOrWhiteSpace(doCall.Address))
-        {
+        //if (!string.IsNullOrWhiteSpace(doCall.Address))
+        //{
             try
             {
-                // Fetch coordinates asynchronously
-                var (latitude, longitude) = await GetCoordinates(doCall.Address);
+            DO.Call doCall;
+            lock (AdminManager.BlMutex)
+            {
+                doCall= s_dal.Call.Read(id)!; // Update the call in the DAL
+            }
+            // Fetch coordinates asynchronously
+            var (latitude, longitude) = await GetCoordinates(doCall!.Address);
 
                 // Update the call with the fetched coordinates
                 doCall = doCall with { latitude = latitude, longitude = longitude };
@@ -412,7 +417,7 @@ internal static class CallManager
             {
                 throw new BlArgumentException(ex.Message);           
             }
-        }
+        //}
     }
     internal static async Task UpdateCoordinatesForVolunteerAsync(DO.Volunteer doVolunteer)
     {
@@ -567,6 +572,41 @@ internal static class CallManager
 
         _=Tools.SendEmail(volunteer.Email, subject, body);
     }
+
+    internal static async Task SendEmailWhenCallOpenedAsync(BO.Call call)
+    {
+        var volunteers = s_dal.Volunteer.ReadAll();
+        var emailTasks = new List<Task>();
+
+        foreach (var item in volunteers)
+        {
+            //if (item.MaxDistance >= CalculateDistance(item.latitude!, item.longitude!, call.Latitude, call.Longitude))
+            
+            {
+                string subject = "Opening call";
+                string body = $@" Hello {item.Name},
+                                  
+                                  A new call has been opened in your area.
+                                  Call Details:
+                                  - Call Type: {call.TypeOfCall}
+                                  - Call Address: {call.Address}
+                                  - Opening Time: {call.OpeningTime}
+                                  - Description: {call.Description}
+                                  - Entry Time for Treatment: {call.MaxClosingTime}
+                                  - Call Status: {call.Status}
+                                  
+                                  If you wish to handle this call, please log into the system.
+                                  
+                                  Best regards,  
+                                  Call Management System";
+
+                emailTasks.Add(Tools.SendEmail(item.Email, subject, body));
+            }
+        }
+
+        await Task.WhenAll(emailTasks); // שליחה מקבילית
+    }
+
 
 
 }

@@ -16,10 +16,10 @@ public class CallInProgress
     public Status Status { get; set; }
     public override string ToString()
     {
-        return $"Id: {Id}, CallId: {CallId}, TypeOfCall: {TypeOfCall}, " +
-               $"Description: {Description}, Address: {Address}, " +
-               $"TimeOfOpening: {TimeOfOpening}, MaxFinishTime: {MaxFinishTime}, " +
-               $"TimeOfEntryToTreatment: {TimeOfEntryToTreatment}, " +
-               $"CallVolunteerDistance: {CallVolunteerDistance}, Status: {Status}";
+        return $"CallId: {CallId}, Type Of Call: {TypeOfCall}, \n" +
+               $"Description: {Description}, Address: {Address}, \n" +
+               $"Opening Time: {TimeOfOpening},\n Max Finish Time: {MaxFinishTime}, \n" +
+               $"Time Of Entry To Treatment: {TimeOfEntryToTreatment}, \n" +
+               $"Call Volunteer Distance: {CallVolunteerDistance}, \nStatus: {Status}";
     }
 }

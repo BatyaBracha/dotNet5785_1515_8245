@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace PL
 {
@@ -47,6 +48,28 @@ namespace PL
         {
             s_bl.Admin.PromotionClock(BO.TimeUnit.YEAR);
         }
+
+        public IEnumerable<(BO.CallStatus Status, int Count)> CallsCount
+        {
+            get { return (IEnumerable<(BO.CallStatus Status, int Count)>)GetValue(CallsCountProperty); }
+            set { SetValue(CallsCountProperty, value); }
+        }
+
+        public static readonly DependencyProperty CallsCountProperty =
+            DependencyProperty.Register(
+                nameof(CallsCount),
+                typeof(IEnumerable<(BO.CallStatus Status, int Count)>),
+                typeof(MainWindow),
+                new PropertyMetadata(new List<(BO.CallStatus Status, int Count)>())
+            );
+
+        int VolunteersCount
+        {
+            get { return (int)GetValue(VolunteersCountProperty); }
+            set { SetValue(VolunteersCountProperty, value); }
+        }
+        public static readonly DependencyProperty VolunteersCountProperty =
+            DependencyProperty.Register("VolunteersCount", typeof(int), typeof(MainWindow), new PropertyMetadata(0));
 
         public TimeSpan RiskRange
         {
@@ -91,7 +114,6 @@ namespace PL
 
         public static readonly DependencyProperty IsSimulatorRunningProperty =
             DependencyProperty.Register("IsSimulatorRunning", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
-
 
         public bool IsButtonsEnabled
         {
@@ -177,7 +199,6 @@ namespace PL
         }
 
         private volatile bool _observerWorking = false; //stage 7
-
         private void configObserver()
         {
 
@@ -213,7 +234,6 @@ namespace PL
             s_bl.Admin.AddClockObserver(clockObserver);
             s_bl.Admin.AddConfigObserver(configObserver);
         }
-
         private void OnWindowClosed(object? sender, EventArgs e)
         {
             s_bl.Admin.StopSimulator();
@@ -224,15 +244,15 @@ namespace PL
         {
             new VolunteerListWindow().Show();
         }
-
         private void btnCallList_Click(object sender, EventArgs e)
         {
             new CallListWindow().Show();
         }
-
         public MainWindow()
         {
             InitializeComponent();
+            CallsCount = s_bl.Call.GetCallsCount();
+            VolunteersCount = s_bl.Volunteer.GetVolunteersCount();
             this.Loaded += OnWindowLoaded; 
             this.Closed += OnWindowClosed; 
         }

@@ -110,7 +110,15 @@ internal class VolunteerImplementation : BlApi.IVolunteer
         VolunteerManager.Observers.NotifyListUpdated();  //stage 5
     }
 
-
+    public int GetVolunteersCount()
+    {
+        lock (AdminManager.BlMutex)
+        {
+            return Volunteer_dal.Volunteer.ReadAll()
+            .ToArray()
+            .Length;
+        }
+    }
     public BO.Volunteer? Read(int id)
     {
         try

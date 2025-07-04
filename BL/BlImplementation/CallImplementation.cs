@@ -118,11 +118,12 @@ namespace BlImplementation
                  id = Call_dal.Call.Create(doCall);
               
             }
-           
+            _ = CallManager.SendEmailWhenCallOpenedAsync(boCall);
+
             //CallManager.SendEmailWhenCallOpened(boCall);
             //CallManager.Observers.NotifyItemUpdated(id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall with { Id=id},true);
+            _ = CallManager.UpdateCoordinatesForCallAsync(doCall.Id,true);
         }
 
         public void Delete(int id)
@@ -166,18 +167,29 @@ namespace BlImplementation
             return new BO.Call(doCall.Id, (BO.TypeOfCall)doCall.TypeOfCall, doCall.Description, doCall.Address, doCall.latitude, doCall.longitude, doCall.OpeningTime, doCall.MaxClosingTime, status, assignmentsList);
         }
 
-        public IEnumerable<int> GetCallsCount()
+        //public IEnumerable<int> GetCallsCount()
+        //{
+        //    lock (AdminManager.BlMutex)
+        //    {
+        //        return Call_dal.Call.ReadAll()
+        //        .GroupBy(c => c.Status)
+        //        .OrderBy(g => g.Key)
+        //        .Select(g => g.Count())
+        //        .ToArray();
+        //    }
+        //}
+
+        public IEnumerable<(BO.CallStatus Status, int Count)> GetCallsCount()
         {
             lock (AdminManager.BlMutex)
             {
                 return Call_dal.Call.ReadAll()
-                .GroupBy(c => c.Status)
-                .OrderBy(g => g.Key)
-                .Select(g => g.Count())
-                .ToArray();
+                    .GroupBy(c => c.Status)
+                    .OrderBy(g => g.Key)
+                    .Select(g => ((BO.CallStatus)(int)g.Key, g.Count()))
+                    .ToList();
             }
         }
-
         public IEnumerable<BO.CallInList> ReadAll(Enum? filterBy, object? filter, Enum? sortBy)
         {
             IEnumerable<DO.Call> calls;
@@ -482,8 +494,8 @@ namespace BlImplementation
                 (DO.TypeOfCall)boCall.TypeOfCall,
                 boCall.Description,
                 boCall.Address!,
-                null,
-                null,
+                0,
+                0,
                 doCall.riskRange,
                 doCall.OpeningTime,
                 (DO.CallStatus)boCall.Status,
@@ -491,7 +503,7 @@ namespace BlImplementation
             }
             CallManager.Observers.NotifyItemUpdated(doCall.Id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall,false);
+            _ = CallManager.UpdateCoordinatesForCallAsync(doCall.Id,false);
         }
     }
 }

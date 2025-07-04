@@ -1,4 +1,4 @@
-﻿<Window x:Class="PL.Volunteer.VolunteerMainWindow"
+﻿<!--<Window x:Class="PL.Volunteer.VolunteerMainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -14,7 +14,7 @@
         <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
         <local:ConvertUpdateToVisible x:Key="ConvertUpdateToVisibleKey"/>
 
-        <!-- Beautiful Label Style -->
+        --><!-- Beautiful Label Style --><!--
         <Style x:Key="GridLabelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="#2E3A59"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -26,7 +26,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="FlowDirection" Value="LeftToRight"/>
         </Style>
-        <!-- Beautiful TextBox Style -->
+        --><!-- Beautiful TextBox Style --><!--
         <Style x:Key="GridTextBoxStyle" TargetType="TextBox">
             <Setter Property="Foreground" Value="#2E3A59"/>
             <Setter Property="FontSize" Value="15"/>
@@ -38,7 +38,7 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="6,2"/>
         </Style>
-        <!-- Beautiful PasswordBox Style -->
+        --><!-- Beautiful PasswordBox Style --><!--
         <Style x:Key="GridPasswordBoxStyle" TargetType="PasswordBox">
             <Setter Property="Foreground" Value="#2E3A59"/>
             <Setter Property="FontSize" Value="15"/>
@@ -50,7 +50,7 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="6,2"/>
         </Style>
-        <!-- Beautiful ComboBox Style -->
+        --><!-- Beautiful ComboBox Style --><!--
         <Style x:Key="GridComboBoxStyle" TargetType="ComboBox">
             <Setter Property="Foreground" Value="#2E3A59"/>
             <Setter Property="FontSize" Value="15"/>
@@ -62,7 +62,7 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="4,2"/>
         </Style>
-        <!-- Beautiful CheckBox Style -->
+        --><!-- Beautiful CheckBox Style --><!--
         <Style x:Key="GridCheckBoxStyle" TargetType="CheckBox">
             <Setter Property="Foreground" Value="Green"/>
             <Setter Property="BorderBrush" Value="Green"/>
@@ -72,7 +72,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
-        <!-- Beautiful TextBlock Style (for display only) -->
+        --><!-- Beautiful TextBlock Style (for display only) --><!--
         <Style x:Key="GridTextBlockStyle" TargetType="TextBlock">
             <Setter Property="Foreground" Value="Gray"/>
             <Setter Property="Width" Value="220"/>
@@ -126,41 +126,41 @@
                 <ColumnDefinition Width="0.5*" MinWidth="230"/>
 
                 <ColumnDefinition Width="*"/>
-                <!--<ColumnDefinition Width="225*"/>
-           <ColumnDefinition Width="109*"/>-->
+                --><!--<ColumnDefinition Width="225*"/>
+           <ColumnDefinition Width="109*"/>--><!--
             </Grid.ColumnDefinitions>
 
-            <!-- Id (readonly) -->
+            --><!-- Id (readonly) --><!--
             <Label Grid.Column="0" Content="Id:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Id}" IsReadOnly="True"/>
 
-            <!-- Name -->
+            --><!-- Name --><!--
             <Label Grid.Row="1" Grid.Column="0" Content="Name:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Name}" Margin="5,5,0,5"/>
 
-            <!-- PhoneNumber -->
+            --><!-- PhoneNumber --><!--
             <Label Grid.Row="2" Grid.Column="0" Content="Phone number:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.PhoneNumber}" Margin="5,5,0,5" Width="220"/>
 
-            <!-- Email -->
+            --><!-- Email --><!--
             <Label Grid.Row="3" Grid.Column="0" Content="Email:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Email}" Margin="5,5,0,5"/>
 
-            <!-- Password -->
+            --><!-- Password -->
             <!--<Label Grid.Row="4" Grid.Column="0" Content="Password:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
-           <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" Password="{Binding Path=CurrentVolunteer.Password" Margin="5,5,0,5"/>-->
+           <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" Password="{Binding Path=CurrentVolunteer.Password" Margin="5,5,0,5"/>--><!--
             <Label Grid.Row="4" Grid.Column="0" Content="Password:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" Margin="5,5,0,5" PasswordChanged="PasswordBox_PasswordChanged"/>
 
 
-            <!-- CurrentAddress -->
+            --><!-- CurrentAddress --><!--
             <Label Grid.Row="5" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
-            <!--<TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CurrentAddress}" Margin="5,5,0,5"/>-->
+            --><!--<TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CurrentAddress}" Margin="5,5,0,5"/>--><!--
             <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CurrentVolunteer.CurrentAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <TextBox.Style>
                     <Style TargetType="TextBox">
                         <Style.Triggers>
-                            <!-- DataTrigger to check if Latitude or Longitude is null -->
+                            --><!-- DataTrigger to check if Latitude or Longitude is null --><!--
                             <DataTrigger Binding="{Binding CurrentVolunteer.Latitude}" Value="{x:Null}">
                                 <Setter Property="Background" Value="Red" />
                             </DataTrigger>
@@ -171,37 +171,37 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            <!-- Role (enum) -->
+            --><!-- Role (enum) -->
             <!--<Label Grid.Row="6" Grid.Column="0" Content="Role:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=CurrentVolunteer.Role, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource RoleCollectionKey}}" SelectionChanged="comboBoxRole_SelectionChanged" Margin="5,5,0,5"/>-->
 
-            <!-- Active (bool) -->
+            <!-- Active (bool) --><!--
             <Label Grid.Row="6" Grid.Column="0" Content="Active:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <CheckBox Grid.Row="6" Grid.Column="1" Style="{StaticResource GridCheckBoxStyle}" IsChecked="{Binding CurrentVolunteer.Active}" Margin="5,0,0,0" Height="15" Width="16"/>
 
-            <!-- MaxDistance -->
+            --><!-- MaxDistance --><!--
             <Label Grid.Row="7" Grid.Column="0" Content="MaxDistance:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117"/>
             <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.MaxDistance}" Margin="5,5,0,5"/>
 
-            <!-- TypeOfDistance (enum) -->
+            --><!-- TypeOfDistance (enum) --><!--
             <Label Grid.Row="8" Grid.Column="0" Content="TypeOfDistance:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Width="117" Height="25"/>
             <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=CurrentVolunteer.TypeOfDistance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TypeOfDistanceCollectionKey}}" Margin="5,5,0,5"/>
 
-            <!-- CallsDone (readonly) -->
+            --><!-- CallsDone (readonly) --><!--
             <Label Grid.Row="9" Grid.Column="0" Content="CallsDone:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
             <TextBox Grid.Row="9" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsDone}" IsReadOnly="True" Margin="5,5,0,5" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
 
-            <!-- CallsCanceled (readonly) -->
+            --><!-- CallsCanceled (readonly) --><!--
             <Label Grid.Row="10" Grid.Column="0" Content="CallsCanceled:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="116" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
             <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsCanceled}" IsReadOnly="True" Margin="5,5,0,5" />
 
-            <!-- CallsOutOfdate (readonly) -->
+            --><!-- CallsOutOfdate (readonly) --><!--
             <Label Grid.Row="11" Content="CallsOutOfdate:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Height="25" Width="142" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}" Margin="12,0,0,0"/>
             <TextBox Grid.Row="11" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsOutOfdate}" IsReadOnly="True" Margin="5,3,0,7" />
 
-            <!-- CallInProgress (custom, as text) -->
+            --><!-- CallInProgress (custom, as text) -->
             <!--<Label Grid.Row="13" Grid.Column="0" Content="CallInProgress:" Style="{StaticResource GridLabelStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="25" Width="117" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
-            <TextBox Grid.Row="13" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,4,0,1" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>-->
+            <TextBox Grid.Row="13" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallInProgress}" IsReadOnly="True" Margin="5,4,0,1" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>--><!--
 
             <Button Grid.Row="12" 
                    Content="Update Your Details" 
@@ -222,8 +222,434 @@
             <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="12,41,0,0" TextWrapping="Wrap" Text="{Binding CurrentVolunteer.CallInProgress}" VerticalAlignment="Top" Height="37" Width="346" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2"/>
 
             <Button Grid.Column="2" Grid.Row="2" Content="Update Call Completion" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center" Height="32" Width="200" IsEnabled="{Binding IsCallInProgress}" Click="btnUpdateCallCompletion_Click" />
-            <Button Grid.Column="2" Content="Choose Call For Treatment -->" HorizontalAlignment="Left" Margin="62,4,0,0" Grid.Row="4" VerticalAlignment="Top" Height="32" Width="200" IsEnabled="{Binding IsNotCallInProgress}" Click="btnChooseCallForTreatment_Click"/>
-            <Button Grid.Column="2" Content="Closed Calls History View" HorizontalAlignment="Left" Margin="62,0,0,0" Grid.Row="6" VerticalAlignment="Center" Width="200" Height="34" Click="btnClosedCallsView_Click"/>
+            <Button Grid.Column="2" Content="Choose Call For Treatment " HorizontalAlignment="Left" Margin="62,4,0,0" Grid.Row="4" VerticalAlignment="Top" Height="32" Width="200" IsEnabled="{Binding IsNotCallInProgress}" Click="btnChooseCallForTreatment_Click"/>-->
+            <!--<Button Grid.Column="2" Content="Closed Calls History View" HorizontalAlignment="Left" Margin="62,0,0,0" Grid.Row="6" VerticalAlignment="Center" Width="200" Height="34" Click="btnClosedCallsView_Click"/>
+
+        </Grid>
+    </ScrollViewer>
+</Window>-->
+<Window x:Class="PL.Volunteer.VolunteerMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.Volunteer"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        Title="We Save Lives - Volunteer Profile" Height="700" Width="1000"
+        Icon="../icon.ico"
+        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#F8F9FA" Offset="0"/>
+            <GradientStop Color="#E9ECEF" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Window.Resources>
+        <local:ConvertUpdateToTrue x:Key="ConvertUpdateToTrueKey"/>
+        <local:ConvertUpdateToVisible x:Key="ConvertUpdateToVisibleKey"/>
+
+        <!-- Header Title Style -->
+        <Style x:Key="HeaderStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#DC3545"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,30"/>
+        </Style>
+
+        <!-- Section Title Style -->
+        <Style x:Key="SectionTitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#495057"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <!-- Grid Label Style -->
+        <Style x:Key="GridLabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="#495057"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style>
+
+        <!-- Grid TextBox Style -->
+        <Style x:Key="GridTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CED4DA"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#495057"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                          Focusable="false" 
+                                          HorizontalScrollBarVisibility="Hidden" 
+                                          VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#DC3545"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                            <Trigger Property="IsReadOnly" Value="True">
+                                <Setter Property="Background" Value="#F8F9FA"/>
+                                <Setter Property="Foreground" Value="#6C757D"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Grid PasswordBox Style -->
+        <Style x:Key="GridPasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CED4DA"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#495057"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                          Focusable="false" 
+                                          HorizontalScrollBarVisibility="Hidden" 
+                                          VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#DC3545"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Grid ComboBox Style -->
+        <Style x:Key="GridComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CED4DA"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#495057"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#DC3545"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="#DC3545"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Grid CheckBox Style -->
+        <Style x:Key="GridCheckBoxStyle" TargetType="CheckBox">
+            <Setter Property="Foreground" Value="#495057"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <!-- Primary Button Style -->
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="#DC3545"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#C82333"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#A71E2A"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#CED4DA"/>
+                    <Setter Property="Foreground" Value="#6C757D"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Secondary Button Style -->
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#DC3545"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#DC3545"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#DC3545"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#F8F9FA"/>
+                    <Setter Property="Foreground" Value="#CED4DA"/>
+                    <Setter Property="BorderBrush" Value="#CED4DA"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Card Style -->
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#E9ECEF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="30"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#000000" BlurRadius="15" ShadowDepth="5" Opacity="0.1"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Info Card Style -->
+        <Style x:Key="InfoCardStyle" TargetType="Border">
+            <Setter Property="Background" Value="#F8F9FA"/>
+            <Setter Property="BorderBrush" Value="#DC3545"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+        </Style>
+
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Panel - Personal Information -->
+            <Border Grid.Column="0" Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Personal Information" Style="{StaticResource SectionTitleStyle}"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Id (readonly) -->
+                        <Label Grid.Row="0" Grid.Column="0" Content="ID:" Style="{StaticResource GridLabelStyle}"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Id}" IsReadOnly="True"/>
+
+                        <!-- Name -->
+                        <Label Grid.Row="1" Grid.Column="0" Content="Name:" Style="{StaticResource GridLabelStyle}"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Name}"/>
+
+                        <!-- Phone Number -->
+                        <Label Grid.Row="2" Grid.Column="0" Content="Phone:" Style="{StaticResource GridLabelStyle}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.PhoneNumber}"/>
+
+                        <!-- Email -->
+                        <Label Grid.Row="3" Grid.Column="0" Content="Email:" Style="{StaticResource GridLabelStyle}"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.Email}"/>
+
+                        <!-- Password -->
+                        <Label Grid.Row="4" Grid.Column="0" Content="Password:" Style="{StaticResource GridLabelStyle}"/>
+                        <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource GridPasswordBoxStyle}" PasswordChanged="PasswordBox_PasswordChanged"/>
+
+                        <!-- Address -->
+                        <Label Grid.Row="5" Grid.Column="0" Content="Address:" Style="{StaticResource GridLabelStyle}"/>
+                        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CurrentVolunteer.CurrentAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox" BasedOn="{StaticResource GridTextBoxStyle}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentVolunteer.Latitude}" Value="{x:Null}">
+                                            <Setter Property="Background" Value="#FFE6E6"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding CurrentVolunteer.Longitude}" Value="{x:Null}">
+                                            <Setter Property="Background" Value="#FFE6E6"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+
+                        <!-- Active -->
+                        <Label Grid.Row="6" Grid.Column="0" Content="Active:" Style="{StaticResource GridLabelStyle}"/>
+                        <CheckBox Grid.Row="6" Grid.Column="1" Style="{StaticResource GridCheckBoxStyle}" IsChecked="{Binding CurrentVolunteer.Active}" Content="Available for calls"/>
+
+                        <!-- Max Distance -->
+                        <Label Grid.Row="7" Grid.Column="0" Content="Max Distance:" Style="{StaticResource GridLabelStyle}"/>
+                        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.MaxDistance}"/>
+
+                        <!-- Type of Distance -->
+                        <Label Grid.Row="8" Grid.Column="0" Content="Distance Type:" Style="{StaticResource GridLabelStyle}"/>
+                        <ComboBox Grid.Row="8" Grid.Column="1" Style="{StaticResource GridComboBoxStyle}" SelectedValue="{Binding Path=CurrentVolunteer.TypeOfDistance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TypeOfDistanceCollectionKey}}"/>
+
+                        <!-- Statistics Section (visible only in update mode) -->
+                        <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="Statistics" Style="{StaticResource SectionTitleStyle}" Margin="0,20,0,15" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
+
+                        <!-- Calls Done -->
+                        <Label Grid.Row="10" Grid.Column="0" Content="Calls Done:" Style="{StaticResource GridLabelStyle}" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
+                        <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource GridTextBoxStyle}" Text="{Binding CurrentVolunteer.CallsDone}" IsReadOnly="True" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}"/>
+
+                    </Grid>
+
+                    <!-- Update Button -->
+                    <Button Content="Update Your Details" 
+                            Click="btnUpdate_Click" 
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Width="200"
+                            HorizontalAlignment="Center"
+                            Margin="0,20,0,0"/>
+
+                </StackPanel>
+            </Border>
+
+            <!-- Right Panel - Call Management -->
+            <Border Grid.Column="1" Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Call Management" Style="{StaticResource SectionTitleStyle}"/>
+
+                    <!-- Current Call Information -->
+                    <Border Style="{StaticResource InfoCardStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Current Call In Progress:" FontWeight="SemiBold" FontSize="16" Foreground="#DC3545" Margin="0,0,0,10"/>
+                            <TextBlock Text="{Binding CurrentVolunteer.CallInProgress}" 
+                                       FontSize="14" 
+                                       Foreground="#495057" 
+                                       TextWrapping="Wrap" 
+                                       MinHeight="40"
+                                       Margin="0,0,0,15"/>
+
+                            <Button Content="Update Call Completion" 
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    IsEnabled="{Binding IsCallInProgress}" 
+                                    Click="btnUpdateCallCompletion_Click"
+                                    HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Call Actions -->
+                    <StackPanel Margin="0,20,0,0">
+                        <Button Content="Choose Call For Treatment" 
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                IsEnabled="{Binding IsNotCallInProgress}" 
+                                Click="btnChooseCallForTreatment_Click"
+                                HorizontalAlignment="Stretch"/>
+
+                        <Button Content="View Closed Calls History" 
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Click="btnClosedCallsView_Click"
+                                HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+
+                    <!-- Additional Statistics (visible only in update mode) -->
+                    <Border Style="{StaticResource InfoCardStyle}" Margin="0,20,0,0" Visibility="{Binding ButtonText, Converter={StaticResource ConvertUpdateToVisibleKey}}">
+                        <StackPanel>
+                            <TextBlock Text="Additional Statistics" FontWeight="SemiBold" FontSize="16" Foreground="#495057" Margin="0,0,0,15"/>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,10,0">
+                                    <TextBlock Text="Calls Canceled:" FontWeight="SemiBold" FontSize="14" Foreground="#495057"/>
+                                    <TextBlock Text="{Binding CurrentVolunteer.CallsCanceled}" FontSize="18" Foreground="#DC3545" FontWeight="Bold"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="0" Grid.Column="1" Margin="10,0,0,0">
+                                    <TextBlock Text="Calls Out of Date:" FontWeight="SemiBold" FontSize="14" Foreground="#495057"/>
+                                    <TextBlock Text="{Binding CurrentVolunteer.CallsOutOfdate}" FontSize="18" Foreground="#DC3545" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Border>
 
         </Grid>
     </ScrollViewer>

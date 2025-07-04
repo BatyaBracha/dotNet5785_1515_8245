@@ -9,6 +9,7 @@ public interface IVolunteer : IObservable //stage 5 הרחבת ממשק
     IEnumerable<BO.VolunteerInList> ReadAll(BO.Active? filter = null, BO.VolunteerFields? sort = null, BO.TypeOfCall? typeOfCallFilter = null);
     void Update(int userId,BO.Volunteer boVolunteer);
     void Delete(int id);
+    int GetVolunteersCount();
 
     //void MatchVolunteerToCall(int volunteerId, int callId);
     //void UnMatchVolunteerToCall(int volunteerId, int callId);

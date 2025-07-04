@@ -8,9 +8,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1002</Id>
@@ -20,9 +20,9 @@
     <latitude>31.8017893</latitude>
     <longitude>35.2228759</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1003</Id>
@@ -32,33 +32,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1004</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Stuck in Mud</Description>
-    <Address>Mount Scopus St 4, Jerusalem</Address>
-    <latitude>31.794767</latitude>
-    <longitude>35.2425346</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1005</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Engine Overheating</Description>
-    <Address>Keren Hayesod St 30, Jerusalem</Address>
-    <latitude>31.7723879</latitude>
-    <longitude>35.2215257</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1006</Id>
@@ -68,9 +44,9 @@
     <latitude>31.842212</latitude>
     <longitude>35.24206</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1007</Id>
@@ -80,9 +56,9 @@
     <latitude>31.7875022</latitude>
     <longitude>35.2265973</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1008</Id>
@@ -92,9 +68,9 @@
     <latitude>31.7472349</latitude>
     <longitude>35.2326395</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1009</Id>
@@ -104,9 +80,9 @@
     <latitude>31.7831088</latitude>
     <longitude>35.2203032</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1010</Id>
@@ -116,9 +92,9 @@
     <latitude>31.898714</latitude>
     <longitude>35.185758</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1011</Id>
@@ -128,21 +104,9 @@
     <latitude>31.8051921</latitude>
     <longitude>35.2157309</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1012</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Lockout Assistance</Description>
-    <Address>Kiryat Moshe St 6, Jerusalem</Address>
-    <latitude>31.7857651</latitude>
-    <longitude>35.1968887</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1013</Id>
@@ -152,9 +116,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1014</Id>
@@ -164,9 +128,9 @@
     <latitude>31.7957696</latitude>
     <longitude>35.2198077</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1015</Id>
@@ -176,9 +140,9 @@
     <latitude>31.7259643</latitude>
     <longitude>34.7437502</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1016</Id>
@@ -188,9 +152,9 @@
     <latitude>31.7476677</latitude>
     <longitude>35.2323345</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1017</Id>
@@ -200,9 +164,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1018</Id>
@@ -212,9 +176,9 @@
     <latitude>31.703275</latitude>
     <longitude>35.194809</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1019</Id>
@@ -224,9 +188,9 @@
     <latitude>31.7831088</latitude>
     <longitude>35.2203032</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1020</Id>
@@ -236,9 +200,9 @@
     <latitude>31.7858115</latitude>
     <longitude>35.1741509</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1021</Id>
@@ -248,9 +212,9 @@
     <latitude>31.8111253</latitude>
     <longitude>35.2174861</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1022</Id>
@@ -260,21 +224,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1023</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Vehicle Inspection</Description>
-    <Address>Har Hatzofim St 8, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1024</Id>
@@ -284,9 +236,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1025</Id>
@@ -296,9 +248,9 @@
     <latitude>31.779042</latitude>
     <longitude>35.229702</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1026</Id>
@@ -308,9 +260,9 @@
     <latitude>31.7909196</latitude>
     <longitude>35.2089577</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1027</Id>
@@ -320,9 +272,9 @@
     <latitude>32.0416824</latitude>
     <longitude>34.7904787</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1028</Id>
@@ -332,9 +284,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1029</Id>
@@ -344,9 +296,9 @@
     <latitude>31.7933736</latitude>
     <longitude>35.2246764</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1030</Id>
@@ -356,9 +308,9 @@
     <latitude>31.7854673</latitude>
     <longitude>35.1001866</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1031</Id>
@@ -368,9 +320,9 @@
     <latitude>32.3260388</latitude>
     <longitude>34.8511049</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1032</Id>
@@ -380,9 +332,9 @@
     <latitude>31.8405465</latitude>
     <longitude>35.2454408</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1033</Id>
@@ -392,9 +344,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1034</Id>
@@ -404,9 +356,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1035</Id>
@@ -416,9 +368,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1036</Id>
@@ -428,9 +380,9 @@
     <latitude>31.7686856</latitude>
     <longitude>35.1950858</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1037</Id>
@@ -440,9 +392,9 @@
     <latitude>31.8383352</latitude>
     <longitude>35.2441809</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1038</Id>
@@ -452,9 +404,9 @@
     <latitude>31.7815767</latitude>
     <longitude>35.2180856</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1039</Id>
@@ -464,9 +416,9 @@
     <latitude>32.8089768</latitude>
     <longitude>34.997939</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1040</Id>
@@ -476,9 +428,9 @@
     <latitude>31.7215207</latitude>
     <longitude>35.2284413</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1041</Id>
@@ -488,9 +440,9 @@
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1042</Id>
@@ -500,21 +452,9 @@
     <latitude>31.7709719</latitude>
     <longitude>35.2210202</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1043</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Insurance Policy Questions</Description>
-    <Address>Shazar St 5, Jerusalem</Address>
-    <latitude>31.7135737</latitude>
-    <longitude>34.9838857</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1044</Id>
@@ -524,9 +464,9 @@
     <latitude>31.906037</latitude>
     <longitude>35.203005</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1045</Id>
@@ -536,9 +476,9 @@
     <latitude>31.7515394</latitude>
     <longitude>35.2160228</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1046</Id>
@@ -548,9 +488,9 @@
     <latitude>31.762803</latitude>
     <longitude>35.2099602</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1047</Id>
@@ -560,9 +500,9 @@
     <latitude>31.780514</latitude>
     <longitude>35.217981</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1048</Id>
@@ -572,9 +512,9 @@
     <latitude>31.74948</latitude>
     <longitude>34.9880954</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1049</Id>
@@ -584,44 +524,128 @@
     <latitude>31.77676</latitude>
     <longitude>35.230342</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T02:03:48.6381395+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1000</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
     <Description>Medical Emergency</Description>
     <Address>Meah Shearim St 10, Jerusalem</Address>
-    <latitude xsi:nil="true" />
-    <longitude xsi:nil="true" />
+    <latitude>31.7865608</latitude>
+    <longitude>35.2208052</longitude>
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:03:48.6381395+03:00</OpeningTime>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-18T02:03:48</MaxClosingTime>
+    <MaxClosingTime>2025-07-19T12:13:06.2960535+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1023</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Vehicle Inspection</Description>
+    <Address>Har Hatzofim St 8, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1012</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Lockout Assistance</Description>
+    <Address>Kiryat Moshe St 6, Jerusalem</Address>
+    <latitude>31.7857651</latitude>
+    <longitude>35.1968887</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-03T12:13:06.2960535+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1043</Id>
+    <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
+    <Description>testing</Description>
+    <Address>Shazar St 5, Jerusalem</Address>
+    <latitude>31.7135737</latitude>
+    <longitude>34.9838857</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-04T12:13:06.2960535+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1005</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Engine Overheating</Description>
+    <Address>Keren Hayesod St 30, Jerusalem</Address>
+    <latitude>31.7723879</latitude>
+    <longitude>35.2215257</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2025-07-04T13:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1004</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Stuck in Mud</Description>
+    <Address>Mount Scopus St 4, Jerusalem</Address>
+    <latitude>31.794767</latitude>
+    <longitude>35.2425346</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2025-07-04T13:09:05</MaxClosingTime>
   </Call>
   <Call>
     <Id>1050</Id>
-    <TypeOfCall>NONE</TypeOfCall>
-    <Description>testing email</Description>
-    <Address>Yakar St 3, Jerusalem</Address>
-    <latitude>31.8405465</latitude>
-    <longitude>35.2454408</longitude>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>testing</Description>
+    <Address>Man 3</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:35:48</OpeningTime>
+    <OpeningTime>2025-07-04T13:09:05</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-04T03:35:48</MaxClosingTime>
+    <MaxClosingTime>2025-07-04T17:09:05</MaxClosingTime>
   </Call>
   <Call>
     <Id>1051</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>No description test</Description>
+    <Address>Man 3</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T13:09:05</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-04T19:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1052</Id>
     <TypeOfCall>ASSAULT_INJURY</TypeOfCall>
     <Description>No description</Description>
-    <Address>Yakar St 3, Jerusalem</Address>
-    <latitude>31.8405465</latitude>
-    <longitude>35.2454408</longitude>
+    <Address>Man 3</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
     <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T02:35:48</OpeningTime>
+    <OpeningTime>2025-07-04T13:09:05</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime xsi:nil="true" />
+    <MaxClosingTime>2025-07-04T20:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1053</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>No description</Description>
+    <Address>Man 3, Jerusalem</Address>
+    <latitude xsi:nil="true" />
+    <longitude xsi:nil="true" />
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T13:09:05</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-04T19:09:05</MaxClosingTime>
   </Call>
 </ArrayOfCall>

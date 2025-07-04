@@ -85,14 +85,31 @@ namespace PL.Call
             // Refresh the volunteer list after adding a new volunteer
             queryCallList();
         }
-        private void lsvCallList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //private void lsvCallList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    //int nonNullableIntId = SelectedCall. ?? 0; // Default to 0 if null
+        //    //SomeFunction(nonNullableInt);
+        //    // Get the clicked volunteer's ID
+        //    if (SelectedCall != null)
+        //        new CallWindow(SelectedCall.CallId).Show();
+        //}
+        private void lsvCallList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //int nonNullableIntId = SelectedCall. ?? 0; // Default to 0 if null
-            //SomeFunction(nonNullableInt);
-            // Get the clicked volunteer's ID
-            if (SelectedCall != null)
-                new CallWindow(SelectedCall.CallId).Show();
+            DependencyObject originalSource = (DependencyObject)e.OriginalSource;
+
+            // טיפוס כלפי מעלה בעץ הוויזואלי עד שמוצאים DataGridRow
+            while (originalSource != null && !(originalSource is DataGridRow))
+                originalSource = VisualTreeHelper.GetParent(originalSource);
+
+            // אם באמת לחצו על שורה, מקבלים את ה־Call מתוך ה־Item
+            if (originalSource is DataGridRow row && row.Item is BO.CallInList selectedCall)
+            {
+                row.IsSelected = true; // אם רוצים שהשורה תיצבע באדום
+                new CallWindow(selectedCall.CallId).Show();
+                // ((DataGrid)sender).SelectedItem = null; // אם רוצים לאפס אחר כך
+            }
         }
+
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {

@@ -82,12 +82,26 @@ namespace PL.Volunteer
             // Refresh the volunteer list after adding a new volunteer
             queryVolunteerList();
         }
-        private void lsvVolunteersList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //private void lsvVolunteersList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    // Get the clicked volunteer's ID
+        //    if (SelectedVolunteer != null)
+        //        new VolunteerWindow(SelectedVolunteer.Id).Show();
+        private void lsvVolunteersList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // Get the clicked volunteer's ID
-            if (SelectedVolunteer != null)
-                new VolunteerWindow(SelectedVolunteer.Id).Show();
+            DependencyObject originalSource = (DependencyObject)e.OriginalSource;
+
+            while (originalSource != null && !(originalSource is DataGridRow))
+                originalSource = VisualTreeHelper.GetParent(originalSource);
+
+            if (originalSource is DataGridRow row && row.Item is BO.VolunteerInList selectedVolunteer)
+            {
+                row.IsSelected = true; // ✅ צבע את השורה באדום
+                new VolunteerWindow(selectedVolunteer.Id).Show();
+            }
         }
+
+
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
