@@ -523,7 +523,7 @@ internal static class CallManager
             if (item.MaxDistance >= CalculateDistance(item.latitude!, item.longitude!, call.Latitude, call.Longitude))
             {
                 string subject = "Openning call";
-                string body = $@"
+                string body = $@"not 
                                   Hello {item.Name},
 
                                   A new call has been opened in your area.

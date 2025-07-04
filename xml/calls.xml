@@ -205,48 +205,12 @@
     <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1021</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Parking Assistance</Description>
-    <Address>Ramat Shlomo St 15, Jerusalem</Address>
-    <latitude>31.8111253</latitude>
-    <longitude>35.2174861</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1022</Id>
     <TypeOfCall>CHILDBIRTH</TypeOfCall>
     <Description>Car Repair Advice</Description>
     <Address>Sderot Yitzhak Rabin St 5, Jerusalem</Address>
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1024</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Insurance Assistance</Description>
-    <Address>Giv'at HaMivtar St 6, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1025</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Vehicle Jumpstart</Description>
-    <Address>Tefilat Yisrael St 14, Jerusalem</Address>
-    <latitude>31.779042</latitude>
-    <longitude>35.229702</longitude>
     <riskRange>P2D</riskRange>
     <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
@@ -277,18 +241,6 @@
     <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1028</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Windshield Repair</Description>
-    <Address>Nachal Noach St 17, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1029</Id>
     <TypeOfCall>CHILDBIRTH</TypeOfCall>
     <Description>Lost Wallet</Description>
@@ -307,18 +259,6 @@
     <Address>Har HaMor St 3, Jerusalem</Address>
     <latitude>31.7854673</latitude>
     <longitude>35.1001866</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1031</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Battery Jumpstart</Description>
-    <Address>Ramat HaSharon St 2, Jerusalem</Address>
-    <latitude>32.3260388</latitude>
-    <longitude>34.8511049</longitude>
     <riskRange>P2D</riskRange>
     <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
@@ -403,18 +343,6 @@
     <Address>Ben Yehuda St 6, Jerusalem</Address>
     <latitude>31.7815767</latitude>
     <longitude>35.2180856</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T12:13:06.2960535+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1039</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Flat Tire Change</Description>
-    <Address>Hadar St 3, Jerusalem</Address>
-    <latitude>32.8089768</latitude>
-    <longitude>34.997939</longitude>
     <riskRange>P2D</riskRange>
     <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
     <Status>OPEN</Status>
@@ -647,5 +575,77 @@
     <OpeningTime>2025-07-04T13:09:05</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-07-04T19:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1025</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Vehicle Jumpstart</Description>
+    <Address>Tefilat Yisrael St 14, Jerusalem</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2026-04-07T22:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1021</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Parking Assistance</Description>
+    <Address>Ramat Shlomo St 15, Jerusalem</Address>
+    <latitude>0</latitude>
+    <longitude>0</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2026-04-07T22:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1039</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Flat Tire Change</Description>
+    <Address>Hadar St 3, Jerusalem</Address>
+    <latitude>32.8089768</latitude>
+    <longitude>34.997939</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2026-04-07T22:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1031</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Battery Jumpstart</Description>
+    <Address>Ramat HaSharon St 2, Jerusalem</Address>
+    <latitude>32.3260388</latitude>
+    <longitude>34.8511049</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2026-04-07T19:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1028</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Windshield Repair</Description>
+    <Address>Nachal Noach St 17, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2026-04-07T22:09:05</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1024</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Insurance Assistance</Description>
+    <Address>Giv'at HaMivtar St 6, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T12:13:06.2960535+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2026-04-07T22:09:05</MaxClosingTime>
   </Call>
 </ArrayOfCall>
