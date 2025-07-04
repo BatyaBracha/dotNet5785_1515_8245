@@ -105,8 +105,8 @@ namespace BlImplementation
                 TypeOfCall = (DO.TypeOfCall)boCall.TypeOfCall,
                 Description = boCall.Description,
                 Address = boCall.Address!,
-                latitude = boCall.Latitude,
-                longitude = boCall.Longitude,
+                latitude = 0,
+                longitude =0,
                 riskRange = AdminManager.RiskRange,
                 OpeningTime = boCall.OpeningTime,
                 Status = DO.CallStatus.OPEN,
@@ -123,7 +123,7 @@ namespace BlImplementation
             //CallManager.SendEmailWhenCallOpened(boCall);
             //CallManager.Observers.NotifyItemUpdated(id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall.Id,true);
+            _ = CallManager.UpdateCoordinatesForCallAsync(id, true);
         }
 
         public void Delete(int id)
