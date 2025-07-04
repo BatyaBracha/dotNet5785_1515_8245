@@ -102,13 +102,37 @@ namespace PL.Call
         //    // Refresh the volunteer list after adding a new volunteer
         //    queryCallList();
         //}
-        private void lsvCallList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //private void lsvCallList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    // Get the clicked volunteer's ID
+        //    if (SelectedCall != null)
+        //        try
+        //        {
+        //            s_bl?.Call.ChoosingACallForTreatment(Id, SelectedCall.Id);
+        //            MessageBox.Show("Call selected successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+        //            this.Close();
+        //        }
+        //        catch (Exception)
+        //        {
+        //            MessageBox.Show("Call selection failed. Please try again later.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //        }
+        //}
+        private void lsvCallList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // Get the clicked volunteer's ID
-            if (SelectedCall != null)
+            DependencyObject originalSource = (DependencyObject)e.OriginalSource;
+
+            // טיפוס כלפי מעלה בעץ הוויזואלי עד שמוצאים DataGridRow
+            while (originalSource != null && !(originalSource is DataGridRow))
+                originalSource = VisualTreeHelper.GetParent(originalSource);
+
+            // אם באמת לחצו על שורה, מקבלים את ה־Call מתוך ה־Item
+            if (originalSource is DataGridRow row && row.Item is BO.OpenCallInList selectedCall)
+            {
+                row.IsSelected = true; // אופציונלי - לצבוע את השורה שנבחרה
+
                 try
                 {
-                    s_bl?.Call.ChoosingACallForTreatment(Id, SelectedCall.Id);
+                    s_bl?.Call.ChoosingACallForTreatment(Id, selectedCall.Id);
                     MessageBox.Show("Call selected successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
                 }
@@ -116,7 +140,9 @@ namespace PL.Call
                 {
                     MessageBox.Show("Call selection failed. Please try again later.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
         }
+
 
         //private void DeleteButton_Click(object sender, EventArgs e)
         //{

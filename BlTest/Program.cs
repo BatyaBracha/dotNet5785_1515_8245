@@ -361,11 +361,11 @@ internal class Program
     /// </summary>
     private static void callCount()
     {
-        IEnumerable<int> callsCount = s_bl.Call.GetCallsCount(); // Call the method
-        foreach (var count in callsCount)
-        {
-            Console.WriteLine(count);
-        }
+        //IEnumerable<int> callsCount = s_bl.Call.GetCallsCount(); // Call the method
+        //foreach (var count in callsCount)
+        //{
+        //    Console.WriteLine(count);
+        //}
     }
 
     /// <summary>
