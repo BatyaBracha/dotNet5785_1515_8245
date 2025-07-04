@@ -169,18 +169,6 @@
     <MaxClosingTime>2025-08-03T15:16:08.8368274+03:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1016</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Accident Help</Description>
-    <Address>Rechov Yechiel 3, Jerusalem</Address>
-    <latitude>31.7476677</latitude>
-    <longitude>35.2323345</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:16:08.8368274+03:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1017</Id>
     <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
     <Description>Lost Keys</Description>
@@ -611,5 +599,17 @@
     <OpeningTime>2025-07-04T16:02:08</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1016</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Accident Help</Description>
+    <Address>Rechov Yechiel 3, Jerusalem</Address>
+    <latitude>31.7476677</latitude>
+    <longitude>35.2323345</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-03T15:16:08.8368274+03:00</MaxClosingTime>
   </Call>
 </ArrayOfCall>
