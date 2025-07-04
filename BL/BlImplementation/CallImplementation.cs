@@ -123,7 +123,7 @@ namespace BlImplementation
             //CallManager.SendEmailWhenCallOpened(boCall);
             //CallManager.Observers.NotifyItemUpdated(id);  //stage 5
             CallManager.Observers.NotifyListUpdated();  //stage 5
-            _ = CallManager.UpdateCoordinatesForCallAsync(doCall.Id,true);
+            _ = CallManager.UpdateCoordinatesForCallAsync(id, true);
         }
 
         public void Delete(int id)

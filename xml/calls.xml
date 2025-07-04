@@ -600,4 +600,16 @@
     <Status>CLOSED</Status>
     <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
   </Call>
+  <Call>
+    <Id>1051</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>No description nnn</Description>
+    <Address>Man 3</Address>
+    <latitude>18.2280315</latitude>
+    <longitude>-65.76072630634643</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T16:02:08</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
+  </Call>
 </ArrayOfCall>
