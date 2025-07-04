@@ -26,6 +26,27 @@ internal static class Tools
     /// <param name="toEmail">The recipient's email address.</param>
     /// <param name="subject">The subject of the email.</param>
     /// <param name="body">The body content of the email.</param>
+    //public static async Task SendEmail(string toEmail, string subject, string body)
+    //{
+    //    var fromAddress = new MailAddress("wesaveliveseveryday@gmail.com", "We_Save_Lives");
+    //    var toAddress = new MailAddress(toEmail);
+
+    //    var smtpClient = new SmtpClient("smtp.gmail.com")
+    //    {
+    //        Port = 587,
+    //        Credentials = new NetworkCredential("wesaveliveseveryday@gmail.com", "yuul ttyh pvep birb"),
+    //        EnableSsl = true,
+    //    };
+
+    //    using (var message = new MailMessage(fromAddress, toAddress)
+    //    {
+    //        Subject = subject,
+    //        Body = body
+    //    })
+    //    {
+    //        smtpClient.Send(message);
+    //    }
+    //}
     public static async Task SendEmail(string toEmail, string subject, string body)
     {
         var fromAddress = new MailAddress("wesaveliveseveryday@gmail.com", "We_Save_Lives");
@@ -44,7 +65,8 @@ internal static class Tools
             Body = body
         })
         {
-            smtpClient.Send(message);
+            // Use SendMailAsync to send the email asynchronously
+            await smtpClient.SendMailAsync(message);
         }
     }
 

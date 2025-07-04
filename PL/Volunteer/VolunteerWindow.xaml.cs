@@ -120,9 +120,9 @@ namespace PL.Volunteer
                     //CurrentVolunteer.Password=string.IsNullOrEmpty(CurrentVolunteer.Password) ? s_bl.Volunteer.Read(CurrentVolunteer.Id).Password : CurrentVolunteer.Password; // Ensure the password is updated before saving
                     s_bl.Volunteer.Update(CurrentVolunteer.Id, CurrentVolunteer);
                     MessageBox.Show("Volunteer updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer.Id);
+                    //CurrentVolunteer = s_bl.Volunteer.Read(CurrentVolunteer.Id);
                 }
-                this.Close();
+                //this.Close();
             }
             catch (Exception ex)
             {

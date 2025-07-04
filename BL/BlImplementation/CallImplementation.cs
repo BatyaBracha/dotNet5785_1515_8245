@@ -250,8 +250,8 @@ namespace BlImplementation
                     //var relatedAssignments = assignmentsGrouped.FirstOrDefault(g => g.Key == call.Id)?.ToList();
                   var status=CallManager.CalculateCallStatus(callAssignments ?? Enumerable.Empty<Assignment>(), call.MaxClosingTime);
                     //CallManager.CalculateCallStatus(relatedAssignments, call.MaxClosingTime);
-                    lock (AdminManager.BlMutex)
-                         Call_dal.Call.Update(new DO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.latitude, call.longitude, call.riskRange, call.OpeningTime, (DO.CallStatus)status, call.MaxClosingTime));
+                    //lock (AdminManager.BlMutex)
+                    //     Call_dal.Call.Update(new DO.Call(call.Id, call.TypeOfCall, call.Description, call.Address, call.latitude, call.longitude, call.riskRange, call.OpeningTime, (DO.CallStatus)status, call.MaxClosingTime));
                     return new BO.Call(call.Id,(BO.TypeOfCall)call.TypeOfCall,call.Description ,call.Address,call.longitude,call.latitude,call.OpeningTime,call.MaxClosingTime,status,null);
                 })
                 .Where(call => call.Status == BO.CallStatus.OPEN || call.Status == BO.CallStatus.OPEN_IN_RISK) // Adjust status properties if needed
@@ -306,9 +306,9 @@ namespace BlImplementation
     .Select(call =>
     {
         var relatedAssignments = assignmentsGrouped.FirstOrDefault(g => g.Key == call.Id)?.ToList();
-        CallManager.CalculateCallStatus(relatedAssignments ?? Enumerable.Empty<Assignment>(), call.MaxClosingTime);
+        var status=CallManager.CalculateCallStatus(relatedAssignments ?? Enumerable.Empty<Assignment>(), call.MaxClosingTime);
         //CallManager.CalculateCallStatus(relatedAssignments, call.MaxClosingTime);
-        return call;
+        return call with { Status = (DO.CallStatus)status };
     })
     .Where(call => call.Status == DO.CallStatus.CLOSED) // Adjust status properties if needed
     .ToList();

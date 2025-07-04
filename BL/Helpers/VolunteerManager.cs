@@ -1,5 +1,6 @@
 ﻿
 using DalApi;
+using DO;
 using System.ComponentModel.DataAnnotations;
 
 namespace Helpers;
@@ -158,80 +159,49 @@ internal static class VolunteerManager
     //       throw new BO.BlUnauthorizedOperationException($"Simulation failed: {ex.Message} {ex}");
     //    }
     //}
+    private static readonly Random s_rand = new();
+    private static int s_simulatorCounter = 0;
+
     internal static void VolunteerActivitySimulation()
     {
-        try
+        //Thread.CurrentThread.Name = $"Simulator{++s_simulatorCounter}";
+        List<DO.Volunteer> doVolunteerList;
+        lock (AdminManager.BlMutex) //stage 7
+            doVolunteerList = s_dal.Volunteer.ReadAll(volunteer => volunteer.Active == true).ToList();
+        foreach (var doVolunter in doVolunteerList)
         {
-            List<DO.Volunteer> activeVolunteers;
-            lock (AdminManager.BlMutex)
+            int volunteerId = 0;
+            lock (AdminManager.BlMutex) //stage 7
             {
-                activeVolunteers = s_dal.Volunteer.ReadAll(v => v.Active).ToList();
-            }
-
-            List<int> updatedVolunteerIds = new();
-
-            foreach (var volunteer in activeVolunteers)
-            {
-                try
+                BO.Volunteer currentVolunteer = s_bl.Volunteer.Read(doVolunter.Id);
+                if (currentVolunteer.CallInProgress == null)
                 {
-                    lock (AdminManager.BlMutex)
+                    var openCallsList = s_bl.Call.GetOpenCallsCanBeSelectedByAVolunteer(currentVolunteer.Id, null, null, null).ToList();
+                    if (new Random().Next(100) < 20 && openCallsList.Any())
                     {
-                        var assignment = s_dal.Assignment.ReadAll(a => a.VolunteerId == volunteer.Id && a.TreatmentEndTime == null).FirstOrDefault();
-
-                        if (assignment == null)
-                        {
-                            var openCallsList = s_bl.Call.GetOpenCallsCanBeSelectedByAVolunteer(volunteer.Id, null, null, null).ToList();
-
-                            if (new Random().Next(100) < 20 && openCallsList.Any())
-                            {
-                                var selectedCall = openCallsList[new Random().Next(openCallsList.Count)];
-                                try
-                                {
-                                    s_bl.Call.ChoosingACallForTreatment(volunteer.Id, selectedCall.Id);
-                                    updatedVolunteerIds.Add(volunteer.Id);
-                                }
-                                catch (Exception ex)
-                                {
-                                    // התעלמות מקריאה לא תקינה
-                                    Console.WriteLine($"Volunteer {volunteer.Id}: Failed to choose call {selectedCall.Id} - {ex.Message}");
-                                    continue;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            var timeElapsed = AdminManager.Now - assignment.TreatmentStartTime;
-                            var call = s_bl.Call.GetCallDetails(assignment.CallId);
-                            var distance = CallManager.GetAerialDistanceByCoordinates(volunteer.latitude, volunteer.longitude, call.Latitude, call.Longitude);
-                            var randomTimeFactor = TimeSpan.FromMinutes(new Random().Next(5, 15));
-
-                            if (timeElapsed.TotalMinutes > distance / 10 + randomTimeFactor.TotalMinutes)
-                            {
-                                s_bl.Call.TreatmentCompletionUpdate(volunteer.Id, assignment.Id);
-                                updatedVolunteerIds.Add(volunteer.Id);
-                            }
-                            else if (new Random().Next(100) < 10)
-                            {
-                                s_bl.Call.TreatmentCancellationUpdate(volunteer.Id, assignment.Id);
-                                updatedVolunteerIds.Add(volunteer.Id);
-                            }
-                        }
+                        var selectedCall = openCallsList[s_rand.Next(openCallsList.Count)];
+                        s_bl.Call.ChoosingACallForTreatment(currentVolunteer.Id, selectedCall.Id);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    // במקום לזרוק – רק מדווחים
-                    Console.WriteLine($"Volunteer {volunteer.Id}: Skipped due to error: {ex.Message}");
-                    continue;
+                    var timeElapsed = AdminManager.Now - currentVolunteer.CallInProgress.TimeOfEntryToTreatment;
+                    var distance = currentVolunteer.CallInProgress.CallVolunteerDistance;
+                    var randomTimeFactor = TimeSpan.FromMinutes(s_rand.Next(5, 15));
+                    if (timeElapsed.TotalMinutes > distance + randomTimeFactor.TotalMinutes)
+                    {
+                        s_bl.Call.TreatmentCompletionUpdate(currentVolunteer.Id, currentVolunteer.CallInProgress.Id);
+                    }
+                    else
+                    {
+                        if (s_rand.Next(100) < 10)
+                        {
+                            s_bl.Call.TreatmentCancellationUpdate(currentVolunteer.Id, currentVolunteer.CallInProgress.Id);
+                        }
+
+                    }
                 }
             }
-
-            updatedVolunteerIds.ForEach(id => Observers.NotifyItemUpdated(id));
-        }
-        catch (Exception ex)
-        {
-            throw new BO.BlUnauthorizedOperationException($"Simulation failed: {ex.Message}");
         }
     }
-
 }

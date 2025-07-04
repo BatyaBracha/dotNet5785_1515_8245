@@ -397,14 +397,16 @@ internal static class CallManager
                 {
                     s_dal.Call.Update(doCall); // Update the call in the DAL
                 }
-                if(create) {
+                BO.Call TypeOfCall=null;
+                if (create) {
                     // If this is a new call, send an email notification
-                    BO.Call TypeOfCall = new BO.Call(doCall.Id, (BO.TypeOfCall)doCall.TypeOfCall, doCall.Description, doCall.Address, doCall.latitude, doCall.longitude, doCall.OpeningTime, doCall.MaxClosingTime, BO.CallStatus.OPEN,null);
-                    SendEmailWhenCallOpened(TypeOfCall);
+                     TypeOfCall = new BO.Call(doCall.Id, (BO.TypeOfCall)doCall.TypeOfCall, doCall.Description, doCall.Address, doCall.latitude, doCall.longitude, doCall.OpeningTime, doCall.MaxClosingTime, BO.CallStatus.OPEN,null);
+                     //SendEmailWhenCallOpened(TypeOfCall);
                     }
                 // Notify observers about the update
-                Observers.NotifyItemUpdated(doCall.Id);
-                Observers.NotifyListUpdated();
+                CallManager.Observers.NotifyItemUpdated(doCall.Id);
+                CallManager.Observers.NotifyListUpdated();
+                SendEmailWhenCallOpened(TypeOfCall);
             }
             catch (Exception ex)
             {
@@ -430,8 +432,8 @@ internal static class CallManager
                 }
 
                 // Notify observers about the update
-                Observers.NotifyItemUpdated(doVolunteer.Id);
-                Observers.NotifyListUpdated();
+                VolunteerManager.Observers.NotifyItemUpdated(doVolunteer.Id);
+                VolunteerManager.Observers.NotifyListUpdated();
             }
             catch (Exception ex)
             {

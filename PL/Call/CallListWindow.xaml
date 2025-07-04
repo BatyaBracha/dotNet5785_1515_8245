@@ -122,7 +122,7 @@
                 <DataGridTemplateColumn Header="Actions">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="DeleteButton_Click" Tag="{Binding Id}" Content="❌"
+                            <Button Click="DeleteButton_Click" Tag="{Binding CallId}" Content="❌"
                         Background="#F44336" BorderBrush="#D32F2F" BorderThickness="1" Width="30" Height="30">
                             </Button>
                         </DataTemplate>

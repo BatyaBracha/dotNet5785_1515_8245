@@ -26,7 +26,9 @@ internal static class AdminManager //stage 4
         set
         {
             s_dal.Config.RiskRange = value;
-            ConfigUpdatedObservers?.Invoke(); // stage 5
+            ConfigUpdatedObservers?.Invoke();
+            CallManager.Observers.NotifyListUpdated();
+            VolunteerManager.Observers.NotifyListUpdated();// stage 5
         }
     }
 
@@ -42,7 +44,7 @@ internal static class AdminManager //stage 4
             s_dal.ResetDB();
             AdminManager.UpdateClock(AdminManager.Now); //stage 5 - needed since we want the label on Pl to be updated
             AdminManager.RiskRange = AdminManager.RiskRange; // stage 5 - needed to update PL 
-        }
+        }//observer??
     }
 
     internal static void InitializeDB() //stage 4
@@ -52,10 +54,11 @@ internal static class AdminManager //stage 4
             DalTest.Initialization.Do();
             AdminManager.UpdateClock(AdminManager.Now);  //stage 5 - needed since we want the label on Pl to be updated
             AdminManager.RiskRange = AdminManager.RiskRange; // stage 5 - needed for update the PL 
-        }
+        }//observer??
     }
 
     private static Task? _periodicTask = null;
+    private static readonly AsyncLocal<bool> IsSimulatorThread = new();
 
     /// <summary>
     /// Method to perform application's clock from any BL class as may be required
@@ -65,6 +68,7 @@ internal static class AdminManager //stage 4
     {
         var oldClock = s_dal.Config.Clock; //stage 4
         s_dal.Config.Clock = newClock; //stage 4
+        CallManager.PeriodicCallsUpdates(newClock); //stage 4 - update calls that are affected by clock update
         ClockUpdatedObservers?.Invoke(); //prepared for stage 5
 
         //TO_DO:
@@ -112,7 +116,7 @@ internal static class AdminManager //stage 4
     [MethodImpl(MethodImplOptions.Synchronized)]
     public static void ThrowOnSimulatorIsRunning()
     {
-        if (s_thread is not null && Thread.CurrentThread != s_thread)
+        if (s_thread is not null && Thread.CurrentThread != s_thread && !IsSimulatorThread.Value)
             throw new BO.BlInvalidOperationException($"Simulator thread: {s_thread.ManagedThreadId}, Current thread: {Thread.CurrentThread.ManagedThreadId} Cannot perform the operation since Simulator is running");
     }
 
@@ -167,11 +171,21 @@ internal static class AdminManager //stage 4
     {
         while (!s_stop)
         {
-            UpdateClock(Now.AddMinutes(s_interval));
-
-            // Run VolunteerActivitySimulation directly in simulator thread ✅
-            VolunteerManager.VolunteerActivitySimulation();
-
+            try
+            {
+                UpdateClock(Now.AddMinutes(s_interval));
+                if (_simulateTask is null || _simulateTask.IsCompleted)//stage 7
+                    _simulateTask = Task.Run(() => {
+                        IsSimulatorThread.Value = true;
+                        VolunteerManager.VolunteerActivitySimulation();
+                    });
+                // Run VolunteerActivitySimulation directly in simulator thread ✅
+                //VolunteerManager.VolunteerActivitySimulation();
+            }
+            catch (Exception ex)
+            {
+                throw new BO.BlArgumentException($"Error from simulator: {ex.Message}");
+            }
             try
             {
                 Thread.Sleep(1000); // 1 second

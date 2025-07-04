@@ -395,6 +395,20 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
+            <!--<DataGrid x:Name="CallStatusTable"
+          AutoGenerateColumns="False"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          Margin="10"
+          IsReadOnly="True">
+                <DataGrid.Columns>
+                    --><!-- Column for Call Status --><!--
+                    <DataGridTextColumn Header="Call Status" Binding="{Binding Status}" Width="*"/>
+                    --><!-- Column for Count --><!--
+                    <DataGridTextColumn Header="Count" Binding="{Binding Count}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>-->
+
         </Grid>
     </Grid>
 </Window>

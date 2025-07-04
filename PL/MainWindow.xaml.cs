@@ -104,21 +104,29 @@ namespace PL
 
         private void btnSimulator_Click(object sender, RoutedEventArgs e)
         {
-            if (!IsSimulatorRunning)
+            try
             {
+
+                if (!IsSimulatorRunning)
+                {
                     s_bl.Admin.StartSimulator(Interval);
-                    SimulatorButtonText= "Stop"; // Update button text to "Stop" after starting the simulator
+                    SimulatorButtonText = "Stop"; // Update button text to "Stop" after starting the simulator
                     IsSimulatorRunning = true;
                     IsButtonsEnabled = false;
-            }
-            else
-            {
+                }
+                else
+                {
                     s_bl.Admin.StopSimulator();
                     SimulatorButtonText = "Start";
                     IsSimulatorRunning = false; // Update button text to "Start" after stopping the simulator
                     IsButtonsEnabled = true; // Enable buttons again
+                }
             }
-        }
+            catch (Exception ex)
+            {
+                MessageBox.Show($" {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            }
         private void btnResetDB_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to reset the DB?", "Reset DB", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -208,6 +216,7 @@ namespace PL
 
         private void OnWindowClosed(object? sender, EventArgs e)
         {
+            s_bl.Admin.StopSimulator();
             s_bl.Admin.RemoveClockObserver(clockObserver);
             s_bl.Admin.RemoveConfigObserver(configObserver);
         }
