@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
-    <Id>1000</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Medical Emergency</Description>
-    <Address>Meah Shearim St 10, Jerusalem</Address>
-    <latitude>31.7865608</latitude>
-    <longitude>35.2208052</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1001</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Accident Assistance</Description>
-    <Address>Chazon Ish St 6, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1002</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Vehicle Recovery</Description>
-    <Address>Ramat Eshkol St 11, Jerusalem</Address>
-    <latitude>31.8017893</latitude>
-    <longitude>35.2228759</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1003</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
     <Description>Emergency Towing</Description>
@@ -187,18 +151,6 @@
     <Address>City Center St 14, Jerusalem</Address>
     <latitude>31.7259643</latitude>
     <longitude>34.7437502</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1016</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Accident Help</Description>
-    <Address>Rechov Yechiel 3, Jerusalem</Address>
-    <latitude>31.7476677</latitude>
-    <longitude>35.2323345</longitude>
     <riskRange>P2D</riskRange>
     <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
     <Status>OPEN</Status>
@@ -598,6 +550,30 @@
     <riskRange>P2D</riskRange>
     <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1016</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Accident Help</Description>
+    <Address>Rechov Yechiel 3, Jerusalem</Address>
+    <latitude>31.7476677</latitude>
+    <longitude>35.2323345</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-03T15:16:08.8368274+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1002</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Vehicle Recovery</Description>
+    <Address>Ramat Eshkol St 11, Jerusalem</Address>
+    <latitude>31.8017893</latitude>
+    <longitude>35.2228759</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
   </Call>
 </ArrayOfCall>

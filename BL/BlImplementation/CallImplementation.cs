@@ -198,8 +198,8 @@ namespace BlImplementation
                 return Call_dal.Call.ReadAll()
                     .GroupBy(c => c.Status)
                     .OrderBy(g => g.Key)
-                    .Select(g => new KeyValuePair<DO.CallStatus, int>(g.Key, g.Count()))
-                    .ToList();
+                    .Select(g => ((BO.CallStatus)(int)g.Key, g.Count()))
+                    .ToArray();
             }
         }
 
@@ -343,7 +343,8 @@ namespace BlImplementation
             var closedCallsList = closedCalls.Select(c =>
             {
                 // Find the related assignment for the current call
-                var relatedAssignment = assignments.FirstOrDefault(a => a.CallId == c.Id && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
+                //var relatedAssignment = assignments.FirstOrDefault(a => a.CallId == c.Id && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
+                var relatedAssignment = assignments.FirstOrDefault(a =>a.CallId == c.Id );
 
                 return new BO.ClosedCallInList
                 {
