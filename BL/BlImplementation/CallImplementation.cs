@@ -5,6 +5,7 @@ using DO;
 using Helpers;
 using System;
 using System.Collections;
+using System.Linq;
 using System.Net;
 using System.Transactions;
 
@@ -179,17 +180,29 @@ namespace BlImplementation
         //    }
         //}
 
-        public IEnumerable<(BO.CallStatus Status, int Count)> GetCallsCount()
+        //public IEnumerable<(BO.CallStatus Status, int Count)> GetCallsCount()
+        //{
+        //    lock (AdminManager.BlMutex)
+        //    {
+        //        return Call_dal.Call.ReadAll()
+        //            .GroupBy(c => c.Status)
+        //            .OrderBy(g => g.Key)
+        //            .Select(g => ((BO.CallStatus)(int)g.Key, g.Count()))
+        //            .ToList();
+        //    }
+        //}
+        public IEnumerable<KeyValuePair<DO.CallStatus, int>> GetCallsCount()
         {
             lock (AdminManager.BlMutex)
             {
                 return Call_dal.Call.ReadAll()
                     .GroupBy(c => c.Status)
                     .OrderBy(g => g.Key)
-                    .Select(g => ((BO.CallStatus)(int)g.Key, g.Count()))
+                    .Select(g => new KeyValuePair<DO.CallStatus, int>(g.Key, g.Count()))
                     .ToList();
             }
         }
+
         public IEnumerable<BO.CallInList> ReadAll(Enum? filterBy, object? filter, Enum? sortBy)
         {
             IEnumerable<DO.Call> calls;

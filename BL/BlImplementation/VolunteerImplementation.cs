@@ -276,6 +276,7 @@ internal class VolunteerImplementation : BlApi.IVolunteer
             };
             lock (AdminManager.BlMutex)
                 Volunteer_dal.Volunteer.Update(doVolunteer);
+            CallManager.Observers.NotifyListUpdated();
             VolunteerManager.Observers.NotifyItemUpdated(boVolunteer.Id);  //stage 5
             VolunteerManager.Observers.NotifyListUpdated();  //stage 5
             _= CallManager.UpdateCoordinatesForVolunteerAsync(doVolunteer);

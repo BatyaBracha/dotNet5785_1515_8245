@@ -351,7 +351,7 @@
                               CellStyle="{StaticResource DataGridCellStyle}"
                               RowStyle="{StaticResource DataGridRowStyle}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*">
+                            <DataGridTextColumn Header="Status" Binding="{Binding Key }" Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -360,7 +360,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="Count" Binding="{Binding Count}" Width="*">
+                            <DataGridTextColumn Header="Count" Binding="{Binding Value}" Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="HorizontalAlignment" Value="Center"/>

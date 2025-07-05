@@ -12,7 +12,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>219</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>204589326</Id>
@@ -26,7 +26,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>748</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>315869241</Id>
@@ -40,7 +40,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>298</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>428193657</Id>
@@ -54,7 +54,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>767</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>537921483</Id>
@@ -68,7 +68,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>893</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>648291375</Id>
@@ -152,7 +152,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>166</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>305918742</Id>
@@ -166,7 +166,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>978</MaxDistance>
-    <TypeOfDistance>WALK</TypeOfDistance>
+    <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>416293857</Id>
@@ -194,7 +194,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>250</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>638475120</Id>
@@ -208,7 +208,7 @@
     <Role>STANDARD</Role>
     <Active>true</Active>
     <MaxDistance>575</MaxDistance>
-    <TypeOfDistance>AIR</TypeOfDistance>
+    <TypeOfDistance>WALK</TypeOfDistance>
   </Volunteer>
   <Volunteer>
     <Id>328118245</Id>
@@ -221,7 +221,7 @@
     <longitude>-65.76072630634643</longitude>
     <Role>ADMINISTRATOR</Role>
     <Active>true</Active>
-    <MaxDistance>2.51E+21</MaxDistance>
+    <MaxDistance>2500</MaxDistance>
     <TypeOfDistance>AIR</TypeOfDistance>
   </Volunteer>
 </ArrayOfVolunteer>

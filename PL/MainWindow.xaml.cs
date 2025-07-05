@@ -49,20 +49,32 @@ namespace PL
             s_bl.Admin.PromotionClock(BO.TimeUnit.YEAR);
         }
 
-        public IEnumerable<(BO.CallStatus Status, int Count)> CallsCount
+        //public IEnumerable<(BO.CallStatus Status, int Count)> CallsCount
+        //{
+        //    get { return (IEnumerable<(BO.CallStatus Status, int Count)>)GetValue(CallsCountProperty); }
+        //    set { SetValue(CallsCountProperty, value); }
+        //}
+
+        //public static readonly DependencyProperty CallsCountProperty =
+        //    DependencyProperty.Register(
+        //        nameof(CallsCount),
+        //        typeof(IEnumerable<(BO.CallStatus Status, int Count)>),
+        //        typeof(MainWindow),
+        //        new PropertyMetadata(new List<(BO.CallStatus Status, int Count)>())
+        //    );
+        public IEnumerable<KeyValuePair<BO.CallStatus, int>> CallsCountForGrid
         {
-            get { return (IEnumerable<(BO.CallStatus Status, int Count)>)GetValue(CallsCountProperty); }
-            set { SetValue(CallsCountProperty, value); }
+            get { return (IEnumerable<KeyValuePair<BO.CallStatus, int>>)GetValue(CallsCountForGridProperty); }
+            set { SetValue(CallsCountForGridProperty, value); }
         }
 
-        public static readonly DependencyProperty CallsCountProperty =
+        public static readonly DependencyProperty CallsCountForGridProperty =
             DependencyProperty.Register(
-                nameof(CallsCount),
-                typeof(IEnumerable<(BO.CallStatus Status, int Count)>),
+                nameof(CallsCountForGrid),
+                typeof(IEnumerable<KeyValuePair<BO.CallStatus, int>>),
                 typeof(MainWindow),
-                new PropertyMetadata(new List<(BO.CallStatus Status, int Count)>())
+                new PropertyMetadata(new List<KeyValuePair<BO.CallStatus, int>>())
             );
-
         int VolunteersCount
         {
             get { return (int)GetValue(VolunteersCountProperty); }
@@ -82,7 +94,14 @@ namespace PL
             DependencyProperty.Register("RiskRange", typeof(TimeSpan), typeof(MainWindow), new PropertyMetadata(TimeSpan.Zero));
         private void btnSetRiskRange_Click(object sender, RoutedEventArgs e)
         {
-            s_bl.Admin.SetRiskRange(RiskRange);
+            try
+            {
+                s_bl.Admin.SetRiskRange(RiskRange);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($" {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public int Interval
@@ -224,6 +243,20 @@ namespace PL
                 });
             }
         }
+        private void callCountObserver()
+        {
+            if (!_observerWorking)
+            {
+                _observerWorking = true;
+                _ = Dispatcher.BeginInvoke(() =>
+                {
+                    CallsCountForGrid = s_bl.Call.GetCallsCount()
+                        .Select(t => new KeyValuePair<BO.CallStatus, int>(t.Status, t.Count))
+                        .ToList();
+                    _observerWorking = false;
+                });
+            }
+        }
         /// <summary>
         /// Handles the Loaded event of the window.
         /// </summary>
@@ -231,12 +264,17 @@ namespace PL
         {
             CurrentTime = s_bl.Admin.GetClock();
             RiskRange= s_bl.Admin.GetRiskRange();
+            CallsCount = s_bl.Call.GetCallsCount()
+                .Select(t => new KeyValuePair<BO.CallStatus, int>(t.Status, t.Count))
+                .ToList();
+            s_bl.Call.AddObserver(callCountObserver);
             s_bl.Admin.AddClockObserver(clockObserver);
             s_bl.Admin.AddConfigObserver(configObserver);
         }
         private void OnWindowClosed(object? sender, EventArgs e)
         {
             s_bl.Admin.StopSimulator();
+            s_bl.Call.RemoveObserver(clockObserver);
             s_bl.Admin.RemoveClockObserver(clockObserver);
             s_bl.Admin.RemoveConfigObserver(configObserver);
         }
@@ -251,7 +289,6 @@ namespace PL
         public MainWindow()
         {
             InitializeComponent();
-            CallsCount = s_bl.Call.GetCallsCount();
             VolunteersCount = s_bl.Volunteer.GetVolunteersCount();
             this.Loaded += OnWindowLoaded; 
             this.Closed += OnWindowClosed; 

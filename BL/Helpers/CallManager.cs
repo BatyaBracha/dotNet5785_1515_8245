@@ -411,6 +411,7 @@ internal static class CallManager
                 // Notify observers about the update
                 CallManager.Observers.NotifyItemUpdated(doCall.Id);
                 CallManager.Observers.NotifyListUpdated();
+            if(create)
                 SendEmailWhenCallOpened(TypeOfCall);
             }
             catch (Exception ex)
