@@ -187,7 +187,7 @@ namespace BlImplementation
                     .GroupBy(c => c.Status)
                     .OrderBy(g => g.Key)
                     .Select(g => ((BO.CallStatus)(int)g.Key, g.Count()))
-                    .ToList();
+                    .ToArray();
             }
         }
         public IEnumerable<BO.CallInList> ReadAll(Enum? filterBy, object? filter, Enum? sortBy)
@@ -330,7 +330,8 @@ namespace BlImplementation
             var closedCallsList = closedCalls.Select(c =>
             {
                 // Find the related assignment for the current call
-                var relatedAssignment = assignments.FirstOrDefault(a => a.CallId == c.Id && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
+                //var relatedAssignment = assignments.FirstOrDefault(a => a.CallId == c.Id && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
+                var relatedAssignment = assignments.FirstOrDefault(a =>a.CallId == c.Id );
 
                 return new BO.ClosedCallInList
                 {

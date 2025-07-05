@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
-    <Id>1002</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Vehicle Recovery</Description>
-    <Address>Ramat Eshkol St 11, Jerusalem</Address>
-    <latitude>31.8017893</latitude>
-    <longitude>35.2228759</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:16:08.8368274+03:00</MaxClosingTime>
-  </Call>
-  <Call>
     <Id>1003</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
     <Description>Emergency Towing</Description>
@@ -611,5 +599,17 @@
     <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
     <Status>OPEN</Status>
     <MaxClosingTime>2025-08-03T15:16:08.8368274+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1002</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Vehicle Recovery</Description>
+    <Address>Ramat Eshkol St 11, Jerusalem</Address>
+    <latitude>31.8017893</latitude>
+    <longitude>35.2228759</longitude>
+    <riskRange>P2D</riskRange>
+    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
+    <Status>CLOSED</Status>
+    <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
   </Call>
 </ArrayOfCall>

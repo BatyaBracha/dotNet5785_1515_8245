@@ -143,8 +143,8 @@ public static class Initialization
    (  31.794056,  35.221325 ),(  31.798832,  35.214994 ),(  31.799845,  35.227146 ), (  31.780829,  35.229744 ),
   (31.781869,  35.236349 ),(  31.799467,  35.240458 ), (  31.788469,  35.235679 )};
         string password = "E86D1251A41C5FFAD8CD240F989A32EA1251B468C4E866EA86EAEA2BF40A2259";
-        int[] maxDistances = { 219, 748, 298, 767, 893, 419, 974, 908, 959, 450, 166, 978, 595, 250, 575 };
-        s_dal!.Volunteer.Create(new(328118245, "Malka", "0583278625", "b7malka@gmail.com", password, "Man 3", 31.8, 35.1, Role.ADMINISTRATOR, true, 250, (TypeOfDistance)s_rand.Next(0, 2)));
+        int[] maxDistances = { 219999, 748999, 298999, 767999, 893999, 419999, 974999, 908999, 959999, 450999, 966999, 978999, 595999, 250999, 575999 };
+        s_dal!.Volunteer.Create(new(328118245, "Malka", "0583278625", "b7malka@gmail.com", password, "Man 3", 31.8, 35.1, Role.ADMINISTRATOR, true, 999999, (TypeOfDistance)s_rand.Next(0, 2)));
 
         for (int i = 0; i < 15; i++)
         {

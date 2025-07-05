@@ -558,4 +558,13 @@
     <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>COMPLETED</AssignmentStatus>
   </Assignment>
+  <Assignment>
+    <Id>3646</Id>
+    <CallId>1002</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-07-04T16:02:08</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-04T16:02:08</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>COMPLETED</AssignmentStatus>
+  </Assignment>
 </ArrayOfAssignment>
