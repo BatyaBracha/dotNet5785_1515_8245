@@ -195,6 +195,9 @@ public partial class MainWindow : Window
                 finally
                 {
                     Mouse.OverrideCursor = null;
+                    CallsCount = s_bl.Call.GetCallsCount(); // Update the CallsCount property
+                    new Login().Show();
+
                 }
                 MessageBox.Show("DB reseted successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -220,6 +223,8 @@ public partial class MainWindow : Window
                 {
                     Mouse.OverrideCursor = null;
                     CallsCount = s_bl.Call.GetCallsCount();
+                    new Login().Show();
+
                 }
                 MessageBox.Show("DB initialized successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
