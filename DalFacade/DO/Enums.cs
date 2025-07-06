@@ -1,4 +1,4 @@
-﻿namespace DO;
+namespace DO;
 
 public enum TypeOfCall
 {
@@ -34,6 +34,9 @@ public enum TypeOfTreatmentEnding {
 
 public enum TypeOfDistance {AIR, WALK, DRIVE };
 
+/// <summary>
+/// Specifies roles for users in the DAL layer.
+/// </summary>
 public enum Role {ADMINISTRATOR,STANDARD};
 public enum Status { WAITING, BEING_HANDELED, BEING_HANDELED_IN_RISK }
 

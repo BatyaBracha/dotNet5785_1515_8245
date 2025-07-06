@@ -1,4 +1,4 @@
-﻿
+
 
 namespace Dal;
 using DO;
@@ -6,13 +6,21 @@ using DalApi;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-internal class AssignmentImplementation :IAssignment
+/// <summary>
+/// Implements assignment-related data access operations for DalList.
+/// </summary>
+internal class AssignmentImplementation : IAssignment
 {
+    /// <summary>
+    /// Creates a new assignment and adds it to the data source.
+    /// </summary>
+    /// <param name="item">The assignment to create.</param>
+    /// <returns>The ID of the newly created assignment.</returns>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public int Create(Assignment item)
     {
         int newId = Dal.Config.NextAssignmentId;
-        Assignment copy = new Assignment(newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding,item.AssignmentStatus);
+        Assignment copy = new Assignment(newId, item.CallId, item.VolunteerId, item.TreatmentStartTime, item.TreatmentEndTime, item.TypeOfTreatmentEnding, item.AssignmentStatus);
         DataSource.Assignments.Add(copy);
         return newId;
     }

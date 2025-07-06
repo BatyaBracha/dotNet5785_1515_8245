@@ -1,8 +1,17 @@
-﻿partial class Program
+partial /// <summary>
+/// Entry point for the Stage0 Program1515 project.
+/// </summary>
+class Program1515
 {
     private static void Main(string[] args)
     {
+        /// <summary>
+        /// Displays a welcome message to the user.
+        /// </summary>
         welcome1515();
+        /// <summary>
+        /// Displays a welcome message to the user (partial method).
+        /// </summary>
         welcome8245();
         Console.ReadKey();
     }

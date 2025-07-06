@@ -1,4 +1,4 @@
-﻿using BO;
+using BO;
 using DalApi;
 using DO;
 using System.Data;
@@ -8,7 +8,10 @@ namespace BlTest;
 /// <summary>
 /// The main program class for managing volunteer-related operations.
 /// </summary>
-internal class Program
+internal /// <summary>
+/// Entry point for the BL test project.
+/// </summary>
+class Program
 {
     static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
     /// <summary>

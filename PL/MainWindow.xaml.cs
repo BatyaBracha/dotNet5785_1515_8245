@@ -1,4 +1,4 @@
-﻿using BO;
+using BO;
 using PL.Volunteer;
 using PL.Call;
 using System.Text;
@@ -18,7 +18,10 @@ namespace PL
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    /// <summary>
+/// Interaction logic for the main application window.
+/// </summary>
+public partial class MainWindow : Window
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
         public DateTime CurrentTime

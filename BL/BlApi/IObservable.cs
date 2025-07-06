@@ -1,8 +1,17 @@
-﻿namespace BlApi;
+namespace BlApi;
 
 /// <summary>
 /// This interface provides actions to register (add) and unregister (remove) observers
 /// for changes in a list of entities and in a speecific entity
+/// </summary>
+/// <summary>
+/// Interface for observable pattern support in the BL layer.
+/// </summary>
+/// <summary>
+/// Defines a provider for notifications to observers.
+/// </summary>
+/// <summary>
+/// Interface for observable pattern implementation in the business logic layer.
 /// </summary>
 public interface IObservable //stage 5
 {
@@ -10,6 +19,10 @@ public interface IObservable //stage 5
     /// Register observer for changes in a list of entities
     /// </summary>
     /// <param name="listObserver">the observer method to be registered</param>
+    /// <summary>
+    /// Adds an observer to receive notifications.
+    /// </summary>
+    /// <param name="observer">The observer to add.</param>
     void AddObserver(Action listObserver);
     /// <summary>
     /// Register observer for changes in a specific entity instance
@@ -21,6 +34,10 @@ public interface IObservable //stage 5
     /// Unregister observer for changes in a list of entities
     /// </summary>
     /// <param name="listObserver">the observer method to be unregistered</param>
+    /// <summary>
+    /// Removes an observer from receiving notifications.
+    /// </summary>
+    /// <param name="observer">The observer to remove.</param>
     void RemoveObserver(Action listObserver);
     /// <summary>
     /// Unregister observer for changes in a specific entity instance

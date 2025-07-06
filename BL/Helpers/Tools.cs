@@ -1,4 +1,4 @@
-﻿
+
 using Helpers;
 using System.Security.Cryptography;
 using System.Text;
@@ -14,9 +14,19 @@ using Newtonsoft.Json;
 using System;
 
 namespace Helpers;
-internal static class Tools
+/// <summary>
+/// Provides utility methods and helpers for the BL layer.
+/// </summary>
+public static class Tools
 {
+    /// <summary>
+    /// The DAL instance used by the Tools class.
+    /// </summary>
     private static readonly DalApi.IDal _dal = DalApi.Factory.Get; //stage 4
+
+    /// <summary>
+    /// The API URL used for geocoding.
+    /// </summary>
     private static readonly string apiUrl = "https://geocode.maps.co/search?q={0}&api_key={1}";
 
 

@@ -1,7 +1,10 @@
-﻿using DO;
+using DO;
 
 namespace DalApi;
 
+/// <summary>
+/// Defines generic CRUD operations for the DAL layer.
+/// </summary>
 public interface ICrud<T> where T: class
 {
     int Create(T item); //Creates new entity object in DAL

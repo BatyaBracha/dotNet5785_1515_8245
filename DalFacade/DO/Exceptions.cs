@@ -1,6 +1,9 @@
 namespace DO;
 
 [Serializable]
+/// <summary>
+/// Exception thrown when an entity does not exist in DAL.
+/// </summary>
 public class DalDoesNotExistException : Exception
 {
 	public DalDoesNotExistException(string? message) : base(message) { }

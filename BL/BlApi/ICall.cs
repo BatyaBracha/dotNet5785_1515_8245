@@ -1,8 +1,14 @@
-﻿
+
 using static BlImplementation.CallImplementation;
 
 namespace BlApi;
 
+/// <summary>
+/// Interface for call-related operations in the BL layer.
+/// </summary>
+/// <summary>
+/// Interface for call-related operations in the business logic layer.
+/// </summary>
 public interface ICall : IObservable //stage 5 הרחבת ממשק
 
 {

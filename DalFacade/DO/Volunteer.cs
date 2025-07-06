@@ -1,4 +1,4 @@
-﻿//Module Volunteer.cs
+//Module Volunteer.cs
 using System.Xml;
 
 namespace DO;
@@ -18,6 +18,9 @@ namespace DO;
 /// <param name="MaxDistance">The  MaxDistance  to receive a call</param>
 /// <param name="DistanceType">DistanceType - type of Distance ,default - AIR </param>
 ///
+/// <summary>
+/// Represents a volunteer entity in the DAL layer.
+/// </summary>
 public record Volunteer
    (
      int Id,

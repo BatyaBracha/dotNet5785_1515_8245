@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Dal;
 /// <summary>
@@ -9,13 +9,30 @@ namespace Dal;
 /// <param name="Clock">A system clock that is maintained separately from the actual computer clock</param>
 /// <param name="RiskRange">Time range from which onwards reading is considered at risk</param>
 
-internal static class Config
+/// <summary>
+/// Provides configuration settings for the DalList data access layer.
+/// </summary>
+public class Config
 {
+    /// <summary>
+    /// The starting ID number for new calls.
+    /// </summary>
     internal const int startCallId = 1000;
+
+    /// <summary>
+    /// The next available ID number for new calls.
+    /// </summary>
     private static int nextCallId = startCallId;
+
+    /// <summary>
+    /// Gets the next available ID number for a new call.
+    /// </summary>
     internal static int NextCallId { [MethodImpl(MethodImplOptions.Synchronized)] 
         get => nextCallId++; }
 
+    /// <summary>
+    /// The starting ID number for new assignments.
+    /// </summary>
     internal const int startAssignmentId = 1000;
     private static int nextAssignmentId = startAssignmentId;
     internal static int NextAssignmentId { [MethodImpl(MethodImplOptions.Synchronized)] 

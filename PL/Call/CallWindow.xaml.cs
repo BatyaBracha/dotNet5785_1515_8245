@@ -1,4 +1,4 @@
-﻿using BO;
+using BO;
 using System;
 using System.Windows;
 
@@ -7,7 +7,10 @@ namespace PL.Call
     /// <summary>
     /// Interaction logic for CallWindow.xaml
     /// </summary>
-    public partial class CallWindow : Window
+    /// <summary>
+/// Interaction logic for the call window.
+/// </summary>
+public partial class CallWindow : Window
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 

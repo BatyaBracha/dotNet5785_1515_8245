@@ -1,15 +1,32 @@
-﻿
+
 using DalApi;
 using DO;
 using System.ComponentModel.DataAnnotations;
 
 namespace Helpers;
 
+/// <summary>
+/// Provides volunteer management operations in the BL layer.
+/// </summary>
 internal static class VolunteerManager
 {
+    /// <summary>
+    /// Gets the BL instance.
+    /// </summary>
     static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
+    /// <summary>
+    /// Gets the DAL instance.
+    /// </summary>
     private static IDal s_dal = Factory.Get; //stage 4
+    /// <summary>
+    /// Gets the observer manager instance.
+    /// </summary>
     internal static ObserverManager Observers = new(); //stage 5 
+
+    /// <summary>
+    /// Validates a volunteer's details.
+    /// </summary>
+    /// <param name="volunteer">The volunteer to validate.</param>
     internal static void ValidateVolunteer(BO.Volunteer volunteer)
     {
         if (!IsValidIsraeliID(volunteer.Id.ToString()))

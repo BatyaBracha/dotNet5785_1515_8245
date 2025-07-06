@@ -6,6 +6,12 @@ namespace BlApi;
 /// <summary>
 /// Interface for administrative operations in the BL layer.
 /// </summary>
+/// <summary>
+/// Interface for administrative operations in the BL layer.
+/// </summary>
+/// <summary>
+/// Interface for administrative operations in the business logic layer.
+/// </summary>
 public interface IAdmin 
 
 {

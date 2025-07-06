@@ -3,6 +3,9 @@ namespace BlApi;
 /// <summary>
 /// Interface for the main BL (Business Logic) operations.
 /// </summary>
+/// <summary>
+/// Interface for the main business logic layer.
+/// </summary>
 public interface IBl 
 
 {

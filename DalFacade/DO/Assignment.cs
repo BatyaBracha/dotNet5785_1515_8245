@@ -11,6 +11,9 @@ namespace DO;
 /// <param name="EndingTimeOfTreatment"Time (date and time) when the current volunteer finished handling the current call</param>
 /// <param name="endingTimeType">The manner in which the treatment of the current reading was completed by the current volunteer</param>
 
+/// <summary>
+/// Represents an assignment entity in the DAL layer.
+/// </summary>
 public record Assignment
 (
     /// <summary>

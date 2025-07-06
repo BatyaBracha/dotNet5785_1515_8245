@@ -1,4 +1,4 @@
-﻿using BO;
+using BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +69,7 @@ namespace PL.Volunteer
         {
             if (CurrentVolunteer != null && sender is PasswordBox passwordBox)
             {
-                CurrentVolunteer.Password = string.IsNullOrWhiteSpace(passwordBox.Password)?s_bl.Volunteer.Read(CurrentVolunteer.Id).Password: passwordBox.Password;
+                CurrentVolunteer.Password = string.IsNullOrWhiteSpace(passwordBox.Password) ? s_bl.Volunteer.Read(CurrentVolunteer.Id).Password : passwordBox.Password;
             }
             else
             {
@@ -169,7 +169,7 @@ namespace PL.Volunteer
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //if (CurrentVolunteer!.Id != 0)
-                s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
+            s_bl.Volunteer.AddObserver(CurrentVolunteer!.Id, VolunteerObserver);
         }
 
         private void Window_Closed(object sender, EventArgs e)

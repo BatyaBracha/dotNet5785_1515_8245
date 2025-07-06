@@ -1,4 +1,4 @@
-﻿namespace Dal;
+namespace Dal;
 using DalApi;
 using DO;
 using System;
@@ -8,8 +8,16 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 
+/// <summary>
+/// Implements volunteer data access logic for the DAL XML layer.
+/// </summary>
 internal class VolunteerImplementation : IVolunteer
 {
+    /// <summary>
+    /// Converts an XElement to a Volunteer object.
+    /// </summary>
+    /// <param name="v">The XElement to convert.</param>
+    /// <returns>A Volunteer object.</returns>
     [MethodImpl(MethodImplOptions.Synchronized)]
     static Volunteer GetVolunteer(XElement v)
     {
@@ -33,6 +41,11 @@ internal class VolunteerImplementation : IVolunteer
             TypeOfDistance = v.ToEnumNullable<TypeOfDistance>("TypeOfDistance") ?? throw new FormatException("can't convert TypeOfDistance")
         };
     }
+        /// <summary>
+    /// Creates a new volunteer and adds it to the XML data source.
+    /// </summary>
+    /// <param name="item">The volunteer to create.</param>
+    /// <returns>The ID of the created volunteer.</returns>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public int Create(Volunteer item)//AI
     {
@@ -63,6 +76,10 @@ internal class VolunteerImplementation : IVolunteer
         XMLTools.SaveListToXMLElement(volunteersRoot, Config.s_volunteers_xml);
         return item.Id;
     }
+        /// <summary>
+    /// Deletes a volunteer from the XML data source by ID.
+    /// </summary>
+    /// <param name="id">The ID of the volunteer to delete.</param>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public void Delete(int id)
     {
@@ -74,12 +91,20 @@ internal class VolunteerImplementation : IVolunteer
         volunteerToDelete.Remove();
         XMLTools.SaveListToXMLElement(volunteersRootElem, Config.s_volunteers_xml);
     }
+        /// <summary>
+    /// Deletes all volunteers from the XML data source.
+    /// </summary>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public void DeleteAll()
     {
         XElement emptyRoot = new XElement("ArrayOfVolunteer");
         XMLTools.SaveListToXMLElement(emptyRoot, Config.s_volunteers_xml);
     }
+        /// <summary>
+    /// Reads a volunteer by ID from the XML data source.
+    /// </summary>
+    /// <param name="id">The ID of the volunteer to read.</param>
+    /// <returns>The volunteer if found; otherwise, null.</returns>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public Volunteer? Read(int id)
     {
@@ -89,6 +114,11 @@ internal class VolunteerImplementation : IVolunteer
             .Element("Id") == id);
         return volunteerElm is null ? null : GetVolunteer(volunteerElm);
     }
+        /// <summary>
+    /// Reads a volunteer matching a filter from the XML data source.
+    /// </summary>
+    /// <param name="filter">Predicate function to match volunteers.</param>
+    /// <returns>The first matching volunteer, or null if none found.</returns>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public Volunteer? Read(Func<Volunteer, bool> filter)
     {
@@ -97,6 +127,11 @@ internal class VolunteerImplementation : IVolunteer
             .Select(s => GetVolunteer(s))
             .FirstOrDefault(filter);
     }
+        /// <summary>
+    /// Reads all volunteers, optionally filtered by a predicate.
+    /// </summary>
+    /// <param name="filter">Optional predicate function to filter volunteers.</param>
+    /// <returns>Enumerable of volunteers.</returns>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public IEnumerable<Volunteer> ReadAll(Func<Volunteer, bool>? filter = null)
     {
@@ -106,6 +141,10 @@ internal class VolunteerImplementation : IVolunteer
             .Select(v => GetVolunteer(v));
         return filter == null ? Volunteers : Volunteers.Where(filter);
     }
+        /// <summary>
+    /// Updates an existing volunteer in the XML data source.
+    /// </summary>
+    /// <param name="item">The volunteer with updated information.</param>
     [MethodImpl(MethodImplOptions.Synchronized)]
     public void Update(Volunteer item)
     {

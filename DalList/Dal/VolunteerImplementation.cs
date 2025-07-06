@@ -1,4 +1,4 @@
-﻿
+
 
 namespace Dal;
 using DO;
@@ -6,10 +6,18 @@ using DalApi;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-internal class VolunteerImplementation :IVolunteer
+/// <summary>
+/// Implements volunteer-related data access operations for DalList.
+/// </summary>
+internal class VolunteerImplementation : IVolunteer
 {
+    /// <summary>
+    /// Creates a new volunteer in the data source.
+    /// </summary>
+    /// <param name="item">The volunteer to create.</param>
+    /// <returns>The ID of the created volunteer.</returns>
     [MethodImpl(MethodImplOptions.Synchronized)]
-    public  int Create(Volunteer item)
+    public int Create(Volunteer item)
     {
         Volunteer v = DataSource.Volunteers.Find(element => element.Id == item.Id);
         if (v != null)

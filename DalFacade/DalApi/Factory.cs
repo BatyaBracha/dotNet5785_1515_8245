@@ -1,4 +1,7 @@
-﻿namespace DalApi;
+namespace DalApi;
+/// <summary>
+/// Provides factory methods for DAL objects.
+/// </summary>
 public static class Factory
 {
     public static IDal Get

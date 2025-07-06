@@ -1,11 +1,14 @@
-﻿using System;
+using System;
 using DalApi;
 using Dal;
 using DO;
 
 namespace DalTest
 {
-    internal class Program
+    internal /// <summary>
+/// Entry point for the DalTest project.
+/// </summary>
+class Program
     {
         //static readonly IDal s_dal = new DalList();//stage 2
         //static readonly IDal s_dal = new DalXml(); //stage 3

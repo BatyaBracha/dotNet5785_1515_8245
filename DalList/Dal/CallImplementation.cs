@@ -1,4 +1,4 @@
-﻿namespace Dal;
+namespace Dal;
 using DO;
 using DalApi;
 using System.Runtime.CompilerServices;

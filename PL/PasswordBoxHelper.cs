@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +8,23 @@ using System.Windows;
 
 namespace PL
 {
-    class PasswordBoxHelper
+    /// <summary>
+    /// Provides helper methods for password box controls.
+    /// </summary>
+    public static class PasswordBoxHelper
     {
+        /// <summary>
+        /// Identifies the BoundPassword attached property.
+        /// </summary>
         public static readonly DependencyProperty BoundPasswordProperty =
             DependencyProperty.RegisterAttached("BoundPassword", typeof(string), typeof(PasswordBoxHelper),
                 new PropertyMetadata(string.Empty, OnBoundPasswordChanged));
 
+        /// <summary>
+        /// Gets the value of the BoundPassword attached property for the specified DependencyObject.
+        /// </summary>
+        /// <param name="obj">The DependencyObject from which to retrieve the property value.</param>
+        /// <returns>The value of the BoundPassword attached property.</returns>
         public static string GetBoundPassword(DependencyObject obj)
         {
             return (string)obj.GetValue(BoundPasswordProperty);

@@ -1,7 +1,10 @@
-﻿
+
 
 namespace DalApi;
 
+/// <summary>
+/// Defines the main DAL interface for accessing data entities.
+/// </summary>
 public interface IDal
 {
     IVolunteer Volunteer { get; }

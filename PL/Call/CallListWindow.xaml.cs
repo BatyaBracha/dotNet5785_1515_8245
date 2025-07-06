@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +17,10 @@ namespace PL.Call
     /// <summary>
     /// Interaction logic for CallListWindow.xaml
     /// </summary>
-    public partial class CallListWindow : Window
+    /// <summary>
+/// Interaction logic for the call list window.
+/// </summary>
+public partial class CallListWindow : Window
     {
         public CallListWindow()
         {

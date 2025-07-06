@@ -1,4 +1,4 @@
-﻿
+
 using BlApi;
 using BO;
 using DalApi;
@@ -9,11 +9,32 @@ using System.Text.Json;
 
 namespace Helpers;
 
+/// <summary>
+/// Provides call management operations and utilities in the BL layer.
+/// </summary>
 internal static class CallManager
 {
+    /// <summary>
+    /// Gets or sets the data access layer instance.
+    /// </summary>
     private static IDal s_dal = DalApi.Factory.Get; //stage 4
+
+    /// <summary>
+    /// Gets or sets the observer manager instance.
+    /// </summary>
     internal static ObserverManager Observers = new(); //stage 5 
+
+    /// <summary>
+    /// Gets the status of a call by its ID.
+    /// </summary>
+    /// <param name="callId">The ID of the call.</param>
+    /// <returns>The status of the call.</returns>
     private static BO.Status CallStatus(int callId) { return CallManager.CallStatus(callId); }
+
+    /// <summary>
+    /// Validates a call object.
+    /// </summary>
+    /// <param name="boCall">The call object to validate.</param>
     internal static void ValidateCall(BO.Call boCall)
     {
         if (boCall == null)

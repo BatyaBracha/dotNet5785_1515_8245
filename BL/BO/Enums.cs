@@ -42,6 +42,9 @@ public enum Status {WAITING, BEING_HANDELED, BEING_HANDELED_IN_RISK }
 /// <summary>
 /// Represents the status of a call.
 /// </summary>
+/// <summary>
+/// Represents the status of a call.
+/// </summary>
 public enum CallStatus { OPEN, BEING_HANDELED, CLOSED, OUT_OF_DATE, OPEN_IN_RISK, BEING_HANDELED_IN_RISK,NONE }
 /// <summary>
 /// Represents fields related to volunteers.

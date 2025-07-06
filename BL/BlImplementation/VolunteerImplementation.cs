@@ -1,4 +1,4 @@
-﻿
+
 using BlApi;
 using BO;
 using DO;
@@ -7,13 +7,27 @@ using System.Data;
 using System;
 using System.Xml.Linq;
 using DalApi;
+
 namespace BlImplementation;
 
+/// <summary>
+/// Implements volunteer-related business logic operations.
+/// </summary>
 internal class VolunteerImplementation : BlApi.IVolunteer
 {
     #region Stage 5
+    /// <summary>
+    /// Adds an observer to the list of observers.
+    /// </summary>
+    /// <param name="listObserver">The observer to add.</param>
     public void AddObserver(Action listObserver) =>
     VolunteerManager.Observers.AddListObserver(listObserver); //stage 5
+
+    /// <summary>
+    /// Adds an observer to the list of observers for a specific volunteer.
+    /// </summary>
+    /// <param name="id">The ID of the volunteer.</param>
+    /// <param name="observer">The observer to add.</param>
     public void AddObserver(int id, Action observer) =>
     VolunteerManager.Observers.AddObserver(id, observer); //stage 5
     public void RemoveObserver(Action listObserver) =>

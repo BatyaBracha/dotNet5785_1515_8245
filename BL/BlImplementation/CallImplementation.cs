@@ -1,4 +1,4 @@
-﻿using BlApi;
+using BlApi;
 using BO;
 using DalApi;
 using DO;
@@ -11,11 +11,24 @@ using System.Transactions;
 
 namespace BlImplementation
 {
+    /// <summary>
+    /// Implements call-related business logic operations.
+    /// </summary>
     internal class CallImplementation : BlApi.ICall
     {
         #region Stage 5
+        /// <summary>
+        /// Adds an observer to the list of observers for call-related events.
+        /// </summary>
+        /// <param name="listObserver">The observer to add.</param>
         public void AddObserver(Action listObserver) =>
         CallManager.Observers.AddListObserver(listObserver); //stage 5
+
+        /// <summary>
+        /// Adds an observer to the list of observers for call-related events.
+        /// </summary>
+        /// <param name="id">The ID of the call to observe.</param>
+        /// <param name="observer">The observer to add.</param>
         public void AddObserver(int id, Action observer) =>
         CallManager.Observers.AddObserver(id, observer); //stage 5
         public void RemoveObserver(Action listObserver) =>

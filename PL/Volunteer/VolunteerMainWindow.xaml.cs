@@ -1,4 +1,4 @@
-﻿using BO;
+using BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,10 @@ namespace PL.Volunteer
     /// <summary>
     /// Interaction logic for VolunteerMainWindow.xaml
     /// </summary>
-    public partial class VolunteerMainWindow : Window
+    /// <summary>
+/// Interaction logic for the volunteer main window.
+/// </summary>
+public partial class VolunteerMainWindow : Window
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 

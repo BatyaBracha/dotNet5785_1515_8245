@@ -5,56 +5,74 @@ namespace BO;
 /// <summary>
 /// Represents a volunteer in the system.
 /// </summary>
+/// <summary>
+/// Represents a volunteer entity with all relevant properties.
 public class Volunteer
 {
     /// <summary>
-/// The unique identifier for the volunteer.
-/// </summary>
-public int Id { get; init; }
+    /// Gets or sets the unique ID of the volunteer.
+    /// </summary>
+    public int Id { get; init; }
+
     /// <summary>
-/// The name of the volunteer.
-/// </summary>
-public string Name { get; init; }
+    /// Gets or sets the name of the volunteer.
+    /// </summary>
+    public string Name { get; set; }
+
     /// <summary>
-/// The phone number of the volunteer.
-/// </summary>
-public string PhoneNumber { get; set; }
+    /// Gets or sets the phone number of the volunteer.
+    /// </summary>
+    public string PhoneNumber { get; set; }
+
     /// <summary>
-/// The email address of the volunteer.
-/// </summary>
-public string Email { get; set; }
+    /// Gets or sets the email address of the volunteer.
+    /// </summary>
+    public string Email { get; set; }
+
     /// <summary>
-/// The password of the volunteer.
-/// </summary>
-public string? Password { get; set; }
+    /// Gets or sets the password of the volunteer.
+    /// </summary>
+    public string? Password { get; set; }
+
     /// <summary>
-/// The current address of the volunteer.
-/// </summary>
-public string? CurrentAddress { get; set; }
+    /// Gets or sets the current address of the volunteer.
+    /// </summary>
+    public string? CurrentAddress { get; set; }
+
     /// <summary>
-/// The latitude of the volunteer's current address.
-/// </summary>
-public double? Latitude { get; set; }
+    /// Gets or sets the latitude of the volunteer's current address.
+    /// </summary>
+    public double? Latitude { get; set; }
+
     /// <summary>
-/// The longitude of the volunteer's current address.
-/// </summary>
-public double? Longitude { get; set; }
+    /// Gets or sets the longitude of the volunteer's current address.
+    /// </summary>
+    public double? Longitude { get; set; }
+
     /// <summary>
-/// The role of the volunteer in the system.
-/// </summary>
-public Role Role { get; set; }
+    /// Gets or sets the role of the volunteer in the system.
+    /// </summary>
+    public Role Role { get; set; }
+
     /// <summary>
-/// Indicates whether the volunteer is active.
-/// </summary>
-public bool Active { get; set; }
+    /// Gets or sets a value indicating whether the volunteer is active.
+    /// </summary>
+    public bool Active { get; set; }
+
     /// <summary>
-/// The maximum distance the volunteer is willing to travel.
+    /// Gets or sets the maximum distance the volunteer is willing to travel.
+    /// </summary>
+    public double? MaxDistance { get; set; }
+
 /// </summary>
-public double? MaxDistance { get; set; }
+//public double? MaxDistance { get; set; }
     /// <summary>
 /// The type of distance calculation for the volunteer.
 /// </summary>
-public TypeOfDistance TypeOfDistance { get; set; }
+        /// <summary>
+        /// Gets or sets the type of distance for the volunteer.
+        /// </summary>
+        public TypeOfDistance TypeOfDistance { get; set; }
     /// <summary>
 /// The number of calls successfully handled by the volunteer.
 /// </summary>

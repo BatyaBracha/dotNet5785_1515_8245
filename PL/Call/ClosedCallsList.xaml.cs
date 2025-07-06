@@ -1,4 +1,4 @@
-﻿using BO;
+using BO;
 using PL.Volunteer;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,10 @@ namespace PL.Call
     /// <summary>
     /// Interaction logic for ClosedCallsList.xaml
     /// </summary>
-    public partial class ClosedCallsList : Window
+    /// <summary>
+/// Interaction logic for the closed calls list window.
+/// </summary>
+public partial class ClosedCallsList : Window
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
 

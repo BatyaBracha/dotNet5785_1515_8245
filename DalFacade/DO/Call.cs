@@ -1,4 +1,4 @@
-﻿
+
 namespace DO;
 /// <summary>
 /// Call Entity
@@ -13,6 +13,9 @@ namespace DO;
 /// <param name="OpeningTime">Time (date and hour) when the reading was opened by the administrator</param>
 /// <param name="MaxTimeFinishCalling">"Time (date and hour) by which the reading must be closed </param>
 
+/// <summary>
+/// Represents a call entity in the DAL layer.
+/// </summary>
 public record Call
 (
     int Id,

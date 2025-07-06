@@ -1,4 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<!--
+  DalList.csproj - Project file for the DAL List implementation.
+  This project contains the data access layer using in-memory collections for development and testing.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>

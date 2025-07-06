@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,7 +18,10 @@ namespace PL
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Login : Window, INotifyPropertyChanged
+    /// <summary>
+/// Interaction logic for the login window.
+/// </summary>
+public partial class Login : Window, INotifyPropertyChanged
     {
         public Login()
         {

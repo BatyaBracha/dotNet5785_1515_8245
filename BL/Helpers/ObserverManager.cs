@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Helpers;
 
@@ -12,7 +12,13 @@ namespace Helpers;
 /// <item>a hash table of delegates for individual entity observers - indexed by appropriate entity ID</item>
 /// </list>
 /// </summary>
-class ObserverManager //stage 5
+/// <summary>
+/// Manages observers for the observer pattern in the BL layer.
+/// </summary>
+/// <summary>
+/// Provides observer pattern utility methods for the business logic layer.
+/// </summary>
+public class ObserverManager //stage 5
 {
     /// <summary>
     /// event delegate for list observers - it's called whenever there may be need to update the presentation

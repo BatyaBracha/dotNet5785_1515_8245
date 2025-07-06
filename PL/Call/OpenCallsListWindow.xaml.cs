@@ -1,4 +1,4 @@
-﻿using PL.Volunteer;
+using PL.Volunteer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,10 @@ namespace PL.Call
     /// <summary>
     /// Interaction logic for CallListWindow.xaml
     /// </summary>
-    public partial class OpenCallsListWindow : Window
+    /// <summary>
+/// Interaction logic for the open calls list window.
+/// </summary>
+public partial class OpenCallsListWindow : Window
     {
         public OpenCallsListWindow(int id)
         {

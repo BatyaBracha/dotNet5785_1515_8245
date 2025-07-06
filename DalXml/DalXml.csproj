@@ -1,4 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<!--
+  DalXml.csproj - Project file for the DAL XML implementation.
+  This project contains the data access layer using XML files for persistent storage.
+-->
+<!--
+  DalXml.csproj - Project file for the DAL XML implementation.
+  This project contains the data access layer using XML files for persistent storage.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>

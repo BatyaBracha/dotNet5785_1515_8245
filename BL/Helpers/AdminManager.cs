@@ -3,11 +3,14 @@ using System.Runtime.CompilerServices;
 namespace Helpers;
 
 /// <summary>
-/// Internal BL manager for all Application's Clock logic policies
+/// Provides administrative utility methods for the business logic layer.
 /// </summary>
 internal static class AdminManager //stage 4
 {
     #region Stage 4
+    /// <summary>
+    /// Gets the data access layer instance.
+    /// </summary>
     private static readonly DalApi.IDal s_dal = DalApi.Factory.Get; //stage 4
     #endregion Stage 4
 

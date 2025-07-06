@@ -10,6 +10,9 @@ namespace BlImplementation
     /// <summary>
 /// Implementation of administrative operations in the BL layer.
 /// </summary>
+/// <summary>
+/// Implements administrative business logic operations.
+/// </summary>
 internal class AdminImplementation : IAdmin
     {
 

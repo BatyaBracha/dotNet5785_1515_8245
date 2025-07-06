@@ -1,7 +1,10 @@
-﻿namespace DalApi;
+namespace DalApi;
 using System.Xml.Linq;
 
-static class DalConfig
+/// <summary>
+/// Provides configuration settings for the DAL layer.
+/// </summary>
+public static class DalConfig
 {
     /// <summary>
     /// internal PDS class

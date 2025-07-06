@@ -1,10 +1,13 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows;
 namespace PL.Call
 {
-    public class DateTimeToStringConverter : IValueConverter
+    /// <summary>
+/// Converts DateTime objects to string for UI display.
+/// </summary>
+public class DateTimeToStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
