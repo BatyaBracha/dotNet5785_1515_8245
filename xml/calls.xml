@@ -1,568 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Call>
-    <Id>1003</Id>
+    <Id>1000</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Emergency Towing</Description>
-    <Address>Har Safra St 1, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
+    <Description>Medical Emergency</Description>
+    <Address>Meah Shearim St 10, Jerusalem</Address>
+    <latitude>31.7865608</latitude>
+    <longitude>35.2208052</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
   </Call>
   <Call>
-    <Id>1004</Id>
+    <Id>1001</Id>
     <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Stuck in Mud</Description>
-    <Address>Mount Scopus St 4, Jerusalem</Address>
-    <latitude>31.794767</latitude>
-    <longitude>35.2425346</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1005</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Engine Overheating</Description>
-    <Address>Keren Hayesod St 30, Jerusalem</Address>
-    <latitude>31.7723879</latitude>
-    <longitude>35.2215257</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1006</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Heavy Accident</Description>
-    <Address>Neve Yaakov St 17, Jerusalem</Address>
-    <latitude>31.842212</latitude>
-    <longitude>35.24206</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1007</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Emergency Tow</Description>
-    <Address>Shmuel HaNavi St 12, Jerusalem</Address>
-    <latitude>31.7875022</latitude>
-    <longitude>35.2265973</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1008</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Battery Issues</Description>
-    <Address>Yechiel St 3, Jerusalem</Address>
-    <latitude>31.7472349</latitude>
-    <longitude>35.2326395</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1009</Id>
-    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
-    <Description>Fire in Vehicle</Description>
-    <Address>Rav Kook St 4, Jerusalem</Address>
-    <latitude>31.7831088</latitude>
-    <longitude>35.2203032</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-19T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1010</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Fuel Assistance</Description>
-    <Address>Talmud Torah St 8, Jerusalem</Address>
-    <latitude>31.898714</latitude>
-    <longitude>35.185758</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1011</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Flat Tire</Description>
-    <Address>Sanhedria St 18, Jerusalem</Address>
-    <latitude>31.8051921</latitude>
-    <longitude>35.2157309</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1012</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Lockout Assistance</Description>
-    <Address>Kiryat Moshe St 6, Jerusalem</Address>
-    <latitude>31.7857651</latitude>
-    <longitude>35.1968887</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1013</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Vehicle Breakdown</Description>
-    <Address>Achad Ha'am St 2, Jerusalem</Address>
+    <Description>Accident Assistance</Description>
+    <Address>Chazon Ish St 6, Jerusalem</Address>
     <latitude>31.759595</latitude>
     <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
     <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1014</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Flat Battery</Description>
-    <Address>Bar Ilan St 7, Jerusalem</Address>
-    <latitude>31.7957696</latitude>
-    <longitude>35.2198077</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1015</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Vehicle Stuck in Traffic</Description>
-    <Address>City Center St 14, Jerusalem</Address>
-    <latitude>31.7259643</latitude>
-    <longitude>34.7437502</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1017</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Lost Keys</Description>
-    <Address>Giv'at Shaul St 7, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1018</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Driving Assistance</Description>
-    <Address>Nachlaot St 7, Jerusalem</Address>
-    <latitude>31.703275</latitude>
-    <longitude>35.194809</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1019</Id>
-    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
-    <Description>Tire Puncture</Description>
-    <Address>Rav Kook St 5, Jerusalem</Address>
-    <latitude>31.7831088</latitude>
-    <longitude>35.2203032</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1020</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Driving Safety</Description>
-    <Address>Har Nof St 18, Jerusalem</Address>
-    <latitude>31.7858115</latitude>
-    <longitude>35.1741509</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1021</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Parking Assistance</Description>
-    <Address>Ramat Shlomo St 15, Jerusalem</Address>
-    <latitude>31.8111253</latitude>
-    <longitude>35.2174861</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1022</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Car Repair Advice</Description>
-    <Address>Sderot Yitzhak Rabin St 5, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1023</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Vehicle Inspection</Description>
-    <Address>Har Hatzofim St 8, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1024</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Insurance Assistance</Description>
-    <Address>Giv'at HaMivtar St 6, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1025</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Vehicle Jumpstart</Description>
-    <Address>Tefilat Yisrael St 14, Jerusalem</Address>
-    <latitude>31.779042</latitude>
-    <longitude>35.229702</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1026</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Call for Help</Description>
-    <Address>Malkhei Yisrael St 10, Jerusalem</Address>
-    <latitude>31.7909196</latitude>
-    <longitude>35.2089577</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1027</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Car Service Appointment</Description>
-    <Address>Kiryat Tzahal St 6, Jerusalem</Address>
-    <latitude>32.0416824</latitude>
-    <longitude>34.7904787</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1028</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Windshield Repair</Description>
-    <Address>Nachal Noach St 17, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1029</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Lost Wallet</Description>
-    <Address>Maalot Dafna St 6, Jerusalem</Address>
-    <latitude>31.7933736</latitude>
-    <longitude>35.2246764</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1030</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Fuel Running Low</Description>
-    <Address>Har HaMor St 3, Jerusalem</Address>
-    <latitude>31.7854673</latitude>
-    <longitude>35.1001866</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1031</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Battery Jumpstart</Description>
-    <Address>Ramat HaSharon St 2, Jerusalem</Address>
-    <latitude>32.3260388</latitude>
-    <longitude>34.8511049</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1032</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Car Alarm Issues</Description>
-    <Address>Yakar St 3, Jerusalem</Address>
-    <latitude>31.8405465</latitude>
-    <longitude>35.2454408</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1033</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Motorcycle Breakdown</Description>
-    <Address>Rav Haim Ozer St 9, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1034</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Lost GPS Navigation</Description>
-    <Address>Yehoshua Ben-Nun St 5, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1035</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Roadside Assistance</Description>
-    <Address>Meir Schauer St 12, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1036</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Headlight Malfunction</Description>
-    <Address>Menachem Begin St 11, Jerusalem</Address>
-    <latitude>31.7686856</latitude>
-    <longitude>35.1950858</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1037</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Engine Check</Description>
-    <Address>Yisrael Yaakov St 13, Jerusalem</Address>
-    <latitude>31.8383352</latitude>
-    <longitude>35.2441809</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1038</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Car Wash</Description>
-    <Address>Ben Yehuda St 6, Jerusalem</Address>
-    <latitude>31.7815767</latitude>
-    <longitude>35.2180856</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1039</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Flat Tire Change</Description>
-    <Address>Hadar St 3, Jerusalem</Address>
-    <latitude>32.8089768</latitude>
-    <longitude>34.997939</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2026-07-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1040</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Road Advice</Description>
-    <Address>Maharal St 8, Jerusalem</Address>
-    <latitude>31.7215207</latitude>
-    <longitude>35.2284413</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1041</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Car Repair Consultation</Description>
-    <Address>Yosef Schwartz St 4, Jerusalem</Address>
-    <latitude>31.759595</latitude>
-    <longitude>35.215315</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1042</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Driving Safety Tips</Description>
-    <Address>Jabotinsky St 7, Jerusalem</Address>
-    <latitude>31.7709719</latitude>
-    <longitude>35.2210202</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1043</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Insurance Policy Questions</Description>
-    <Address>Shazar St 5, Jerusalem</Address>
-    <latitude>31.7135737</latitude>
-    <longitude>34.9838857</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1044</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Basic Vehicle Maintenance</Description>
-    <Address>Gonenim St 12, Jerusalem</Address>
-    <latitude>31.906037</latitude>
-    <longitude>35.203005</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1045</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Navigation Assistance</Description>
-    <Address>Talpiot St 14, Jerusalem</Address>
-    <latitude>31.7515394</latitude>
-    <longitude>35.2160228</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1046</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Towing Insurance</Description>
-    <Address>Bilu St 9, Jerusalem</Address>
-    <latitude>31.762803</latitude>
-    <longitude>35.2099602</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1047</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Tire Pressure Check</Description>
-    <Address>Yovel St 2, Jerusalem</Address>
-    <latitude>31.780514</latitude>
-    <longitude>35.217981</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1048</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>Late Night Assistance</Description>
-    <Address>Herzl St 3, Jerusalem</Address>
-    <latitude>31.74948</latitude>
-    <longitude>34.9880954</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-09-04T15:04:11.9978179+03:00</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1049</Id>
-    <TypeOfCall>POISONING</TypeOfCall>
-    <Description>General Car Troubleshooting</Description>
-    <Address>Hashmonai St 6, Jerusalem</Address>
-    <latitude>31.77676</latitude>
-    <longitude>35.230342</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:04:11.9978179+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
-  </Call>
-  <Call>
-    <Id>1016</Id>
-    <TypeOfCall>CHILDBIRTH</TypeOfCall>
-    <Description>Accident Help</Description>
-    <Address>Rechov Yechiel 3, Jerusalem</Address>
-    <latitude>31.7476677</latitude>
-    <longitude>35.2323345</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
-    <Status>OPEN</Status>
-    <MaxClosingTime>2025-08-03T15:16:08.8368274+03:00</MaxClosingTime>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
   </Call>
   <Call>
     <Id>1002</Id>
@@ -571,9 +31,573 @@
     <Address>Ramat Eshkol St 11, Jerusalem</Address>
     <latitude>31.8017893</latitude>
     <longitude>35.2228759</longitude>
-    <riskRange>P2D</riskRange>
-    <OpeningTime>2025-07-04T15:16:08.8368274+03:00</OpeningTime>
-    <Status>CLOSED</Status>
-    <MaxClosingTime>2025-07-04T16:02:08</MaxClosingTime>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1003</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Emergency Towing</Description>
+    <Address>Har Safra St 1, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1004</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Stuck in Mud</Description>
+    <Address>Mount Scopus St 4, Jerusalem</Address>
+    <latitude>31.794767</latitude>
+    <longitude>35.2425346</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1005</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Engine Overheating</Description>
+    <Address>Keren Hayesod St 30, Jerusalem</Address>
+    <latitude>31.7723879</latitude>
+    <longitude>35.2215257</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1006</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Heavy Accident</Description>
+    <Address>Neve Yaakov St 17, Jerusalem</Address>
+    <latitude>31.842212</latitude>
+    <longitude>35.24206</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1007</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Emergency Tow</Description>
+    <Address>Shmuel HaNavi St 12, Jerusalem</Address>
+    <latitude>31.7875022</latitude>
+    <longitude>35.2265973</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1008</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Battery Issues</Description>
+    <Address>Yechiel St 3, Jerusalem</Address>
+    <latitude>31.7472349</latitude>
+    <longitude>35.2326395</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1009</Id>
+    <TypeOfCall>CARDIAC_ARREST</TypeOfCall>
+    <Description>Fire in Vehicle</Description>
+    <Address>Rav Kook St 4, Jerusalem</Address>
+    <latitude>31.7831088</latitude>
+    <longitude>35.2203032</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-07-21T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1010</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Fuel Assistance</Description>
+    <Address>Talmud Torah St 8, Jerusalem</Address>
+    <latitude>31.898714</latitude>
+    <longitude>35.185758</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1011</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Flat Tire</Description>
+    <Address>Sanhedria St 18, Jerusalem</Address>
+    <latitude>31.8051921</latitude>
+    <longitude>35.2157309</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1012</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Lockout Assistance</Description>
+    <Address>Kiryat Moshe St 6, Jerusalem</Address>
+    <latitude>31.7857651</latitude>
+    <longitude>35.1968887</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1013</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Vehicle Breakdown</Description>
+    <Address>Achad Ha'am St 2, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1014</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Flat Battery</Description>
+    <Address>Bar Ilan St 7, Jerusalem</Address>
+    <latitude>31.7957696</latitude>
+    <longitude>35.2198077</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1015</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Vehicle Stuck in Traffic</Description>
+    <Address>City Center St 14, Jerusalem</Address>
+    <latitude>31.7259643</latitude>
+    <longitude>34.7437502</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1016</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Accident Help</Description>
+    <Address>Rechov Yechiel 3, Jerusalem</Address>
+    <latitude>31.7476677</latitude>
+    <longitude>35.2323345</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1017</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Lost Keys</Description>
+    <Address>Giv'at Shaul St 7, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1018</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Driving Assistance</Description>
+    <Address>Nachlaot St 7, Jerusalem</Address>
+    <latitude>31.703275</latitude>
+    <longitude>35.194809</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1019</Id>
+    <TypeOfCall>ALLERGIC_REACTION</TypeOfCall>
+    <Description>Tire Puncture</Description>
+    <Address>Rav Kook St 5, Jerusalem</Address>
+    <latitude>31.7831088</latitude>
+    <longitude>35.2203032</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-08-05T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1020</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Driving Safety</Description>
+    <Address>Har Nof St 18, Jerusalem</Address>
+    <latitude>31.7858115</latitude>
+    <longitude>35.1741509</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1021</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Parking Assistance</Description>
+    <Address>Ramat Shlomo St 15, Jerusalem</Address>
+    <latitude>31.8111253</latitude>
+    <longitude>35.2174861</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1022</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Car Repair Advice</Description>
+    <Address>Sderot Yitzhak Rabin St 5, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1023</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Vehicle Inspection</Description>
+    <Address>Har Hatzofim St 8, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1024</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Insurance Assistance</Description>
+    <Address>Giv'at HaMivtar St 6, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1025</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Vehicle Jumpstart</Description>
+    <Address>Tefilat Yisrael St 14, Jerusalem</Address>
+    <latitude>31.779042</latitude>
+    <longitude>35.229702</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1026</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Call for Help</Description>
+    <Address>Malkhei Yisrael St 10, Jerusalem</Address>
+    <latitude>31.7909196</latitude>
+    <longitude>35.2089577</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1027</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Car Service Appointment</Description>
+    <Address>Kiryat Tzahal St 6, Jerusalem</Address>
+    <latitude>32.0416824</latitude>
+    <longitude>34.7904787</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1028</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Windshield Repair</Description>
+    <Address>Nachal Noach St 17, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1029</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Lost Wallet</Description>
+    <Address>Maalot Dafna St 6, Jerusalem</Address>
+    <latitude>31.7933736</latitude>
+    <longitude>35.2246764</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1030</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Fuel Running Low</Description>
+    <Address>Har HaMor St 3, Jerusalem</Address>
+    <latitude>31.7854673</latitude>
+    <longitude>35.1001866</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1031</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Battery Jumpstart</Description>
+    <Address>Ramat HaSharon St 2, Jerusalem</Address>
+    <latitude>32.3260388</latitude>
+    <longitude>34.8511049</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1032</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Car Alarm Issues</Description>
+    <Address>Yakar St 3, Jerusalem</Address>
+    <latitude>31.8405465</latitude>
+    <longitude>35.2454408</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1033</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Motorcycle Breakdown</Description>
+    <Address>Rav Haim Ozer St 9, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1034</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Lost GPS Navigation</Description>
+    <Address>Yehoshua Ben-Nun St 5, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1035</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Roadside Assistance</Description>
+    <Address>Meir Schauer St 12, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1036</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Headlight Malfunction</Description>
+    <Address>Menachem Begin St 11, Jerusalem</Address>
+    <latitude>31.7686856</latitude>
+    <longitude>35.1950858</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1037</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Engine Check</Description>
+    <Address>Yisrael Yaakov St 13, Jerusalem</Address>
+    <latitude>31.8383352</latitude>
+    <longitude>35.2441809</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1038</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Car Wash</Description>
+    <Address>Ben Yehuda St 6, Jerusalem</Address>
+    <latitude>31.7815767</latitude>
+    <longitude>35.2180856</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1039</Id>
+    <TypeOfCall>CHILDBIRTH</TypeOfCall>
+    <Description>Flat Tire Change</Description>
+    <Address>Hadar St 3, Jerusalem</Address>
+    <latitude>32.8089768</latitude>
+    <longitude>34.997939</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2026-07-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1040</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Road Advice</Description>
+    <Address>Maharal St 8, Jerusalem</Address>
+    <latitude>31.7215207</latitude>
+    <longitude>35.2284413</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1041</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Car Repair Consultation</Description>
+    <Address>Yosef Schwartz St 4, Jerusalem</Address>
+    <latitude>31.759595</latitude>
+    <longitude>35.215315</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1042</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Driving Safety Tips</Description>
+    <Address>Jabotinsky St 7, Jerusalem</Address>
+    <latitude>31.7709719</latitude>
+    <longitude>35.2210202</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1043</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Insurance Policy Questions</Description>
+    <Address>Shazar St 5, Jerusalem</Address>
+    <latitude>31.7135737</latitude>
+    <longitude>34.9838857</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1044</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Basic Vehicle Maintenance</Description>
+    <Address>Gonenim St 12, Jerusalem</Address>
+    <latitude>31.906037</latitude>
+    <longitude>35.203005</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1045</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Navigation Assistance</Description>
+    <Address>Talpiot St 14, Jerusalem</Address>
+    <latitude>31.7515394</latitude>
+    <longitude>35.2160228</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1046</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Towing Insurance</Description>
+    <Address>Bilu St 9, Jerusalem</Address>
+    <latitude>31.762803</latitude>
+    <longitude>35.2099602</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1047</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Tire Pressure Check</Description>
+    <Address>Yovel St 2, Jerusalem</Address>
+    <latitude>31.780514</latitude>
+    <longitude>35.217981</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1048</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>Late Night Assistance</Description>
+    <Address>Herzl St 3, Jerusalem</Address>
+    <latitude>31.74948</latitude>
+    <longitude>34.9880954</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
+  </Call>
+  <Call>
+    <Id>1049</Id>
+    <TypeOfCall>POISONING</TypeOfCall>
+    <Description>General Car Troubleshooting</Description>
+    <Address>Hashmonai St 6, Jerusalem</Address>
+    <latitude>31.77676</latitude>
+    <longitude>35.230342</longitude>
+    <riskRange>P30D</riskRange>
+    <OpeningTime>2025-07-06T09:14:56.4669402+03:00</OpeningTime>
+    <Status>OPEN</Status>
+    <MaxClosingTime>2025-09-06T09:14:56.4669402+03:00</MaxClosingTime>
   </Call>
 </ArrayOfCall>

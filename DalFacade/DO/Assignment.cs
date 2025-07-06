@@ -1,4 +1,4 @@
-﻿
+
 
 namespace DO;
 /// <summary>
@@ -13,13 +13,34 @@ namespace DO;
 
 public record Assignment
 (
-    int Id,
-    int CallId,
-    int VolunteerId,
-    DateTime TreatmentStartTime,
-    DateTime? TreatmentEndTime,
-    TypeOfTreatmentEnding? TypeOfTreatmentEnding,
-    AssignmentStatus AssignmentStatus
+    /// <summary>
+/// Unique ID, indicates the allocation entity.
+/// </summary>
+int Id,
+    /// <summary>
+/// Represents a number that identifies the call that the volunteer chose to handle.
+/// </summary>
+int CallId,
+    /// <summary>
+/// Represents the ID of the volunteer who chose to take care of the reading.
+/// </summary>
+int VolunteerId,
+    /// <summary>
+/// Time (date and time) when the current call was processed. The time when for the first time the current volunteer chose to take care of her.
+/// </summary>
+DateTime TreatmentStartTime,
+    /// <summary>
+/// Time (date and time) when the current volunteer finished handling the current call.
+/// </summary>
+DateTime? TreatmentEndTime,
+    /// <summary>
+/// The manner in which the treatment of the current reading was completed by the current volunteer.
+/// </summary>
+TypeOfTreatmentEnding? TypeOfTreatmentEnding,
+    /// <summary>
+/// The current status of the assignment.
+/// </summary>
+AssignmentStatus AssignmentStatus
  )
 {
     /// <summary>

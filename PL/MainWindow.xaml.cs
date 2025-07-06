@@ -49,32 +49,37 @@ namespace PL
             s_bl.Admin.PromotionClock(BO.TimeUnit.YEAR);
         }
 
-        //public IEnumerable<(BO.CallStatus Status, int Count)> CallsCount
+        //public IEnumerable<object> CallsCount
         //{
-        //    get { return (IEnumerable<(BO.CallStatus Status, int Count)>)GetValue(CallsCountProperty); }
+        //    get { return (IEnumerable<object>)GetValue(CallsCountProperty); }
         //    set { SetValue(CallsCountProperty, value); }
         //}
-
-        //public static readonly DependencyProperty CallsCountProperty =
-        //    DependencyProperty.Register(
-        //        nameof(CallsCount),
-        //        typeof(IEnumerable<(BO.CallStatus Status, int Count)>),
-        //        typeof(MainWindow),
-        //        new PropertyMetadata(new List<(BO.CallStatus Status, int Count)>())
-        //    );
-        public IEnumerable<KeyValuePair<BO.CallStatus, int>> CallsCountForGrid
+        public IEnumerable<object> CallsCount
         {
-            get { return (IEnumerable<KeyValuePair<BO.CallStatus, int>>)GetValue(CallsCountForGridProperty); }
-            set { SetValue(CallsCountForGridProperty, value); }
+            get { return (IEnumerable<object>)GetValue(CallsCountProperty); }
+            set { SetValue(CallsCountProperty, value); }
         }
 
-        public static readonly DependencyProperty CallsCountForGridProperty =
+        public static readonly DependencyProperty CallsCountProperty =
             DependencyProperty.Register(
-                nameof(CallsCountForGrid),
-                typeof(IEnumerable<KeyValuePair<BO.CallStatus, int>>),
+                nameof(CallsCount),
+                typeof(IEnumerable<object>),
                 typeof(MainWindow),
-                new PropertyMetadata(new List<KeyValuePair<BO.CallStatus, int>>())
+                new PropertyMetadata(new List<object>())
             );
+        //public IEnumerable<KeyValuePair<BO.CallStatus, int>> CallsCountForGrid
+        //{
+        //    get { return (IEnumerable<KeyValuePair<BO.CallStatus, int>>)GetValue(CallsCountForGridProperty); }
+        //    set { SetValue(CallsCountForGridProperty, value); }
+        //}
+
+        //public static readonly DependencyProperty CallsCountForGridProperty =
+        //    DependencyProperty.Register(
+        //        nameof(CallsCountForGrid),
+        //        typeof(IEnumerable<KeyValuePair<BO.CallStatus, int>>),
+        //        typeof(MainWindow),
+        //        new PropertyMetadata(new List<KeyValuePair<BO.CallStatus, int>>())
+        //    );
         int VolunteersCount
         {
             get { return (int)GetValue(VolunteersCountProperty); }
@@ -212,6 +217,7 @@ namespace PL
                 finally
                 {
                     Mouse.OverrideCursor = null;
+                    CallsCount = s_bl.Call.GetCallsCount();
                 }
                 MessageBox.Show("DB initialized successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -250,9 +256,7 @@ namespace PL
                 _observerWorking = true;
                 _ = Dispatcher.BeginInvoke(() =>
                 {
-                    CallsCountForGrid = s_bl.Call.GetCallsCount()
-                        .Select(t => new KeyValuePair<BO.CallStatus, int>(t.Status, t.Count))
-                        .ToList();
+                    CallsCount = s_bl.Call.GetCallsCount(); // Update the CallsCount property
                     _observerWorking = false;
                 });
             }
@@ -263,10 +267,10 @@ namespace PL
         private void OnWindowLoaded(object sender, EventArgs e)
         {
             CurrentTime = s_bl.Admin.GetClock();
-            RiskRange= s_bl.Admin.GetRiskRange();
-            CallsCount = s_bl.Call.GetCallsCount()
-                .Select(t => new KeyValuePair<BO.CallStatus, int>(t.Status, t.Count))
-                .ToList();
+            RiskRange = s_bl.Admin.GetRiskRange();
+            CallsCount = s_bl.Call.GetCallsCount();
+
+            // Subscribe observers
             s_bl.Call.AddObserver(callCountObserver);
             s_bl.Admin.AddClockObserver(clockObserver);
             s_bl.Admin.AddConfigObserver(configObserver);
@@ -274,7 +278,8 @@ namespace PL
         private void OnWindowClosed(object? sender, EventArgs e)
         {
             s_bl.Admin.StopSimulator();
-            s_bl.Call.RemoveObserver(clockObserver);
+
+            s_bl.Call.RemoveObserver(callCountObserver);
             s_bl.Admin.RemoveClockObserver(clockObserver);
             s_bl.Admin.RemoveConfigObserver(configObserver);
         }

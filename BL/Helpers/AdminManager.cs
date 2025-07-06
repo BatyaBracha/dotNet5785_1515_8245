@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Helpers;
 
@@ -12,8 +12,14 @@ internal static class AdminManager //stage 4
     #endregion Stage 4
 
     #region Stage 5
-    internal static event Action? ConfigUpdatedObservers; //prepared for stage 5 - for config update observers
-    internal static event Action? ClockUpdatedObservers; //prepared for stage 5 - for clock update observers
+    /// <summary>
+/// Event for config update observers.
+/// </summary>
+internal static event Action? ConfigUpdatedObservers; //prepared for stage 5 - for config update observers
+    /// <summary>
+/// Event for clock update observers.
+/// </summary>
+internal static event Action? ClockUpdatedObservers; //prepared for stage 5 - for clock update observers
     #endregion Stage 5
 
     #region Stage 4
@@ -53,12 +59,21 @@ internal static class AdminManager //stage 4
         {
             DalTest.Initialization.Do();
             AdminManager.UpdateClock(AdminManager.Now);  //stage 5 - needed since we want the label on Pl to be updated
-            AdminManager.RiskRange = AdminManager.RiskRange; // stage 5 - needed for update the PL 
-        }//observer??
+            AdminManager.RiskRange = AdminManager.RiskRange;
+        }
+        CallManager.Observers.NotifyListUpdated();
+        VolunteerManager.Observers.NotifyListUpdated();// stage 5 - needed for update the PL 
+
     }
 
-    private static Task? _periodicTask = null;
-    private static readonly AsyncLocal<bool> IsSimulatorThread = new();
+    /// <summary>
+/// Task for periodic call updates.
+/// </summary>
+private static Task? _periodicTask = null;
+    /// <summary>
+/// Indicates if the current thread is the simulator thread.
+/// </summary>
+private static readonly AsyncLocal<bool> IsSimulatorThread = new();
 
     /// <summary>
     /// Method to perform application's clock from any BL class as may be required
@@ -107,12 +122,7 @@ internal static class AdminManager //stage 4
     private static volatile bool s_stop = false;
 
 
-    //[MethodImpl(MethodImplOptions.Synchronized)] //stage 7                                                 
-    //public static void ThrowOnSimulatorIsRunning()
-    //{
-    //    if (s_thread is not null)
-    //        throw new BO.BlInvalidOperationException("Cannot perform the operation since Simulator is running");
-    //}
+    
     [MethodImpl(MethodImplOptions.Synchronized)]
     public static void ThrowOnSimulatorIsRunning()
     {
@@ -144,29 +154,12 @@ internal static class AdminManager //stage 4
         }
     }
 
-    private static Task? _simulateTask = null;
+    /// <summary>
+/// Task for volunteer activity simulation.
+/// </summary>
+private static Task? _simulateTask = null;
 
-    //private static void clockRunner()
-    //{
-    //    while (!s_stop)
-    //    {
-    //        UpdateClock(Now.AddMinutes(s_interval));
-
-    //        //TO_DO:
-    //        //Add calls here to any logic simulation that was required in stage 7
-    //        //for example: course registration simulation
-    //        if (_simulateTask is null || _simulateTask.IsCompleted)//stage 7
-    //            _simulateTask = Task.Run(() => VolunteerManager.VolunteerActivitySimulation());
-
-    //        //etc...
-
-    //        try
-    //        {
-    //            Thread.Sleep(1000); // 1 second
-    //        }
-    //        catch (ThreadInterruptedException) { }
-    //    }
-    //}
+ 
     private static void clockRunner()
     {
         while (!s_stop)
@@ -184,13 +177,15 @@ internal static class AdminManager //stage 4
             }
             catch (Exception ex)
             {
-                throw new BO.BlArgumentException($"Error from simulator: {ex.Message}");
+                if (s_stop) break;
+                else
+                  throw new BO.BlArgumentException($"Error from simulator: {ex.Message}");
             }
             try
             {
                 Thread.Sleep(1000); // 1 second
             }
-            catch (ThreadInterruptedException) { }
+            catch (Exception ex) { if (s_stop) break; }
         }
     }
 

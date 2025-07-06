@@ -343,35 +343,16 @@
             <Border Grid.Column="2" Style="{StaticResource CardStyle}" Margin="5,10,10,10">
                 <StackPanel>
                     <TextBlock Text="Call Statistics" FontSize="18" FontWeight="Bold" Foreground="#495057" Margin="0,0,0,20"/>
+                    <DataGrid 
+          AutoGenerateColumns="True"
+          ItemsSource="{Binding CallsCount, RelativeSource={RelativeSource AncestorType=Window}}"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          Margin="10"
+          IsReadOnly="True" />
+                    
 
-                    <!-- Calls Count DataGrid -->
-                    <DataGrid ItemsSource="{Binding CallsCount}" 
-                              Style="{StaticResource CallsDataGridStyle}"
-                              ColumnHeaderStyle="{StaticResource DataGridHeaderStyle}"
-                              CellStyle="{StaticResource DataGridCellStyle}"
-                              RowStyle="{StaticResource DataGridRowStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Status" Binding="{Binding Key }" Width="*">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                                        <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="FontWeight" Value="SemiBold"/>
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Count" Binding="{Binding Value}" Width="*">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                                        <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="FontWeight" Value="Bold"/>
-                                        <Setter Property="Foreground" Value="#DC3545"/>
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+
                 </StackPanel>
             </Border>
         </Grid>

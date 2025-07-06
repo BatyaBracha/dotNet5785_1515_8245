@@ -1,462 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfAssignment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Assignment>
-    <Id>3846</Id>
+    <Id>4658</Id>
     <CallId>1000</CallId>
-    <VolunteerId>204589326</VolunteerId>
-    <TreatmentStartTime>2025-07-17T07:42:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-17T09:42:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <VolunteerId>759183624</VolunteerId>
+    <TreatmentStartTime>2025-07-11T07:23:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-11T09:23:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3847</Id>
+    <Id>4659</Id>
     <CallId>1001</CallId>
-    <VolunteerId>123456782</VolunteerId>
-    <TreatmentStartTime>2025-07-13T03:05:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-13T05:05:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <VolunteerId>416293857</VolunteerId>
+    <TreatmentStartTime>2025-07-09T02:16:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-09T04:16:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3848</Id>
+    <Id>4660</Id>
     <CallId>1002</CallId>
-    <VolunteerId>428193657</VolunteerId>
-    <TreatmentStartTime>2025-07-12T00:49:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-12T02:49:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <VolunteerId>123456782</VolunteerId>
+    <TreatmentStartTime>2025-07-11T23:02:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-12T01:02:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3849</Id>
+    <Id>4661</Id>
     <CallId>1003</CallId>
-    <VolunteerId>537921483</VolunteerId>
-    <TreatmentStartTime>2025-07-16T16:26:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-16T18:26:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <VolunteerId>204589326</VolunteerId>
+    <TreatmentStartTime>2025-07-11T02:39:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-11T04:39:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3850</Id>
+    <Id>4662</Id>
     <CallId>1004</CallId>
-    <VolunteerId>183726495</VolunteerId>
-    <TreatmentStartTime>2025-07-14T16:14:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-14T18:14:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3851</Id>
-    <CallId>1005</CallId>
-    <VolunteerId>183726495</VolunteerId>
-    <TreatmentStartTime>2025-07-10T04:01:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-10T06:01:11.9978179+03:00</TreatmentEndTime>
+    <VolunteerId>204589326</VolunteerId>
+    <TreatmentStartTime>2025-07-12T14:59:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-12T16:59:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3852</Id>
-    <CallId>1006</CallId>
-    <VolunteerId>183726495</VolunteerId>
-    <TreatmentStartTime>2025-07-19T04:34:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-19T06:34:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3853</Id>
-    <CallId>1007</CallId>
-    <VolunteerId>972843165</VolunteerId>
-    <TreatmentStartTime>2025-07-09T13:14:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-09T15:14:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3854</Id>
-    <CallId>1008</CallId>
-    <VolunteerId>972843165</VolunteerId>
-    <TreatmentStartTime>2025-07-13T13:02:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-13T15:02:11.9978179+03:00</TreatmentEndTime>
+    <Id>4663</Id>
+    <CallId>1005</CallId>
+    <VolunteerId>537921483</VolunteerId>
+    <TreatmentStartTime>2025-07-17T21:03:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-17T23:03:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3855</Id>
+    <Id>4664</Id>
+    <CallId>1006</CallId>
+    <VolunteerId>972843165</VolunteerId>
+    <TreatmentStartTime>2025-07-18T22:11:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-19T00:11:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4665</Id>
+    <CallId>1007</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-07-09T01:35:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-09T03:35:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4666</Id>
+    <CallId>1008</CallId>
+    <VolunteerId>416293857</VolunteerId>
+    <TreatmentStartTime>2025-07-13T06:56:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-13T08:56:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4667</Id>
     <CallId>1009</CallId>
     <VolunteerId>305918742</VolunteerId>
-    <TreatmentStartTime>2025-07-15T01:10:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-15T03:10:11.9978179+03:00</TreatmentEndTime>
+    <TreatmentStartTime>2025-07-13T03:25:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-13T05:25:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4668</Id>
+    <CallId>1010</CallId>
+    <VolunteerId>648291375</VolunteerId>
+    <TreatmentStartTime>2025-07-16T19:08:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-16T21:08:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4669</Id>
+    <CallId>1011</CallId>
+    <VolunteerId>527384961</VolunteerId>
+    <TreatmentStartTime>2025-08-02T12:17:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-08-02T14:17:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3856</Id>
-    <CallId>1010</CallId>
-    <VolunteerId>638475120</VolunteerId>
-    <TreatmentStartTime>2025-07-18T11:56:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-18T13:56:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3857</Id>
-    <CallId>1011</CallId>
-    <VolunteerId>315869241</VolunteerId>
-    <TreatmentStartTime>2025-07-25T10:36:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-25T12:36:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3858</Id>
+    <Id>4670</Id>
     <CallId>1012</CallId>
-    <VolunteerId>305918742</VolunteerId>
-    <TreatmentStartTime>2025-07-30T12:54:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-30T14:54:11.9978179+03:00</TreatmentEndTime>
+    <VolunteerId>638475120</VolunteerId>
+    <TreatmentStartTime>2025-07-12T21:43:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-12T23:43:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3859</Id>
+    <Id>4671</Id>
     <CallId>1013</CallId>
-    <VolunteerId>527384961</VolunteerId>
-    <TreatmentStartTime>2025-07-11T18:31:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-11T20:31:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <VolunteerId>294817536</VolunteerId>
+    <TreatmentStartTime>2025-07-21T11:41:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-21T13:41:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3860</Id>
+    <Id>4672</Id>
     <CallId>1014</CallId>
-    <VolunteerId>305918742</VolunteerId>
-    <TreatmentStartTime>2025-07-14T16:44:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-14T18:44:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <VolunteerId>428193657</VolunteerId>
+    <TreatmentStartTime>2025-07-07T11:58:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-07T13:58:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3861</Id>
+    <Id>4673</Id>
     <CallId>1015</CallId>
     <VolunteerId>638475120</VolunteerId>
-    <TreatmentStartTime>2025-08-01T01:04:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-01T03:04:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <TreatmentStartTime>2025-07-17T18:23:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-17T20:23:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3862</Id>
+    <Id>4674</Id>
     <CallId>1016</CallId>
     <VolunteerId>972843165</VolunteerId>
-    <TreatmentStartTime>2025-08-01T05:38:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-01T07:38:11.9978179+03:00</TreatmentEndTime>
+    <TreatmentStartTime>2025-07-27T22:05:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-28T00:05:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3863</Id>
+    <Id>4675</Id>
     <CallId>1017</CallId>
-    <VolunteerId>860195372</VolunteerId>
-    <TreatmentStartTime>2025-07-22T17:10:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-22T19:10:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3864</Id>
-    <CallId>1018</CallId>
-    <VolunteerId>759183624</VolunteerId>
-    <TreatmentStartTime>2025-07-11T17:45:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-11T19:45:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3865</Id>
-    <CallId>1019</CallId>
-    <VolunteerId>648291375</VolunteerId>
-    <TreatmentStartTime>2025-07-06T21:26:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-06T23:26:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3866</Id>
-    <CallId>1020</CallId>
-    <VolunteerId>537921483</VolunteerId>
-    <TreatmentStartTime>2025-11-16T03:06:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-11-16T05:06:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3867</Id>
-    <CallId>1021</CallId>
-    <VolunteerId>328118245</VolunteerId>
-    <TreatmentStartTime>2025-11-03T20:29:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-11-03T22:29:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3868</Id>
-    <CallId>1022</CallId>
     <VolunteerId>416293857</VolunteerId>
-    <TreatmentStartTime>2026-01-07T02:00:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-01-07T04:00:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <TreatmentStartTime>2025-07-09T15:27:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-09T17:27:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3869</Id>
-    <CallId>1023</CallId>
-    <VolunteerId>428193657</VolunteerId>
-    <TreatmentStartTime>2026-02-24T13:52:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-02-24T15:52:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3870</Id>
-    <CallId>1024</CallId>
-    <VolunteerId>294817536</VolunteerId>
-    <TreatmentStartTime>2026-04-13T10:39:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-04-13T12:39:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3871</Id>
-    <CallId>1025</CallId>
+    <Id>4676</Id>
+    <CallId>1018</CallId>
     <VolunteerId>638475120</VolunteerId>
-    <TreatmentStartTime>2026-02-19T01:13:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-02-19T04:13:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3872</Id>
-    <CallId>1026</CallId>
-    <VolunteerId>315869241</VolunteerId>
-    <TreatmentStartTime>2025-07-11T14:03:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-11T17:03:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3873</Id>
-    <CallId>1027</CallId>
-    <VolunteerId>972843165</VolunteerId>
-    <TreatmentStartTime>2026-05-17T21:52:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-05-18T00:52:11.9978179+03:00</TreatmentEndTime>
+    <TreatmentStartTime>2025-08-04T16:47:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-08-04T18:47:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3874</Id>
-    <CallId>1028</CallId>
-    <VolunteerId>428193657</VolunteerId>
-    <TreatmentStartTime>2026-04-10T11:36:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-04-10T14:36:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3875</Id>
-    <CallId>1029</CallId>
+    <Id>4677</Id>
+    <CallId>1019</CallId>
     <VolunteerId>315869241</VolunteerId>
-    <TreatmentStartTime>2025-11-13T21:22:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-11-14T00:22:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
+    <TreatmentStartTime>2025-07-09T07:53:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-09T09:53:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3876</Id>
-    <CallId>1030</CallId>
+    <Id>4678</Id>
+    <CallId>1020</CallId>
+    <VolunteerId>305918742</VolunteerId>
+    <TreatmentStartTime>2026-02-16T18:44:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-02-16T20:44:56.4669402+02:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4679</Id>
+    <CallId>1021</CallId>
+    <VolunteerId>416293857</VolunteerId>
+    <TreatmentStartTime>2025-09-24T12:17:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-09-24T14:17:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4680</Id>
+    <CallId>1022</CallId>
+    <VolunteerId>860195372</VolunteerId>
+    <TreatmentStartTime>2025-12-13T07:55:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-12-13T09:55:56.4669402+02:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4681</Id>
+    <CallId>1023</CallId>
     <VolunteerId>183726495</VolunteerId>
-    <TreatmentStartTime>2025-10-03T15:59:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-10-03T18:59:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
+    <TreatmentStartTime>2025-07-13T07:14:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-13T09:14:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3877</Id>
-    <CallId>1031</CallId>
+    <Id>4682</Id>
+    <CallId>1024</CallId>
+    <VolunteerId>648291375</VolunteerId>
+    <TreatmentStartTime>2026-04-03T04:39:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-04-03T06:39:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>BEING_HANDELED</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4683</Id>
+    <CallId>1025</CallId>
     <VolunteerId>294817536</VolunteerId>
-    <TreatmentStartTime>2025-09-04T06:07:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-09-04T09:07:11.9978179+03:00</TreatmentEndTime>
+    <TreatmentStartTime>2025-12-10T03:03:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-12-10T06:03:56.4669402+02:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3878</Id>
+    <Id>4684</Id>
+    <CallId>1026</CallId>
+    <VolunteerId>123456782</VolunteerId>
+    <TreatmentStartTime>2026-03-21T03:44:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-03-21T06:44:56.4669402+02:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4685</Id>
+    <CallId>1027</CallId>
+    <VolunteerId>123456782</VolunteerId>
+    <TreatmentStartTime>2026-05-06T11:37:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-05-06T14:37:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4686</Id>
+    <CallId>1028</CallId>
+    <VolunteerId>416293857</VolunteerId>
+    <TreatmentStartTime>2026-05-09T15:25:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-05-09T18:25:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4687</Id>
+    <CallId>1029</CallId>
+    <VolunteerId>123456782</VolunteerId>
+    <TreatmentStartTime>2025-09-25T04:06:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-09-25T07:06:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4688</Id>
+    <CallId>1030</CallId>
+    <VolunteerId>638475120</VolunteerId>
+    <TreatmentStartTime>2026-01-20T14:19:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-01-20T17:19:56.4669402+02:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4689</Id>
+    <CallId>1031</CallId>
+    <VolunteerId>860195372</VolunteerId>
+    <TreatmentStartTime>2026-06-05T14:22:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-06-05T17:22:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4690</Id>
     <CallId>1032</CallId>
-    <VolunteerId>204589326</VolunteerId>
-    <TreatmentStartTime>2026-02-07T12:09:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-02-07T15:09:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <VolunteerId>537921483</VolunteerId>
+    <TreatmentStartTime>2026-05-01T17:44:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-05-01T20:44:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3879</Id>
+    <Id>4691</Id>
     <CallId>1033</CallId>
-    <VolunteerId>648291375</VolunteerId>
-    <TreatmentStartTime>2026-02-13T01:29:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-02-13T04:29:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <VolunteerId>428193657</VolunteerId>
+    <TreatmentStartTime>2025-10-19T12:12:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-10-19T15:12:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3880</Id>
+    <Id>4692</Id>
     <CallId>1034</CallId>
     <VolunteerId>315869241</VolunteerId>
-    <TreatmentStartTime>2025-09-11T01:22:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-09-11T04:22:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <TreatmentStartTime>2025-11-12T14:13:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-11-12T17:13:56.4669402+02:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3881</Id>
+    <Id>4693</Id>
     <CallId>1035</CallId>
-    <VolunteerId>648291375</VolunteerId>
-    <TreatmentStartTime>2025-08-25T14:19:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-25T17:19:11.9978179+03:00</TreatmentEndTime>
+    <VolunteerId>428193657</VolunteerId>
+    <TreatmentStartTime>2025-12-07T15:43:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-12-07T18:43:56.4669402+02:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3882</Id>
+    <Id>4694</Id>
     <CallId>1036</CallId>
-    <VolunteerId>527384961</VolunteerId>
-    <TreatmentStartTime>2025-08-02T06:28:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-02T09:28:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3883</Id>
-    <CallId>1037</CallId>
-    <VolunteerId>305918742</VolunteerId>
-    <TreatmentStartTime>2025-11-28T03:36:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-11-28T06:36:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3884</Id>
-    <CallId>1038</CallId>
-    <VolunteerId>204589326</VolunteerId>
-    <TreatmentStartTime>2025-08-26T17:22:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-26T20:22:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3885</Id>
-    <CallId>1039</CallId>
-    <VolunteerId>428193657</VolunteerId>
-    <TreatmentStartTime>2026-03-26T11:29:11.9978179+02:00</TreatmentStartTime>
-    <TreatmentEndTime>2026-03-26T14:29:11.9978179+02:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3886</Id>
-    <CallId>1040</CallId>
     <VolunteerId>183726495</VolunteerId>
-    <TreatmentStartTime>2025-07-21T09:06:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-21T12:06:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <TreatmentStartTime>2026-06-25T22:19:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-06-26T01:19:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3887</Id>
+    <Id>4695</Id>
+    <CallId>1037</CallId>
+    <VolunteerId>204589326</VolunteerId>
+    <TreatmentStartTime>2026-01-23T15:19:56.4669402+02:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-01-23T18:19:56.4669402+02:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4696</Id>
+    <CallId>1038</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-09-08T21:50:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-09-09T00:50:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4697</Id>
+    <CallId>1039</CallId>
+    <VolunteerId>638475120</VolunteerId>
+    <TreatmentStartTime>2026-05-01T04:19:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2026-05-01T07:19:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4698</Id>
+    <CallId>1040</CallId>
+    <VolunteerId>123456782</VolunteerId>
+    <TreatmentStartTime>2025-08-11T21:46:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-08-12T00:46:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4699</Id>
     <CallId>1041</CallId>
-    <VolunteerId>972843165</VolunteerId>
-    <TreatmentStartTime>2025-07-21T21:45:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-22T00:45:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <VolunteerId>315869241</VolunteerId>
+    <TreatmentStartTime>2025-08-01T01:08:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-08-01T04:08:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3888</Id>
+    <Id>4700</Id>
     <CallId>1042</CallId>
-    <VolunteerId>428193657</VolunteerId>
-    <TreatmentStartTime>2025-07-06T10:13:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-06T13:13:11.9978179+03:00</TreatmentEndTime>
+    <VolunteerId>183726495</VolunteerId>
+    <TreatmentStartTime>2025-09-05T10:43:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-09-05T13:43:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3889</Id>
+    <Id>4701</Id>
     <CallId>1043</CallId>
     <VolunteerId>648291375</VolunteerId>
-    <TreatmentStartTime>2025-08-15T22:06:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-16T01:06:11.9978179+03:00</TreatmentEndTime>
+    <TreatmentStartTime>2025-07-16T10:31:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-16T13:31:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3890</Id>
+    <Id>4702</Id>
     <CallId>1044</CallId>
-    <VolunteerId>328118245</VolunteerId>
-    <TreatmentStartTime>2025-08-19T12:08:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-19T15:08:11.9978179+03:00</TreatmentEndTime>
+    <VolunteerId>537921483</VolunteerId>
+    <TreatmentStartTime>2025-07-08T06:27:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-07-08T09:27:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3891</Id>
+    <Id>4703</Id>
     <CallId>1045</CallId>
-    <VolunteerId>204589326</VolunteerId>
-    <TreatmentStartTime>2025-08-12T16:20:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-12T19:20:11.9978179+03:00</TreatmentEndTime>
+    <VolunteerId>860195372</VolunteerId>
+    <TreatmentStartTime>2025-08-23T02:59:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-08-23T05:59:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4704</Id>
+    <CallId>1046</CallId>
+    <VolunteerId>527384961</VolunteerId>
+    <TreatmentStartTime>2025-09-02T04:37:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-09-02T07:37:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3892</Id>
-    <CallId>1046</CallId>
-    <VolunteerId>638475120</VolunteerId>
-    <TreatmentStartTime>2025-08-28T01:58:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-28T04:58:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3893</Id>
+    <Id>4705</Id>
     <CallId>1047</CallId>
     <VolunteerId>328118245</VolunteerId>
-    <TreatmentStartTime>2025-08-27T07:41:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-27T10:41:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>SELF_CANCELED</TypeOfTreatmentEnding>
+    <TreatmentStartTime>2025-08-25T09:32:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-08-25T12:32:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
     <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
   <Assignment>
-    <Id>3894</Id>
+    <Id>4706</Id>
     <CallId>1048</CallId>
-    <VolunteerId>315869241</VolunteerId>
-    <TreatmentStartTime>2025-08-01T18:25:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-01T21:25:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3895</Id>
-    <CallId>1049</CallId>
-    <VolunteerId>638475120</VolunteerId>
-    <TreatmentStartTime>2025-08-29T08:05:11.9978179+03:00</TreatmentStartTime>
-    <TreatmentEndTime>2025-08-29T11:05:11.9978179+03:00</TreatmentEndTime>
-    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
-    <AssignmentStatus>OPEN</AssignmentStatus>
-  </Assignment>
-  <Assignment>
-    <Id>3646</Id>
-    <CallId>1002</CallId>
-    <VolunteerId>328118245</VolunteerId>
-    <TreatmentStartTime>2025-07-04T16:02:08</TreatmentStartTime>
-    <TreatmentEndTime>2025-07-04T16:02:08</TreatmentEndTime>
+    <VolunteerId>416293857</VolunteerId>
+    <TreatmentStartTime>2025-08-04T11:18:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-08-04T14:18:56.4669402+03:00</TreatmentEndTime>
     <TypeOfTreatmentEnding>HANDLED</TypeOfTreatmentEnding>
-    <AssignmentStatus>COMPLETED</AssignmentStatus>
+    <AssignmentStatus>OPEN</AssignmentStatus>
+  </Assignment>
+  <Assignment>
+    <Id>4707</Id>
+    <CallId>1049</CallId>
+    <VolunteerId>328118245</VolunteerId>
+    <TreatmentStartTime>2025-09-04T19:02:56.4669402+03:00</TreatmentStartTime>
+    <TreatmentEndTime>2025-09-04T22:02:56.4669402+03:00</TreatmentEndTime>
+    <TypeOfTreatmentEnding>MANAGER_CANCELED</TypeOfTreatmentEnding>
+    <AssignmentStatus>OPEN</AssignmentStatus>
   </Assignment>
 </ArrayOfAssignment>

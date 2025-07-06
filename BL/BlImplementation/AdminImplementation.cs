@@ -1,4 +1,4 @@
-﻿using BlApi;
+using BlApi;
 using BO;
 using DalApi;
 using DalTest;
@@ -7,31 +7,58 @@ using Helpers;
 
 namespace BlImplementation
 {
-    internal class AdminImplementation : IAdmin
+    /// <summary>
+/// Implementation of administrative operations in the BL layer.
+/// </summary>
+internal class AdminImplementation : IAdmin
     {
 
         private readonly DalApi.IDal Admin_dal = DalApi.Factory.Get;
 
         #region Stage 5
-        public void AddClockObserver(Action clockObserver) =>
+        /// <summary>
+/// Adds an observer for clock updates.
+/// </summary>
+/// <param name="clockObserver">The action to invoke when the clock updates.</param>
+public void AddClockObserver(Action clockObserver) =>
         AdminManager.ClockUpdatedObservers += clockObserver;
-        public void RemoveClockObserver(Action clockObserver) =>
+        /// <summary>
+/// Removes an observer for clock updates.
+/// </summary>
+/// <param name="clockObserver">The action to remove.</param>
+public void RemoveClockObserver(Action clockObserver) =>
         AdminManager.ClockUpdatedObservers -= clockObserver;
-        public void AddConfigObserver(Action configObserver) =>
+        /// <summary>
+/// Adds an observer for configuration changes.
+/// </summary>
+/// <param name="configObserver">The action to invoke when config changes.</param>
+public void AddConfigObserver(Action configObserver) =>
        AdminManager.ConfigUpdatedObservers += configObserver;
-        public void RemoveConfigObserver(Action configObserver) =>
+        /// <summary>
+/// Removes an observer for configuration changes.
+/// </summary>
+/// <param name="configObserver">The action to remove.</param>
+public void RemoveConfigObserver(Action configObserver) =>
         AdminManager.ConfigUpdatedObservers -= configObserver;
         #endregion Stage 5
 
         // מתודת בקשת שעון
-        public DateTime GetClock()
+        /// <summary>
+/// Gets the current clock value.
+/// </summary>
+/// <returns>The current clock value.</returns>
+public DateTime GetClock()
         {
             // מחזיר את הזמן הנוכחי מהשעון המערכת
             return AdminManager.Now;
         }
 
         // מתודת קידום שעון
-        public void PromotionClock(BO.TimeUnit timeUnit)
+        /// <summary>
+/// Advances the clock by a specified time unit.
+/// </summary>
+/// <param name="timeUnit">The time unit to advance by.</param>
+public void PromotionClock(BO.TimeUnit timeUnit)
         {
             AdminManager.ThrowOnSimulatorIsRunning();
             DateTime newTime;
@@ -60,14 +87,22 @@ namespace BlImplementation
         }
 
         // מתודת בקשת טווח זמן סיכון
-        public TimeSpan GetRiskRange()
+        /// <summary>
+/// Gets the current risk range.
+/// </summary>
+/// <returns>The current risk range.</returns>
+public TimeSpan GetRiskRange()
         {
             // מחזיר את טווח הזמן של הסיכון שנשמר בתצורה
             return AdminManager.RiskRange;
         }
 
         // מתודת הגדרת טווח זמן סיכון
-        public void SetRiskRange(TimeSpan riskRange)
+        /// <summary>
+/// Sets the risk range.
+/// </summary>
+/// <param name="riskRange">The new risk range.</param>
+public void SetRiskRange(TimeSpan riskRange)
         {
             AdminManager.ThrowOnSimulatorIsRunning();
             // מעדכן את טווח הזמן של הסיכון בתצורה
@@ -82,7 +117,10 @@ namespace BlImplementation
         //    Admin_dal.Assignment.DeleteAll();
         //    Admin_dal.Call.DeleteAll();
         //}
-        public void ResetDB() //stage 4
+        /// <summary>
+/// Resets the database to its initial state.
+/// </summary>
+public void ResetDB() //stage 4
         {
             AdminManager.ThrowOnSimulatorIsRunning();  //stage 7
             AdminManager.ResetDB(); //stage 7
@@ -96,19 +134,29 @@ namespace BlImplementation
         //    // אתחול הישויות עם ערכים התחלתיים
         //    Initialization.Do();
         //}
-        public void InitializeDB() //stage 4
+        /// <summary>
+/// Initializes the database.
+/// </summary>
+public void InitializeDB() //stage 4
         {
             AdminManager.ThrowOnSimulatorIsRunning();  //stage 7
             AdminManager.InitializeDB(); //stage 7
         }
 
 
-        public void StartSimulator(int interval)  //stage 7
+        /// <summary>
+/// Starts the simulator with the specified interval.
+/// </summary>
+/// <param name="interval">Interval for simulator updates.</param>
+public void StartSimulator(int interval)  //stage 7
         {
             AdminManager.ThrowOnSimulatorIsRunning();  //stage 7
             AdminManager.Start(interval); //stage 7
         }
-        public void StopSimulator()
+        /// <summary>
+/// Stops the simulator.
+/// </summary>
+public void StopSimulator()
             => AdminManager.Stop(); //stage 7
 
     }

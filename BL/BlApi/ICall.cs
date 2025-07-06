@@ -6,7 +6,7 @@ namespace BlApi;
 public interface ICall : IObservable //stage 5 הרחבת ממשק
 
 {
-    IEnumerable<(BO.CallStatus Status, int Count)> GetCallsCount();
+    IEnumerable<object> GetCallsCount();
     IEnumerable<BO.CallInList> ReadAll(Enum? filterBy, object? filter, Enum? sortBy);
     BO.Call GetCallDetails(int id);
     void Update(BO.Call boCall);

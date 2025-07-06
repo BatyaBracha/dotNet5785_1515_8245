@@ -1,10 +1,22 @@
-﻿namespace BlApi;
+namespace BlApi;
 
+/// <summary>
+/// Interface for the main BL (Business Logic) operations.
+/// </summary>
 public interface IBl 
 
 {
-    IVolunteer Volunteer { get; }
-    ICall Call { get; }
-    IAdmin Admin { get; }
+    /// <summary>
+/// Provides access to volunteer-related operations.
+/// </summary>
+IVolunteer Volunteer { get; }
+    /// <summary>
+/// Provides access to call-related operations.
+/// </summary>
+ICall Call { get; }
+    /// <summary>
+/// Provides access to administrative operations.
+/// </summary>
+IAdmin Admin { get; }
 
 }

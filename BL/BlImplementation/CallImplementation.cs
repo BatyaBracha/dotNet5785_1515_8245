@@ -191,17 +191,33 @@ namespace BlImplementation
         //            .ToList();
         //    }
         //}
-        public IEnumerable<KeyValuePair<DO.CallStatus, int>> GetCallsCount()
+        public IEnumerable<object> GetCallsCount()
         {
             lock (AdminManager.BlMutex)
             {
-                return Call_dal.Call.ReadAll()
+                return ReadAll(null,null,null)
                     .GroupBy(c => c.Status)
                     .OrderBy(g => g.Key)
-                    .Select(g => ((BO.CallStatus)(int)g.Key, g.Count()))
-                    .ToArray();
+                    .Select(g => new
+                    {
+                        Status = (BO.CallStatus)(int)g.Key, // CallStatus as a named property
+                        Count = g.Count()                  // Count as a named property
+                    })
+                    .ToList();
             }
         }
+
+        //public IEnumerable<KeyValuePair<DO.CallStatus, int>> GetCallsCount()
+        //{
+        //    lock (AdminManager.BlMutex)
+        //    {
+        //        return Call_dal.Call.ReadAll()
+        //            .GroupBy(c => c.Status)
+        //            .OrderBy(g => g.Key)
+        //            .Select(g => ((BO.CallStatus)(int)g.Key, g.Count()))
+        //            .ToArray();
+        //    }
+        //}
 
         public IEnumerable<BO.CallInList> ReadAll(Enum? filterBy, object? filter, Enum? sortBy)
         {
@@ -373,48 +389,6 @@ namespace BlImplementation
 
 
 
-        //public IEnumerable<BO.ClosedCallInList> GetClosedCallsHandledByTheVolunteer(int volunteerId, Enum? filterBy, object? filterValue, Enum? sortBy)
-        //{
-        //    // Step 1: Retrieve all assignments for the volunteer with CLOSED status
-        //    IEnumerable<DO.Call> calls;
-        //    lock (AdminManager.BlMutex)
-        //    {
-        //        var assignments = Call_dal.Assignment.ReadAll()
-        //        .Where(a => a.VolunteerId == volunteerId && a.AssignmentStatus == DO.AssignmentStatus.CLOSED);
-
-        //        // Step 2: Retrieve the corresponding calls
-        //         calls = assignments
-        //            .Select(a => new
-        //            {
-        //                Assignment = a,
-        //                Call = Call_dal.Call.Read(a.CallId)
-        //            })
-        //            .Where(x => x.Call != null && x.Call.Status == DO.CallStatus.CLOSED); // Add null check and status filter
-        //    }
-        //    // Step 3: Apply filtering
-        //    if (filterBy != null && filterValue != null)
-        //    {
-        //        calls = calls
-        //            .Where(x => CallManager.MatchField(filterBy, x.Call!, filterValue));
-        //    }
-
-        //    var closedCalls = calls.Select(x => new BO.ClosedCallInList
-        //    {
-        //        Id = x.Call!.Id,
-        //        TypeOfCall = (BO.TypeOfCall)x.Call.TypeOfCall,
-        //        Address = x.Call.Address,
-        //        OpeningTime = x.Call.OpeningTime,
-        //        ActualTreatmentEndTime = x.Assignment.TreatmentEndTime,
-        //        TypeOfTreatmentEnding = (BO.TypeOfTreatmentEnding?)x.Assignment.TypeOfTreatmentEnding
-        //    });
-
-        //    if (sortBy != null)
-        //    {
-        //        closedCalls = CallManager.SortByField(sortBy, closedCalls);
-        //    }
-
-        //    return closedCalls.ToList();
-        //}
 
 
         public void TreatmentCancellationUpdate(int volunteerId, int assignmentId)
