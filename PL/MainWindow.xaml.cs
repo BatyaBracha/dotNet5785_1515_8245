@@ -114,7 +114,6 @@ namespace PL
 
         public static readonly DependencyProperty IsSimulatorRunningProperty =
             DependencyProperty.Register("IsSimulatorRunning", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
-
         public bool IsButtonsEnabled
         {
             get { return (bool)GetValue(IsButtonsEnabledProperty); }
